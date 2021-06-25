@@ -8,17 +8,40 @@ using System.Web;
 using System.Web.Mvc;
 using Omadiko.Database;
 using Omadiko.Entities.Models;
+using Omadiko.RepositoryServices.RepositoryServises;
 
 namespace Omadiko.WebApp.Controllers
 {
     public class StudentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private StudentRepository repo = new StudentRepository();
 
         // GET: Student
-        public ActionResult Index()
+        public ActionResult Index(string SearchFirstName, string SortOrder)
         {
-            return View(db.Students.ToList());
+
+            var students = repo.GetAll();
+            if (!String.IsNullOrWhiteSpace(SearchFirstName))
+            {
+                students = students.Where(x => x.Name.ToUpper().Contains(SearchFirstName.ToUpper())).ToList();
+            }
+
+            ViewBag.NAME = String.IsNullOrEmpty(SortOrder) ? "FirstNameDesc" : "LastNameDesc";
+
+            switch (SortOrder)
+            {
+                case "FirstNameDesc":
+                    students = students.OrderBy(x => x.Name).ToList();
+                    break;
+                case "LastNameDesc": students = students.OrderByDescending(x => x.Name).ToList();
+                    break;
+                default:
+                    students = students.OrderByDescending(x => x.Name).ToList();
+                    break;
+            }
+
+            return View(students);
         }
 
         // GET: Student/Details/5
