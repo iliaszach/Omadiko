@@ -11,7 +11,7 @@ using Omadiko.Entities;
 
 namespace Omadiko.RepositoryServices.RepositoryServises
 {
-    class CourseRepository
+    public class CourseRepository
     {
         ApplicationDbContext db = new ApplicationDbContext();
 

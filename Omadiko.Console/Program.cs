@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Omadiko.RepositoryServices.RepositoryServises;
+using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
-using Omadiko.Entities;
 
 namespace Omadiko.Console2
 {
@@ -12,22 +13,19 @@ namespace Omadiko.Console2
     {
         static void Main(string[] args)
         {
-            ProductRepository repo = new ProductRepository();
 
-            Product p = new Product() { Name = "Lakis", Price = 50000 };
+           StudentRepository repos = new StudentRepository();
 
-            repo.Insert(p);
+           var student = repos.GetById(2);
+           Console.WriteLine(student.Name);
+            
+            //repos.Insert();
 
-            foreach (var item in repo.GetAll())
-            {
-                Console.WriteLine(item.Name);
-            }
-
-
-            //foreach (var item in repo.FilterByName("a"))
+            //foreach (var item in repos.GetAll())
             //{
             //    Console.WriteLine(item.Name);
             //}
+
 
 
 

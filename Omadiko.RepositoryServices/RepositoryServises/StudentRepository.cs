@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Omadiko.RepositoryServices.RepositoryServises
 {
-    class StudentRepository
+    public class StudentRepository
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
