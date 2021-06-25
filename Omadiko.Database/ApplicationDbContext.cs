@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using Omadiko.Entities;
+using Omadiko.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,6 +18,8 @@ namespace Omadiko.Database
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         public static ApplicationDbContext Create()
         {
