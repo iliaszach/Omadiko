@@ -62,7 +62,6 @@
     <Compile Include="Models\Marble.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Provider.cs" />
-    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

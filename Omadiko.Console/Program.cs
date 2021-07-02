@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Omadiko.RepositoryServices.RepositoryServises;
 using Omadiko.Entities.Models;
-using Omadiko.RepositoryServices;
 
 namespace Omadiko.Console2
 {
@@ -14,10 +12,10 @@ namespace Omadiko.Console2
         static void Main(string[] args)
         {
 
-           StudentRepository repos = new StudentRepository();
+           //StudentRepository repos = new StudentRepository();
 
-           var student = repos.GetById(2);
-           Console.WriteLine(student.Name);
+           //var student = repos.GetById(2);
+           //Console.WriteLine(student.Name);
             
             //repos.Insert();
 
