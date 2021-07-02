@@ -12,6 +12,6 @@ namespace Omadiko.Entities.Models
         public string Name { get; set; }
 
         //Navogation Properties
-        public virtual IEnumerable<Course> Courses { get; set; }
+        //public virtual IEnumerable<Course> Courses { get; set; }
     }
 }

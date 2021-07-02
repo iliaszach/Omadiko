@@ -17,9 +17,22 @@ namespace Omadiko.Database
 
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Course> Courses { get; set; }
+
+
+        public DbSet<Provider> Providers { get; set; }
+
+        public DbSet<Marble> Marbles { get; set; }
+
+        public DbSet<Location> Locations { get; set; }
+
+        public DbSet<BusinessType> BusinessTypes { get; set; }
+
+        public DbSet<Photo> Photos { get; set; }
+
+
+        //public DbSet<Product> Products { get; set; }
+        //public DbSet<Student> Students { get; set; }
+        //public DbSet<Course> Courses { get; set; }
 
         public static ApplicationDbContext Create()
         {

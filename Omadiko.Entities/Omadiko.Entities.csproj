@@ -57,9 +57,12 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Custom Validations\Methods.cs" />
     <Compile Include="Custom Validations\ValidationMethods.cs" />
-    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\BusinessType.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Marble.cs" />
+    <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
