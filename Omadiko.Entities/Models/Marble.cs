@@ -12,7 +12,7 @@ namespace Omadiko.Entities.Models
 
         public string Name { get; set; }
 
-
+        public string Color { get; set; }
 
         //Navigation Properties
 
@@ -20,7 +20,7 @@ namespace Omadiko.Entities.Models
 
         public virtual ICollection<Provider> Providers { get; set; }  //  i xsesi einai :  (*)Provider <-------> Marble(*)
 
-        public virtual ICollection<Photo> Photos { get; set; }  // i xsesi einai :  (*)Photo <-------> Marble(*)
+        public Photo Photo { get; set; }  // thodoris: kai edo allaksa thn  xsesi einai :  (*)Photo <-------> Marble(*) se 1:1
 
 
 

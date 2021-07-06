@@ -21,6 +21,6 @@ namespace Omadiko.Entities.Models
         //Navigation Properties
 
 
-        public virtual ICollection<Marble> Marbles { get; set; }  // i xsesi einai :  (*)Photo <-------> Marble(*)
+        public Marble Marble { get; set; }  // thodoris: allazw tin sxesi apo (*)Photo <-------> Marble(*) se 1:1 h telos pantwn 0:1 oti katalavaini i xazomara
     }
 }
