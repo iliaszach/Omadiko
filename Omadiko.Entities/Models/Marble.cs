@@ -14,16 +14,15 @@ namespace Omadiko.Entities.Models
 
         public string Color { get; set; }
 
+
+
         //Navigation Properties
 
 
 
         public virtual ICollection<Provider> Providers { get; set; }  //  i xsesi einai :  (*)Provider <-------> Marble(*)
 
-        public Photo Photo { get; set; }  // thodoris: kai edo allaksa thn  xsesi einai :  (*)Photo <-------> Marble(*) se 1:1
-
-
-
+        public virtual Photo Photo { get; set; }  // thodoris: kai edo allaksa thn  xsesi einai :  (*)Photo <-------> Marble(*) se 1:1
 
         public virtual Location Location { get; set; }//<=================  DES TO
     }
