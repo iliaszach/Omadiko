@@ -17,7 +17,7 @@ namespace Omadiko.Entities.Models
         public string Phone { get; set; }
 
         public string Website { get; set; }
-
+       
 
 
 

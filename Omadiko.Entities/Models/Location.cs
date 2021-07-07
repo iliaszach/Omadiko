@@ -9,6 +9,8 @@ namespace Omadiko.Entities.Models
 {
     public class Location
     {
+        
+
         [ForeignKey("Marble")]
         public int LocationId { get; set; }
 
@@ -18,12 +20,12 @@ namespace Omadiko.Entities.Models
 
 
         public string Address { get; set; }
-        
-        
+
+
 
         //Navigation Properties
 
-
+        
         public virtual Marble Marble { get; set; }//<========DES EDO
     }
 }
