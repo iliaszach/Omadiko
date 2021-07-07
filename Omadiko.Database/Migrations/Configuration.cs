@@ -24,8 +24,12 @@ namespace Omadiko.Database.Migrations
             //Product p3 = new Product() { Name = "Samsung", Price = 300 };
 
             //context.Products.AddOrUpdate(x => new { x.Name }, p1, p2, p3);
-            //context.SaveChanges();
+            
 
+
+            Provider p1 = new Provider() { CompanyTitle = "Mitsos" };
+            context.Providers.AddOrUpdate(x => x.CompanyTitle, p1);
+            context.SaveChanges();
 
             if (!context.Roles.Any(x => x.Name == "Admin"))
             {
