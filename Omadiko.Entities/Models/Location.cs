@@ -25,7 +25,7 @@ namespace Omadiko.Entities.Models
 
         //Navigation Properties
 
-        
+        public virtual Provider Provider { get; set; }
         public virtual Marble Marble { get; set; }//<========DES EDO
     }
 }
