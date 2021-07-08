@@ -11,107 +11,112 @@ using Omadiko.Entities.Models;
 
 namespace Omadiko.WebApp.Controllers
 {
-    public class ProviderController : Controller
+    public class MarbleController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Provider
+        // GET: Marble
         public ActionResult Index()
         {
-            return View(db.Providers.ToList());
+            var marbles = db.Marbles;
+            return View(marbles.ToList());
         }
 
-        // GET: Provider/Details/5
+        // GET: Marble/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = db.Providers.Find(id);
-            if (provider == null)
+            Marble marble = db.Marbles.Find(id);
+            if (marble == null)
             {
                 return HttpNotFound();
             }
-            return View(provider);
+            return View(marble);
         }
 
-        // GET: Provider/Create
+        // GET: Marble/Create
         public ActionResult Create()
         {
+            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName");
             return View();
         }
 
-        // POST: Provider/Create
+        // POST: Marble/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProviderId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider)
+        public ActionResult Create([Bind(Include = "MarbleId,Name,Color")] Marble marble)
         {
             if (ModelState.IsValid)
             {
-                db.Providers.Add(provider);
+                db.Marbles.Add(marble);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(provider);
+            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
+            return View(marble);
         }
 
-        // GET: Provider/Edit/5
+        // GET: Marble/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = db.Providers.Find(id);
-            if (provider == null)
+            Marble marble = db.Marbles.Find(id);
+            if (marble == null)
             {
                 return HttpNotFound();
             }
-            return View(provider);
+            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
+            return View(marble);
         }
 
-        // POST: Provider/Edit/5
+        // POST: Marble/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProviderId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider)
+        public ActionResult Edit([Bind(Include = "MarbleId,Name,Color")] Marble marble)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(provider).State = EntityState.Modified;
+                db.Entry(marble).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(provider);
+            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
+            return View(marble);
         }
 
-        // GET: Provider/Delete/5
+        // GET: Marble/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = db.Providers.Find(id);
-            if (provider == null)
+            Marble marble = db.Marbles.Find(id);
+            if (marble == null)
             {
                 return HttpNotFound();
             }
-            return View(provider);
+            return View(marble);
         }
 
-        // POST: Provider/Delete/5
+        // POST: Marble/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Provider provider = db.Providers.Find(id);
-            db.Providers.Remove(provider);
+            Marble marble = db.Marbles.Find(id);
+            db.Marbles.Remove(marble);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

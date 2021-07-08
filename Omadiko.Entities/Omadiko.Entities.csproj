@@ -57,8 +57,6 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Custom Validations\Methods.cs" />
     <Compile Include="Custom Validations\ValidationMethods.cs" />
-    <Compile Include="Models\BusinessType.cs" />
-    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Marble.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Provider.cs" />

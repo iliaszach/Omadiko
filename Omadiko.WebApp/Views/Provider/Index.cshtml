@@ -18,13 +18,13 @@
             @Html.DisplayNameFor(model => model.CompanyPhoto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ContactPerson)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Website)
+            @Html.DisplayNameFor(model => model.WebSite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th></th>
     </tr>
@@ -38,13 +38,13 @@
             @Html.DisplayFor(modelItem => item.CompanyPhoto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ContactPerson)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Website)
+            @Html.DisplayFor(modelItem => item.WebSite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProviderId }) |
