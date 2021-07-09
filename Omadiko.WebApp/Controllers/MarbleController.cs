@@ -18,7 +18,7 @@ namespace Omadiko.WebApp.Controllers
         // GET: Marble
         public ActionResult Index()
         {
-            var marbles = db.Marbles.Include(m => m.Photo);
+            var marbles = db.Marbles.Include(m => m.Location).Include(m => m.Photo);
             return View(marbles.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace Omadiko.WebApp.Controllers
         // GET: Marble/Create
         public ActionResult Create()
         {
+            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country");
             ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName");
             return View();
         }
@@ -58,6 +59,7 @@ namespace Omadiko.WebApp.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country", marble.MarbleId);
             ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
             return View(marble);
         }
@@ -74,6 +76,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country", marble.MarbleId);
             ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
             return View(marble);
         }
@@ -91,6 +94,7 @@ namespace Omadiko.WebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country", marble.MarbleId);
             ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
             return View(marble);
         }

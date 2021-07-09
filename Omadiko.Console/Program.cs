@@ -14,17 +14,25 @@ namespace Omadiko.Console2
         {
             using (ApplicationDbContext db= new ApplicationDbContext())
             {
+                var locations = db.Locations.ToList();
+                foreach (var item in locations)
+                {
+                    Console.WriteLine($"{item.Country,-15}");
+                    
+                }
                 var marbles = db.Marbles.ToList();
+                Console.WriteLine($"{"Marble Name",-15}{"Marble Photo",-15}{"Marble Country",-15}{"Marble Provider",-25}");
                 foreach (var item in marbles)
                 {
-                    Console.WriteLine($"{item.Name,-15}{item.Photo.PhotoName,-15}");
+                    Console.WriteLine($"{item.Name,-15}{item.Photo.PhotoName,-15}{item.Providers.First().CompanyTitle,-25}{item.Location.Country,-15}");
                     
                 }
                 var providers = db.Providers.ToList();
                 Console.WriteLine("-----------------------");
+                Console.WriteLine($"{"Company Title",-15}{"Country",-15}");
                 foreach (var item in providers)
                 {
-                    Console.WriteLine(item.CompanyTitle);                    
+                    Console.WriteLine($"{item.CompanyTitle, -15}{item.Location.Country, -15}");                    
                 }
                 Console.WriteLine("-----------------------");
                 var photos = db.Photos.ToList();

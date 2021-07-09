@@ -19,6 +19,7 @@ namespace Omadiko.Entities.Models
         //Navigation Properties
 
         public virtual Photo Photo { get; set; }
+        public virtual Location Location { get; set; }
         public virtual ICollection<Provider> Providers { get; set; }
     }
 }

@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Location.Country)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Photo.PhotoName)
         </th>
         <th>
@@ -20,26 +23,41 @@
         <th>
             @Html.DisplayNameFor(model => model.Color)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Providers)
+        </th>
+        <th>Actions</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo.PhotoName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MarbleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MarbleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MarbleId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo.PhotoName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                <ul>
+                    @foreach (var provider in item.Providers)
+                    {
+                        <li>@provider.CompanyTitle</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MarbleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MarbleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MarbleId })
+            </td>
+        </tr>
+    }
 
 </table>

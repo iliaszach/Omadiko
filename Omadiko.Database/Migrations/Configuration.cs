@@ -19,31 +19,51 @@ namespace Omadiko.Database.Migrations
 
         protected override void Seed(Omadiko.Database.ApplicationDbContext context)
         {
-            //Seeding Products
-           
-            Provider p1 = new Provider() { CompanyTitle = "2E Marble", Phone="6949326800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto="photourl" };            
+            //Seeding Products          
+            Location l1 = new Location() { Country = "Italy", City = "Rome", Address = "Koloseo" };
+            Location l2 = new Location() { Country = "France", City = "Paris", Address = "Panagia" };
+            Location l3 = new Location() { Country = "England", City = "London", Address = "Palace" };
+            Location l4 = new Location() { Country = "Greece", City = "Kastoria", Address = "Kafeneio" };
+            Location l5 = new Location() { Country = "Greece", City = "Crete", Address = "Palaiochora" };
+            Location l6 = new Location() { Country = "Greece", City = "Athens", Address = "Dexamenis" };
+            context.Locations.AddOrUpdate(x => x.City, l1, l2, l3, l4, l5, l6);
+
+
+            Provider p1 = new Provider() { CompanyTitle = "2E Marble", Phone="6949326800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto="photourl" };
+            p1.Location = l1;
             Provider p2 = new Provider() { CompanyTitle = "2E Marìé",  Phone="6949314800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto = "photourl" };
+            p2.Location = l2;
             Provider p3 = new Provider() { CompanyTitle = "3D Stone Tile & Pavers",  Phone="6941626800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto = "photourl" };
+            p3.Location = l3;
             Provider p4 = new Provider() { CompanyTitle = "Turkish Marble ",  Phone="6949326840", WebSite="www.cSharp.com", Email = "www", CompanyPhoto = "photourl" };
+            p4.Location = l4;
             Provider p5 = new Provider() { CompanyTitle = "A Burslem and Son Ltd", Phone="6949327800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto = "photourl" };
+            p5.Location = l5;
             Provider p6 = new Provider() { CompanyTitle = "A2Z MARBLE AND TRAVERTINE",  Phone="6947126800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto = "photourl" };
+            p6.Location = l6;
             context.Providers.AddOrUpdate(x => new { x.CompanyTitle,x.CompanyPhoto,x.WebSite }, p1, p2, p3, p4, p5, p6);
 
-            Marble m1 = new Marble() { Name = "ADRANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "www" } };
+            Marble m1 = new Marble() { Name = "ADRANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "www" }};
             m1.Providers = new List<Provider>() { p1, p2 };
+            m1.Location = l1;
             Marble m2 = new Marble() { Name = "AFYON  ", Color = "White" , Photo = new Photo() { PhotoName = "Marmaro2", Url = "www" } };
             m2.Providers = new List<Provider>() { p3, p4 };
+            m2.Location = l2;
             Marble m3 = new Marble() { Name = "AGIA MARINA ", Color = "SEMI-WHITE", Photo = new Photo() { PhotoName = "Marmaro3", Url = "www" } };
             m3.Providers = new List<Provider>() { p5, p6 };
+            m3.Location = l3;
             Marble m4 = new Marble() { Name = "ALMERA  ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro4", Url = "www" } };
             m4.Providers = new List<Provider>() { p1, p2 };
+            m4.Location = l4;
             Marble m5 = new Marble() { Name = "ARABESCATO", Color = "ALTISSIMO", Photo = new Photo() { PhotoName = "Marmaro5", Url = "www" } };
             m5.Providers = new List<Provider>() { p3, p4 };
+            m5.Location = l5;
             Marble m6 = new Marble() { Name = "AVAFESCATO ", Color = "CERVAIOLE", Photo = new Photo() { PhotoName = "Marmaro6", Url = "www" } };
             m6.Providers = new List<Provider>() { p5, p6 };
+            m6.Location = l6;
 
-           
-            
+
+
             context.Marbles.AddOrUpdate(x => x.Name, m1, m2, m3, m4, m5, m6);
             context.SaveChanges();
 

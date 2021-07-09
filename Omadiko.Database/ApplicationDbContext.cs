@@ -20,6 +20,7 @@ namespace Omadiko.Database
         public DbSet<Marble> Marbles { get; set; }
         public DbSet<Provider> Providers { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         public static ApplicationDbContext Create()
         {

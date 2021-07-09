@@ -18,7 +18,8 @@ namespace Omadiko.WebApp.Controllers
         // GET: Provider
         public ActionResult Index()
         {
-            return View(db.Providers.ToList());
+            var providers = db.Providers.Include(p => p.Location);
+            return View(providers.ToList());
         }
 
         // GET: Provider/Details/5
@@ -39,6 +40,7 @@ namespace Omadiko.WebApp.Controllers
         // GET: Provider/Create
         public ActionResult Create()
         {
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Country");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace Omadiko.WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProviderId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider)
+        public ActionResult Create([Bind(Include = "ProviderId,LocationId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace Omadiko.WebApp.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Country", provider.LocationId);
             return View(provider);
         }
 
@@ -71,6 +74,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Country", provider.LocationId);
             return View(provider);
         }
 
@@ -79,7 +83,7 @@ namespace Omadiko.WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProviderId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider)
+        public ActionResult Edit([Bind(Include = "ProviderId,LocationId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace Omadiko.WebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Country", provider.LocationId);
             return View(provider);
         }
 
