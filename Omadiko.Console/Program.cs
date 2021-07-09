@@ -29,10 +29,10 @@ namespace Omadiko.Console2
                 }
                 var providers = db.Providers.ToList();
                 Console.WriteLine("-----------------------");
-                Console.WriteLine($"{"Company Title",-15}{"Country",-15}");
+                Console.WriteLine($"{"Company Title",-15}{"Country",-25}{"Type of Business",-15}");
                 foreach (var item in providers)
                 {
-                    Console.WriteLine($"{item.CompanyTitle, -15}{item.Location.Country, -15}");                    
+                    Console.WriteLine($"{item.CompanyTitle, -15}{item.Location.Country, -25}{item.BusinessTypes.FirstOrDefault().Kind,-15}");                    
                 }
                 Console.WriteLine("-----------------------");
                 var photos = db.Photos.ToList();
