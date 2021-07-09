@@ -8,19 +8,31 @@ using System.Web;
 using System.Web.Mvc;
 using Omadiko.Database;
 using Omadiko.Entities.Models;
+using Omadiko.RepositoryServices;
 
 namespace Omadiko.WebApp.Controllers
 {
     public class MarbleController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private MarbleRepository repo = new MarbleRepository();
+
+
+
 
         // GET: Marble
         public ActionResult Index()
         {
-            var marbles = db.Marbles.Include(m => m.Location).Include(m => m.Photo);
-            return View(marbles.ToList());
+            var marbles = repo.GetAll();
+            return View(marbles);
+
+
+           
         }
+
+
+
+
 
         // GET: Marble/Details/5
         public ActionResult Details(int? id)
@@ -29,13 +41,16 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = db.Marbles.Find(id);
+            Marble marble = repo.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
             }
             return View(marble);
         }
+
+
+
 
         // GET: Marble/Create
         public ActionResult Create()
@@ -44,6 +59,10 @@ namespace Omadiko.WebApp.Controllers
             ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName");
             return View();
         }
+
+
+
+
 
         // POST: Marble/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -54,8 +73,8 @@ namespace Omadiko.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Marbles.Add(marble);
-                db.SaveChanges();
+                
+                repo.Create(marble);
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +90,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = db.Marbles.Find(id);
+            Marble marble = repo.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
@@ -86,12 +105,13 @@ namespace Omadiko.WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MarbleId,Name,Color")] Marble marble)
+        public ActionResult Edit([Bind(Include = "MarbleId,Name,Color")] Marble marble, IEnumerable<int> SelectedProvidersIds)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(marble).State = EntityState.Modified;
-                db.SaveChanges();
+                // db.Entry(marble).State = EntityState.Modified;
+                // db.SaveChanges();
+                repo.Update(marble, SelectedProvidersIds);
                 return RedirectToAction("Index");
             }
             ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country", marble.MarbleId);
@@ -106,7 +126,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = db.Marbles.Find(id);
+            Marble marble = repo.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
@@ -114,14 +134,20 @@ namespace Omadiko.WebApp.Controllers
             return View(marble);
         }
 
+
+
+
+
+
         // POST: Marble/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Marble marble = db.Marbles.Find(id);
-            db.Marbles.Remove(marble);
-            db.SaveChanges();
+            // Marble marble = db.Marbles.Find(id);
+            // db.Marbles.Remove(marble);
+            // db.SaveChanges();
+            repo.Delete(id);
             return RedirectToAction("Index");
         }
 

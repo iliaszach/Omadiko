@@ -9,101 +9,125 @@ using System.Threading.Tasks;
 
 namespace Omadiko.RepositoryServices
 {
-    //class ProviderRepository
-    //{
-    //    ApplicationDbContext db = new ApplicationDbContext();
-
-    //    public List<Provider> GetAll()
-    //    {
-    //        return db.Providers.ToList();
-    //    }
-
-    //    public Provider GetById(int? id)
-    //    {
-    //        return db.Providers.Find(id);
-    //    }
-
-    //    public void Create(Provider provider)
-    //    {
-    //        db.Entry(provider).State = EntityState.Added;
-    //        db.SaveChanges();
-    //    }
+    public  class ProviderRepository
+    {
+        ApplicationDbContext db = new ApplicationDbContext();
+        
 
 
-    //    //elpizw na doulepsei otan ftiaxtoun oi Controllers
-    //    public void Update(Provider provider, IEnumerable<int> SelectedMarblesIds)
-    //    {
-    //        db.Providers.Attach(provider);
-    //        db.Entry(provider).Collection("Marbles").Load();
-    //        provider.Marbles.Clear();
-    //        db.SaveChanges();
+        public List<Provider> GetAll()
+        {
 
-    //        if (!(SelectedMarblesIds is null))
-    //        {
-    //            foreach (var id in SelectedMarblesIds)
-    //            {
-    //                Marble marble = db.Marbles.Find(id);
-    //                if (marble != null)
-    //                {
-    //                    provider.Marbles.Add(marble);
-    //                }
-    //            }
-    //            db.SaveChanges();
-    //        }
+            var providers = db.Providers.Include(p => p.Location);
+            return providers.ToList();
+           
+        }
 
-    //        db.Entry(provider).State = EntityState.Modified;
-    //        db.SaveChanges();
-    //    }
+        public Provider GetById(int? id)
+        {
+            return db.Providers.Find(id);
+        }
 
-    //    public void Delete(int id)
-    //    {
-    //        Provider provider = db.Providers.Find(id);
-    //        db.Providers.Remove(provider);
-    //        db.SaveChanges();
-    //    }
-
-    //    public List<Provider> GetProviderByMarble(Marble marble)
-    //    {
-    //        return (List<Provider>)db.Providers.ToList().Where(p => p.Marbles.Contains(marble)).ToList();
-    //    }
-
-    //    public List<Provider> GetProviderByMarbleId(int id)
-    //    {
-    //        return (List<Provider>)db.Providers.ToList().Where(p => p.Marbles.Any(m => m.MarbleId == id)).ToList();
-    //    }
+        public void Create(Provider provider)
+        {
+            db.Entry(provider).State = EntityState.Added;
+            db.SaveChanges();
+        }
 
 
-    //    public List<Provider> GetProviderByCountry(Location location)
-    //    {
-    //        return (List<Provider>)db.Providers.ToList().Where(l => l.Location.Country == location.Country).ToList();
-    //    }
+        //elpizw na doulepsei otan ftiaxtoun oi Controllers
+        public void Update(Provider provider, IEnumerable<int> SelectedMarblesIds, IEnumerable<int> SelectedBusinessTypesIds)
+        {
+            db.Providers.Attach(provider);
+            db.Entry(provider).Collection("Marbles").Load();
+            provider.Marbles.Clear();
+            db.SaveChanges();
 
-    //    public List<Provider> GetProviderByLocationId(int id)
-    //    {
-    //        return (List<Provider>)db.Providers.ToList().Where(l => l.Location.LocationId == id).ToList();
-    //    }
+            //*****************
+            db.Providers.Attach(provider);
+            db.Entry(provider).Collection("BusinessTypes").Load();
+            provider.BusinessTypes.Clear();
+            db.SaveChanges();
+
+            if (!(SelectedMarblesIds is null))
+            {
+                foreach (var id in SelectedMarblesIds)
+                {
+                    Marble marble = db.Marbles.Find(id);
+                    if (marble != null)
+                    {
+                        provider.Marbles.Add(marble);
+                    }
+                }
+                db.SaveChanges();
+            }
+
+            if (!(SelectedBusinessTypesIds is null))
+            {
+                foreach (var id in SelectedBusinessTypesIds)
+                {
+                    BusinessType businesstype = db.BusinessTypes.Find(id);
+                    if (businesstype != null)
+                    {
+                        provider.BusinessTypes.Add(businesstype);
+                    }
+                }
+                db.SaveChanges();
+            }
+
+            db.Entry(provider).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            Provider provider = db.Providers.Find(id);
+            db.Providers.Remove(provider);
+            db.SaveChanges();
+        }
+
+        public List<Provider> GetProviderByMarble(Marble marble)
+        {
+            return (List<Provider>)db.Providers.ToList().Where(p => p.Marbles.Contains(marble)).ToList();
+        }
+
+        public List<Provider> GetProviderByMarbleId(int id)
+        {
+            return (List<Provider>)db.Providers.ToList().Where(p => p.Marbles.Any(m => m.MarbleId == id)).ToList();
+        }
 
 
-    //    private bool disposed = false;
+        public List<Provider> GetProviderByCountry(Location location)
+        {
+            return (List<Provider>)db.Providers.ToList().Where(l => l.Location.Country == location.Country).ToList();
+        }
 
-    //    protected virtual void Dispose(bool disposing)
-    //    {
-    //        if (!this.disposed)
-    //        {
-    //            if (disposing)
-    //            {
-    //                db.Dispose();
-    //            }
-    //        }
-    //    }
-
-    //    public void Dispose()
-    //    {
-    //        Dispose(true);
-    //        GC.SuppressFinalize(this);
-    //    }
+        public List<Provider> GetProviderByLocationId(int id)
+        {
+            return (List<Provider>)db.Providers.ToList().Where(l => l.Location.LocationId == id).ToList();
+        }
 
 
+        private bool disposed = false;
 
-    //}
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+
+
+    }
 }

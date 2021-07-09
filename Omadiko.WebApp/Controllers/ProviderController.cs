@@ -8,19 +8,31 @@ using System.Web;
 using System.Web.Mvc;
 using Omadiko.Database;
 using Omadiko.Entities.Models;
+using Omadiko.RepositoryServices;
 
 namespace Omadiko.WebApp.Controllers
 {
     public class ProviderController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ProviderRepository repo = new ProviderRepository();
+
+
 
         // GET: Provider
         public ActionResult Index()
         {
-            var providers = db.Providers.Include(p => p.Location);
-            return View(providers.ToList());
+             
+
+            var marbles = repo.GetAll();
+            return View(marbles);
+
+
         }
+
+
+
+
 
         // GET: Provider/Details/5
         public ActionResult Details(int? id)
@@ -29,7 +41,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = db.Providers.Find(id);
+            Provider provider = repo.GetById(id);
             if (provider == null)
             {
                 return HttpNotFound();
@@ -37,12 +49,18 @@ namespace Omadiko.WebApp.Controllers
             return View(provider);
         }
 
+
+
+
         // GET: Provider/Create
         public ActionResult Create()
         {
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Country");
             return View();
         }
+
+
+
 
         // POST: Provider/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -53,14 +71,18 @@ namespace Omadiko.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Providers.Add(provider);
-                db.SaveChanges();
+                repo.Create(provider);
                 return RedirectToAction("Index");
             }
 
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Country", provider.LocationId);
             return View(provider);
         }
+
+
+
+
+
 
         // GET: Provider/Edit/5
         public ActionResult Edit(int? id)
@@ -69,7 +91,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = db.Providers.Find(id);
+            Provider provider = repo.GetById(id);
             if (provider == null)
             {
                 return HttpNotFound();
@@ -78,22 +100,30 @@ namespace Omadiko.WebApp.Controllers
             return View(provider);
         }
 
+
+
+
+
         // POST: Provider/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProviderId,LocationId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider)
+        public ActionResult Edit([Bind(Include = "ProviderId,LocationId,CompanyTitle,CompanyPhoto,Phone,WebSite,Email")] Provider provider, IEnumerable<int> SelectedMarblesIds, IEnumerable<int> SelectedBusinessTypesIds)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(provider).State = EntityState.Modified;
-                db.SaveChanges();
+                // db.Entry(provider).State = EntityState.Modified;
+                // db.SaveChanges();
+                repo.Update(provider, SelectedMarblesIds, SelectedBusinessTypesIds);
                 return RedirectToAction("Index");
             }
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Country", provider.LocationId);
             return View(provider);
         }
+
+
+
 
         // GET: Provider/Delete/5
         public ActionResult Delete(int? id)
@@ -102,7 +132,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = db.Providers.Find(id);
+            Provider provider = repo.GetById(id);
             if (provider == null)
             {
                 return HttpNotFound();
@@ -115,9 +145,10 @@ namespace Omadiko.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Provider provider = db.Providers.Find(id);
-            db.Providers.Remove(provider);
-            db.SaveChanges();
+            //Provider provider = db.Providers.Find(id);
+            //db.Providers.Remove(provider);
+            //db.SaveChanges();
+            repo.Delete(id);
             return RedirectToAction("Index");
         }
 
