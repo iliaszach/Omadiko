@@ -18,7 +18,7 @@ namespace Omadiko.WebApp.Controllers
         // GET: Marble
         public ActionResult Index()
         {
-            var marbles = db.Marbles;
+            var marbles = db.Marbles.Include(m => m.Photo);
             return View(marbles.ToList());
         }
 

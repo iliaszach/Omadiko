@@ -10,8 +10,7 @@ namespace Omadiko.Entities.Models
 {
     public class Photo
     {
-        [ForeignKey("Marble")]
-        public int MarbleId { get; set; }
+        [ForeignKey("Marble")]        
         public int PhotoId { get; set; }
         public string PhotoName { get; set; }
         public string Url { get; set; }

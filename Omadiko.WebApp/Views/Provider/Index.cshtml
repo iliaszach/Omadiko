@@ -26,7 +26,8 @@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.Marbles)</th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -45,6 +46,14 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            <ul>
+                @foreach (var marble in item.Marbles)
+                {
+                    <li>@marble.Name</li>
+                }
+            </ul>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProviderId }) |

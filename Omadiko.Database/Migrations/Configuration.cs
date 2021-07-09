@@ -20,17 +20,7 @@ namespace Omadiko.Database.Migrations
         protected override void Seed(Omadiko.Database.ApplicationDbContext context)
         {
             //Seeding Products
-
-            Photo ph1 = new Photo() { PhotoName = "Marmaro1", Url = "www" };
-
-            Photo ph2 = new Photo() { PhotoName = "Marmaro2", Url = "www" };
-            Photo ph3 = new Photo() { PhotoName = "Marmaro3", Url = "www" };
-            Photo ph4 = new Photo() { PhotoName = "Marmaro4", Url = "www" };
-            Photo ph5 = new Photo() { PhotoName = "Marmaro5", Url = "www" };
-            Photo ph6 = new Photo() { PhotoName = "Marmaro6", Url = "www" };
-
-            context.Photos.AddOrUpdate(x => new { x.PhotoName, x.Url }, ph1, ph2, ph3, ph4, ph5, ph6);
-
+           
             Provider p1 = new Provider() { CompanyTitle = "2E Marble", Phone="6949326800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto="photourl" };            
             Provider p2 = new Provider() { CompanyTitle = "2E Marìé",  Phone="6949314800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto = "photourl" };
             Provider p3 = new Provider() { CompanyTitle = "3D Stone Tile & Pavers",  Phone="6941626800", WebSite="www.cSharp.com", Email = "www", CompanyPhoto = "photourl" };

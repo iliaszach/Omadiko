@@ -14,7 +14,8 @@ namespace Omadiko.Database
     {
         public ApplicationDbContext() :base("Sindesmos")
         {
-
+            this.Configuration.LazyLoadingEnabled = true;
+            this.Configuration.ProxyCreationEnabled = true;
         }
         public DbSet<Marble> Marbles { get; set; }
         public DbSet<Provider> Providers { get; set; }
