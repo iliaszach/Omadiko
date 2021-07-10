@@ -17,5 +17,6 @@ namespace Omadiko.Entities.Models
 
         //Navigation Properties
         public virtual Marble Marble { get; set; }
+        public virtual ICollection<Provider> Providers { get; set; }
     }
 }

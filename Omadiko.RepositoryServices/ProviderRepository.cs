@@ -30,6 +30,13 @@ namespace Omadiko.RepositoryServices
 
         public void Create(Provider provider)
         {
+            db.Providers.Attach(provider);
+            db.Entry(provider).Collection("BusinessTypes").Load();
+            provider.BusinessTypes.Clear();
+            db.Entry(provider).Collection("Marbles").Load();
+            provider.Marbles.Clear();
+
+
             db.Entry(provider).State = EntityState.Added;
             db.SaveChanges();
         }
