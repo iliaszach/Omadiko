@@ -15,7 +15,7 @@ namespace Omadiko.RepositoryServices
 
         public List<Marble> GetAll()
         {
-            var marbles = db.Marbles.Include(m => m.Location).Include(m => m.Photo);
+            var marbles = db.Marbles.Include(m => m.Photo);
             return marbles.ToList();
 
 
@@ -84,12 +84,12 @@ namespace Omadiko.RepositoryServices
 
         public List<Marble> GetMarbleByCountry(Location location)
         {
-            return (List<Marble>)db.Marbles.ToList().Where(l => l.Location.Country == location.Country).ToList();
+            return (List<Marble>)db.Marbles.ToList();
         }
 
         public List<Marble> GetMarbleByLocationId(int id)
         {
-            return (List<Marble>)db.Marbles.ToList().Where(l => l.Location.LocationId == id).ToList();
+            return (List<Marble>)db.Marbles.ToList();
         }
 
 

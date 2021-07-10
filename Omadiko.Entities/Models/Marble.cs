@@ -11,15 +11,17 @@ namespace Omadiko.Entities.Models
     {
         
         public int MarbleId { get; set; }
+        public string Country { get; set; }
         public string Name { get; set; }
         public string  Color { get; set; }
 
         
 
         //Navigation Properties
-
-        public virtual Photo Photo { get; set; }
-        public virtual Location Location { get; set; }
+        public virtual Photo Photo { get; set; }        
         public virtual ICollection<Provider> Providers { get; set; }
     }
+
+    
+
 }

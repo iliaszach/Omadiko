@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 namespace Omadiko.Entities.Models
 {
     public class Location
-    {
-        [ForeignKey("Marble")]
+    {        
         public int LocationId { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
 
         //Navigation Properties
-        public virtual Marble Marble { get; set; }
-        public virtual ICollection<Provider> Providers { get; set; }
+        
+        public virtual Provider Provider { get; set; }
     }
 }

@@ -28,14 +28,40 @@ namespace Omadiko.RepositoryServices
             return db.Providers.Find(id);
         }
 
-        public void Create(Provider provider)
+        public void Create(Provider provider, IEnumerable<int> Marbles, IEnumerable<int> BusinessTypes, int Location)
         {
             db.Providers.Attach(provider);
+                      
+            var Newlocation = db.Locations.Find(Location);
+            provider.Location = Newlocation;
+            
+            
             db.Entry(provider).Collection("BusinessTypes").Load();
             provider.BusinessTypes.Clear();
             db.Entry(provider).Collection("Marbles").Load();
             provider.Marbles.Clear();
-
+            if (!(Marbles is null))
+            {
+                foreach (var id in Marbles)
+                {
+                    var marble = db.Marbles.Find(id);
+                    if (!(marble is null))
+                    {
+                        provider.Marbles.Add(marble);
+                    }
+                }
+            }
+            if (!(BusinessTypes is null))
+            {
+                foreach (var id in BusinessTypes)
+                {
+                    var type = db.BusinessTypes.Find(id);
+                    if (!(type is null))
+                    {
+                        provider.BusinessTypes.Add(type);
+                    }
+                }
+            }
 
             db.Entry(provider).State = EntityState.Added;
             db.SaveChanges();
@@ -43,7 +69,7 @@ namespace Omadiko.RepositoryServices
 
 
         //elpizw na doulepsei otan ftiaxtoun oi Controllers
-        public void Update(Provider provider, IEnumerable<int> SelectedMarblesIds, IEnumerable<int> SelectedBusinessTypesIds)
+        public void Update(Provider provider, IEnumerable<int> Marbles, IEnumerable<int> BusinessTypes)
         {
             db.Providers.Attach(provider);
             db.Entry(provider).Collection("Marbles").Load();
@@ -56,9 +82,9 @@ namespace Omadiko.RepositoryServices
             provider.BusinessTypes.Clear();
             db.SaveChanges();
 
-            if (!(SelectedMarblesIds is null))
+            if (!(Marbles is null))
             {
-                foreach (var id in SelectedMarblesIds)
+                foreach (var id in Marbles)
                 {
                     Marble marble = db.Marbles.Find(id);
                     if (marble != null)
@@ -69,9 +95,9 @@ namespace Omadiko.RepositoryServices
                 db.SaveChanges();
             }
 
-            if (!(SelectedBusinessTypesIds is null))
+            if (!(BusinessTypes is null))
             {
-                foreach (var id in SelectedBusinessTypesIds)
+                foreach (var id in BusinessTypes)
                 {
                     BusinessType businesstype = db.BusinessTypes.Find(id);
                     if (businesstype != null)

@@ -24,7 +24,7 @@ namespace Omadiko.Console2
                 Console.WriteLine($"{"Marble Name",-15}{"Marble Photo",-15}{"Marble Country",-15}{"Marble Provider",-25}");
                 foreach (var item in marbles)
                 {
-                    Console.WriteLine($"{item.Name,-15}{item.Photo.PhotoName,-15}{item.Providers.First().CompanyTitle,-25}{item.Location.Country,-15}");
+                    Console.WriteLine($"{item.Name,-15}{item.Photo.PhotoName,-15}{item.Providers.First().CompanyTitle,-25}");
                     
                 }
                 var providers = db.Providers.ToList();

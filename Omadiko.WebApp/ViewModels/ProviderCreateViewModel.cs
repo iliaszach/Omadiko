@@ -10,29 +10,43 @@ namespace Omadiko.WebApp.ViewModels
 {
     public class ProviderCreateViewModel
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         public Provider Provider  { get; set; }
         public ProviderCreateViewModel()
         {
             
         }
-        public ProviderCreateViewModel(Provider provider)
-        {
-            Provider = provider;
-        }
-        ApplicationDbContext db = new ApplicationDbContext();
-        public SelectList Locations 
-        { 
-            get
+
+        public SelectList Location { 
+            get 
             {
-                return new SelectList(db.Locations, "LocationId", "Country");
-            }
+                return new SelectList(db.Locations,"LocationId","Country");
+            } 
         }
-        public SelectList SelectedLocations 
-        { 
-            get
+
+
+        public IEnumerable<SelectListItem> Marbles {
+
+            get 
             {
-                return new SelectList(db.Locations, "LocationId", "Country", Provider.LocationId);
-            }
+                return db.Marbles.ToList().Select(x => new SelectListItem 
+                {
+                 Value = x.MarbleId.ToString(),
+                 Text = x.Name
+                });
+            }        
+        }
+        public IEnumerable<SelectListItem> BusinessTypes {
+
+            get 
+            {
+                return db.BusinessTypes.ToList().Select(x => new SelectListItem 
+                {
+                 Value = x.BusinessTypeId.ToString(),
+                 Text = x.Kind
+                });
+            }        
         }
     }
 }
