@@ -9,7 +9,7 @@ namespace Omadiko.Entities.Models
 {
     public class Provider
     {
-        [ForeignKey("Location")]
+        
         public int ProviderId { get; set; }        
         public string CompanyTitle { get; set; }
         public string CompanyPhoto { get; set; }

@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace Omadiko.Entities.Models
 {
     public class Location
-    {        
+    {
+        [ForeignKey("Provider")]
         public int LocationId { get; set; }
         public string Country { get; set; }
         public string City { get; set; }

@@ -18,8 +18,8 @@ namespace Omadiko.RepositoryServices
         public List<Provider> GetAll()
         {
 
-            var providers = db.Providers.Include(p => p.Location);
-            return providers.ToList();
+            var providers = db.Providers.ToList();
+            return providers;
            
         }
 
@@ -28,13 +28,9 @@ namespace Omadiko.RepositoryServices
             return db.Providers.Find(id);
         }
 
-        public void Create(Provider provider, IEnumerable<int> Marbles, IEnumerable<int> BusinessTypes, int Location)
+        public void Create(Provider provider, Location Location, IEnumerable<int> Marbles, IEnumerable<int> BusinessTypes)
         {
             db.Providers.Attach(provider);
-                      
-            var Newlocation = db.Locations.Find(Location);
-            provider.Location = Newlocation;
-            
             
             db.Entry(provider).Collection("BusinessTypes").Load();
             provider.BusinessTypes.Clear();
@@ -62,15 +58,29 @@ namespace Omadiko.RepositoryServices
                     }
                 }
             }
-
+           
             db.Entry(provider).State = EntityState.Added;
+            db.Entry(Location).State = EntityState.Added;
+            provider.Location = Location;
             db.SaveChanges();
         }
 
 
         //elpizw na doulepsei otan ftiaxtoun oi Controllers
-        public void Update(Provider provider, IEnumerable<int> Marbles, IEnumerable<int> BusinessTypes)
+        public void Update(Provider provider,Location location,IEnumerable<int> Marbles, IEnumerable<int> BusinessTypes)
         {
+
+            Location locationDeleted = db.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
+            db.Locations.Remove(locationDeleted);
+            db.SaveChanges();
+            var currentLoc = location;
+            db.Providers.Attach(provider);
+            db.Entry(location).State = EntityState.Deleted;
+            db.Locations.Attach(currentLoc);
+            db.Entry(currentLoc).State = EntityState.Added;
+            provider.Location = currentLoc;
+            db.Entry(provider).State = EntityState.Modified;
+
             db.Providers.Attach(provider);
             db.Entry(provider).Collection("Marbles").Load();
             provider.Marbles.Clear();
@@ -115,7 +125,9 @@ namespace Omadiko.RepositoryServices
         public void Delete(int id)
         {
             Provider provider = db.Providers.Find(id);
+            Location location = db.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
             db.Providers.Remove(provider);
+            db.Locations.Remove(location);
             db.SaveChanges();
         }
 

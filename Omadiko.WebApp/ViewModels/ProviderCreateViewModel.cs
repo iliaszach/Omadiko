@@ -13,18 +13,13 @@ namespace Omadiko.WebApp.ViewModels
         ApplicationDbContext db = new ApplicationDbContext();
 
         public Provider Provider  { get; set; }
+        public Location Location { get; set; }
         public ProviderCreateViewModel()
         {
             
         }
 
-        public SelectList Location { 
-            get 
-            {
-                return new SelectList(db.Locations,"LocationId","Country");
-            } 
-        }
-
+        
 
         public IEnumerable<SelectListItem> Marbles {
 

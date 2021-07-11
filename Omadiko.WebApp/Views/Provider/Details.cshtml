@@ -11,7 +11,6 @@
     <hr />
     <dl class="dl-horizontal">
 
-
         <dt>
             @Html.DisplayNameFor(model => model.CompanyTitle)
         </dt>
@@ -26,14 +25,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.CompanyPhoto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location.Country)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location.Country)
         </dd>
 
         <dt>
@@ -63,6 +54,7 @@
         <dt>
             @Html.DisplayNameFor(model => model.BusinessTypes)
         </dt>
+
         <dd>
             <ul>
                 @foreach (var type in Model.BusinessTypes)
@@ -71,10 +63,10 @@
                 }
             </ul>
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Marbles)
         </dt>
+
         <dd>
             <ul>
                 @foreach (var marble in Model.Marbles)
@@ -83,9 +75,15 @@
                 }
             </ul>
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
 
-
-
+        <dd>
+            @Html.DisplayNameFor(model => model.Location.Country)<br />
+            @Html.DisplayNameFor(model => model.Location.City)<br />
+            @Html.DisplayNameFor(model => model.Location.Address)
+        </dd>
     </dl>
 </div>
 <p>

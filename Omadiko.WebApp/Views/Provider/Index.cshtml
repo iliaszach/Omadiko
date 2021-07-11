@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.CompanyTitle)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Location.Country)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CompanyPhoto)
         </th>
         <th>
@@ -27,62 +30,58 @@
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location.Country)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.BusinessTypes)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Marbles)
         </th>
-        <th>
-            Actions
-        </th>
+        <th>Actions</th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.CompanyTitle)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.CompanyPhoto)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Phone)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.WebSite)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Email)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Location.Country)
-    </td>
-    <td>
-        <ul>
-            @foreach (var type in item.BusinessTypes)
-            {
-                <li>@type.Kind</li>
-            }
-        </ul>
-    </td>
-    <td>
-        <ul>
-            @foreach (var marble in item.Marbles)
-            {
-                <li>@marble.Name</li>
-            }
-        </ul>
-    </td>
+    @foreach (var item in Model)
+    {
+        <tr>
 
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ProviderId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ProviderId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ProviderId })
-    </td>
-</tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyPhoto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebSite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <ul>
+                    @foreach (var type in item.BusinessTypes)
+                    {
+                        <li>@type.Kind</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    @foreach (var marble in item.Marbles)
+                    {
+                        <li>@marble.Name</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProviderId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProviderId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProviderId })
+            </td>
+        </tr>
+    }
 
 </table>
