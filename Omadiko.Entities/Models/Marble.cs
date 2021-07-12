@@ -9,7 +9,6 @@ namespace Omadiko.Entities.Models
 {
     public class Marble
     {
-        
         public int MarbleId { get; set; }
         public string Country { get; set; }
         public string Name { get; set; }
@@ -22,6 +21,6 @@ namespace Omadiko.Entities.Models
         public virtual ICollection<Provider> Providers { get; set; }
     }
 
-    
+
 
 }

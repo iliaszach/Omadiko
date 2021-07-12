@@ -15,7 +15,7 @@ namespace Omadiko.WebApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Marble application by OMADARA";
 
             return View();
         }
