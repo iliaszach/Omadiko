@@ -13,7 +13,8 @@ namespace Omadiko.WebApp.Controllers
         
         // GET: Dashboard
         public ActionResult Index()
-        {
+        { //ΕΔΏ ΠΡΈΠΕΙ ΝΑ ΦΤΙΑΞΟΥΜΕ ΕΝΑ VIEWMODEL ΠΟΥ ΝΑ ΕΧΕΙ ΤΙΣ ΠΛΗΡΟΦΟΡΙΕΣ ΑΠΟ MARBLE + PROVIDER MAZI
+
             var providers = providerRepository.GetAll();
             return View(providers);
         }

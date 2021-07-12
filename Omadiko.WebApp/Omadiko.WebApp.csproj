@@ -202,6 +202,29 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\1.jpeg" />
+    <Content Include="Content\images\2.jpeg" />
+    <Content Include="Content\images\3.jpeg" />
+    <Content Include="Content\images\default-image.jpg" />
+    <Content Include="Content\images\default-logo.png" />
+    <Content Include="Content\images\pexels-photo-2434165.jpeg" />
+    <Content Include="Content\images\pexels-photo-3184450.jpeg" />
+    <Content Include="Content\images\pexels-photo-3225416.jpeg" />
+    <Content Include="Content\images\pexels-photo-3261141.jpeg" />
+    <Content Include="Content\images\pexels-photo-32611411.jpeg" />
+    <Content Include="Content\images\pexels-photo-3375230.jpeg" />
+    <Content Include="Content\images\pexels-photo-3526221.jpeg" />
+    <Content Include="Content\images\pexels-photo-4234470.jpg" />
+    <Content Include="Content\images\pexels-photo-4497194.jpeg" />
+    <Content Include="Content\images\pexels-photo-5672483.jpeg" />
+    <Content Include="Content\images\pexels-photo-5936860.jpeg" />
+    <Content Include="Content\images\pexels-photo-6994340.jpeg" />
+    <Content Include="Content\images\Pink.jpg" />
+    <Content Include="Content\images\Untitled1.png" />
+    <Content Include="Content\TESTcss\Blog-Template.css" />
+    <Content Include="Content\TESTcss\Home.css" />
+    <Content Include="Content\TESTcss\nicepage.css" />
+    <Content Include="Content\TESTcss\Post-Template.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,6 +242,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\TESTJS\jquery.js" />
+    <Content Include="Scripts\TESTJS\nicepage.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -271,6 +296,7 @@
     <Content Include="Views\Provider\DashboardProviderView.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Views\Shared\_TESTLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
