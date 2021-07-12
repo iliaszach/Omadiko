@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Country)
+            @Html.DisplayNameFor(model => model.Location.Country)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Photo.PhotoName)
@@ -33,7 +33,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Country)
+                @Html.DisplayFor(modelItem => item.Location.Country)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Photo.PhotoName)

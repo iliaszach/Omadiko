@@ -56,22 +56,22 @@ namespace Omadiko.Database.Migrations
             p6.BusinessTypes = new List<BusinessType>() { b5, b2 };
             context.Providers.AddOrUpdate(x => new { x.CompanyTitle,x.CompanyPhoto,x.WebSite }, p1, p2, p3, p4, p5, p6);
 
-            Marble m1 = new Marble() { Country = "Greece", Name = "ADRANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "www" }};
+            Marble m1 = new Marble() { Name = "ADRANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "www" }};
             m1.Providers = new List<Provider>() { p1, p2 };
             
-            Marble m2 = new Marble() { Country = "Turkey", Name = "AFYON  ", Color = "White" , Photo = new Photo() { PhotoName = "Marmaro2", Url = "www" } };
+            Marble m2 = new Marble() { Name = "AFYON  ", Color = "White" , Photo = new Photo() { PhotoName = "Marmaro2", Url = "www" } };
             m2.Providers = new List<Provider>() { p3, p4 };
             
-            Marble m3 = new Marble() { Country = "Italy", Name = "AGIA MARINA ", Color = "SEMI-WHITE", Photo = new Photo() { PhotoName = "Marmaro3", Url = "www" }};
+            Marble m3 = new Marble() { Name = "AGIA MARINA ", Color = "SEMI-WHITE", Photo = new Photo() { PhotoName = "Marmaro3", Url = "www" }};
             m3.Providers = new List<Provider>() { p5, p6 };
             
-            Marble m4 = new Marble() { Country = "Cyprus", Name = "ALMERA  ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro4", Url = "www" }};
+            Marble m4 = new Marble() { Name = "ALMERA  ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro4", Url = "www" }};
             m4.Providers = new List<Provider>() { p1, p2 };
            
-            Marble m5 = new Marble() { Country = "UK", Name = "ARABESCATO", Color = "ALTISSIMO", Photo = new Photo() { PhotoName = "Marmaro5", Url = "www" } };
+            Marble m5 = new Marble() { Name = "ARABESCATO", Color = "ALTISSIMO", Photo = new Photo() { PhotoName = "Marmaro5", Url = "www" } };
             m5.Providers = new List<Provider>() { p3, p4 };                                                                                 
                                                                                                                                             
-            Marble m6 = new Marble() { Country = "Egypt", Name = "AVAFESCATO ", Color = "CERVAIOLE", Photo = new Photo() { PhotoName = "Marmaro6", Url = "www" } };
+            Marble m6 = new Marble() { Name = "AVAFESCATO ", Color = "CERVAIOLE", Photo = new Photo() { PhotoName = "Marmaro6", Url = "www" } };
             m6.Providers = new List<Provider>() { p5, p6 };
            
             context.Marbles.AddOrUpdate(x => x.Name, m1, m2, m3, m4, m5, m6);
