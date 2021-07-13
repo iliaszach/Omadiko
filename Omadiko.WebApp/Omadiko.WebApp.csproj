@@ -193,6 +193,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\MarbleCreateViewModel.cs" />
+    <Compile Include="ViewModels\MarbleEditViewModel.cs" />
     <Compile Include="ViewModels\ProviderCreateViewModel.cs" />
     <Compile Include="ViewModels\ProviderEditViewModel.cs" />
   </ItemGroup>

@@ -66,6 +66,8 @@ namespace Omadiko.WebApp.Controllers
             return View(provider);
         }
 
+
+
         // GET: Provider/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -89,6 +91,9 @@ namespace Omadiko.WebApp.Controllers
             return View(vm);
         }
 
+
+
+
         // POST: Provider/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -104,6 +109,8 @@ namespace Omadiko.WebApp.Controllers
             ProviderEditViewModel vm = new ProviderEditViewModel(provider, location);
             return View(provider);
         }
+
+
 
         // GET: Provider/Delete/5
         public ActionResult Delete(int? id)

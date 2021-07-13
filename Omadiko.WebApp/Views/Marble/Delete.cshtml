@@ -11,21 +11,6 @@
     <h4>Marble</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Location.Country)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location.Country)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo.PhotoName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo.PhotoName)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -34,7 +19,13 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo.Url)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Photo.Url)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Color)
         </dt>
@@ -42,6 +33,16 @@
         <dd>
             @Html.DisplayFor(model => model.Color)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+
+
 
     </dl>
 

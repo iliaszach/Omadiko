@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Omadiko.Database;
 using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
+using Omadiko.WebApp.ViewModels;
 
 namespace Omadiko.WebApp.Controllers
 {
@@ -16,9 +17,6 @@ namespace Omadiko.WebApp.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         private MarbleRepository repo = new MarbleRepository();
-
-
-
 
         // GET: Marble
         public ActionResult Index()
@@ -29,10 +27,6 @@ namespace Omadiko.WebApp.Controllers
 
            
         }
-
-
-
-
 
         // GET: Marble/Details/5
         public ActionResult Details(int? id)
@@ -49,19 +43,12 @@ namespace Omadiko.WebApp.Controllers
             return View(marble);
         }
 
-
-
-
         // GET: Marble/Create
         public ActionResult Create()
         {
-            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country");
-            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName");
-            return View();
+            MarbleCreateViewModel vm = new MarbleCreateViewModel();
+            return View(vm);
         }
-
-
-
 
 
         // POST: Marble/Create
@@ -69,19 +56,19 @@ namespace Omadiko.WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MarbleId,Name,Color")] Marble marble)
+        public ActionResult Create([Bind(Include = "MarbleId,Name,Color")] Marble marble, IEnumerable<int> providers,int? CountrySelected, int? PhotoSelected)
         {
             if (ModelState.IsValid)
-            {
-                
-                repo.Create(marble);
+            {   
+                repo.Create(marble, providers, CountrySelected, PhotoSelected);
                 return RedirectToAction("Index");
             }
-
-            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country", marble.MarbleId);
-            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
+            MarbleCreateViewModel vm = new MarbleCreateViewModel();
             return View(marble);
         }
+
+
+
 
         // GET: Marble/Edit/5
         public ActionResult Edit(int? id)
@@ -95,27 +82,29 @@ namespace Omadiko.WebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country", marble.MarbleId);
-            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
-            return View(marble);
+
+            MarbleEditViewModel vm= new MarbleEditViewModel(marble);
+            return View(vm);
         }
+
+
+
 
         // POST: Marble/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MarbleId,Name,Color")] Marble marble, IEnumerable<int> SelectedProvidersIds)
+        public ActionResult Edit([Bind(Include = "MarbleId,Name,Color")] Marble marble, IEnumerable<int> providers, int? CountrySelected, int? PhotoSelected)
         {
             if (ModelState.IsValid)
             {
                 // db.Entry(marble).State = EntityState.Modified;
                 // db.SaveChanges();
-                repo.Update(marble, SelectedProvidersIds);
+                repo.Update(marble, providers, CountrySelected, PhotoSelected);
                 return RedirectToAction("Index");
             }
-            ViewBag.MarbleId = new SelectList(db.Locations, "LocationId", "Country", marble.MarbleId);
-            ViewBag.MarbleId = new SelectList(db.Photos, "PhotoId", "PhotoName", marble.MarbleId);
+            MarbleEditViewModel vm = new MarbleEditViewModel(marble);
             return View(marble);
         }
 
@@ -133,11 +122,6 @@ namespace Omadiko.WebApp.Controllers
             }
             return View(marble);
         }
-
-
-
-
-
 
         // POST: Marble/Delete/5
         [HttpPost, ActionName("Delete")]

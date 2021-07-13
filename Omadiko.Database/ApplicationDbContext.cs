@@ -22,6 +22,7 @@ namespace Omadiko.Database
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<BusinessType> BusinessTypes { get; set; }
+        public DbSet<Country> Countries { get; set; }
 
         public static ApplicationDbContext Create()
         {
