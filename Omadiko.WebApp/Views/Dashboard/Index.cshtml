@@ -1,0 +1,240 @@
+﻿@model IEnumerable<Omadiko.Entities.Models.Provider>
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h3>Dashboard</h3>
+
+@Styles.Render("~/Content/Vendors")
+
+@Html.Partial("_LeftMenu")
+<!-- content -->
+<div class="col-md-10">
+    @*<div class="row">
+            <div class="alert alert-success bootstrap-admin-alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h4>Success</h4>
+                The operation completed successfully
+            </div>
+        </div>*@
+    <div class="row">
+        <div class="navbar navbar-default bootstrap-admin-navbar-thin">
+            <ol class="breadcrumb bootstrap-admin-breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Settings</a>
+                </li>
+                <li class="active">Tools</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel panel-default bootstrap-admin-no-table-panel">
+            <div class="panel-heading">
+                <div class="text-muted bootstrap-admin-box-title">Statistics</div>
+                <div class="pull-right"><span class="badge">View More</span></div>
+            </div>
+            <div class="bootstrap-admin-panel-content bootstrap-admin-no-table-panel-content collapse in">
+                <div class="col-md-3">
+                    @*<div class="easyPieChart" data-percent="@Model.RateVisitors" style="width: 110px; height: 110px; line-height: 110px;">@Model.RateVisitors%<canvas width="110" height="110"></canvas></div>*@
+                    <div class="chart-bottom-heading"><span class="label label-info">Visitors</span></div>
+                </div>
+                <div class="col-md-3">
+                    @*<div class="easyPieChart" data-percent="@Model.RatePageViews" style="width: 110px; height: 110px; line-height: 110px;">@Model.RatePageViews%<canvas width="110" height="110"></canvas></div>*@
+                    <div class="chart-bottom-heading"><span class="label label-info">Page Views</span></div>
+                </div>
+                <div class="col-md-3">
+                    @*<div class="easyPieChart" data-percent="@Model.RateUsers" style="width: 110px; height: 110px; line-height: 110px;">@Model.RateUsers%<canvas width="110" height="110"></canvas></div>*@
+                    <div class="chart-bottom-heading"><span class="label label-info">Users</span></div>
+                </div>
+                <div class="col-md-3">
+                    @*<div class="easyPieChart" data-percent="@Model.RateOrders" style="width: 110px; height: 110px; line-height: 110px;">@Model.RateOrders%<canvas width="110" height="110"></canvas></div>*@
+                    <div class="chart-bottom-heading"><span class="label label-info">Orders</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* ΕΔΩ ΘΑ ΜΠΑΙΝΟΥΝ ΟΙ USERS [PROVIDERS,ARCHITECTS] *@
+<div class="row bootstrap-admin-no-edges-padding">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-muted bootstrap-admin-box-title">Users</div>
+                @*<div class="pull-right"><span class="badge">1,234</span></div>*@
+            </div>
+            <div class="bootstrap-admin-panel-content">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                            <th>Faculty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>1.</td>
+                            <td>Hector</td>
+                            <td>Gatsos</td>
+                            <td>Russian</td>
+                            <td>Provider</td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Dimitris</td>
+                            <td>Grontis</td>
+                            <td>Privategrontis</td>
+                            <td>Architect</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
+    @* Εδώ μπαίνουν τα μάρμαρα ως προϊόντα *@
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-muted bootstrap-admin-box-title">Marbles</div>
+                @*<div class="pull-right"><span class="badge">752</span></div>*@
+            </div>
+            <div class="bootstrap-admin-panel-content">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Marble</th>
+                            <th>Color</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Lambda</td>
+                            <td>Blue</td>
+                            <td>Creece</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Kompole</td>
+                            <td>Pink</td>
+                            <td>Italy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    @* CLIENTS *@
+    <div class="row bootstrap-admin-no-edges-padding">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-muted bootstrap-admin-box-title">Clients</div>
+                    <div class="pull-right"><span class="badge">17</span></div>
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Faculty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>1.</td>
+                                <td>Hector</td>
+                                <td>Gatsos</td>
+                                <td>Russian</td>
+                                <td>Provider</td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>Kostas</td>
+                                <td>Takakis</td>
+                                <td>KTac</td>
+                                <td>Provider</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        @* ΤΙΜΟΛΟΓΙΑ ΓΙΑ ΤΗΝ ΑΓΟΡΑ ΘΕΣΗΣ ΣΤΟ VIEW ΤΟ SITE *@
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-muted bootstrap-admin-box-title">Invoices</div>
+                    <div class="pull-right"><span class="badge">812</span></div>
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>IDPurchase</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                               <tr>
+                                  <td>12548</td>
+                                  <td>12/07/2021</td>
+                                  <td>250€</td>
+                               </tr>                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* Gallery of Marble = Εδώ πρέπει να βάλουμε πάνω σε κάθε marble τα κλικς *@
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-muted bootstrap-admin-box-title">Gallery of Marble</div>
+                <div class="pull-right"><span class="badge">1,462</span></div>
+            </div>
+            <div class="bootstrap-admin-panel-content">
+                @for (int j = 0; j < 3; j++)
+                {
+                    <div class="row bootstrap-admin-light-padding-bottom">
+                        @for (int i = 0; i < 3; i++)
+                        {
+                            <div class="col-md-4">
+                                <a href="#" class="thumbnail">
+                                    <img data-src="holder.js/260x180" alt="260x180" style="width: 260px; height: 180px;" src="data:image/jpeg;base64,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">
+                                </a>
+                            </div>
+                        }
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/vendors")
+
+    <script type="text/javascript">
+        $(function () {
+            // Easy pie charts
+            $('.easyPieChart').easyPieChart({ animate: 1000 });
+        });
+    </script>
+}
