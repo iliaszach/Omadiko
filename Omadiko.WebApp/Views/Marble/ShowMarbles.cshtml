@@ -4,49 +4,95 @@
     ViewBag.Title = "ShowMarbles";
 }
 
-@*<h2>ShowMarbles</h2>*@
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="home__title"><b>ShowMarbles</b> </h1>
+<style>
+
+
+
+    div.body{
+
+        background-color:rgba(152, 126, 126, 0.78)
+    }
+
+
+    div.home__card {
+        max-width: 100%;
+        width: 300px;
+        height: auto;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        float: none;
+        display: block;
+        clear: both;
+            cursor: pointer;
+    }
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<div class="body" >
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="home__title"><b>ShowMarbles</b> </h3>
+            </div>
         </div>
     </div>
-</div>
 
-@foreach (var marble in Model)
-{
+    @foreach (var marble in Model)
+    {
 
-<div class="home__card">
-
-    <a href="~/Views/Marble/Details.cshtml">
-        <img src=@marble.Photo.Url alt="">
-    </a>
-
-    <div>
-        <h2>@marble.Name</h2>
-        <ul>
+        <div class="home__card">
             
-            <li>@marble.Country.Name</li>      @*To afino prow to paron lista giati den ksero akoma ti allo ua valoume.*@
-                                                @*An den valoume kati allo min to exoume lista*@
-        </ul>
-    </div>
+            <a href="~/Views/Marble/Details.cshtml">
+                <img src=@marble.Photo.Url alt="" >
+                @Html.ActionLink("Details", "MarbleDetails", new { id = marble.MarbleId })
+
+                <span>@marble.Name</span>
+                <span>@marble.Country.Name</span>
+            </a>
+
+            <div>
+               
 
 
 
+
+
+
+
+                <!--<ul>
+
+                    <li>@marble.Country.Name</li>-->      @*To afino prow to paron lista giati den ksero akoma ti allo ua valoume.*@
+                    @*An den valoume kati allo min to exoume lista*@
+                <!--</ul>-->
+            </div>
+
+
+
+
+
+        </div>
+
+
+    }
 
 
 </div>
-
-
-
-
-
-
-
-
-}
 
 
 

@@ -297,6 +297,8 @@
     <Content Include="Views\Shared\_Site1Footer.cshtml" />
     <Content Include="Views\Dashboard\_ViewStart.cshtml" />
     <Content Include="Views\Marble\ShowMarbles.cshtml" />
+    <Content Include="Views\Marble\ShowMarbles2.cshtml" />
+    <Content Include="Views\Marble\MarbleDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
