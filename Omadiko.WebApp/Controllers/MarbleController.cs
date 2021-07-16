@@ -135,30 +135,6 @@ namespace Omadiko.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-
-
-        public ActionResult ShowMarbles()
-        {
-
-            var marbles = repo.GetAll();
-            return View(marbles);
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
