@@ -67,22 +67,22 @@ namespace Omadiko.Database.Migrations
             p6.BusinessTypes = new List<BusinessType>() { b5, b2 };
             context.Providers.AddOrUpdate(x => new { x.CompanyTitle,x.CompanyPhoto,x.WebSite }, p1, p2, p3, p4, p5, p6);
 
-            Marble m1 = new Marble() { Name = "ADRANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Adranos.jpg?resize=300%2C180&ssl=1" }, Country = c1};
+            Marble m1 = new Marble() { Name = "ADRANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "www" }, Country = c1};
             m1.Providers = new List<Provider>() { p1, p2 };
 
-            Marble m2 = new Marble() { Name = "AFYON  ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro2", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/AFYON.jpg?resize=300%2C180&ssl=1" }, Country = c2};
+            Marble m2 = new Marble() { Name = "AFYON  ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro2", Url = "www" }, Country = c2};
             m2.Providers = new List<Provider>() { p3, p4 };
 
-            Marble m3 = new Marble() { Name = "AGIA MARINA ", Color = "SEMI-WHITE", Photo = new Photo() { PhotoName = "Marmaro3", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Greel_Marble_Agia_Marina_Clouded_Semi_White.jpg?resize=300%2C180&ssl=1" }, Country = c4};
+            Marble m3 = new Marble() { Name = "AGIA MARINA ", Color = "SEMI-WHITE", Photo = new Photo() { PhotoName = "Marmaro3", Url = "www" }, Country = c4};
             m3.Providers = new List<Provider>() { p5, p6 };
 
-            Marble m4 = new Marble() { Name = "ALMERA  ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro4", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/ALMERA-PINK.jpg?resize=300%2C180&ssl=1" }, Country = c6};
+            Marble m4 = new Marble() { Name = "ALMERA  ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro4", Url = "www" }, Country = c6};
             m4.Providers = new List<Provider>() { p1, p2 };
 
-            Marble m5 = new Marble() { Name = "ARABESCATO", Color = "ALTISSIMO", Photo = new Photo() { PhotoName = "Marmaro5", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/ARABESCATO-ALTISSIMO.jpg?resize=300%2C180&ssl=1" }, Country = c7};
+            Marble m5 = new Marble() { Name = "ARABESCATO", Color = "ALTISSIMO", Photo = new Photo() { PhotoName = "Marmaro5", Url = "www" }, Country = c7};
             m5.Providers = new List<Provider>() { p3, p4 };
 
-            Marble m6 = new Marble() { Name = "AVAFESCATO ", Color = "CERVAIOLE", Photo = new Photo() { PhotoName = "Marmaro6", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/ARABESCATO-CERVAIOLE.jpg?resize=300%2C180&ssl=1" }, Country = c3};
+            Marble m6 = new Marble() { Name = "AVAFESCATO ", Color = "CERVAIOLE", Photo = new Photo() { PhotoName = "Marmaro6", Url = "www" }, Country = c3};
             m6.Providers = new List<Provider>() { p5, p6 };
 
             context.Marbles.AddOrUpdate(x => x.Name, m1, m2, m3, m4, m5, m6);

@@ -1,7 +1,7 @@
-﻿/*.u-section-1 {
-    background-image: url("Content/Pink.jpg");
+﻿.u-section-1 {
+    background-image: url("Content/images/Pink.jpg");
     background-position: 50% 50%;
-}*/
+}
 
     .u-section-1 .u-sheet-1 {
         min-height: 834px;

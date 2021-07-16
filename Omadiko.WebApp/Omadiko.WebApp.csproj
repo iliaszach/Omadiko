@@ -214,7 +214,7 @@
     <Content Include="Content\images\Logo.png" />
     <Content Include="Content\images\Milas-NewYork.jpg" />
     <Content Include="Content\images\Mount-White.jpg" />
-    <Content Include="Content\Pink.jpg" />
+    <Content Include="Content\images\Pink.jpg" />
     <Content Include="Content\images\Statuario-Carrara.jpg" />
     <Content Include="Content\images\Volakas-White-Greek-Marble.jpg" />
     <Content Include="Content\TESTcss\Blog-Template.css" />
@@ -296,9 +296,6 @@
     <Content Include="Views\Shared\_Site1MenuBar.cshtml" />
     <Content Include="Views\Shared\_Site1Footer.cshtml" />
     <Content Include="Views\Dashboard\_ViewStart.cshtml" />
-    <Content Include="Views\Marble\ShowMarbles.cshtml" />
-    <Content Include="Views\Marble\_ViewStart.cshtml" />
-    <Content Include="Views\Provider\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
