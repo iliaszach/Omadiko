@@ -22,10 +22,7 @@ namespace Omadiko.WebApp.Controllers
         public ActionResult Index()
         {
             var marbles = repo.GetAll();
-            return View(marbles);
-
-
-           
+            return View(marbles);           
         }
 
         // GET: Marble/Details/5
@@ -141,11 +138,23 @@ namespace Omadiko.WebApp.Controllers
 
         public ActionResult ShowMarbles()
         {
-
             var marbles = repo.GetAll();
             return View(marbles);
+        }
 
-
+        
+        public ActionResult ShowMarblesDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Marble marble = repo.GetById(id);
+            if (marble == null)
+            {
+                return HttpNotFound();
+            }
+            return View(marble);
         }
 
 
