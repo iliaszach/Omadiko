@@ -296,6 +296,7 @@
     <Content Include="Views\Shared\_Site1MenuBar.cshtml" />
     <Content Include="Views\Shared\_Site1Footer.cshtml" />
     <Content Include="Views\Dashboard\_ViewStart.cshtml" />
+    <Content Include="Views\Marble\ShowMarbles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
