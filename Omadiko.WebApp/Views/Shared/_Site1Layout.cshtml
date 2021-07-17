@@ -16,7 +16,11 @@
 
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
-
+    <style>
+        .u-body{
+            background-color:lightgray;
+        }
+    </style>
 
     <script type="application/ld+json">        {
                 "@@context": "http://schema.org",
@@ -31,15 +35,15 @@
 <body class="u-body">
     @Html.Partial("_Site1MenuBar")
 
-    
 
-    <div>
+
+    <div style="background-image: url('../../Content/images/Pink.jpg'); background-repeat:no-repeat; background-attachment:fixed; background-size:cover;">
         @RenderBody()
     </div>
 
 
     @Html.Partial("_Site1Footer")
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
