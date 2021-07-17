@@ -150,30 +150,11 @@ namespace Omadiko.WebApp.Controllers
 
 
 
-        public ActionResult ShowMarbles2()
-        {
-
-            var marbles = repo.GetAll();
-            return View(marbles);
-
-
-        }
 
 
 
-        public ActionResult MarbleDetails(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Marble marble = repo.GetById(id);
-            if (marble == null)
-            {
-                return HttpNotFound();
-            }
-            return View(marble);
-        }
+
+
 
 
 
