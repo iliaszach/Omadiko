@@ -1,5 +1,4 @@
-﻿<div style="background-color:lightgray;">
-    @model IEnumerable<Omadiko.Entities.Models.Marble>
+﻿@model IEnumerable<Omadiko.Entities.Models.Marble>
 
 @{
     ViewBag.Title = "Index";
@@ -43,7 +42,7 @@
                 @Html.DisplayFor(modelItem => item.Country.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Photo.Url)
+                <img src="@item.Photo.Url" alt="Alternate Text" />
             </td>
             <td>
                 <ul>
@@ -62,4 +61,3 @@
     }
 
 </table>
-</div>
