@@ -300,9 +300,6 @@
     <Content Include="Content\css\socials.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\timeline.css" />
-    <Content Include="Content\imagesMARBLE\1.jpeg" />
-    <Content Include="Content\imagesMARBLE\2.jpeg" />
-    <Content Include="Content\imagesMARBLE\3.jpeg" />
     <Content Include="Content\imagesMARBLE\Adranos.jpg" />
     <Content Include="Content\imagesMARBLE\Arabescato-Corchia.jpg" />
     <Content Include="Content\imagesMARBLE\Arabescato-Orobico-Grigio.jpg" />
@@ -593,6 +590,7 @@
     <Content Include="Content\TESTcss\nicepage.css" />
     <Content Include="Content\TESTcss\Post-Template.css" />
     <Content Include="CREXIS\HomeIndex.html" />
+    <Content Include="CREXIS\portfolio-titles-fw-4-col.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -735,7 +733,6 @@
     <Content Include="Views\Marble\_ViewStart.cshtml" />
     <Content Include="Views\Provider\_ViewStart.cshtml" />
     <Content Include="Views\Marble\ShowMarblesDetails.cshtml" />
-    <Content Include="Views\Shared\_HomeEvolution.cshtml" />
     <Content Include="Scripts\js\.DS_Store" />
     <Content Include="Scripts\js\greensock\.DS_Store" />
     <Content Include="Scripts\js\layer_slider\.DS_Store" />
@@ -743,6 +740,8 @@
     <Content Include="Views\Shared\_CrexisLayout.cshtml" />
     <Content Include="Views\Shared\_CrexisNavBar.cshtml" />
     <Content Include="Views\Shared\_CrexisFooter.cshtml" />
+    <Content Include="Views\Shared\_CrexisPortofolio.cshtml" />
+    <Content Include="Views\Shared\_CrexisNavBarPortfolio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
