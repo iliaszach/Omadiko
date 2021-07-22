@@ -137,6 +137,30 @@ namespace Omadiko.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        //show one provider details
+        public ActionResult Provider_Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Provider provider = repoProvider.GetById(id);
+            if (provider == null)
+            {
+                return HttpNotFound();
+            }
+            return View(provider);
+        }
+
+
+
+
+
+
+
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -146,4 +170,9 @@ namespace Omadiko.WebApp.Controllers
             base.Dispose(disposing);
         }
     }
+
+
+
+
+
 }

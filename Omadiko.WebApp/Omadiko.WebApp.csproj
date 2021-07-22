@@ -743,6 +743,7 @@
     <Content Include="Views\Shared\_CrexisFooter.cshtml" />
     <Content Include="Views\Shared\_CrexisPortofolio.cshtml" />
     <Content Include="Views\Shared\_CrexisNavBarPortfolio.cshtml" />
+    <Content Include="Views\Provider\Provider_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
