@@ -590,6 +590,7 @@
     <Content Include="Content\TESTcss\nicepage.css" />
     <Content Include="Content\TESTcss\Post-Template.css" />
     <Content Include="CREXIS\HomeIndex.html" />
+    <Content Include="CREXIS\pages-shop-single.html" />
     <Content Include="CREXIS\portfolio-titles-fw-4-col.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
