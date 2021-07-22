@@ -2,87 +2,400 @@
 
 @{
     ViewBag.Title = "ShowMarbles";
+    Layout = "~/Views/Shared/_CrexisPortofolio.cshtml";
 }
 
-@*<h2>ShowMarbles</h2>*@
 
+<!-- Portfolio Section -->
+<section id="portfolio" class="container 4-columns-margin single">
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="home__title"><b>ShowMarbles</b> </h1>
+    <!-- Filters -->
+    <div id="portfolio-filters" class="cbp-l-filters-alignCenter normal type2">
+
+        <!-- Filter -->
+        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
+            All
+            <!-- Filter Counter -->
+            <div class="cbp-filter-counter"></div>
         </div>
+        <!-- Filter -->
+        <div data-filter=".graphic" class="cbp-filter-item">
+            Graphic
+            <!-- Filter Counter -->
+            <div class="cbp-filter-counter"></div>
+        </div>
+        <!-- Filter -->
+        <div data-filter=".design" class="cbp-filter-item">
+            Design
+            <!-- Filter Counter -->
+            <div class="cbp-filter-counter"></div>
+        </div>
+        <!-- Filter -->
+        <div data-filter=".photography" class="cbp-filter-item">
+            Photography
+            <!-- Filter Counter -->
+            <div class="cbp-filter-counter"></div>
+        </div>
+        <!-- Filter -->
+        <div data-filter=".web" class="cbp-filter-item">
+            Web
+            <!-- Filter Counter -->
+            <div class="cbp-filter-counter"></div>
+        </div>
+
     </div>
-</div>
-
-@foreach (var marble in Model)
-{
-
-<div class="home__card">
-
-    <a href="/Marble/ShowMarblesDetails/@marble.MarbleId">
-        <img src=@marble.Photo.Url alt="">        
-    </a>
-
-    <div>
-        <h2>@marble.Name</h2>
-        <ul>
-            
-            <li>@marble.Country.Name</li>      @*To afino prow to paron lista giati den ksero akoma ti allo ua valoume.*@
-                                                @*An den valoume kati allo min to exoume lista*@
-        </ul>
-    </div>
-
-</div>
-
-}
+    <!-- End Filters -->
 
 
+    <!-- Portfolio Items -->
+    <div id="portfolio-items" class="fullwidth type2">
+
+        <!-- Item -->
+        <div class="cbp-item item design">
+            <!-- Item Link -->
+            <a href="projects/project_01.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Adranos.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-image"></i></p>
+                        <p>Photography</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name ">
+                                Girl In Snow
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Design
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        <div class="cbp-item item photography web">
+            <!-- Item Link -->
+            <a href="projects/project_02.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Arabescato-Corchia.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-camera-retro"></i></p>
+                        <p>Photography</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name">
+                                Walking on Bridge
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Photography, Web
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        <div class="cbp-item item design photography">
+            <!-- Item Link -->
+            <a href="projects/project_03.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Arabescato-Orobico-Grigio.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-image"></i></p>
+                        <p>Web Design</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name ">
+                                Cheese!
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Design
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        <div class="cbp-item item web">
+            <!-- Item Link -->
+            <a href="projects/project_01.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Blanco-Alejandra.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-camera-retro"></i></p>
+                        <p>Photography</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name ">
+                                Trees in the White
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Web
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        <div class="cbp-item item web photography">
+            <!-- Item Link -->
+            <a href="projects/project_02.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Milas-NewYork.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-camera-retro"></i></p>
+                        <p>Web Design</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name ">
+                                Working in Office
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Web, Photography
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        <div class="cbp-item item photography design graphic">
+            <!-- Item Link -->
+            <a href="projects/project_03.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Mount-White.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-image"></i></p>
+                        <p>Photography</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name ">
+                                Photography
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Photography, Design
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        <div class="cbp-item item photography design web graphic">
+            <!-- Item Link -->
+            <a href="projects/project_01.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Pink.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-camera-retro"></i></p>
+                        <p>Web Design</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name ">
+                                Train Way
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Web, Graphic
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        <!-- Item -->
+        <div class="cbp-item item photography design web graphic">
+            <!-- Item Link -->
+            <a href="projects/project_01.html" class="cbp-caption ex-link">
+
+                <!-- Item Image -->
+                <div class="cbp-caption-defaultWrap">
+                    <!-- Image Src -->
+                    <img src="~/Content/imagesMARBLE/Statuario-Carrara.jpg" alt="Crexis">
+                    
+                    <!-- Item Note -->
+                    <div class="item_icon">
+                        <!-- Icon -->
+                        <p><i class="fa fa-camera-retro"></i></p>
+                        <p>Web Design</p>
+                    </div>
+                    <!-- End Item Note -->
+                </div>
+                <!-- End Item Image -->
+                <!-- Item Details -->
+                <div class="cbp-caption-activeWrap">
+                    <!-- Centered Details -->
+                    <div class="center-details">
+                        <div class="details">
+                            <!-- Item Name -->
+                            <h2 class="name ">
+                                Train Way
+                            </h2>
+                            <!-- Tags -->
+                            <p class="tags">
+                                Web, Graphic
+                            </p>
+                        </div>
+                    </div>
+                    <!-- End Center Details Div -->
+                </div>
+                <!-- End Item Details -->
+            </a>
+            <!-- End Item Link -->
+        </div>
+        <!-- End Item -->
+        <!-- Item -->
+        
+    <!-- End Portfolio Items -->
 
 
 
 
-
-
-
-
-
-
-
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Photo.PhotoName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Photo.PhotoName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.MarbleId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.MarbleId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.MarbleId })
-            </td>
-        </tr>
-    }
-
-    </table>*@
+</section>
+<!-- End Portfolio Section -->
+<!-- Page Note Type 2 -->
+<section class="page-note type-2 dark-note">
+    <!-- Note -->
+    <h4 class="italic t-center normal antialiased">
+        <i class="fa fa-quote-left colored"></i>
+        Technology is part of the fabric of civilization, and you need to jack into it if you haven’t already. Learn the basics and you’ll be a lot happier.
+        <i class="fa fa-quote-right colored"></i>
+    </h4>
+</section>
+<!-- End Page Note Type 2 -->
+<!-- Footer -->
