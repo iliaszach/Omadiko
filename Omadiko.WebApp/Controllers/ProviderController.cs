@@ -154,7 +154,11 @@ namespace Omadiko.WebApp.Controllers
 
 
 
-
+        public ActionResult ShowAllProviders()
+        {
+            var providers = repoProvider.GetAll();
+            return View(providers);
+        }
 
 
 

@@ -628,6 +628,7 @@
     <Content Include="Content\images\team\.DS_Store" />
     <Content Include="Content\images\timeline\.DS_Store" />
     <Content Include="Content\images\timeline\light\.DS_Store" />
+    <Content Include="CREXIS\backupforlogin.text" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -678,8 +679,6 @@
     <Content Include="Scripts\js\themepanel.js" />
     <Content Include="Scripts\js\waypoint.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\TESTJS\jquery.js" />
-    <Content Include="Scripts\TESTJS\nicepage.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -750,6 +749,7 @@
     <Content Include="Views\Shared\_CrexisPortofolio.cshtml" />
     <Content Include="Views\Shared\_CrexisNavBarPortfolio.cshtml" />
     <Content Include="Views\Provider\Provider_Details.cshtml" />
+    <Content Include="Views\Provider\ShowAllProviders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
