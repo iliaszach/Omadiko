@@ -589,8 +589,14 @@
     <Content Include="Content\TESTcss\Home.css" />
     <Content Include="Content\TESTcss\nicepage.css" />
     <Content Include="Content\TESTcss\Post-Template.css" />
+    <Content Include="CREXIS\blog_single_dark.html" />
     <Content Include="CREXIS\HomeIndex.html" />
+    <Content Include="CREXIS\pages-about-3.html" />
+    <Content Include="CREXIS\pages-contact-2.html" />
+    <Content Include="CREXIS\pages-login.html" />
+    <Content Include="CREXIS\pages-services-3.html" />
     <Content Include="CREXIS\pages-shop-single.html" />
+    <Content Include="CREXIS\portfolio-titles-boxed-4-col.html" />
     <Content Include="CREXIS\portfolio-titles-fw-4-col.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
