@@ -27,7 +27,7 @@
 	.dark-note,
 	.dark-btn,
 	.dark-icon{
-		background-color:#161616;
+		/*background-color:#161616;*/
 	}
 
 	.boxes.boxes-type-3 .box-icon a.changeable-icon.dark-icon{
@@ -189,7 +189,7 @@
 	}
 
 	footer.big-footer.dark-footer{
-		background-color:#1e1e1e;
+		/*background-color:#1e1e1e;*/
 	}
 
 	footer.big-footer.dark-footer .footer_bottom{
