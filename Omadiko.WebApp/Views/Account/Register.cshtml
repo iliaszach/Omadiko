@@ -4,6 +4,7 @@
     ViewBag.Title = "Register";
 }
 
+
 <h2>@ViewBag.Title.</h2>
 
 <section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
@@ -15,6 +16,7 @@
             <h1 class="t-center light mb-20">
                 Create a new account
             </h1>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
             <!-- Description -->
             <p class="mb-25 white op-08">
                 Sign Up for our all Services!
@@ -33,7 +35,7 @@
             </div>
             <div>
                 <button type="submit" id="submit" name="submit" class="strip_button white light block fullwidth mt-30 colored-bg pt-18">Register</button>
-            </div>    
+            </div>
 
         }
     </div>
