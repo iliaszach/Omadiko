@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Omadiko.WebApp.Models.LoginViewModel
+
+@{
     Layout = "~/Views/Shared/_CrexisLayout.cshtml";
 }
 
@@ -7,7 +9,14 @@
 <section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
     <div class="login white v-center t-center">
         <!-- Form -->
-        <form action="#" method="post" class="form login_type t-center pl-10 pr-10 mini-text">
+
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form login_type t-center pl-10 pr-10 mini-text", role = "form" }))
+        {
+            <div>
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+
             <!-- Header -->
             <h1 class="t-center light mb-20">
                 Welcome
@@ -17,21 +26,44 @@
                 Login for our all Services!
             </p>
             <!-- Username -->
-            <input type="text" name="username" id="username" class="strip_form white light block fullwidth op-07" placeholder="Username">
-            <!-- Password -->
-            <input type="password" name="password" id="password" class="strip_form white light block fullwidth mt-15 op-07" placeholder="Password">
+            <div>
+                @Html.LabelFor(m => m.Email, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Username" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Email, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                </div>
+            </div>
             <!-- Submit -->
-            <button type="submit" id="submit" name="submit" class="strip_button white light block fullwidth mt-30 colored-bg pt-18">SEND</button>
-            <!-- Signup Text -->
+            <div class="form-group">
+                <input type="submit" value="Log in" class="strip_button white light block fullwidth mt-30 colored-bg pt-18" />
+            </div>
+            @* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
+
+             <!-- Signup Text -->
             <h6 class="mt-23 gray-light">
                 DON'T HAVE AN ACCOUNT?
             </h6>
             <!-- Signup Button -->
-            <a href="#" class="white">
-                SIGN UP
+
+            <a href="/Account/Register" class="white">
+                REGISTER
                 <i class="fa fa-angle-double-right"></i>
             </a>
-        </form>
+        }
         <!-- End Form -->
     </div>
 </section>
