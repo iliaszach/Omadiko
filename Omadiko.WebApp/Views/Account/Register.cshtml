@@ -12,7 +12,7 @@
         <!-- Form -->
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form login_type t-center pl-10 pr-10 mini-text", role = "form" }))
         {
-            @Html.AntiForgeryToken()<!-- Header -->
+            @Html.AntiForgeryToken()
             <h1 class="t-center light mb-20">
                 Create a new account
             </h1>
