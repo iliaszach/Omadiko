@@ -8,6 +8,9 @@ namespace Omadiko.WebApp
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+
+
             bundles.Add(new StyleBundle("~/Content/CrexisCss").Include(
                 "~/Content/css/reset.css",
                 "~/Content/css/animate.min.css",
@@ -22,6 +25,8 @@ namespace Omadiko.WebApp
                 "~/Content/css/owl.carousel.css",
                 "~/Content/css/settings-ie8.css",
                 "~/Content/css/settings.css",
+                "~/Content/css/player/YTPlayer.css",
+
                 "~/Content/css/style.css",
                 "~/Content/css/backgrounds.css",
                 "~/Content/css/responsive.css"
