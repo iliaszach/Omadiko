@@ -3,8 +3,6 @@
 @{
     Layout = "~/Views/Shared/_CrexisLayout.cshtml";
 }
-
-
 <!-- Login -->
 <section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
     <div class="login white v-center t-center">
@@ -69,7 +67,8 @@
 
 </section>
 <!-- End Shop -->
-
+<!--Social Login-->
 <div id="socialLoginForm">
     @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
 </div>
+<!--End Social Login-->
