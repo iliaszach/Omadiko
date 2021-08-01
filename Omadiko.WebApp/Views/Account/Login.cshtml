@@ -1,5 +1,5 @@
-﻿@model Omadiko.WebApp.Models.LoginViewModel
-
+﻿@using Omadiko.WebApp.Models
+@model LoginViewModel
 @{
     Layout = "~/Views/Shared/_CrexisLayout.cshtml";
 }
@@ -49,11 +49,11 @@
                 <input type="submit" value="Log in" class="strip_button white light block fullwidth mt-30 colored-bg pt-18" />
             </div>
             @* Enable this once you have account confirmation enabled for password reset functionality
-            <p>
-                @Html.ActionLink("Forgot your password?", "ForgotPassword")
-            </p>*@
+                <p>
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                </p>*@
 
-             <!-- Signup Text -->
+            <!-- Signup Text -->
             <h6 class="mt-23 gray-light">
                 DON'T HAVE AN ACCOUNT?
             </h6>
@@ -66,5 +66,10 @@
         }
         <!-- End Form -->
     </div>
+
 </section>
 <!-- End Shop -->
+
+<div id="socialLoginForm">
+    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+</div>

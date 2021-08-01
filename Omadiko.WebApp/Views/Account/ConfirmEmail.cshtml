@@ -1,10 +1,14 @@
 ﻿@{
     ViewBag.Title = "Confirm Email";
+    Layout = "~/Views/Shared/_CrexisLayout.cshtml";
 }
 
 <h2>@ViewBag.Title.</h2>
-<div>
-    <p>
-        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-    </p>
-</div>
+
+<section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
+    <div class="login white v-center t-center">
+        <p>
+            Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </p>
+    </div>
+</section>
