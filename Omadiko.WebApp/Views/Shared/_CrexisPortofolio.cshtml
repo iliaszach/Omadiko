@@ -8,25 +8,9 @@
     <!--Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="~/Content/css/reset.css" />
-    <link rel="stylesheet" href="~/Content/css/animate.min.css" />
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="~/Content/css/socials.css" />
-    <link rel="stylesheet" href="~/Content/css/magnific-popup.css" />
-    <link rel="stylesheet" href="~/Content/css/flexslider.css" />
-    <link rel="stylesheet" href="~/Content/css/simpletextrotator.css" />
-    <link rel="stylesheet" href="~/Content/css/cubeportfolio.min.css" />
-    <link rel="stylesheet" href="~/Content/css/timeline.css" />
-    <link rel="stylesheet" href="~/Content/css/owl.carousel.css" />
-    <link rel="stylesheet" href="~/Content/css/settings-ie8.css" />
-    <link rel="stylesheet" href="~/Content/css/settings.css" />
-    <!-- Page Styles -->
-    <link rel="stylesheet" href="~/Content/css/style.css" />
-    <link rel="stylesheet" href="~/Content/css/backgrounds.css" />
-    <link rel="stylesheet" href="~/Content/css/responsive.css" />
-    <!-- End Page Styles -->
+    <!-- CSS Files + Page Styles -->
+    @Styles.Render("~/Content/CrexisCss")
+    
     <!-- Page Layout Color, night or dark -->
     <link id="changeable_tone" rel="stylesheet" href="~/Content/css/page_tones/dark.css" />
     <!-- End Page Layout Color -->
@@ -44,7 +28,6 @@
         body {
             background-color: darkgray;
         }
-
     </style>
 
 </head>
@@ -57,45 +40,15 @@
     @RenderBody();
 
 
+
+
+    <!--FOOTER-->
     @Html.Partial("_CrexisFooter")
-    <!-- End Footer -->
+    <!--END FOOTER-->
+
     <!-- JS Files -->
-
-    <script type="text/javascript" src="~/Scripts/js/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.appear.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/waypoint.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/modernizr-latest.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/SmoothScroll.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.superslides.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.flexslider.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.simple-text-rotator.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.cubeportfolio.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.parallax-1.1.3.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/skrollr.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/jquery.mb.YTPlayer.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/google-map.js"></script>
-    <!-- Revolution Slider -->
-    <script type="text/javascript" src="~/Scripts/js/rev_slider/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/rev_slider/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/rev_slider/rev_plugins.js"></script>
-    
-    <!-- Contact Form -->
-
-    <script type="text/javascript" src="~/Scripts/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/js/contact-form.js"></script>
-    <!-- Page Plugins -->
-    <script type="text/javascript" src="~/Scripts/js/plugins.js"></script>
-    <!-- Portfolio Plugins -->
-    <script type="text/javascript" src="~/Scripts/js/portfolio.js"></script>
-    <!-- Theme Panel -->
-    <script type="text/javascript" src="~/Scripts/theme_panel/themepanel.js"></script>
-    <!-- End JS Files -->
-
+    @Scripts.Render("~/bundles/lib")
+    <!--END JS Files -->
 </body>
 <!-- Body End -->
 </html>
