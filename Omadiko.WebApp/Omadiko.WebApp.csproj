@@ -748,9 +748,6 @@
     <Content Include="Views\Provider\DashboardProviderView.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_LeftMenu.cshtml" />
-    <Content Include="Views\Shared\_Site1Layout.cshtml" />
-    <Content Include="Views\Shared\_Site1MenuBar.cshtml" />
-    <Content Include="Views\Shared\_Site1Footer.cshtml" />
     <Content Include="Views\Dashboard\_ViewStart.cshtml" />
     <Content Include="Views\Marble\ShowMarbles.cshtml" />
     <Content Include="Views\Marble\_ViewStart.cshtml" />
@@ -767,6 +764,8 @@
     <Content Include="Views\Shared\_CrexisNavBarPortfolio.cshtml" />
     <Content Include="Views\Provider\Provider_Details.cshtml" />
     <Content Include="Views\Provider\ShowAllProviders.cshtml" />
+    <Content Include="Views\Shared\HomePage\HomeSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\FeaturesSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
