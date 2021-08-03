@@ -766,6 +766,7 @@
     <Content Include="Views\Provider\ShowAllProviders.cshtml" />
     <Content Include="Views\Shared\HomePage\HomeSection.cshtml" />
     <Content Include="Views\Shared\HomePage\FeaturesSection.cshtml" />
+    <Content Include="Views\Shared\_CrexisLoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

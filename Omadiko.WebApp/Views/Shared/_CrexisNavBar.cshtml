@@ -1,7 +1,4 @@
-﻿
-
-
-<nav id="navigation" class="dark-nav">
+﻿<nav id="navigation" class="dark-nav">
     <!-- Navigation -->
     <div class="navigation first-nav double-nav raleway">
         <!-- Navigation Inner -->
@@ -10,7 +7,7 @@
             <!-- Logo Area -->
             <div class="logo f-left">
                 <!-- Logo Link -->
-                <a href="#home" class="logo-link scroll">      
+                <a href="#home" class="logo-link scroll">
                     <img style="border-radius:30px;" src="~/Content/imagesMARBLE/Logo.png" data-second-logo="images/logo/logo_condensed_dark.png" alt="crexis_logo" />
                 </a>
             </div>
@@ -26,41 +23,21 @@
 
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/">Home</a>
-
                     </li>
 
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/marble/showmarbles">Marble</a>
-                        <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-left clearfix">
-                            <li><a href="pages-about-1.html" class="ex-link">About Us 1</a></li>
-                            <li><a href="pages-about-2.html" class="ex-link">About Us 2</a></li>
-                        </ul>
-                        <!-- End DropDown -->
                     </li>
 
                     <li class="dropdown-toggle nav-toggle">
-                        <a href="/provider/ShowAllProviders" class="ex-link">Providers</a>
-
+                        <a href="/provider/ShowAllProviders">Providers</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/Home/About" class="ex-link">About</a>
-
                     </li>
 
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/Home/Contact">Contact</a>
-                    </li>
-                    <li class="dropdown-toggle nav-toggle">
-                        <a href="pages-shop-4-col.html" class="ex-link">Shop</a>
-                        <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-left clearfix">
-                            <li><a href="pages-shop-4-col.html" class="ex-link">4 Columns</a></li>
-                            <li><a href="pages-shop-3-col.html" class="ex-link">3 Columns</a></li>
-                            <li><a href="pages-shop-2-col.html" class="ex-link">2 Columns</a></li>
-                            <li><a href="pages-shop-single.html" class="ex-link">Single Product</a></li>
-                        </ul>
-                        <!-- End DropDown Menu -->
                     </li>
                     <li class="dropdown-toggle nav-toggle">
                         <a href="#" class="tahoma"><i class="fa fa-search"></i></a>
@@ -76,26 +53,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown-toggle nav-toggle">
-                        <a href="#" class="tahoma"><i class="fa fa-shopping-cart"></i> (0)</a>
-                        <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-right clearfix">
-                            <li class="ml-20 mt-15 mr-20 mb-15 raleway mini-text gray">No Product In The Cart</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-toggle nav-toggle">
-                        <a href="#" class="tahoma">Eng<i class="fa fa-angle-down"></i></a>
-                        <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-right clearfix">
-                            <li><a href="#" class="scroll">English</a></li>
-                            <li><a href="#" class="scroll">Germany</a></li>
-                            <li><a href="#" class="scroll">Spanish</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="/Account/Register" id="registerLink">Register</a></li>
-                    <li><a href="/Account/Login" id="loginLink">Log in</a></li>    
-                </ul>
+                    <!--LOG-IN START-->
+                    @Html.Partial("_CrexisLoginPartial")
+                    <!--LOG-IN END-->
+                </ul>                
                 <!-- End Nav List -->
             </div>
             <!-- End Navigation Links -->
