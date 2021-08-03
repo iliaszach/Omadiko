@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Omadiko.Entities.Models
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,6 +29,21 @@
                     <li>@Html.ActionLink("Providers", "Index", "Provider")</li>
                     <li>@Html.ActionLink("Marble", "Index", "Marble")</li>
                     <li>@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Liked Marble<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                @if (Session["like"] != null)
+                                {
+                                    foreach (Item item in (List<Item>)Session["like"])
+                                    {
+                                        <li><a href="#">@item.Marble.Name</a></li>
+                                    }
+                                }
+                                <li class="divider"></li>                                
+                            </ul>
+                        </li>
+                    </ul>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

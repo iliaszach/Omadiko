@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="CustomeRepositories\HttpStatusCodeResult.cs" />
     <Compile Include="InterfaceCustomRepositories\ILocationRepository.cs" />
+    <Compile Include="InterfaceCustomRepositories\IMarbleRepository.cs" />
     <Compile Include="InterfaceCustomRepositories\IProviderRepository.cs" />
     <Compile Include="DataAccess\IUnitOfWork.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />

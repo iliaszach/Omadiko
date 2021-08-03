@@ -1,5 +1,6 @@
 ﻿using Omadiko.Database;
 using Omadiko.Entities.Models;
+using Omadiko.RepositoryServices.InterfaceCustomRepositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,33 +10,31 @@ using System.Threading.Tasks;
 
 namespace Omadiko.RepositoryServices
 {
-    public class MarbleRepository
+    public class MarbleRepository:Repository<Marble>, IMarbleRepository
     {
-        ApplicationDbContext db = new ApplicationDbContext();
-
-        public List<Marble> GetAll()
+        public MarbleRepository(ApplicationDbContext context):base(context)
         {
-            var marbles = db.Marbles.Include(m => m.Photo).Include(c=>c.Country);
-            return marbles.ToList();
 
         }
-
-        public Marble GetById(int? id)
+        public ApplicationDbContext dbContext
         {
-            return db.Marbles.Find(id);
-        }
-
+            get
+            {
+                return Context as ApplicationDbContext;
+            }
+        }       
+        
         public void Create(Marble marble, IEnumerable<int> providers, int? CountrySelected, int? PhotoSelected)
         {
-            db.Marbles.Attach(marble);
+            dbContext.Marbles.Attach(marble);
 
-            db.Entry(marble).Collection("Providers").Load();
+            dbContext.Entry(marble).Collection("Providers").Load();
             marble.Providers.Clear();
             if (!(providers is null))
             {
                 foreach (var id in providers)
                 {
-                    var provider = db.Providers.Find(id);
+                    var provider = dbContext.Providers.Find(id);
                     if (!(provider is null))
                     {
                         marble.Providers.Add(provider);
@@ -43,117 +42,94 @@ namespace Omadiko.RepositoryServices
                 }
             }
 
-            db.Entry(marble).State = EntityState.Added;
+            dbContext.Entry(marble).State = EntityState.Added;
 
-            var photo = db.Photos.Find(PhotoSelected);
+            var photo = dbContext.Photos.Find(PhotoSelected);
             if (!(photo is null))
             {
-                db.Entry(photo).State = EntityState.Added;
+                dbContext.Entry(photo).State = EntityState.Added;
                 marble.Photo = photo;
             }
 
-            var country = db.Countries.Find(CountrySelected);
+            var country = dbContext.Countries.Find(CountrySelected);
             if (!(country is null))
             {
-                db.Entry(country).State = EntityState.Added;
+                dbContext.Entry(country).State = EntityState.Added;
                 marble.Country = country;
             }
-            db.SaveChanges();
+            dbContext.SaveChanges();
         }
 
 
-
-        //elpizw na doulepsei otan ftiaxtoun oi Controllers
         public void Update(Marble marble, IEnumerable<int> providers, int? CountrySelected, int? PhotoSelected)
         {
-            db.Marbles.Attach(marble);
+            dbContext.Marbles.Attach(marble);
 
-            db.Entry(marble).Collection("Providers").Load();
+            dbContext.Entry(marble).Collection("Providers").Load();
             marble.Providers.Clear();
             if (!(providers is null))
             {
                 foreach (var id in providers)
                 {
-                    var provider = db.Providers.Find(id);
+                    var provider = dbContext.Providers.Find(id);
                     if (!(provider is null))
                     {
                         marble.Providers.Add(provider);
                     }
                 }
             }
-
-            var photo = db.Photos.Find(PhotoSelected);
+            dbContext.Entry(marble).Collection("Photos").Load();
+            var photo = dbContext.Photos.Find(PhotoSelected);
             if (!(photo is null))
             {
-                db.Entry(photo).State = EntityState.Modified;
+                dbContext.Entry(photo).State = EntityState.Modified;
                 marble.Photo = photo;
             }
 
-            //var country = db.Countries.Find(CountrySelected);
+            //var country = dbContext.Countries.Find(CountrySelected);
             //if (!(country is null))
             //{
-            //    db.Entry(country).State = EntityState.Modified;
+            //    dbContext.Entry(country).State = EntityState.Modified;
             //    marble.Country = country;
             //}
-            db.Entry(marble).State = EntityState.Modified;
-            db.SaveChanges();
+            dbContext.Entry(marble).State = EntityState.Modified;
+            dbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            Marble marble = db.Marbles.Find(id);
-            Photo photo = db.Photos.Find(marble.Photo.PhotoId);
-            db.Marbles.Remove(marble);
-            db.Photos.Remove(photo);
-            db.SaveChanges();
+            Marble marble = dbContext.Marbles.Find(id);
+            Photo photo = dbContext.Photos.Find(marble.Photo.PhotoId);
+            dbContext.Marbles.Remove(marble);
+            dbContext.Photos.Remove(photo);
+            dbContext.SaveChanges();
         }
 
-        public List<Marble> GetMarbleByColor(string color)
+        public IEnumerable<Marble> GetMarbleByColor(string color)
         {
-            return (List<Marble>)db.Marbles.ToList().Where(x => x.Color == color);
+            return (List<Marble>)dbContext.Marbles.ToList().Where(x => x.Color == color);
         }
 
-        public List<Marble> GetMarbleByProvider(Provider provider)
+        public IEnumerable<Marble> GetMarbleByProvider(Provider provider)
         {
-            return (List<Marble>)db.Marbles.ToList().Where(c => c.Providers.Contains(provider)).ToList();
+            return (List<Marble>)dbContext.Marbles.ToList().Where(c => c.Providers.Contains(provider)).ToList();
         }
 
 
-        public List<Marble> GetMarbleByProviderId(int id)
+        public IEnumerable<Marble> GetMarbleByProviderId(int id)
         {
-            return (List<Marble>)db.Marbles.ToList().Where(c => c.Providers.Any(i => i.ProviderId == id)).ToList();
+            return (List<Marble>)dbContext.Marbles.ToList().Where(c => c.Providers.Any(i => i.ProviderId == id)).ToList();
         }
 
-        public List<Marble> GetMarbleByCountry(Location location)
+        public IEnumerable<Marble> GetMarbleByCountry(Location location)
         {
-            return (List<Marble>)db.Marbles.ToList();
+            return (List<Marble>)dbContext.Marbles.ToList();
         }
 
-        public List<Marble> GetMarbleByLocationId(int id)
+        public IEnumerable<Marble> GetMarbleByLocationId(int id)
         {
-            return (List<Marble>)db.Marbles.ToList();
-        }
-
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    db.Dispose();
-                }
-            }
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
+            return (List<Marble>)dbContext.Marbles.ToList();
+        }     
 
 
     }

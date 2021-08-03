@@ -9,19 +9,48 @@ using System.Web.Mvc;
 using Omadiko.Database;
 using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
+using Omadiko.RepositoryServices.DataAccess;
 using Omadiko.WebApp.ViewModels;
 
 namespace Omadiko.WebApp.Controllers
 {
     public class MarbleController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        private MarbleRepository repo = new MarbleRepository();
+        private UnitOfWork unitOfWork = new UnitOfWork(new ApplicationDbContext());
+
+
+        //LIKE
+        public ActionResult LikeAddToList(int marbleId)
+        {
+            if (Session["like"] == null)
+            {
+                List<Item> MList = new List<Item>();
+                var marble = unitOfWork.Marbles.Get(marbleId);
+                MList.Add(new Item()
+                {
+                    Marble = marble
+                });
+                Session["like"] = MList;
+            }
+            else
+            {
+                List<Item> MList = (List<Item>)Session["like"];
+                var marble = unitOfWork.Marbles.Get(marbleId);
+                MList.Add(new Item()
+                {
+                    Marble = marble,
+                    Quantity = 1
+                });
+                Session["like"] = MList;
+            }
+            
+            return Redirect("Index");
+        }
 
         // GET: Marble
         public ActionResult Index()
         {
-            var marbles = repo.GetAll();
+            var marbles = unitOfWork.Marbles.GetAll();
             return View(marbles);           
         }
 
@@ -32,7 +61,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
@@ -56,8 +85,8 @@ namespace Omadiko.WebApp.Controllers
         public ActionResult Create([Bind(Include = "MarbleId,Name,Color")] Marble marble, IEnumerable<int> providers,int? CountrySelected, int? PhotoSelected)
         {
             if (ModelState.IsValid)
-            {   
-                repo.Create(marble, providers, CountrySelected, PhotoSelected);
+            {
+                unitOfWork.Marbles.Create(marble, providers, CountrySelected, PhotoSelected);
                 return RedirectToAction("Index");
             }
             MarbleCreateViewModel vm = new MarbleCreateViewModel();
@@ -74,7 +103,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
@@ -98,7 +127,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 // db.Entry(marble).State = EntityState.Modified;
                 // db.SaveChanges();
-                repo.Update(marble, providers, CountrySelected, PhotoSelected);
+                unitOfWork.Marbles.Update(marble, providers, CountrySelected, PhotoSelected);
                 return RedirectToAction("Index");
             }
             MarbleEditViewModel vm = new MarbleEditViewModel(marble);
@@ -112,7 +141,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
@@ -128,17 +157,13 @@ namespace Omadiko.WebApp.Controllers
             // Marble marble = db.Marbles.Find(id);
             // db.Marbles.Remove(marble);
             // db.SaveChanges();
-            repo.Delete(id);
+            unitOfWork.Marbles.Delete(id);
             return RedirectToAction("Index");
         }
 
-
-
-
-
         public ActionResult ShowMarbles()
         {
-            var marbles = repo.GetAll();
+            var marbles = unitOfWork.Marbles.GetAll();
             return View(marbles);
         }
 
@@ -149,30 +174,18 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
             }
             return View(marble);
         }
-
-
-
-
-
-
-
-
-
-
-
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                unitOfWork.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -24,11 +24,14 @@ namespace Omadiko.RepositoryServices.DataAccess
             _context = context;
             Providers = new ProviderRepository(_context);
             Locations = new LocationRepository(_context);
+            Marbles = new MarbleRepository(_context);
         }
 
         public IProviderRepository Providers { get; private set; }
 
         public ILocationRepository Locations { get; private set; }
+
+        public IMarbleRepository Marbles { get; private set; }
 
         public void Dispose()
         {

@@ -13,6 +13,7 @@ namespace Omadiko.RepositoryServices.DataAccess
     {
         IProviderRepository Providers { get; }
         ILocationRepository Locations { get; }
+        IMarbleRepository Marbles { get;  }
         void Save();
     }
 }
