@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Omadiko.Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,10 @@ namespace Omadiko.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-
+        public ApplicationUser()
+        {
+            Marbles = new HashSet<Marble>();
+        }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -19,5 +23,7 @@ namespace Omadiko.Entities
             // Add custom user claims here
             return userIdentity;
         }
+        public virtual ICollection<Marble> Marbles { get; set; }
+
     }
 }

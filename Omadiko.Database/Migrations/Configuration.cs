@@ -121,18 +121,12 @@ namespace Omadiko.Database.Migrations
             #endregion
 
 
-
-
-
             //Roles
             if (!context.Roles.Any(x => x.Name == "Admin"))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
                 var role = new IdentityRole { Name = "Admin" };
-
-
-
                 manager.Create(role);
             }
 

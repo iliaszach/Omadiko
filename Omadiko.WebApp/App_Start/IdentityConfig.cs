@@ -42,6 +42,26 @@ namespace Omadiko.WebApp
         {
         }
 
+        public async Task AttachUserList(string userid, int id)
+        {
+            using (ApplicationDbContext db = ApplicationDbContext.Create())
+            {
+                var marble = await db.Marbles.FindAsync(id);
+                if (marble == null) return;
+                var user = await db.Users.FirstAsync(u => u.Id == userid);
+                if (userid != user.Id) return;
+
+                db.Users.Attach(user);
+                db.Entry(user).Collection("Marbles").Load();
+
+                user.Marbles.Add(marble);
+                db.Entry(user).State = EntityState.Modified;
+
+                await db.SaveChangesAsync();
+            }
+        }
+
+
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
