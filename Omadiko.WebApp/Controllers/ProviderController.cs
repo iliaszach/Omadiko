@@ -10,20 +10,18 @@ using Omadiko.Database;
 using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
 using Omadiko.WebApp.ViewModels;
+using Omadiko.RepositoryServices.DataAccess;
 
 namespace Omadiko.WebApp.Controllers
 {
     public class ProviderController : Controller
-    {  
-        //private ApplicationDbContext db = new ApplicationDbContext();
-        private ProviderRepository repoProvider = new ProviderRepository();
-        private LocationRepository repoLocation = new LocationRepository();
-
+    {   
+        private UnitOfWork unitOfWork = new UnitOfWork(new ApplicationDbContext());
 
         // GET: Provider
         public ActionResult Index()
         {            
-            var providers = repoProvider.GetAll();
+            var providers = unitOfWork.Providers.GetAll();
             return View(providers);
         }
 
@@ -34,7 +32,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = repoProvider.GetById(id);
+            Provider provider = unitOfWork.Providers.GetById(id);
             if (provider == null)
             {
                 return HttpNotFound();
@@ -58,7 +56,7 @@ namespace Omadiko.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                repoProvider.Create(provider, location, Marbles, BusinessTypes);                
+                unitOfWork.Providers.Create(provider, location, Marbles, BusinessTypes);                
                 return RedirectToAction("Index");
             }
 
@@ -75,13 +73,13 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = repoProvider.GetById(id);
+            Provider provider = unitOfWork.Providers.GetById(id);
             if (provider == null)
             {
                 return HttpNotFound();
             }
 
-            var location = repoLocation.GetWhereProvider(provider, id);
+            var location = unitOfWork.Locations.GetWhereProvider(provider, id);
             
             if (location == null)
             {
@@ -103,7 +101,7 @@ namespace Omadiko.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                repoProvider.Update(provider, location, SelectedMarble, SelectedBusinessTypes);             
+                unitOfWork.Providers.Update(provider, location, SelectedMarble, SelectedBusinessTypes);             
                 return RedirectToAction("Index");
             }
             ProviderEditViewModel vm = new ProviderEditViewModel(provider, location);
@@ -119,8 +117,8 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = repoProvider.GetById(id);
-            var location = repoLocation.GetWhereProvider(provider, id);
+            Provider provider = unitOfWork.Providers.GetById(id);
+            var location = unitOfWork.Locations.GetWhereProvider(provider, id);
             if (provider == null)
             {
                 return HttpNotFound();
@@ -132,8 +130,8 @@ namespace Omadiko.WebApp.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
-            repoProvider.Delete(id);
+        {           
+            unitOfWork.Providers.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -144,7 +142,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Provider provider = repoProvider.GetById(id);
+            Provider provider = unitOfWork.Providers.GetById(id);
             if (provider == null)
             {
                 return HttpNotFound();
@@ -156,7 +154,7 @@ namespace Omadiko.WebApp.Controllers
 
         public ActionResult ShowAllProviders()
         {
-            var providers = repoProvider.GetAll();
+            var providers = unitOfWork.Providers.GetAll();
             return View(providers);
         }
 
@@ -169,7 +167,7 @@ namespace Omadiko.WebApp.Controllers
         {
             if (disposing)
             {
-                repoProvider.Dispose();
+                unitOfWork.Dispose();
             }
             base.Dispose(disposing);
         }
