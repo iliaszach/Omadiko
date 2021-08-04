@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -13,6 +14,7 @@ using Microsoft.Owin.Security;
 using Omadiko.Database;
 using Omadiko.Entities;
 using Omadiko.WebApp.Models;
+
 
 namespace Omadiko.WebApp
 {
@@ -42,6 +44,19 @@ namespace Omadiko.WebApp
         {
         }
 
+
+        public async Task<ApplicationUser> GetEmail(string userid)
+        {
+
+            using (ApplicationDbContext db = ApplicationDbContext.Create())
+            {
+
+                var user = await db.Users.FirstAsync(u => u.Id == userid);
+                string email = user.Email;
+
+                return user;
+            }
+        }
         public async Task AttachUserList(string userid, int id)
         {
             using (ApplicationDbContext db = ApplicationDbContext.Create())
@@ -60,7 +75,6 @@ namespace Omadiko.WebApp
                 await db.SaveChangesAsync();
             }
         }
-
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {

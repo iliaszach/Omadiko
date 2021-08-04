@@ -2,16 +2,22 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using Omadiko.Entities;
+using Omadiko.Entities.Models;
 
 namespace Omadiko.WebApp.Models
 {
+    
     public class IndexViewModel
     {
-        public bool HasPassword { get; set; }
-        public IList<UserLoginInfo> Logins { get; set; }
+        public bool HasPassword { get; set; }        
         public string PhoneNumber { get; set; }
-        public bool TwoFactor { get; set; }
-        public bool BrowserRemembered { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+
+
+        public ICollection<Marble> Marbles { get; set; }
+
     }
 
     public class ManageLoginsViewModel

@@ -40,6 +40,8 @@ namespace Omadiko.WebApp.Controllers
                 _userManager = value;
             }
         }
+      
+
         //LIKE
         public async Task<ActionResult> LikeAddToList(int marbleId, string userId)
         {

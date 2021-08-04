@@ -464,6 +464,7 @@
     <Content Include="Content\images\logo\logo_dark_red_big.png" />
     <Content Include="Content\images\logo\logo_white_red.png" />
     <Content Include="Content\images\logo\logo_white_red_big.png" />
+    <Content Include="Content\images\logo\userphoto.png" />
     <Content Include="Content\images\macs.png" />
     <Content Include="Content\images\macs1.png" />
     <Content Include="Content\images\marker.png" />
@@ -608,6 +609,7 @@
     <Content Include="CREXIS\blog_single_dark.html" />
     <Content Include="CREXIS\elements-icons.html" />
     <Content Include="CREXIS\HomeIndex.html" />
+    <Content Include="CREXIS\myprofile_ChangePass_backupa.txt" />
     <Content Include="CREXIS\pages-about-3.html" />
     <Content Include="CREXIS\pages-contact-2.html" />
     <Content Include="CREXIS\pages-login.html" />
@@ -767,6 +769,7 @@
     <Content Include="Views\Shared\HomePage\HomeSection.cshtml" />
     <Content Include="Views\Shared\HomePage\FeaturesSection.cshtml" />
     <Content Include="Views\Shared\_CrexisLoginPartial.cshtml" />
+    <Content Include="Views\Account\ShowProfileUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
