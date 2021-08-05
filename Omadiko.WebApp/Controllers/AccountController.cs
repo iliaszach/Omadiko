@@ -55,13 +55,7 @@ namespace Omadiko.WebApp.Controllers
         }
 
 
-        //Profile User        
-        //public async Task<ActionResult> ShowUser(string userId)
-        //{
-        //    var user = await UserManager.GerProfileAsync(userId);
-        //    return View(user);
-        //}
-
+  
 
         // GET: /Account/Login
         [AllowAnonymous]
@@ -167,7 +161,12 @@ namespace Omadiko.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser 
+                {                     
+                    UserName = model.UserName, 
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

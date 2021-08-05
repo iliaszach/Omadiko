@@ -16,6 +16,8 @@ namespace Omadiko.Entities
         {
             Marbles = new HashSet<Marble>();
         }
+        
+        public string PhotoUrl { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

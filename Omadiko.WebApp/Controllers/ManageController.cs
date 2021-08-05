@@ -66,19 +66,28 @@ namespace Omadiko.WebApp.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
-            
+            //User.Identity.GetUserId() returns a userId, which I used to the method UserManager.FindByIdAsync
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             
             var model = new IndexViewModel
             {
+                Username = user.UserName,
                 HasPassword = HasPassword(),
                 PhoneNumber = user.PhoneNumber,               
-                Email = user.UserName,                
+                Email = user.UserName,   
+                //PhotoUrl = user.
                 Marbles =  user.Marbles
             };
             return View(model);
-
         }
+        public async Task<ActionResult> UpLoadPhoto(string photoUrl)
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            user.PhotoUrl = photoUrl;
+            return RedirectToAction("Index");
+        }
+
+
 
         //
         // POST: /Manage/RemoveLogin

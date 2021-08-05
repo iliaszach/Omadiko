@@ -22,8 +22,16 @@
                 Sign Up for our all Services!
             </p>
             <div>
+                @Html.LabelFor(m => m.UserName, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Username" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.PhoneNumber, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Phone Number" })
+            </div>
+            <div>
                 @Html.LabelFor(m => m.Email, new { @class = "hidden" })
-                @Html.TextBoxFor(m => m.Email, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Username" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Email" })
             </div>
             <div>
                 @Html.LabelFor(m => m.Password, new { @class = "hidden" })

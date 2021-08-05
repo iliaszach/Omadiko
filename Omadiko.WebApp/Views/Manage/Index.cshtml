@@ -4,58 +4,84 @@
     ViewBag.Title = "Manage";
 }
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<!--Upload photo section Pending...-->
+<section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
+    <div class="login white v-center t-center">
+        <div class="t-center light mb-20 text-white bg-dark">
+            <img src="~/Content/images/logo/userphoto.png" alt="Image Not Found" style="width:20%">
+            <h1>@User.Identity.Name</h1>
+            <div class="t-center light mb-20">
+                @Html.DisplayNameFor(x => x.Username):
+                @Html.DisplayFor(x => x.Username)
+            </div>
+            <div class="t-center light mb-20">
+                @Html.DisplayNameFor(x => x.Email):
+                @Html.DisplayFor(x => x.Email)
+            </div>
+            <div class="t-center light mb-20">
+                @Html.DisplayNameFor(x => x.PhoneNumber):
+                @Html.DisplayFor(x => x.PhoneNumber)
+            </div>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div class="t-center light mb-20">
+            <h2>Gallery</h2>
+            
 
-<h1 class="t-center light mb-20">
-    Profile of @User.Identity.Name
-</h1>
+        </div>
 
-<img src="~/Content/images/logo/userphoto.png" />
-
-<div class="t-center light mb-20">
-    Username: @User.Identity.Name
-    <div class="t-center light mb-20">
-        Email: @User.Identity.Name
     </div>
-    <div class="t-center light mb-20">
-        @Html.DisplayNameFor(x => x.PhoneNumber):
-        @Html.DisplayFor(x => x.PhoneNumber)
-    </div>
-
-    <h2>Show Liked Marble</h2>
-    <ul>
+</section>
+<div class="container">
+    <div class="row">
+        @*Filtering*@
+        @*<div align="center">
+            <button class="btn btn-default filter-button" data-filter="all">All</button>
+            <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
+            <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
+            <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
+        </div>
+        <br />*@
         @foreach (var marble in Model.Marbles)
         {
-            <li><img src="@marble.Photo.Url" alt="Alternate Text" /></li>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="@marble.Photo.Url" class="img-responsive">
+            </div>
+
         }
-    </ul>
-</div>
-    
-
-
-
-
-
-
-    <p class="text-success">@ViewBag.StatusMessage</p>
-
-    <div class="login white v-center t-center">
-        <h4>Change your account settings</h4>
-
-        <dl class="t-center light mb-20">
-            <dt>Password:</dt>
-            <dd>
-                [
-                @if (Model.HasPassword)
-                {
-                    @Html.ActionLink("Change your password", "ChangePassword")
-                }
-                else
-                {
-                    @Html.ActionLink("Create", "SetPassword")
-                }
-                ]
-            </dd>
-            
-        </dl>
     </div>
+</div>
+
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+<div class="login white v-center t-center">
+    <h4>Change your account settings</h4>
+
+    <dl class="t-center light mb-20">
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+            ]
+        </dd>
+
+    </dl>
+</div>
 
