@@ -746,7 +746,7 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\Login\_LoginPartial.cshtml" />
     <Content Include="Views\Marble\Create.cshtml" />
     <Content Include="Views\Marble\Delete.cshtml" />
     <Content Include="Views\Marble\Details.cshtml" />
@@ -791,7 +791,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Shared\Footer\" />
-    <Folder Include="Views\Shared\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
