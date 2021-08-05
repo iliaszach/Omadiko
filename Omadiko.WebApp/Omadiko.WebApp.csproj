@@ -722,8 +722,8 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\CustomSet\Error.cshtml" />
+    <Content Include="Views\Shared\CustomSet\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -745,7 +745,7 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\CustomSet\Lockout.cshtml" />
     <Content Include="Views\Shared\Login\_LoginPartial.cshtml" />
     <Content Include="Views\Marble\Create.cshtml" />
     <Content Include="Views\Marble\Delete.cshtml" />
@@ -764,7 +764,7 @@
     <Content Include="Views\Location\Index.cshtml" />
     <Content Include="Views\Provider\DashboardProviderView.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Views\Shared\Dashboard\_LeftMenu.cshtml" />
     <Content Include="Views\Dashboard\_ViewStart.cshtml" />
     <Content Include="Views\Marble\ShowMarbles.cshtml" />
     <Content Include="Views\Marble\_ViewStart.cshtml" />
@@ -774,23 +774,21 @@
     <Content Include="Scripts\js\greensock\.DS_Store" />
     <Content Include="Scripts\js\layer_slider\.DS_Store" />
     <Content Include="Scripts\js\rev_slider\.DS_Store" />
-    <Content Include="Views\Shared\_CrexisLayout.cshtml" />
-    <Content Include="Views\Shared\_CrexisNavBar.cshtml" />
-    <Content Include="Views\Shared\_CrexisFooter.cshtml" />
-    <Content Include="Views\Shared\_CrexisPortofolio.cshtml" />
-    <Content Include="Views\Shared\_CrexisNavBarPortfolio.cshtml" />
+    <Content Include="Views\Shared\LayOut\_CrexisLayout.cshtml" />
+    <Content Include="Views\Shared\Footer\_CrexisFooter.cshtml" />
+    <Content Include="Views\Shared\LayOut\_CrexisPortofolio.cshtml" />
     <Content Include="Views\Provider\Provider_Details.cshtml" />
     <Content Include="Views\Provider\ShowAllProviders.cshtml" />
     <Content Include="Views\Shared\HomePage\HomeSection.cshtml" />
     <Content Include="Views\Shared\HomePage\FeaturesSection.cshtml" />
-    <Content Include="Views\Shared\Navbar\_CrexisNavbarB.cshtml" />
+    <Content Include="Views\Shared\Navbar\_CrexisNavbar.cshtml" />
     <Content Include="Views\Shared\Navbar\_PageHeader.cshtml" />
     <Content Include="Views\Shared\Navbar\_SocialMedia.cshtml" />
+    <Content Include="Views\Shared\Login\_CrexisLoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\Shared\Footer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
