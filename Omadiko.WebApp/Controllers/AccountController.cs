@@ -19,6 +19,7 @@ namespace Omadiko.WebApp.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         
+        
 
         public AccountController()
         {
@@ -53,9 +54,9 @@ namespace Omadiko.WebApp.Controllers
                 _userManager = value;
             }
         }
+        
 
 
-  
 
         // GET: /Account/Login
         [AllowAnonymous]
