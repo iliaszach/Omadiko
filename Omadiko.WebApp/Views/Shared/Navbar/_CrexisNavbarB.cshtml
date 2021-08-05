@@ -1,17 +1,22 @@
 ﻿
+<style>
+    .btn:hover  {
+        background-color:darkblue;
+    }
+</style>
 
-
-<nav id="navigation" class="dark-nav">
+<!-- Navigation - select your nav color - dark-nav or white-nav -->
+<nav id="navigation" class="white-nav relative-nav">
     <!-- Navigation -->
-    <div class="navigation first-nav double-nav raleway"  style="background-color:#151515">
+    <div class="navigation double-nav raleway" style="background-color:#151515">
         <!-- Navigation Inner -->
         <div class="nav-inner clearfix">
 
             <!-- Logo Area -->
             <div class="logo f-left">
                 <!-- Logo Link -->
-                <a href="#home" class="logo-link scroll">      
-                    <img style="border-radius:30px;" src="~/Content/imagesMARBLE/Logo.png" data-second-logo="images/logo/logo_condensed_dark.png" alt="crexis_logo" />
+                <a href="#home" class="logo-link scroll">
+                    <img style="border-radius:30px;" src="/Content/imagesMARBLE/Logo.png" data-second-logo="/Content/imagesMARBLE/Logo.png" alt="TIPOTA" />
                 </a>
             </div>
             <!-- End Logo Area -->
@@ -22,26 +27,25 @@
             <div class="nav-menu clearfix f-right">
 
                 <!-- Nav List -->
-                <ul class="nav uppercase normal big-texts oswald">
+                <ul class="nav uppercase normal">
 
                     <li class="dropdown-toggle nav-toggle">
-                        <a href="/">Home</a>
+                        <a class="btn" href="/">Home</a>
 
                     </li>
 
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/marble/showmarbles">Marble</a>
-                        <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-left clearfix">
-                            <li><a href="pages-about-1.html" class="ex-link">About Us 1</a></li>
-                            <li><a href="pages-about-2.html" class="ex-link">About Us 2</a></li>
-                        </ul>
-                        <!-- End DropDown -->
                     </li>
+
+                    @*<li>@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                @Html.Partial("_LoginPartial")*@
+
 
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/provider/ShowAllProviders" class="ex-link">Providers</a>
-
                     </li>
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/Home/About" class="ex-link">About</a>
@@ -92,9 +96,6 @@
                             <li><a href="#" class="scroll">Spanish</a></li>
                         </ul>
                     </li>
-                    
-                    <li><a href="/Account/Register" id="registerLink">Register</a></li>
-                    <li><a href="/Account/Login" id="loginLink">Log in</a></li>    
                 </ul>
                 <!-- End Nav List -->
             </div>
@@ -105,3 +106,4 @@
     </div>
 
 </nav>
+<!-- End Nav -->

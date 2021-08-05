@@ -10,7 +10,7 @@
 
     <!-- CSS Files + Page Styles -->
     @Styles.Render("~/Content/CrexisCss")
-    
+
     <!-- Page Layout Color, night or dark -->
     <link id="changeable_tone" rel="stylesheet" href="~/Content/css/page_tones/dark.css" />
     <!-- End Page Layout Color -->
@@ -26,11 +26,23 @@
 
     <style>
         body {
-            background-color: darkgray;
+            background-color: #222222;
         }
     </style>
 
 </head>
+
+<!-- Social Media -->
+@Html.Partial("Navbar/_SocialMedia")
+<!-- End Social Media -->
+
+<!-- Navigation - select your nav color - dark-nav or white-nav -->
+@Html.Partial("Navbar/_CrexisNavbarB")
+<!-- End Nav -->
+
+<!-- Page Header - litle-header or bigger-header - soft-header, dark-header or background -->
+@Html.Partial("Navbar/_PageHeader")
+<!-- End #page-header -->
 
 <!-- Body Start -->
 <body class="parallax">

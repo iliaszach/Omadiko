@@ -52,7 +52,9 @@
 </head>
 
 <!-- Body Start -->
-<body class="parallax dark-layout">
+<body class="parallax dark-layout" style="background-color:#222222;">
+
+
 
     <!-- Page Loader -->
     <article id="pageloader" class="dark-loader">
@@ -63,8 +65,16 @@
         </div>
     </article>
 
+    <!-- Social Media -->
+    @Html.Partial("Navbar/_SocialMedia")
+    <!-- End Social Media -->
+
     <!-- Navigation - select your nav color - dark-nav or white-nav -->
-    @Html.Partial("_CrexisNavBar")
+    @*@Html.Partial("_CrexisNavBar")*@
+    <!-- End Nav -->
+
+    <!-- Navigation - select your nav color - dark-nav or white-nav -->
+    @Html.Partial("Navbar/_CrexisNavbarB")
     <!-- End Nav -->
 
 

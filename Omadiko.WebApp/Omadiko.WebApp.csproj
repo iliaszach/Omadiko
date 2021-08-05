@@ -766,6 +766,9 @@
     <Content Include="Views\Provider\ShowAllProviders.cshtml" />
     <Content Include="Views\Shared\HomePage\HomeSection.cshtml" />
     <Content Include="Views\Shared\HomePage\FeaturesSection.cshtml" />
+    <Content Include="Views\Shared\Navbar\_SocialMedia.cshtml" />
+    <Content Include="Views\Shared\Navbar\_CrexisNavbarB.cshtml" />
+    <Content Include="Views\Shared\Navbar\_PageHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,14 +34,15 @@
 	    user-drag: none;
 	}
 
-	a,
+/*	a,
 	a:hover,
 	button,
 	button:hover{
 		text-decoration:none;
 		outline:none;
 		color:white;
-	}
+		background-color:#1d1d1d;
+	}*/
 
 	a:focus,
 	button:focus{
@@ -609,6 +610,7 @@
 		height: auto;
 		padding:0;
 		margin:0;
+		background-color:#222222E3;
 	}
 
 	.inner{
@@ -999,11 +1001,11 @@
 /* Background Colors */
 
 	.white-bg{
-		background-color:white !important;
+		background-color:#1d1d1d;
 	}
 
 	.gray-bg{
-		background-color:#fdfdfd !important;
+		background-color:#1d1d1d;
 	}
 
 	.gray-bg-1{
@@ -1023,7 +1025,7 @@
 	}
 
 	.light-bg:before{
-		background-color:rgba(255,255,255, 0.9);
+		background-color:#222222;
 		position: absolute;
 		left:0;
 		top: 0;
@@ -1092,8 +1094,8 @@
 /* Borders */
 
 	.border-1px{
-		border:1px solid;
-	}
+/*		border:1px solid;
+*/	}
 
 	.border-2px{
 		border:2px solid;
@@ -1105,8 +1107,8 @@
 	}
 
 	.soft-border{
-		border-color:#f1f1f1;
-	}
+/*		border-color:#f1f1f1;
+*/	}
 
 	section.soft-border{
 		border-left:transparent;
@@ -1479,7 +1481,7 @@
 			-webkit-transition: all 0.5s;
 			-moz-transition: all 0.5s;
 			transition: all 0.5s;
-			background-color: darkgrey;
+			background-color: #151515;
 		}
 
 	#navigation .navigation.first-nav:hover{
@@ -2076,6 +2078,8 @@
 
 	#page-header.litle-header{
 		padding:60px 0;
+		border-top: 1px solid #f0f0f0;
+		background-color:#222222;
 	}
 
 	#page-header.big-header{
@@ -2118,13 +2122,13 @@
 		transition: all 0.3s;
 	}
 
-	#page-header.soft-header{
-		border:1px solid #f0f0f0;
-		/*background-image:url(../images/softbg.jpg);*/
-		background-position: center center;
+	/*#page-header.soft-header{*/
+/*		border-top:1px solid #f0f0f0;
+*/		/*background-image:url(../images/softbg.jpg);*/
+/*		background-position: center center;
 		background-repeat: no-repeat;
-		background-size: cover;
-	}
+		background-size: cover;*/
+	/*}*/
 
 	#page-header.dark-header{
 		background-image:url(../images/darkbg.jpg);
@@ -4573,7 +4577,7 @@
 /* Portfolio Filters Type 1 */
 
 	.cbp-l-filters-alignCenter .cbp-filter-item{
-		color:#6b6b6b;
+		color:azure;
 		font-size:14px;
 		border-radius:4px;
 		padding:7px 17px;
@@ -4737,6 +4741,7 @@
 		top:0;
 		margin-top:0;
 		border:1px solid #f0f0f0;
+		background-color:#222222;
 	}
 
 	#portfolio-items.type2 .item .cbp-caption-activeWrap{
@@ -4749,7 +4754,7 @@
 	#portfolio-items.type2 .item .center-details .details h2{
 		top:0;
 		text-align: left;
-		color:#8b8b8b;
+		color:azure;
 		font-size:18px;
 		font-weight: 300;
 	}
@@ -4757,7 +4762,7 @@
 	#portfolio-items.type2 .item .center-details .details p{
 		bottom:0;
 		text-align: left;
-		color:#a8a8a8;
+		color:azure;
 		font-size:13px;
 		font-weight: 300;
 		margin-top:3px;
