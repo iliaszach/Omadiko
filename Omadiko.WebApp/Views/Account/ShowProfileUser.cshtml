@@ -1,0 +1,16 @@
+﻿@model Omadiko.Entities.ApplicationUser
+@{
+    ViewBag.Title = "ShowProfileUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowProfileUser</h2>
+
+
+@Model.Email
+
+
+@foreach (var marble in @Model.Marbles)
+{
+    <li><img src=@marble.Photo alt="Alternate Text" /></li>
+}

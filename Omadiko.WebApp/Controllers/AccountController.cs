@@ -18,11 +18,12 @@ namespace Omadiko.WebApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        
 
         public AccountController()
         {
         }
-
+        
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
@@ -53,7 +54,9 @@ namespace Omadiko.WebApp.Controllers
             }
         }
 
-        //
+
+  
+
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -62,7 +65,13 @@ namespace Omadiko.WebApp.Controllers
             return View();
         }
 
-        //
+        //SHOW PROFILE
+        public ActionResult Action()
+        {
+            return View();
+        }
+
+
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -152,7 +161,12 @@ namespace Omadiko.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser 
+                {                     
+                    UserName = model.UserName, 
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

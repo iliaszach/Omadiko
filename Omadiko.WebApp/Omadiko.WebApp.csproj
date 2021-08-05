@@ -190,14 +190,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\AccountViewModels\ForgotPasswordViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\ExternalLoginListViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\ForgotViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\LoginViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\RegisterViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\SendCodeViewModel.cs" />
+    <Compile Include="Models\AccountViewModels\VerifyCodeViewModel.cs" />
+    <Compile Include="Models\ManageViewModels\AddPhoneNumberViewModel.cs" />
+    <Compile Include="Models\ManageViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\ManageViewModels\FactorViewModel.cs" />
+    <Compile Include="Models\ManageViewModels\IndexViewModel.cs" />
+    <Compile Include="Models\ManageViewModels\ManageLoginsViewModel.cs" />
+    <Compile Include="Models\ManageViewModels\ManageViewModels.cs" />
+    <Compile Include="Models\ManageViewModels\SetPasswordViewModel.cs" />
+    <Compile Include="Models\ManageViewModels\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\MarbleCreateViewModel.cs" />
-    <Compile Include="ViewModels\MarbleEditViewModel.cs" />
-    <Compile Include="ViewModels\ProviderCreateViewModel.cs" />
-    <Compile Include="ViewModels\ProviderEditViewModel.cs" />
+    <Compile Include="Models\MarbleViewModel\MarbleCreateViewModel.cs" />
+    <Compile Include="Models\MarbleViewModel\MarbleEditViewModel.cs" />
+    <Compile Include="Models\ProviderViewModel\ProviderCreateViewModel.cs" />
+    <Compile Include="Models\ProviderViewModel\ProviderEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -464,6 +479,7 @@
     <Content Include="Content\images\logo\logo_dark_red_big.png" />
     <Content Include="Content\images\logo\logo_white_red.png" />
     <Content Include="Content\images\logo\logo_white_red_big.png" />
+    <Content Include="Content\images\logo\userphoto.png" />
     <Content Include="Content\images\macs.png" />
     <Content Include="Content\images\macs1.png" />
     <Content Include="Content\images\marker.png" />
@@ -608,6 +624,7 @@
     <Content Include="CREXIS\blog_single_dark.html" />
     <Content Include="CREXIS\elements-icons.html" />
     <Content Include="CREXIS\HomeIndex.html" />
+    <Content Include="CREXIS\myprofile_ChangePass_backupa.txt" />
     <Content Include="CREXIS\pages-about-3.html" />
     <Content Include="CREXIS\pages-contact-2.html" />
     <Content Include="CREXIS\pages-login.html" />
@@ -766,12 +783,10 @@
     <Content Include="Views\Provider\ShowAllProviders.cshtml" />
     <Content Include="Views\Shared\HomePage\HomeSection.cshtml" />
     <Content Include="Views\Shared\HomePage\FeaturesSection.cshtml" />
-    <Content Include="Views\Shared\Navbar\_SocialMedia.cshtml" />
-    <Content Include="Views\Shared\Navbar\_CrexisNavbarB.cshtml" />
-    <Content Include="Views\Shared\Navbar\_PageHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

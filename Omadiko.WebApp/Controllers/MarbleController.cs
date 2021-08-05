@@ -4,25 +4,79 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.Owin;
 using Omadiko.Database;
 using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
+using Omadiko.RepositoryServices.DataAccess;
 using Omadiko.WebApp.ViewModels;
 
 namespace Omadiko.WebApp.Controllers
 {
     public class MarbleController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        private MarbleRepository repo = new MarbleRepository();
+        private UnitOfWork unitOfWork = new UnitOfWork(new ApplicationDbContext());
+        private ApplicationUserManager _userManager;
+        public MarbleController()
+        {
+
+        }
+
+        public MarbleController(ApplicationUserManager userManager)
+        {
+            UserManager = userManager;
+        }
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+      
+
+        //LIKE
+        public async Task<ActionResult> LikeAddToList(int marbleId, string userId)
+        {
+            #region Session Code in Comments
+            //HashSet<Item> MList = new HashSet<Item>();
+            //if (Session["like"] == null)
+            //{
+            //    var marble = unitOfWork.Marbles.Get(marbleId);
+            //    MList.Append(new Item()
+            //    {
+            //        Marble = marble
+            //    });
+            //
+            //    Session["like"] = MList;
+            //}
+            //else
+            //{
+            //    MList = (HashSet<Item>)Session["like"];
+            //    var marble = unitOfWork.Marbles.Get(marbleId);
+            //    MList.Append(new Item()
+            //    {
+            //        Marble = marble
+            //    });
+            //    Session["like"] = MList;
+            //}
+            #endregion
+            await UserManager.AttachUserList(userId, marbleId);
+            return Redirect("Index");
+        }
 
         // GET: Marble
         public ActionResult Index()
         {
-            var marbles = repo.GetAll();
-            return View(marbles);           
+            var marbles = unitOfWork.Marbles.GetAll();
+            return View(marbles);
         }
 
         // GET: Marble/Details/5
@@ -32,7 +86,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
@@ -53,11 +107,11 @@ namespace Omadiko.WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MarbleId,Name,Color")] Marble marble, IEnumerable<int> providers,int? CountrySelected, int? PhotoSelected)
+        public ActionResult Create([Bind(Include = "MarbleId,Name,Color")] Marble marble, IEnumerable<int> providers, int? CountrySelected, int? PhotoSelected)
         {
             if (ModelState.IsValid)
-            {   
-                repo.Create(marble, providers, CountrySelected, PhotoSelected);
+            {
+                unitOfWork.Marbles.Create(marble, providers, CountrySelected, PhotoSelected);
                 return RedirectToAction("Index");
             }
             MarbleCreateViewModel vm = new MarbleCreateViewModel();
@@ -74,13 +128,13 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
             }
 
-            MarbleEditViewModel vm= new MarbleEditViewModel(marble);
+            MarbleEditViewModel vm = new MarbleEditViewModel(marble);
             return View(vm);
         }
 
@@ -98,7 +152,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 // db.Entry(marble).State = EntityState.Modified;
                 // db.SaveChanges();
-                repo.Update(marble, providers, CountrySelected, PhotoSelected);
+                unitOfWork.Marbles.Update(marble, providers, CountrySelected, PhotoSelected);
                 return RedirectToAction("Index");
             }
             MarbleEditViewModel vm = new MarbleEditViewModel(marble);
@@ -112,7 +166,7 @@ namespace Omadiko.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
@@ -128,53 +182,39 @@ namespace Omadiko.WebApp.Controllers
             // Marble marble = db.Marbles.Find(id);
             // db.Marbles.Remove(marble);
             // db.SaveChanges();
-            repo.Delete(id);
+            unitOfWork.Marbles.Delete(id);
             return RedirectToAction("Index");
         }
 
-
-
-
-
         public ActionResult ShowMarbles()
         {
-            var marbles = repo.GetAll();
+            var marbles = unitOfWork.Marbles.GetAll();
             return View(marbles);
         }
 
-        
+
         public ActionResult ShowMarblesDetails(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marble marble = repo.GetById(id);
+            Marble marble = unitOfWork.Marbles.GetById(id);
             if (marble == null)
             {
                 return HttpNotFound();
             }
             return View(marble);
         }
-
-
-
-
-
-
-
-
-
-
-
-
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            if (disposing && _userManager != null)
             {
-                db.Dispose();
+                unitOfWork.Dispose();
+                _userManager.Dispose();
             }
             base.Dispose(disposing);
         }
+
     }
 }

@@ -1,17 +1,73 @@
 ﻿@model Omadiko.WebApp.Models.IndexViewModel
+
 @{
     ViewBag.Title = "Manage";
 }
 
-<h2>@ViewBag.Title.</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<!--Upload photo section Pending...-->
+<section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
+    <div class="login white v-center t-center">
+        <div class="t-center light mb-20 text-white bg-dark">
+            <img src="~/Content/images/logo/userphoto.png" alt="Image Not Found" style="width:20%">
+            <h1>@User.Identity.Name</h1>
+            <div class="t-center light mb-20">
+                @Html.DisplayNameFor(x => x.Username):
+                @Html.DisplayFor(x => x.Username)
+            </div>
+            <div class="t-center light mb-20">
+                @Html.DisplayNameFor(x => x.Email):
+                @Html.DisplayFor(x => x.Email)
+            </div>
+            <div class="t-center light mb-20">
+                @Html.DisplayNameFor(x => x.PhoneNumber):
+                @Html.DisplayFor(x => x.PhoneNumber)
+            </div>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div class="t-center light mb-20">
+            <h2>Gallery</h2>
+            
+
+        </div>
+
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        @*Filtering*@
+        @*<div align="center">
+            <button class="btn btn-default filter-button" data-filter="all">All</button>
+            <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
+            <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
+            <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
+        </div>
+        <br />*@
+        @foreach (var marble in Model.Marbles)
+        {
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img src="@marble.Photo.Url" class="img-responsive">
+            </div>
+
+        }
+    </div>
+</div>
+
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 
-
 <div class="login white v-center t-center">
     <h4>Change your account settings</h4>
-    
-    <dl class="dl-horizontal">
+
+    <dl class="t-center light mb-20">
         <dt>Password:</dt>
         <dd>
             [
@@ -25,65 +81,7 @@
             }
             ]
         </dd>
-        <dt>External Logins:</dt>
-        <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Manage", "ManageLogins") ]
-        </dd>
-        @*
-            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
-             
-             See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-             
-             Uncomment the following block after you have set up two-factor authentication
-        *@
-        @*  
-            <dt>Phone Number:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None")
-                @if (Model.PhoneNumber != null)
-                {
-                    <br />
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
-                    }
-                }
-                else
-                {
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-                }
-            </dd>
-        *@
-        <dt>Two-Factor Authentication:</dt>
-        <dd>
-            <p>
-                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication.
-            </p>
-            @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-link" />
-                        </text>
-                    }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-link" />
-                        </text>
-                    }
-                }*@
-        </dd>
+
     </dl>
 </div>
+
