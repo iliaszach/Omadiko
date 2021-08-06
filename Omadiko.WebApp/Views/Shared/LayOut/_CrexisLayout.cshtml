@@ -14,20 +14,6 @@
     <!-- CSS Files -->
     @Styles.Render("~/Content/CrexisCss")
     <!--#<!-- #region BACK UP FOR CSS  -->
-    @*<link rel="stylesheet" href="../Content/css/reset.css" />
-            <link rel="stylesheet" href="../Content/css/animate.min.css" />
-            <link rel="stylesheet" href="../Content/css/bootstrap.min.css" />
-            <link rel="stylesheet" href="../Content/css/font-awesome.min.css" />
-            <link rel="stylesheet" href="../Content/css/socials.css" />
-            <link rel="stylesheet" href="../Content/css/magnific-popup.css" />
-            <link rel="stylesheet" href="../Content/css/flexslider.css" />
-            <link rel="stylesheet" href="../Content/css/simpletextrotator.css" />
-            <link rel="stylesheet" href="../Content/css/cubeportfolio.min.css" />
-            <link rel="stylesheet" href="../Content/css/timeline.css" />
-            <link rel="stylesheet" href="../Content/css/owl.carousel.css" />
-            <link rel="stylesheet" href="../Content/css/settings-ie8.css" />
-            <link rel="stylesheet" href="../Content/css/settings.css" />
-        <link rel="stylesheet" href="../Content/css/player/YTPlayer.css" />*@
     @* Page Styles*@
     @*<link rel="stylesheet" href="../Content/css/style.css" />
         <link rel="stylesheet" href="../Content/css/backgrounds.css" />
@@ -55,26 +41,12 @@
 <body class="parallax dark-layout" style="background-color:#222222;">
 
 
-
-    <!-- Page Loader -->
-    <article id="pageloader" class="dark-loader">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-    </article>
-
     <!-- Social Media -->
     @Html.Partial("Navbar/_SocialMedia")
     <!-- End Social Media -->
 
     <!-- Navigation - select your nav color - dark-nav or white-nav -->
-    @*@Html.Partial("_CrexisNavBar")*@
-    <!-- End Nav -->
-
-    <!-- Navigation - select your nav color - dark-nav or white-nav -->
-    @Html.Partial("Navbar/_CrexisNavbarB")
+    @Html.Partial("Navbar/_CrexisNavbar")
     <!-- End Nav -->
 
 
@@ -84,7 +56,7 @@
 
 
     <!-- Footer -->
-    @Html.Partial("_CrexisFooter")
+    @Html.Partial("Footer/_CrexisFooter")
     <!-- End Footer -->
     <!-- JS Files -->
     @Scripts.Render("~/bundles/lib")

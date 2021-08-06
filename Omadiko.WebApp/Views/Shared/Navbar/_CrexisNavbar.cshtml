@@ -1,7 +1,7 @@
 ﻿
 <style>
-    .btn:hover  {
-        background-color:darkblue;
+    .btn:hover {
+        background-color: darkblue;
     }
 </style>
 
@@ -38,14 +38,9 @@
                         <a href="/marble/showmarbles">Marble</a>
                     </li>
 
-                    @*<li>@Html.ActionLink("Dashboard", "Index", "Dashboard")</li>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                @Html.Partial("_LoginPartial")*@
-
 
                     <li class="dropdown-toggle nav-toggle">
-                        <a href="/provider/ShowAllProviders" class="ex-link">Providers</a>
+                        <a href="/provider/ShowAllProviders" >Providers</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
                         <a href="/Home/About" class="ex-link">About</a>
@@ -80,22 +75,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown-toggle nav-toggle">
-                        <a href="#" class="tahoma"><i class="fa fa-shopping-cart"></i> (0)</a>
-                        <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-right clearfix">
-                            <li class="ml-20 mt-15 mr-20 mb-15 raleway mini-text gray">No Product In The Cart</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-toggle nav-toggle">
-                        <a href="#" class="tahoma">Eng<i class="fa fa-angle-down"></i></a>
-                        <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-right clearfix">
-                            <li><a href="#" class="scroll">English</a></li>
-                            <li><a href="#" class="scroll">Germany</a></li>
-                            <li><a href="#" class="scroll">Spanish</a></li>
-                        </ul>
-                    </li>
+                    @Html.Partial("_CrexisLoginPartial")
+
                 </ul>
                 <!-- End Nav List -->
             </div>
