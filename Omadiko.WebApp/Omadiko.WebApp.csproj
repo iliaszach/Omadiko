@@ -779,11 +779,6 @@
     <Content Include="Scripts\js\greensock\.DS_Store" />
     <Content Include="Scripts\js\layer_slider\.DS_Store" />
     <Content Include="Scripts\js\rev_slider\.DS_Store" />
-    <Content Include="Views\Shared\_CrexisLayout.cshtml" />
-    <Content Include="Views\Shared\_CrexisNavBar.cshtml" />
-    <Content Include="Views\Shared\_CrexisFooter.cshtml" />
-    <Content Include="Views\Shared\_CrexisPortofolio.cshtml" />
-    <Content Include="Views\Shared\_CrexisNavBarPortfolio.cshtml" />
     <Content Include="Views\Provider\Details.cshtml" />
     <Content Include="Views\Provider\ShowAllProviders.cshtml" />
     <Content Include="Views\Shared\HomePage\HomeSection.cshtml" />
