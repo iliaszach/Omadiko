@@ -12,7 +12,7 @@ using Omadiko.Database;
 using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
 using Omadiko.RepositoryServices.DataAccess;
-using Omadiko.WebApp.ViewModels;
+using Omadiko.WebApp.Models;
 
 namespace Omadiko.WebApp.Controllers
 {

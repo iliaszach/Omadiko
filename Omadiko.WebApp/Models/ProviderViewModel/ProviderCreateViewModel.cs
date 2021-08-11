@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Omadiko.WebApp.ViewModels
+namespace Omadiko.WebApp.Models
 {
     public class ProviderCreateViewModel
     {

@@ -9,8 +9,9 @@ using System.Web.Mvc;
 using Omadiko.Database;
 using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
-using Omadiko.WebApp.ViewModels;
+
 using Omadiko.RepositoryServices.DataAccess;
+using Omadiko.WebApp.Models;
 
 namespace Omadiko.WebApp.Controllers
 {

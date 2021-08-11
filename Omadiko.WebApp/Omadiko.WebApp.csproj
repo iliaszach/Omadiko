@@ -207,12 +207,12 @@
     <Compile Include="Models\ManageViewModels\ManageViewModels.cs" />
     <Compile Include="Models\ManageViewModels\SetPasswordViewModel.cs" />
     <Compile Include="Models\ManageViewModels\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Models\MarbleViewModel\MarbleCreateViewModel.cs" />
+    <Compile Include="Models\MarbleViewModel\MarbleEditViewModel.cs" />
+    <Compile Include="Models\ProviderViewModel\ProviderCreateViewModel.cs" />
+    <Compile Include="Models\ProviderViewModel\ProviderEditViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\MarbleCreateViewModel.cs" />
-    <Compile Include="ViewModels\MarbleEditViewModel.cs" />
-    <Compile Include="ViewModels\ProviderCreateViewModel.cs" />
-    <Compile Include="ViewModels\ProviderEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -792,9 +792,13 @@
     <Content Include="Views\Shared\Navbar\_PageHeader.cshtml" />
     <Content Include="Views\Shared\Navbar\_SocialMedia.cshtml" />
     <Content Include="Views\Shared\Login\_CrexisLoginPartial.cshtml" />
+    <Content Include="Views\Shared\Footer\_CrexisFooter.cshtml" />
+    <Content Include="Views\Shared\LayOut\_CrexisLayout.cshtml" />
+    <Content Include="Views\Shared\LayOut\_CrexisPortofolio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
