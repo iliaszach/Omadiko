@@ -27,7 +27,7 @@
 	.dark-note,
 	.dark-btn,
 	.dark-icon{
-		background-color:#161616;
+		background-color:#222222;
 	}
 
 	.boxes.boxes-type-3 .box-icon a.changeable-icon.dark-icon{
@@ -79,7 +79,7 @@
 	}
 
 	.dark-layout{
-		background-color:#1d1d1d;
+		background-color:#222222;
 	}
 
 	.matt-layout{
@@ -123,7 +123,7 @@
 	}
 
 	.xdark-bg:before{
-		background-color:rgba(24,24,24, 0.8);
+		background-color:#222222E3;
 		position: absolute;
 		left:0;
 		top: 0;
@@ -131,11 +131,12 @@
 		height: 100%;
 		display: block;
 		content:'';
+		border-top: 1px solid #f0f0f0;
 	}
 
 	body.dark-layout .light-bg:before,
 	.xxdark-bg:before{
-		background-color:rgba(0,0,0, 0.75);
+		background-color:#222222;
 		position: absolute;
 		left:0;
 		top: 0;
@@ -189,7 +190,7 @@
 	}
 
 	footer.big-footer.dark-footer{
-		background-color:#1e1e1e;
+		background-color:#222222;
 	}
 
 	footer.big-footer.dark-footer .footer_bottom{
@@ -225,7 +226,7 @@
 /* Dark Layout Options */
 
 	body.dark-layout{
-		background-color:#151515;
+		background-color:#222222E3;
 	}
 
 	body.dark-layout .dark-layout{
@@ -413,7 +414,7 @@
 	}
 
 	body.dark-layout footer.big-footer.dark-footer{
-		background-color:#131313;
+		background-color:#222222;
 	}
 
 	body.dark-layout footer.big-footer.dark-footer .footer_bottom{

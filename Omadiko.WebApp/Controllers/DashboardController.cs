@@ -9,14 +9,14 @@ namespace Omadiko.WebApp.Controllers
 {
     public class DashboardController : Controller
     {
-        private ProviderRepository providerRepository = new ProviderRepository();
+        //private ProviderRepository providerRepository = new ProviderRepository();
         
-        // GET: Dashboard
-        public ActionResult Index()
-        { //ΕΔΏ ΠΡΈΠΕΙ ΝΑ ΦΤΙΑΞΟΥΜΕ ΕΝΑ VIEWMODEL ΠΟΥ ΝΑ ΕΧΕΙ ΤΙΣ ΠΛΗΡΟΦΟΡΙΕΣ ΑΠΟ MARBLE + PROVIDER MAZI
+        //// GET: Dashboard
+        //public ActionResult Index()
+        //{ //ΕΔΏ ΠΡΈΠΕΙ ΝΑ ΦΤΙΑΞΟΥΜΕ ΕΝΑ VIEWMODEL ΠΟΥ ΝΑ ΕΧΕΙ ΤΙΣ ΠΛΗΡΟΦΟΡΙΕΣ ΑΠΟ MARBLE + PROVIDER MAZI
 
-            var providers = providerRepository.GetAll();
-            return View(providers);
-        }
+        //    var providers = providerRepository.GetAll();
+        //    return View(providers);
+        //}
     }
 }

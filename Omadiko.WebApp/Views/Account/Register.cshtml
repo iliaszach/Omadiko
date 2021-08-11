@@ -1,41 +1,58 @@
 ﻿@model Omadiko.WebApp.Models.RegisterViewModel
 @{
+    Layout = "~/Views/Shared/_CrexisLayout.cshtml";
     ViewBag.Title = "Register";
 }
 
+
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+<section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
+    <div class="login white v-center t-center">
+        <!-- Form -->
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form login_type t-center pl-10 pr-10 mini-text", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h1 class="t-center light mb-20">
+                Create a new account
+            </h1>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <!-- Description -->
+            <p class="mb-25 white op-08">
+                Sign Up for our all Services!
+            </p>
+            <div>
+                @Html.LabelFor(m => m.UserName, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Username" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.PhoneNumber, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Phone Number" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Email, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Email" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Password, new { @class = "hidden" })
+                @Html.PasswordFor(m => m.Password, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Password" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "hidden" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Confirm Password" })
+            </div>
+            <div>
+                <button type="submit" id="submit" name="submit" class="strip_button white light block fullwidth mt-30 colored-bg pt-18">Register</button>
+            </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        }
+    </div>
+</section>
+
+
+
+
+
+
+
+

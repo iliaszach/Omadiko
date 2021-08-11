@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -12,7 +13,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Omadiko.Database;
 using Omadiko.Entities;
+
 using Omadiko.WebApp.Models;
+
 
 namespace Omadiko.WebApp
 {
@@ -34,12 +37,46 @@ namespace Omadiko.WebApp
         }
     }
 
+   
+
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
+        }
+
+
+        public async Task<ApplicationUser> GetEmail(string userid)
+        {
+
+            using (ApplicationDbContext db = ApplicationDbContext.Create())
+            {
+
+                var user = await db.Users.FirstAsync(u => u.Id == userid);
+                string email = user.Email;
+
+                return user;
+            }
+        }
+        public async Task AttachUserList(string userid, int id)
+        {
+            using (ApplicationDbContext db = ApplicationDbContext.Create())
+            {
+                var marble = await db.Marbles.FindAsync(id);
+                if (marble == null) return;
+                var user = await db.Users.FirstAsync(u => u.Id == userid);
+                if (userid != user.Id) return;
+
+                db.Users.Attach(user);
+                db.Entry(user).Collection("Marbles").Load();
+
+                user.Marbles.Add(marble);
+                db.Entry(user).State = EntityState.Modified;
+
+                await db.SaveChangesAsync();
+            }
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 

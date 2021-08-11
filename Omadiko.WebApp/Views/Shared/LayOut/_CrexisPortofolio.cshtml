@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Crexis Multipurpose One/Multi Page HTML Theme</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!--Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <!-- CSS Files + Page Styles -->
+    @Styles.Render("~/Content/CrexisCss")
+
+    <!-- Page Layout Color, night or dark -->
+    <link id="changeable_tone" rel="stylesheet" href="~/Content/css/page_tones/dark.css" />
+    <!-- End Page Layout Color -->
+    <!-- Page Elements Color -->
+    <link id="changeable_color" rel="stylesheet" href="~/Content/css/colors/red.css" />
+    <!-- End Page Elements Color -->
+    <!-- Page Fonts / Pacifico-->
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- Raleway-->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,,200,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- End CSS Files -->
+
+    <style>
+        body {
+            background-color: #222222;
+        }
+    </style>
+
+</head>
+
+
+<!-- Body Start -->
+<body class="parallax">
+
+
+    <!-- Social Media -->
+    @Html.Partial("Navbar/_SocialMedia")
+    <!-- End Social Media -->
+    <!-- Navigation - select your nav color - dark-nav or white-nav -->
+    @Html.Partial("Navbar/_CrexisNavbar")
+    <!-- End Nav -->
+    <!-- Page Header - litle-header or bigger-header - soft-header, dark-header or background -->
+    @Html.Partial("Navbar/_PageHeader")
+    <!-- End #page-header -->
+
+    @RenderBody();
+
+
+
+
+    <!--FOOTER-->
+    @Html.Partial("Footer/_CrexisFooter")
+    <!--END FOOTER-->
+    <!-- JS Files -->
+    @Scripts.Render("~/bundles/lib")
+    @RenderSection("scripts", required: false)
+    <!--END JS Files -->
+</body>
+<!-- Body End -->
+</html>

@@ -1,187 +1,10 @@
-﻿<!-- Home Section -->
-<section id="home" class="home rev-slider container">
+﻿
 
-    <!-- white BG For Video -->
-    <div class="fullscreen z-1 absolute xdark-bg"></div>
+@Html.Partial("HomePage/HomeSection");
 
-    <!-- Ful Screen Slider -->
-    <div id="fullscreen" class="background46">
-        <!-- Video -->
-        <div id="p1" class="player video-container" data-property="{videoURL:'https://youtu.be/2z-DIsMlaTQ', containment:'#fullscreen', autoPlay:true, showControls:true, mute:true, startAt:0, opacity:1}"></div>
-        <!-- End Video -->
-    </div>
-    <!-- End Ful Screen Home -->
-    <!-- Home Inner Details -->
-    <!--<div class="home-inner t-center" data-0="opacity:1;" data-600="opacity:0;">-->
+@Html.Partial("HomePage/FeaturesSection");
 
-        <!-- Home Text Slider -->
-        <!--<div class="home-text-slider relative">-->
-
-            <!-- Home Text Slider -->
-            <!--<h1 class="white small-type text-rotetor oswald uppercase antialiased">-->
-
-                <!-- Home Texts -->
-                <!--<span class="rotate">
-                    We Create Awesome Themes!,
-                    Crexis Creative Design Studio
-                </span>-->
-                <!-- End Home Texts -->
-
-            <!--</h1>-->
-            <!-- End Home Text Slider -->
-            <!-- Home Fixed Text -->
-            <!--<p class="home-fixed-text gray light t-center">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
-
-        </div>-->
-        <!-- End Home Text Slider -->
-        <!-- Home Button -->
-        <!--<a href="#about" class="home-button dark-button thin scroll">Get Started</a>
-
-    </div>-->
-    <!-- End Home Inner Details -->
-
-</section>
-<!-- End Home Section -->
-<!-- Features Section -->
-<section id="about" class="container">
-
-    <!-- Features Inner -->
-    <div class="inner t-center">
-
-        <!-- Header -->
-        <h1 class="header header-style-1 white normal uppercase oswald animated" data-animation="fadeIn" data-animation-delay="200">
-            Welcome To Crexis! We Create <span class="colored">Awesome</span> Themes
-        </h1>
-        <!-- Header Text -->
-        <p class="light animated" data-animation="fadeIn" data-animation-delay="200">
-            This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.
-        </p>
-
-        <!-- Boxes  -->
-        <div class="feature-boxes type-3 clearfix">
-
-            <!-- Box  -->
-            <div class="feature-box col-xs-4 animated" data-animation="fadeIn" data-animation-delay="100">
-                <!-- Box Icon  -->
-                <div class="f-left feature-icon">
-                    <i class="fa fa-rocket"></i>
-                </div>
-                <!-- Box Texts  -->
-                <div class="feature-text small-head f-left t-left dark">
-                    <!-- Box Header  -->
-                    <h4 class="no-margin normal no-padding oswald uppercase">
-                        Unique Design
-                    </h4>
-                    <!-- Box Description  -->
-                    <p>
-                        This is Photoshop's version  of the Lorem. Proin gravida nibh the  vel velit auctor aliq sollicitudin. Duis sed odio sit amet nibh vulbutate
-                    </p>
-                </div>
-            </div>
-            <!-- End Box  -->
-            <!-- Box  -->
-            <div class="feature-box col-xs-4 animated" data-animation="fadeIn" data-animation-delay="150">
-                <!-- Box Icon  -->
-                <div class="f-left feature-icon">
-                    <i class="fa fa-briefcase"></i>
-                </div>
-                <!-- Box Texts  -->
-                <div class="feature-text small-head f-left t-left dark">
-                    <!-- Box Header  -->
-                    <h4 class="no-margin normal no-padding oswald uppercase">
-                        Awesome Icons
-                    </h4>
-                    <!-- Box Description  -->
-                    <p>
-                        This is Photoshop's version  of the Lorem. Proin gravida nibh the  vel velit auctor aliq sollicitudin. Duis sed odio sit amet nibh vulbutate
-                    </p>
-                </div>
-            </div>
-            <!-- End Box  -->
-            <!-- Box  -->
-            <div class="feature-box col-xs-4 animated" data-animation="fadeIn" data-animation-delay="200">
-                <!-- Box Icon  -->
-                <div class="f-left feature-icon">
-                    <i class="fa fa-clock-o"></i>
-                </div>
-                <!-- Box Texts  -->
-                <div class="feature-text small-head f-left t-left dark">
-                    <!-- Box Header  -->
-                    <h4 class="no-margin normal no-padding oswald uppercase">
-                        Powerful Code
-                    </h4>
-                    <!-- Box Description  -->
-                    <p>
-                        This is Photoshop's version  of the Lorem. Proin gravida nibh the  vel velit auctor aliq sollicitudin. Duis sed odio sit amet nibh vulbutate
-                    </p>
-                </div>
-            </div>
-            <!-- End Box  -->
-            <!-- Box  -->
-            <div class="feature-box col-xs-4 animated" data-animation="fadeIn" data-animation-delay="250">
-                <!-- Box Icon  -->
-                <div class="f-left feature-icon">
-                    <i class="fa fa-cloud"></i>
-                </div>
-                <!-- Box Texts  -->
-                <div class="feature-text small-head f-left t-left dark">
-                    <!-- Box Header  -->
-                    <h4 class="no-margin normal no-padding oswald uppercase">
-                        ShortCodes
-                    </h4>
-                    <!-- Box Description  -->
-                    <p>
-                        This is Photoshop's version  of the Lorem. Proin gravida nibh the  vel velit auctor aliq sollicitudin. Duis sed odio sit amet nibh vulbutate
-                    </p>
-                </div>
-            </div>
-            <!-- End Box  -->
-            <!-- Box  -->
-            <div class="feature-box col-xs-4 animated" data-animation="fadeIn" data-animation-delay="300">
-                <!-- Box Icon  -->
-                <div class="f-left feature-icon">
-                    <i class="fa fa-leaf"></i>
-                </div>
-                <!-- Box Texts  -->
-                <div class="feature-text small-head f-left t-left dark">
-                    <!-- Box Header  -->
-                    <h4 class="no-margin normal no-padding oswald uppercase">
-                        Clean Code
-                    </h4>
-                    <!-- Box Description  -->
-                    <p>
-                        This is Photoshop's version  of the Lorem. Proin gravida nibh the  vel velit auctor aliq sollicitudin. Duis sed odio sit amet nibh vulbutate
-                    </p>
-                </div>
-            </div>
-            <!-- End Box  -->
-            <!-- Box  -->
-            <div class="feature-box col-xs-4 animated" data-animation="fadeIn" data-animation-delay="350">
-                <!-- Box Icon  -->
-                <div class="f-left feature-icon">
-                    <i class="fa fa-diamond"></i>
-                </div>
-                <!-- Box Texts  -->
-                <div class="feature-text small-head f-left t-left dark">
-                    <!-- Box Header  -->
-                    <h4 class="no-margin normal no-padding oswald uppercase">
-                        Parallax Effects
-                    </h4>
-                    <!-- Box Description  -->
-                    <p>
-                        This is Photoshop's version  of the Lorem. Proin gravida nibh the  vel velit auctor aliq sollicitudin. Duis sed odio sit amet nibh vulbutate
-                    </p>
-                </div>
-            </div>
-            <!-- End Box  -->
-
-        </div>
-        <!-- End Boxes  -->
-    </div>
-    <!-- End Features Inner  -->
-</section>
-<!-- End Features Section  -->
-<!-- Testimonials -->
+<!-- Testimonials ΘΑ ΓΙΝΕΙ CALL TO ACTION ΓΙΑ ΝΑ ΓΡΑΦΤΕΙΣ ΣΤΟ PORTAL [https://marbleguide.com/]-->
 <section class="testimonials type-1 background39 parallax3 xdark-bg">
     <!-- Inner -->
     <div class="inner">
@@ -1545,7 +1368,6 @@
                 <!-- End Box Texts -->
             </div>
             <!-- End Box -->
-
         </div>
         <!-- End Category Boxes -->
         <!-- Bottom Page Texts -->
@@ -2400,112 +2222,120 @@
     <!-- Inner -->
     <div class="inner t-center">
 
+        @*εδω εχω βαλει το χαρτη που διχνει την εδρα της εταιρειας μας*@
+
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1136.2241064390912!2d23.732549809669234!3d37.98032445859666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd3a2e02f23b%3A0xb6bec9a194fa0343!2zzqDOkc6dzpXOoM6ZzqPOpM6XzpzOmc6f!5e0!3m2!1sel!2sgr!4v1627638686446!5m2!1sel!2sgr" width="1200" height="650" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+
+
+
+
+
+
+
+
+
         <!-- Header -->
-        <h1 class="header header-style-1 white oswald uppercase t-center animated" data-animation="fadeIn" data-animation-delay="100">
+        <!--<h1 class="header header-style-1 white oswald uppercase t-center animated" data-animation="fadeIn" data-animation-delay="100">
             Crexis Creative Agency Notes
-        </h1>
+        </h1>-->
         <!-- Header Text -->
-        <p class="normal t-center animated" data-animation="fadeIn" data-animation-delay="100">
+        <!--<p class="normal t-center animated" data-animation="fadeIn" data-animation-delay="100">
             Contrary to popular belief, Lorem Ipsum is not simply random text.
-        </p>
-
+        </p>-->
         <!-- Boxes and Box Type -->
-        <div class="boxes boxes-type-2 box-carousel four-items clearfix">
+        <!--<div class="boxes boxes-type-2 box-carousel four-items clearfix">-->
+        <!-- Box -->
+        <!--<div class="box animated" data-animation="fadeIn" data-animation-delay="400">-->
+        <!-- Box Icon -->
+        <!--<div class="box-icon fullwidth t-center normal">-->
+        <!-- Icon -->
+        <!--<a href="" class="changeable-icon">-->
+        <!-- Icon Selector -->
+        <!--<i class="fa fa-rocket"></i>
+            </a>
+        </div>-->
+        <!-- End Box Icon -->
+        <!-- Box Header -->
+        <!--<h4 class="box-header no-padding">
+            Powerful Code
+        </h4>-->
+        <!-- Box Description -->
+        <!--<p class="no-padding no-margin">
+                It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
+            </p>
 
-            <!-- Box -->
-            <div class="box animated" data-animation="fadeIn" data-animation-delay="400">
-                <!-- Box Icon -->
-                <div class="box-icon fullwidth t-center normal">
-                    <!-- Icon -->
-                    <a href="" class="changeable-icon">
-                        <!-- Icon Selector -->
-                        <i class="fa fa-rocket"></i>
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding">
-                    Powerful Code
-                </h4>
+        </div>-->
+        <!-- End Box -->
+        <!-- Box -->
+        <!--<div class="box animated" data-animation="fadeIn" data-animation-delay="600">-->
+        <!-- Box Icon -->
+        <!--<div class="box-icon fullwidth t-center normal">-->
+        <!-- Icon -->
+        <!--<a href="" class="changeable-icon">-->
+        <!-- Icon Selector -->
+        <!--<i class="fa fa-desktop"></i>
+            </a>
+        </div>-->
+        <!-- End Box Icon -->
+        <!-- Box Header -->
+        <!--<h4 class="box-header no-padding">
+            Creative Design
+        </h4>-->
+        <!-- Box Description -->
+        <!--<p class="no-padding no-margin">
+                It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
+            </p>
 
-                <!-- Box Description -->
-                <p class="no-padding no-margin">
-                    It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
-                </p>
+        </div>-->
+        <!-- End Box -->
+        <!-- Box -->
+        <!--<div class="box animated" data-animation="fadeIn" data-animation-delay="800">-->
+        <!-- Box Icon -->
+        <!--<div class="box-icon fullwidth t-center normal">-->
+        <!-- Icon -->
+        <!--<a href="" class="changeable-icon">-->
+        <!-- Icon Selector -->
+        <!--<i class="fa fa-cog"></i>
+            </a>
+        </div>-->
+        <!-- End Box Icon -->
+        <!-- Box Header -->
+        <!--<h4 class="box-header no-padding">
+            Fast Support
+        </h4>-->
+        <!-- Box Description -->
+        <!--<p class="no-padding no-margin">
+                It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
+            </p>
 
-            </div>
-            <!-- End Box -->
-            <!-- Box -->
-            <div class="box animated" data-animation="fadeIn" data-animation-delay="600">
-                <!-- Box Icon -->
-                <div class="box-icon fullwidth t-center normal">
-                    <!-- Icon -->
-                    <a href="" class="changeable-icon">
-                        <!-- Icon Selector -->
-                        <i class="fa fa-desktop"></i>
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding">
-                    Creative Design
-                </h4>
+        </div>-->
+        <!-- End Box -->
+        <!-- Box -->
+        <!--<div class="box animated" data-animation="fadeIn" data-animation-delay="1000">-->
+        <!-- Box Icon -->
+        <!--<div class="box-icon fullwidth t-center normal">-->
+        <!-- Icon -->
+        <!--<a href="" class="changeable-icon">-->
+        <!-- Icon Selector -->
+        <!--<i class="fa fa-pencil"></i>
+            </a>
+        </div>-->
+        <!-- End Box Icon -->
+        <!-- Box Header -->
+        <!--<h4 class="box-header no-padding">
+            Parallax Effects
+        </h4>-->
+        <!-- Box Description -->
+        <!--<p class="no-padding no-margin">
+                It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
+            </p>
 
-                <!-- Box Description -->
-                <p class="no-padding no-margin">
-                    It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
-                </p>
-
-            </div>
-            <!-- End Box -->
-            <!-- Box -->
-            <div class="box animated" data-animation="fadeIn" data-animation-delay="800">
-                <!-- Box Icon -->
-                <div class="box-icon fullwidth t-center normal">
-                    <!-- Icon -->
-                    <a href="" class="changeable-icon">
-                        <!-- Icon Selector -->
-                        <i class="fa fa-cog"></i>
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding">
-                    Fast Support
-                </h4>
-
-                <!-- Box Description -->
-                <p class="no-padding no-margin">
-                    It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
-                </p>
-
-            </div>
-            <!-- End Box -->
-            <!-- Box -->
-            <div class="box animated" data-animation="fadeIn" data-animation-delay="1000">
-                <!-- Box Icon -->
-                <div class="box-icon fullwidth t-center normal">
-                    <!-- Icon -->
-                    <a href="" class="changeable-icon">
-                        <!-- Icon Selector -->
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding">
-                    Parallax Effects
-                </h4>
-
-                <!-- Box Description -->
-                <p class="no-padding no-margin">
-                    It is a long established and thats reader will be distracted by the an readable content of page when lookings at its layout. Lorem Ipsum set.
-                </p>
-
-            </div>
-            <!-- End Box -->
-
-        </div>
+        </div>-->
+        <!-- End Box -->
+        <!--</div>-->
         <!-- End Boxes -->
         <!-- If you add here more boxes, here will be slider automatically -->
 

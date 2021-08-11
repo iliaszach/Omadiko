@@ -56,15 +56,15 @@ namespace Omadiko.WebApp
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "891468671438912",
+               appSecret: "e6a2900bfe6d74fbad24e2abdaaaf813");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "798256875641-vbnqavopt6lbgh96p1hgd17gkm0vsf7h.apps.googleusercontent.com",
+                ClientSecret = "Lv40xCQuM4zyKniAIpG0PHV0"
+            });
         }
     }
 }
