@@ -195,6 +195,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\MarbleCreateViewModel.cs" />
+    <Compile Include="ViewModels\MarbleDetailsViewModel.cs" />
     <Compile Include="ViewModels\MarbleEditViewModel.cs" />
     <Compile Include="ViewModels\ProviderCreateViewModel.cs" />
     <Compile Include="ViewModels\ProviderEditViewModel.cs" />
@@ -204,6 +205,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\AdditionalCSS.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\backgrounds.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -310,6 +312,9 @@
     <Content Include="Content\imagesMARBLE\Pink.jpg" />
     <Content Include="Content\imagesMARBLE\Statuario-Carrara.jpg" />
     <Content Include="Content\imagesMARBLE\Volakas-White-Greek-Marble.jpg" />
+    <Content Include="Content\imagesProvider\1657255.png" />
+    <Content Include="Content\imagesProvider\4289454-2756.png" />
+    <Content Include="Content\imagesProvider\64e0d04d9ff2edca0ba300c13aad7038.png" />
     <Content Include="Content\images\arrow-bottom.png" />
     <Content Include="Content\images\avatar.jpg" />
     <Content Include="Content\images\background.jpg" />
@@ -629,6 +634,7 @@
     <Content Include="Content\images\timeline\.DS_Store" />
     <Content Include="Content\images\timeline\light\.DS_Store" />
     <Content Include="CREXIS\backupforlogin.text" />
+    <Content Include="Content\imagesProvider\crown_quartz_logo_yakuq.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -715,12 +721,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Marble\Create.cshtml" />
     <Content Include="Views\Marble\Delete.cshtml" />
-    <Content Include="Views\Marble\Details.cshtml" />
+    <Content Include="Views\Marble\DetailsOld.cshtml" />
     <Content Include="Views\Marble\Edit.cshtml" />
     <Content Include="Views\Marble\Index.cshtml" />
     <Content Include="Views\Provider\Create.cshtml" />
     <Content Include="Views\Provider\Delete.cshtml" />
-    <Content Include="Views\Provider\Details.cshtml" />
+    <Content Include="Views\Provider\DetailsOld.cshtml" />
     <Content Include="Views\Provider\Edit.cshtml" />
     <Content Include="Views\Provider\Index.cshtml" />
     <Content Include="Views\Location\Create.cshtml" />
@@ -738,7 +744,7 @@
     <Content Include="Views\Marble\ShowMarbles.cshtml" />
     <Content Include="Views\Marble\_ViewStart.cshtml" />
     <Content Include="Views\Provider\_ViewStart.cshtml" />
-    <Content Include="Views\Marble\ShowMarblesDetails.cshtml" />
+    <Content Include="Views\Marble\Details.cshtml" />
     <Content Include="Scripts\js\.DS_Store" />
     <Content Include="Scripts\js\greensock\.DS_Store" />
     <Content Include="Scripts\js\layer_slider\.DS_Store" />
@@ -748,7 +754,7 @@
     <Content Include="Views\Shared\_CrexisFooter.cshtml" />
     <Content Include="Views\Shared\_CrexisPortofolio.cshtml" />
     <Content Include="Views\Shared\_CrexisNavBarPortfolio.cshtml" />
-    <Content Include="Views\Provider\Provider_Details.cshtml" />
+    <Content Include="Views\Provider\Details.cshtml" />
     <Content Include="Views\Provider\ShowAllProviders.cshtml" />
   </ItemGroup>
   <ItemGroup>

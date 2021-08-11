@@ -2,49 +2,104 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_CrexisPortofolio.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Marble</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo.PhotoName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo.PhotoName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-
-    </dl>
+<div class="providerView" style="background-color:#151515; color:#ffffff !important;">
+    <!-- Page Header - litle-header or bigger-header - soft-header, dark-header or backgroundx -->
+    <div>
+        <section id="page-header" style="padding: 1px;">
+            <!-- Page Header Inner -->
+            <div class="page_header_inner clearfix dark antialiased">
+            </div>
+        </section>
+    </div>
+    <!-- End #page-header -->
+    <!-- Shop Section -->
+    <section id="shop">
+        <div class="single_item_details clearfix boxed">
+            <!-- Slider -->
+            <div class="left image-pgn-slider f-left">
+                <!-- Sliders -->
+                <ul class="slides mp-gallery">
+                    <li data-thumb=@Html.DisplayFor(model => model.Photo.Url)>
+                        <a href=@Html.DisplayFor(model => model.Photo.Url)>
+                            <img src=@Html.DisplayFor(model => model.Photo.Url) />
+                        </a>
+                    </li>
+                </ul>
+                <!-- Label -->
+            </div>
+            <!-- Right, Details -->
+            <div class="right dark f-left" style=" color: #ffffff !important; ">
+                <h4 class="single_item_header no-padding" style="font-size:24px;">
+                    @Html.DisplayFor(model => model.Name)
+                </h4>
+                <span class="strip"></span>
+                <div>
+                    <strong>Color: </strong>
+                    @Html.DisplayFor(model => model.Color)
+                </div>
+                <span class="strip mb-20"></span>
+                <div class="CompanyDescription">
+                    <p class="description light no-padding" style="color:#ffffff !important;">
+                        @Html.DisplayFor(model => model.MarbleDescription)
+                    </p>
+                </div>
+                <span class="strip"></span>
+                <!-- End List  -->
+                <!-- Form -->
+                <div class="buttonSection" style="display: flex; margin-top: 20px; ">
+                    <form method="post" action="#" class="light-form">
+                        <!-- Input -->
+                        <a href="#" class="uppercase cart-button">
+                            Add to Favourite
+                        </a>
+                    </form>
+                    <form method="post" action="#" class="light-form">
+                        <!-- Input -->
+                        <a href="#" class="uppercase cart-button">
+                            Find Providers
+                        </a>
+                    </form>
+                </div>
+            </div><!-- End Right -->
+        </div><!-- End Details -->
+        <!-- Tabs -->
+        <div class="boxed related-products">
+            <h4 class="light">
+                Relative Marble
+            </h4>
+            <span class="strip mb-20"></span>
+            <!-- Boxes -->
+            <!--<div class="boxes box-carousel-dragable four-items clearfix">-->
+            <div class="collection">
+                <!-- Box -->
+                <div class="marbleCollection" style="display: grid; grid-template-columns: repeat(4, 1fr); ">
+                    @foreach (var marble in @ViewBag.RelativeMarble)
+                    {
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; ">
+                            <div style="margin-right:20px; margin-bottom:5px;">
+                                <img width="277" src=@marble.Photo.Url />
+                            </div>
+                            <div>
+                                <p>@marble.Name</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop -->
+    <!-- Page Note Type 2 -->
+    <section class="page-note type-2 dark-note">
+        <!-- Note -->
+        <h4 class="italic t-center normal antialiased">
+            <i class="fa fa-quote-left colored"></i>
+            Find the most suitable marble for your business and our Portal will give you access to their providers
+            <i class="fa fa-quote-right colored"></i>
+        </h4>
+    </section>
+    <!-- End Page Note Type 2 -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MarbleId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

@@ -33,6 +33,7 @@ namespace Omadiko.WebApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Marble marble = repo.GetById(id);
+            ViewBag.RelativeMarble = repo.GetAll().Where(x => x.Color == marble.Color).Where(x=>x.MarbleId != marble.MarbleId);
             if (marble == null)
             {
                 return HttpNotFound();

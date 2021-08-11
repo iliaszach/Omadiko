@@ -13,6 +13,7 @@ namespace Omadiko.Entities.Models
         public int MarbleId { get; set; }
         public string Name { get; set; }
         public string  Color { get; set; }
+        public string MarbleDescription { get; set; }
 
         //Navigation Properties
 
