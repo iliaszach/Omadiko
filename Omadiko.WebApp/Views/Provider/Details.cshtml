@@ -1,92 +1,143 @@
 ﻿@model Omadiko.Entities.Models.Provider
 
 @{
+    //ViewBag.Title = "Provider_Details";
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_CrexisPortofolio.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Provider</h4>
-    <hr />
-    <dl class="dl-horizontal">
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CompanyTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyPhoto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CompanyPhoto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.WebSite)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.WebSite)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BusinessTypes)
-        </dt>
-
-        <dd>
-            <ul>
-                @foreach (var type in Model.BusinessTypes)
-                {
-                    <li>@type.Kind</li>
-                }
-            </ul>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Marbles)
-        </dt>
-
-        <dd>
-            <ul>
-                @foreach (var marble in Model.Marbles)
-                {
-                    <li>@marble.Name</li>
-                }
-            </ul>
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayNameFor(model => model.Location.Country)<br />
-            @Html.DisplayNameFor(model => model.Location.City)<br />
-            @Html.DisplayNameFor(model => model.Location.Address)
-        </dd>
-    </dl>
+<div class="providerView" style="background-color:#151515; color:#ffffff !important;">
+    <div>
+        <section id="page-header" style="padding: 1px; ">
+        </section>
+    </div>
+    <section id="shop">
+        <div class="single_item_details clearfix boxed">
+            <!-- Slider -->
+            <div class="left image-pgn-slider f-left">
+                <!-- Sliders -->
+                <ul class="slides mp-gallery">
+                    <li data-thumb=@Html.DisplayFor(model => model.CompanyPhoto)>
+                        <a href=@Html.DisplayFor(model => model.CompanyPhoto)>
+                            <img src=@Html.DisplayFor(model => model.CompanyPhoto) />
+                        </a>
+                    </li>
+                    <li data-thumb="https://www.bellabathrooms.co.uk/blog/wp-content/uploads/2020/09/iStock-1175191124-1.jpg">
+                        <a href="#">
+                            <img src="https://www.bellabathrooms.co.uk/blog/wp-content/uploads/2020/09/iStock-1175191124-1.jpg" />
+                        </a>
+                    </li>
+                    <li data-thumb="https://cdn.homedit.com/wp-content/uploads/2014/11/full-marble-bathroom-floating-vanity.jpg">
+                        <a href="#">
+                            <img src="https://cdn.homedit.com/wp-content/uploads/2014/11/full-marble-bathroom-floating-vanity.jpg" />
+                        </a>
+                    </li>
+                </ul>
+                <!-- Label -->
+            </div>
+            <!-- Right, Details -->
+            <div class="right dark f-left" style=" color: #ffffff !important; ">
+                <h4 class="single_item_header no-padding" style="font-size:24px;">
+                    @Html.DisplayFor(model => model.CompanyTitle)
+                </h4>
+                <span class="strip"></span>
+                <div>
+                    <strong>Business type:</strong>
+                    <p>
+                        @foreach (var type in Model.BusinessTypes)
+                        {
+                            <i>@type.Kind,</i>
+                        }
+                    </p>
+                    <strong>Main marble: </strong>
+                    <p>
+                        @foreach (var marble in Model.Marbles)
+                        {
+                            <i>@marble.Name,</i>
+                        }
+                    </p>
+                </div>
+                <span class="strip mb-20"></span>
+                <div class="CompanyDescription">
+                    <p class="description light no-padding" style="color:#ffffff !important;">
+                        @Html.DisplayFor(model => model.CompanyDescription)
+                    </p>
+                </div>
+                <span class="strip"></span>
+                <!--Address-->
+                <div class="address">
+                    <ul class="light">
+                        <!-- Item  -->
+                        <li class="block" style="color:#ffffff !important;">
+                            <i class="fa fa-wifi"></i>
+                            @Html.DisplayFor(model => model.WebSite)
+                        </li>
+                        <!-- Item  -->
+                        <li class="block" style="color:#ffffff !important;">
+                            <i class="fa fa-envelope"></i>
+                            @Html.DisplayFor(model => model.Email)
+                        </li>
+                        <!-- Item  -->
+                        <li class="block" style="color:#ffffff !important;">
+                            <i class="fa fa-phone"></i>
+                            @Html.DisplayFor(model => model.Phone)
+                        </li>
+                    </ul>
+                </div>
+                <!-- End List  -->
+                <span class="strip"></span>
+                <!-- Form -->
+                <div class="buttonSection" style="display: flex; ">
+                    <form method="post" action="#" class="light-form">
+                        <!-- Input -->
+                        <a href="#" class="uppercase cart-button">
+                            Add to Favourite
+                        </a>
+                    </form>
+                    <form method="post" action="#" class="light-form">
+                        <!-- Input -->
+                        <a href="#" class="uppercase cart-button">
+                            Contact Provider
+                        </a>
+                    </form>
+                </div>
+            </div><!-- End Right -->
+        </div><!-- End Details -->
+        <!-- Tabs -->
+        <div class="boxed related-products">
+            <h4 class="light">
+                Main Collection
+            </h4>
+            <span class="strip mb-20"></span>
+            <!-- Boxes -->
+            <!--<div class="boxes box-carousel-dragable four-items clearfix">-->
+            <div class="collection">
+                <!-- Box -->
+                <div class="marbleCollection" style="display: grid; grid-template-columns: repeat(4, 1fr); ">
+                    @foreach (var marble in Model.Marbles)
+                    {
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; ">
+                            <div style="margin-right:20px; margin-bottom:5px;">
+                                <img width="277" src=@marble.Photo.Url />
+                            </div>
+                            <div>
+                                <p>@marble.Name</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop -->
+    <!-- Page Note Type 2 -->
+    <section class="page-note type-2 dark-note">
+        <!-- Note -->
+        <h4 class="italic t-center normal antialiased">
+            <i class="fa fa-quote-left colored"></i>
+            Find the most suitable marble for your business and our Portal will give you access to their providers
+            <i class="fa fa-quote-right colored"></i>
+        </h4>
+    </section>
+    <!-- End Page Note Type 2 -->
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProviderId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

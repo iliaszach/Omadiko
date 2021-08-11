@@ -12,6 +12,7 @@ namespace Omadiko.Entities.Models
         
         public int ProviderId { get; set; }        
         public string CompanyTitle { get; set; }
+        public string CompanyDescription { get; set; }
         public string CompanyPhoto { get; set; }
         public string Phone { get; set; }
         public string WebSite { get; set; }
