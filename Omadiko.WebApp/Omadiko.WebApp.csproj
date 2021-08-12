@@ -491,6 +491,12 @@
     <Content Include="Content\images\mouse-icon.png" />
     <Content Include="Content\images\pattern-black.png" />
     <Content Include="Content\images\pattern-white.png" />
+    <Content Include="Content\images\photodikesmas\03327_c-550x550h.jpg" />
+    <Content Include="Content\images\photodikesmas\b74870bd5c8daa8ecaa28c554736f8d6_image_document_large_featured_borderless.jpg" />
+    <Content Include="Content\images\photodikesmas\foto.jpg" />
+    <Content Include="Content\images\photodikesmas\images.jpg" />
+    <Content Include="Content\images\photodikesmas\shutterstock_89862334-1024x585.png" />
+    <Content Include="Content\images\photodikesmas\unnamed.jpg" />
     <Content Include="Content\images\play.png" />
     <Content Include="Content\images\plus-mini-dark.png" />
     <Content Include="Content\images\plus.png" />
