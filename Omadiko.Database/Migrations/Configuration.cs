@@ -794,34 +794,36 @@ namespace Omadiko.Database.Migrations
             //context.SaveChanges();
             #endregion
 
-
+            #region Roles Hector
             //Roles
-            if (!context.Roles.Any(x => x.Name == "Admin"))
-            {
-                var store = new RoleStore<IdentityRole>(context);
-                var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "Admin" };
-                manager.Create(role);
-            }
+            //if (!context.Roles.Any(x => x.Name == "Admin"))
+            //{
+            //    var store = new RoleStore<IdentityRole>(context);
+            //    var manager = new RoleManager<IdentityRole>(store);
+            //    var role = new IdentityRole { Name = "Admin" };
+            //    manager.Create(role);
+            //}
 
 
-            var PasswordHash = new PasswordHasher();
-            if (!context.Users.Any(x => x.UserName == "admin@admin.net"))
-            {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser
-                {
-                    UserName = "admin@admin.net",
-                    Email = "admin@admin.net",
-                    PasswordHash = PasswordHash.HashPassword("Admin1!")
-                };
+            //var PasswordHash = new PasswordHasher();
+            //if (!context.Users.Any(x => x.UserName == "admin@admin.net"))
+            //{
+            //    var store = new UserStore<ApplicationUser>(context);
+            //    var manager = new UserManager<ApplicationUser>(store);
+            //    var user = new ApplicationUser
+            //    {
+            //        UserName = "admin@admin.net",
+            //        Email = "admin@admin.net",
+            //        PasswordHash = PasswordHash.HashPassword("Admin1!")
+            //    };
 
 
 
-                manager.Create(user);
-                manager.AddToRole(user.Id, "Admin");
-            }
+            //    manager.Create(user);
+            //    manager.AddToRole(user.Id, "Admin");
+            //}
+            #endregion
+
 
 
 
