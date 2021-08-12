@@ -40,7 +40,7 @@ namespace Omadiko.WebApp.Controllers
                 _userManager = value;
             }
         }
-      
+
 
         //LIKE
         public async Task<ActionResult> LikeAddToList(int marbleId, string userId)
@@ -88,6 +88,7 @@ namespace Omadiko.WebApp.Controllers
             }
             Marble marble = unitOfWork.Marbles.GetById(id);
             ViewBag.RelativeMarble = unitOfWork.Marbles.GetAll().Where(x => x.Color == marble.Color).Where(x => x.MarbleId != marble.MarbleId);
+            ViewBag.ProvidersOfMarble = marble.Providers;
             if (marble == null)
             {
                 return HttpNotFound();
