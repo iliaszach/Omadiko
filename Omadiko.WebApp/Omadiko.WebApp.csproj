@@ -794,6 +794,21 @@
     <Content Include="Views\Shared\Footer\_CrexisFooter.cshtml" />
     <Content Include="Views\Shared\LayOut\_CrexisLayout.cshtml" />
     <Content Include="Views\Shared\LayOut\_CrexisPortofolio.cshtml" />
+    <Content Include="Views\Shared\HomePage\AgencyNotes.cshtml" />
+    <Content Include="Views\Shared\HomePage\CategoriesSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\ClientLogosSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\ClientsSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\ContentWithImage.cshtml" />
+    <Content Include="Views\Shared\HomePage\FeaturedWorksSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\FeaturedWorksWithTestimonialsSlider.cshtml" />
+    <Content Include="Views\Shared\HomePage\FeaturesWithMobileSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\NewsFromBlog.cshtml" />
+    <Content Include="Views\Shared\HomePage\NotesSkillsSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\PageNoteSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\PortfolioSectionMarble.cshtml" />
+    <Content Include="Views\Shared\HomePage\PricingTables.cshtml" />
+    <Content Include="Views\Shared\HomePage\TeamSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\Testimonials.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
