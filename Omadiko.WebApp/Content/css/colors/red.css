@@ -32,7 +32,7 @@
 	.feature-boxes.type-3 .feature-box:hover .feature-icon,
 	body.dark-layout .feature-boxes.type-3 .feature-box:hover .feature-icon,
 	.feature-boxes.type-3 .feature-box:hover .feature-text h4{
-		color:#e54343;
+		color:#222222;
 	}
 
 	.colored-bg,
@@ -87,8 +87,8 @@
 	.icons-listing div:hover i,
 	a.content-button:hover,
 	body.dark-layout .contact .contact_form.type-2.white-form button:hover{
-		background-color:#f35050;
-	}
+/*		background-color:#f35050;
+*/	}
 
 	::selection{ background-color:#f35050; }
 
