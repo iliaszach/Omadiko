@@ -187,9 +187,12 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarbleController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountViewModels\CreateRolesandUsers.cs" />
     <Compile Include="Models\AccountViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginListViewModel.cs" />
@@ -491,6 +494,12 @@
     <Content Include="Content\images\mouse-icon.png" />
     <Content Include="Content\images\pattern-black.png" />
     <Content Include="Content\images\pattern-white.png" />
+    <Content Include="Content\images\photodikesmas\03327_c-550x550h.jpg" />
+    <Content Include="Content\images\photodikesmas\b74870bd5c8daa8ecaa28c554736f8d6_image_document_large_featured_borderless.jpg" />
+    <Content Include="Content\images\photodikesmas\foto.jpg" />
+    <Content Include="Content\images\photodikesmas\images.jpg" />
+    <Content Include="Content\images\photodikesmas\shutterstock_89862334-1024x585.png" />
+    <Content Include="Content\images\photodikesmas\unnamed.jpg" />
     <Content Include="Content\images\play.png" />
     <Content Include="Content\images\plus-mini-dark.png" />
     <Content Include="Content\images\plus.png" />
@@ -788,6 +797,23 @@
     <Content Include="Views\Shared\Footer\_CrexisFooter.cshtml" />
     <Content Include="Views\Shared\LayOut\_CrexisLayout.cshtml" />
     <Content Include="Views\Shared\LayOut\_CrexisPortofolio.cshtml" />
+    <Content Include="Views\Shared\HomePage\AgencyNotes.cshtml" />
+    <Content Include="Views\Shared\HomePage\CategoriesSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\ClientLogosSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\ClientsSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\ContentWithImage.cshtml" />
+    <Content Include="Views\Shared\HomePage\FeaturedWorksSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\FeaturedWorksWithTestimonialsSlider.cshtml" />
+    <Content Include="Views\Shared\HomePage\FeaturesWithMobileSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\NewsFromBlog.cshtml" />
+    <Content Include="Views\Shared\HomePage\NotesSkillsSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\PageNoteSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\PortfolioSectionMarble.cshtml" />
+    <Content Include="Views\Shared\HomePage\PricingTables.cshtml" />
+    <Content Include="Views\Shared\HomePage\TeamSection.cshtml" />
+    <Content Include="Views\Shared\HomePage\Testimonials.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

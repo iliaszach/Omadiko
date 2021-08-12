@@ -1,6 +1,6 @@
 ﻿@model Omadiko.WebApp.Models.RegisterViewModel
 @{
-    Layout = "~/Views/Shared/_CrexisLayout.cshtml";
+    Layout = "~/Views/Shared/LayOut/_CrexisLayout.cshtml";
     ViewBag.Title = "Register";
 }
 
@@ -41,6 +41,12 @@
                 @Html.LabelFor(m => m.ConfirmPassword, new { @class = "hidden" })
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Confirm Password" })
             </div>
+            <div class="form-group">
+                @Html.Label("user Role", new { @class = "hidden" })
+                <div class="col-md-10">                    
+                    @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, "User Role", new { @class = "strip_form white light block fullwidth mt-15 op-07"})
+                </div>
+            </div>
             <div>
                 <button type="submit" id="submit" name="submit" class="strip_button white light block fullwidth mt-30 colored-bg pt-18">Register</button>
             </div>
@@ -49,7 +55,9 @@
     </div>
 </section>
 
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
 
 
