@@ -8,8 +8,14 @@
 <section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
     <div class="login white v-center t-center">
         <div class="t-center light mb-20 text-white bg-dark">
-            <img src="~/Content/images/logo/userphoto.png" alt="Image Not Found" style="width:20%">
             <h1>@User.Identity.Name</h1>
+
+            <img src="~/Content/images/logo/userphoto.png" alt="Image Not Found" style="width:20%">
+
+            <div class="t-center light mb-20">
+                @Html.DisplayNameFor(x => x.Role):
+                @Html.DisplayFor(x => x.Role)
+            </div>
             <div class="t-center light mb-20">
                 @Html.DisplayNameFor(x => x.Username):
                 @Html.DisplayFor(x => x.Username)
@@ -22,13 +28,13 @@
                 @Html.DisplayNameFor(x => x.PhoneNumber):
                 @Html.DisplayFor(x => x.PhoneNumber)
             </div>
-            
+
 
             <h4>User Profile Options</h4>
-            <div class="t-center light mb-20">                
+            <div class="t-center light mb-20">
                 <p>
                     @if (Model.HasPassword)
-                    {                        
+                    {
                         @Html.ActionLink("Change your password:", "ChangePassword")
                     }
                     else
@@ -37,10 +43,10 @@
                     }
                 </p>
             </div>
-            <div class="t-center light mb-20">                
+            <div class="t-center light mb-20">
                 <p>
                     @if (Model.PhoneNumber is null)
-                    {                        
+                    {
                         @Html.ActionLink("Add Phone number", "AddPhoneNumber")
                     }
                     else
@@ -49,10 +55,10 @@
                     }
                 </p>
             </div>
-            <div class="t-center light mb-20">                
+            <div class="t-center light mb-20">
                 <p>
                     @if (Model.PhotoUrl is null)
-                    {                        
+                    {
                         @Html.ActionLink("Add profile picture", "")
                     }
                     else

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Omadiko.Database;
@@ -67,15 +68,17 @@ namespace Omadiko.WebApp.Controllers
                 : "";
 
             //User.Identity.GetUserId() returns a userId, which I used to the method UserManager.FindByIdAsync
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());           
+            var roles = await UserManager.GetRolesAsync(user.Id.ToString());
+
             var model = new IndexViewModel
             {
+                Role = roles.FirstOrDefault(),
                 Username = user.UserName,
                 HasPassword = HasPassword(),
                 PhoneNumber = user.PhoneNumber,               
-                Email = user.UserName,   
-                //PhotoUrl = user.
+                Email = user.Email,   
+                //PhotoUrl = user.PhotoUrl
                 Marbles =  user.Marbles
             };
             return View(model);
