@@ -37,6 +37,30 @@
                     }
                 </p>
             </div>
+            <div class="t-center light mb-20">                
+                <p>
+                    @if (Model.PhoneNumber is null)
+                    {                        
+                        @Html.ActionLink("Add Phone number", "AddPhoneNumber")
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Reset Phone number", "RemovePhoneNumber")
+                    }
+                </p>
+            </div>
+            <div class="t-center light mb-20">                
+                <p>
+                    @if (Model.PhotoUrl is null)
+                    {                        
+                        @Html.ActionLink("Add profile picture", "")
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Change profile picture", "")
+                    }
+                </p>
+            </div>
 
             <a href="#"><i class="fa fa-google"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
