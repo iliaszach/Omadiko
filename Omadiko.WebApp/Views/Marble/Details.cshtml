@@ -1,5 +1,5 @@
 ﻿@model Omadiko.Entities.Models.Marble
-
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/Layout/_CrexisPortofolio.cshtml";
@@ -50,12 +50,16 @@
                 <!-- End List  -->
                 <!-- Form -->
                 <div class="buttonSection" style="display: flex; ">
-                    <form method="post" action="#" class="light-form">
-                        <!-- Input -->
-                        <a href="#" class="uppercase cart-button">
+
+                    <!-- Input -->
+                    @using (Html.BeginForm("LikeAddToList", "Marble", new { marbleId = Model.MarbleId, userId = User.Identity.GetUserId() }, FormMethod.Post))
+                    {
+                        <button type="submit" class="btn btn-danger">Add to Favourite</button>
+                    }
+                    @*<a href="#" class="uppercase cart-button">
                             Add to Favourite
-                        </a>
-                    </form>
+                        </a>*@
+
                     <form method="post" action="#" class="light-form">
                         @*<button id="BtnProviders" style="color:black;">Find Providers</button>*@
                         @*<a href="#" id="BtnProviders" class="uppercase cart-button">
@@ -114,7 +118,7 @@
         </div>
         <div>
             @foreach (var provider in @ViewBag.ProvidersOfMarble)
-            { 
+            {
                 <button id="BtnProvider" value="@provider.ProviderId" style="width:90%; height: 100%; background-color: #222222; margin-top:10px; border:none; border-radius:5px;">
                     <div id="BtnProviderInside" style="display:flex; border:0.5px solid; border-color:white; border-radius:5px; width:100%;">
                         <img src="@provider.CompanyPhoto" style="width:100px; height:100px;" />

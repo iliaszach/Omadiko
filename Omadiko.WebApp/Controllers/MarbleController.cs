@@ -69,7 +69,7 @@ namespace Omadiko.WebApp.Controllers
             //}
             #endregion
             await UserManager.AttachUserList(userId, marbleId);
-            return Redirect("Index");
+            return Redirect("Details/"+marbleId);
         }
 
         // GET: Marble
