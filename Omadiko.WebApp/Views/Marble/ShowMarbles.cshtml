@@ -89,336 +89,63 @@
     <!-- Portfolio Items -->
     <div id="portfolio-items" class="fullwidth type2">
 
-        <!-- Item -->
-        <div class="cbp-item item design">
-            <!-- Item Link -->
-            <a href="projects/project_01.html" class="cbp-caption ex-link">
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Adranos.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                         Icon 
-                        <p><i class="fa fa-image"></i></p>
-                        <p>Photography</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name " style="color:azure">
-                                Girl In Snow
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Design
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
-        <div class="cbp-item item photography web">
-            <!-- Item Link -->
-            <a href="projects/project_02.html" class="cbp-caption ex-link">
+        @foreach (var marble in Model)
+        {
+            <!-- Item -->
+            <div class="cbp-item item design">
+                <!-- Item Link -->
+                <a href="projects/project_01.html" class="cbp-caption ex-link">
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Arabescato-Corchia.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                         Icon 
-                        <p><i class="fa fa-camera-retro"></i></p>
-                        <p>Photography</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name" style="color:azure">
-                                Walking on Bridge
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Photography, Web
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
-        <div class="cbp-item item design photography">
-            <!-- Item Link -->
-            <a href="projects/project_03.html" class="cbp-caption ex-link">
+                    <!-- Item Image -->
+                    <div class="cbp-caption-defaultWrap">
+                        <!-- Image Src -->
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Arabescato-Orobico-Grigio.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                        <!-- Icon -->
-                        <p><i class="fa fa-image"></i></p>
-                        <p>Web Design</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name " style="color:azure">
-                                Cheese!
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Design
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
-        <div class="cbp-item item web">
-            <!-- Item Link -->
-            <a href="projects/project_01.html" class="cbp-caption ex-link">
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Blanco-Alejandra.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                        <!-- Icon -->
-                        <p><i class="fa fa-camera-retro"></i></p>
-                        <p>Photography</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name " style="color:azure">
-                                Trees in the White
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Web
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
-        <div class="cbp-item item web photography">
-            <!-- Item Link -->
-            <a href="projects/project_02.html" class="cbp-caption ex-link">
+                       
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Milas-NewYork.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                        <!-- Icon -->
-                        <p><i class="fa fa-camera-retro"></i></p>
-                        <p>Web Design</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name " style="color:azure">
-                                Working in Office
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Web, Photography
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
-        <div class="cbp-item item photography design graphic">
-            <!-- Item Link -->
-            <a href="projects/project_03.html" class="cbp-caption ex-link">
+                        <a href="~/marble/details/@marble.MarbleId">
+                            <img src="@marble.Photo.Url" style="width:468px; height:255px" alt="Crexis">
+                           
+                        </a>
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Mount-White.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                        <!-- Icon -->
-                        <p><i class="fa fa-image"></i></p>
-                        <p>Photography</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name " style="color:azure">
-                                Photography
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Photography, Design
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
-        <div class="cbp-item item photography design web graphic">
-            <!-- Item Link -->
-            <a href="projects/project_01.html" class="cbp-caption ex-link">
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Pink.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                        <!-- Icon -->
-                        <p><i class="fa fa-camera-retro"></i></p>
-                        <p>Web Design</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name " style="color:azure">
-                                Train Way
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Web, Graphic
-                            </p>
-                        </div>
-                    </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
-        <!-- Item -->
-        <div class="cbp-item item photography design web graphic">
-            <!-- Item Link -->
-            <a href="projects/project_01.html" class="cbp-caption ex-link">
 
-                <!-- Item Image -->
-                <div class="cbp-caption-defaultWrap">
-                    <!-- Image Src -->
-                    <img src="~/Content/imagesMARBLE/Statuario-Carrara.jpg" style="width:468px; height:255px" alt="Crexis">
-                    
-                    <!-- Item Note -->
-                    <div class="item_icon">
-                        <!-- Icon -->
-                        <p><i class="fa fa-camera-retro"></i></p>
-                        <p>Web Design</p>
-                    </div>
-                    <!-- End Item Note -->
-                </div>
-                <!-- End Item Image -->
-                <!-- Item Details -->
-                <div class="cbp-caption-activeWrap">
-                    <!-- Centered Details -->
-                    <div class="center-details">
-                        <div class="details">
-                            <!-- Item Name -->
-                            <h2 class="name " style="color:azure">
-                                Train Way
-                            </h2>
-                            <!-- Tags -->
-                            <p class="tags" style="color:azure">
-                                Web, Graphic
-                            </p>
+                        <!-- Item Note -->
+                        <div class="item_icon">
+                            Icon
+                            <p><i class="fa fa-image"></i></p>
+                            <p>Photography</p>
                         </div>
+                        <!-- End Item Note -->
                     </div>
-                    <!-- End Center Details Div -->
-                </div>
-                <!-- End Item Details -->
-            </a>
-            <!-- End Item Link -->
-        </div>
-        <!-- End Item -->
-        <!-- Item -->
+                    <!-- End Item Image -->
+                    <!-- Item Details -->
+                    <div class="cbp-caption-activeWrap">
+                        <!-- Centered Details -->
+                        <div class="center-details">
+                            <div class="details">
+                                <!-- Item Name -->
+                                <h2 class="name " style="color:azure">
+                                    @Html.DisplayFor(modelItem=>marble.Name)
+                                </h2>
+                                <!-- Tags -->
+                                <p class="tags" style="color:azure">
+                                    @Html.DisplayFor(modelItem => marble.Country.Name)
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Center Details Div -->
+                    </div>
+                    <!-- End Item Details -->
+                </a>
+                <!-- End Item Link -->
+            </div>
+            <!-- End Item -->
+
+        }
+       
+
     </div>   
     <!-- End Portfolio Items -->
 
