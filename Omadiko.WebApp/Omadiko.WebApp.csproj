@@ -636,6 +636,7 @@
     <Content Include="Content\TESTcss\nicepage.css" />
     <Content Include="Content\TESTcss\Post-Template.css" />
     <Content Include="CREXIS\blog_single_dark.html" />
+    <Content Include="CREXIS\elements-components.html" />
     <Content Include="CREXIS\elements-icons.html" />
     <Content Include="CREXIS\HomeIndex.html" />
     <Content Include="CREXIS\myprofile_ChangePass_backupa.txt" />
