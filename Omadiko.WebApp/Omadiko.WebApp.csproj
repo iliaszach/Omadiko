@@ -214,6 +214,7 @@
     <Compile Include="Models\MarbleViewModel\MarbleEditViewModel.cs" />
     <Compile Include="Models\ProviderViewModel\ProviderCreateViewModel.cs" />
     <Compile Include="Models\ProviderViewModel\ProviderEditViewModel.cs" />
+    <Compile Include="Models\RoleViewModel\CreateRoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -812,8 +813,9 @@
     <Content Include="Views\Shared\HomePage\PricingTables.cshtml" />
     <Content Include="Views\Shared\HomePage\TeamSection.cshtml" />
     <Content Include="Views\Shared\HomePage\Testimonials.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
