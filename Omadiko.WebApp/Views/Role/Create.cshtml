@@ -1,0 +1,36 @@
+﻿@model Omadiko.WebApp.Models.RoleViewModel.CreateRoleViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/LayOut/_CrexisPortofolio.cshtml";
+}
+
+
+<section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
+    <div class="login white v-center t-center">
+        @using (Html.BeginForm("Create", "Role", null, FormMethod.Post, new { @class = "form login_type t-center pl-10 pr-10 mini-text", role = "form" }))
+        {
+            <h1 class="t-center light mb-20">Create a role</h1>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div>
+                @Html.LabelFor(m => m.name, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.name, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Username" })
+                @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="strip_button white light block fullwidth mt-30 colored-bg pt-18" />
+            </div>
+
+        }
+
+        <div class="t-center light mb-20">
+            @Html.ActionLink("Back", "Index")
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

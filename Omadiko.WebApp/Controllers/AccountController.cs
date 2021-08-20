@@ -151,9 +151,12 @@ namespace Omadiko.WebApp.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            //For user registration we will not display the Admin roles. User can select rest of any role type during registration. 
+            //RegisterViewModel vm = new RegisterViewModel(context);
+            //For user registration we will not display the Admin roles.
+            //User can select rest of any role type during registration. 
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                     .ToList(), "Name", "Name");
+
             return View();
         }
 
