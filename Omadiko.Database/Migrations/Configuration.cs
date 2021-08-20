@@ -442,243 +442,243 @@ namespace Omadiko.Database.Migrations
 
             //// PROVIDERS
 
-            Provider p1 = new Provider() { CompanyTitle = "2E Marble", Phone = "", WebSite = "", Email = " ", CompanyPhoto = " " };
+            Provider p1 = new Provider() { CompanyTitle = "2E Marble", Phone = "", WebSite = "", Email = " ", CompanyPhoto = "~/Content/images/ProviderPhotos/images.jpg" };
             p1.BusinessTypes = new List<BusinessType>() { b1, b4 };
             p1.Location = l1;
 
-            Provider p2 = new Provider() { CompanyTitle = "A.A.T.C. and Co. S.r.l – Italian Marble Company", Phone = "0039 0456 861057", WebSite = "http://www.aatc.it/", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/aatc31.png?zoom=1.25&resize=245%2C70&ssl=1" };
+            Provider p2 = new Provider() { CompanyTitle = "A.A.T.C. and Co. S.r.l – Italian Marble Company", Phone = "0039 0456 861057", WebSite = "http://www.aatc.it/", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/aatc31.png" };
             p2.BusinessTypes = new List<BusinessType>() { b1, b4 };
             p2.Location = l2;
 
-            Provider p3 = new Provider() { CompanyTitle = "Aadhar Primeexim", Phone = "0091 291 2635619", WebSite = "www.aadharexim.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Aadhar-Primeexim-Logo.png?resize=89%2C68&ssl=1" };
+            Provider p3 = new Provider() { CompanyTitle = "Aadhar Primeexim", Phone = "0091 291 2635619", WebSite = "www.aadharexim.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Aadhar-Primeexim-Logo.png" };
             p3.BusinessTypes = new List<BusinessType>() { b1, b2 };
             p3.Location = l3;
 
-            Provider p4 = new Provider() { CompanyTitle = "Abdeen Stone for Marble and Granite", Phone = "002 012 87104990", WebSite = "www.abdeenstone.net", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/abdeen-stone-logo.png?w=484&ssl=1" };
+            Provider p4 = new Provider() { CompanyTitle = "Abdeen Stone for Marble and Granite", Phone = "002 012 87104990", WebSite = "www.abdeenstone.net", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/abdeen-stone-logo.png" };
             p4.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p4.Location = l4;
 
-            Provider p5 = new Provider() { CompanyTitle = "ACROPOLE MARBLE", Phone = "+357 9671 9945", WebSite = "www.acropolemarble.com/", Email = "www ", CompanyPhoto = "" };
+            Provider p5 = new Provider() { CompanyTitle = "ACROPOLE MARBLE", Phone = "+357 9671 9945", WebSite = "www.acropolemarble.com/", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/images.jpg" };
             p5.BusinessTypes = new List<BusinessType>() { b1 };
             p5.Location = l5;
 
-            Provider p6 = new Provider() { CompanyTitle = "Afrika National Granite", Phone = "0027 11 908 3595", WebSite = "www.ang.co.za", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/AFRIKA-NATIONAL-GRANITE-LOGO.png?zoom=1.25&resize=92%2C109&ssl=1" };
+            Provider p6 = new Provider() { CompanyTitle = "Afrika National Granite", Phone = "0027 11 908 3595", WebSite = "www.ang.co.za", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/AFRIKA-NATIONAL-GRANITE-LOGO.png" };
             p6.BusinessTypes = new List<BusinessType>() { b1, b2 };
             p6.Location = l6;
 
-            Provider p7 = new Provider() { CompanyTitle = "AGHIA MARINA MARBLE LTD.", Phone = "+30 210-6039362", WebSite = "www.perrakis.eu", Email = " www", CompanyPhoto = "" };
+            Provider p7 = new Provider() { CompanyTitle = "AGHIA MARINA MARBLE LTD.", Phone = "+30 210-6039362", WebSite = "www.perrakis.eu", Email = " www", CompanyPhoto = "~/Content/images/ProviderPhotos/images.jpg" };
             p7.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p7.Location = l7;
 
-            Provider p8 = new Provider() { CompanyTitle = "AKROLITHOS Ltd", Phone = "0030 25920 51400", WebSite = "www.akrolithos.gr", Email = " www", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Akrolithos-natural-stones.jpg?w=743&ssl=1" };
+            Provider p8 = new Provider() { CompanyTitle = "AKROLITHOS Ltd", Phone = "0030 25920 51400", WebSite = "www.akrolithos.gr", Email = " www", CompanyPhoto = "~/Content/images/ProviderPhotos/Akrolithos-natural-stones.jpg" };
             p8.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p8.Location = l8;
 
-            Provider p9 = new Provider() { CompanyTitle = "AL HASSANA MARBLE", Phone = "0020229700402", WebSite = "www.alhassana.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/ALHASSANA-LOGO.png?zoom=1.25&resize=200%2C55&ssl=1" };
+            Provider p9 = new Provider() { CompanyTitle = "AL HASSANA MARBLE", Phone = "0020229700402", WebSite = "www.alhassana.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/ALHASSANA-LOGO.png" };
             p9.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p9.Location = l9;
 
 
-            Provider p10 = new Provider() { CompanyTitle = "Al Nada Group for Marble & Granite", Phone = "0020 1 118585224", WebSite = "www.alnada-marble.com", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Al-Nada-Group-for-Marble-Granite.jpg?resize=173%2C106&ssl=1" };
+            Provider p10 = new Provider() { CompanyTitle = "Al Nada Group for Marble & Granite", Phone = "0020 1 118585224", WebSite = "www.alnada-marble.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Al-Nada-Group-for-Marble-Granite.jpg" };
             p10.BusinessTypes = new List<BusinessType>() { b1, b4 };
             p10.Location = l10;
 
 
-            Provider p11 = new Provider() { CompanyTitle = "Al-Cobra for Marble and Granite", Phone = "0020 2 6909635", WebSite = "www.alcobra2mg.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Al-Cobra-for-Marble-and-Granite-logo.jpg?resize=136%2C250&ssl=1" };
+            Provider p11 = new Provider() { CompanyTitle = "Al-Cobra for Marble and Granite", Phone = "0020 2 6909635", WebSite = "www.alcobra2mg.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Al-Cobra-for-Marble-and-Granite-logo.jpg" };
             p11.BusinessTypes = new List<BusinessType>() { b4, b5 };
             p11.Location = l11;
 
 
-            Provider p12 = new Provider() { CompanyTitle = "Al-Rashad Marble Co.", Phone = "0020 2 29700600", WebSite = "www.alrashadmarble.net", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Al-Rashad-Marble-Co.-Logo.jpg?resize=169%2C76&ssl=1" };
+            Provider p12 = new Provider() { CompanyTitle = "Al-Rashad Marble Co.", Phone = "0020 2 29700600", WebSite = "www.alrashadmarble.net", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Al-Rashad-Marble-Co.-Logo.jpg" };
             p12.BusinessTypes = new List<BusinessType>() { b1, b4 };
             p12.Location = l12;
 
 
-            Provider p13 = new Provider() { CompanyTitle = "Albadr Marble Stone Co.", Phone = "01003630067", WebSite = "http://www.albadr-marble-stone.com/", Email = " www", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/ALBADR-MARBLE-STONE-CO-LOGO.jpg?resize=880%2C183&ssl=1" };
+            Provider p13 = new Provider() { CompanyTitle = "Albadr Marble Stone Co.", Phone = "01003630067", WebSite = "http://www.albadr-marble-stone.com/", Email = " www", CompanyPhoto = "~/Content/images/ProviderPhotos/ALBADR-MARBLE-STONE-CO-LOGO.jpg" };
             p13.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p13.Location = l13;
 
 
-            Provider p14 = new Provider() { CompanyTitle = "Alberti and Alberti S.r.l.", Phone = "00390456260444", WebSite = "www.marmialberti.it", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/logo-aea.png?resize=102%2C64&ssl=1" };
+            Provider p14 = new Provider() { CompanyTitle = "Alberti and Alberti S.r.l.", Phone = "00390456260444", WebSite = "www.marmialberti.it", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/logo-aea.png" };
             p14.BusinessTypes = new List<BusinessType>() { b1, b4 };
             p14.Location = l14;
 
 
-            Provider p15 = new Provider() { CompanyTitle = "Aldur Madencilik", Phone = "0090 0 232 621 34 40", WebSite = "www.aldur.com.tr", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/aldur-madencilik-logo.jpg?resize=880%2C480&ssl=1" };
+            Provider p15 = new Provider() { CompanyTitle = "Aldur Madencilik", Phone = "0090 0 232 621 34 40", WebSite = "www.aldur.com.tr", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/aldur-madencilik-logo.jpg" };
             p15.BusinessTypes = new List<BusinessType>() { b1 };
             p15.Location = l15;
 
 
-            Provider p16 = new Provider() { CompanyTitle = "Alfa Stone For Marble and Quarries", Phone = "0020 2 27541379", WebSite = "www.alfa-stone.com", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Alfa-Stone-For-Marble-and-Quarries-LOGO-MARBLEGUIDE.jpg?resize=147%2C127&ssl=1" };
+            Provider p16 = new Provider() { CompanyTitle = "Alfa Stone For Marble and Quarries", Phone = "0020 2 27541379", WebSite = "www.alfa-stone.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Alfa-Stone-For-Marble-and-Quarries-LOGO-MARBLEGUIDE.jpg" };
             p16.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p16.Location = l16;
 
 
-            Provider p17 = new Provider() { CompanyTitle = "Alpa Hellas Marbles", Phone = "00302103425198", WebSite = "alpahellasmarbles.gr", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/LOGO-ALPA-MARBLES.jpg?w=400&ssl=1" };
+            Provider p17 = new Provider() { CompanyTitle = "Alpa Hellas Marbles", Phone = "00302103425198", WebSite = "alpahellasmarbles.gr", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/LOGO-ALPA-MARBLES.jpg" };
             p17.BusinessTypes = new List<BusinessType>() { b1 };
             p17.Location = l17;
 
-            Provider p18 = new Provider() { CompanyTitle = "Alpha Mena, Export Marble and Granite", Phone = "002-0106 2445527", WebSite = "www.alphamena.webs.com", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Alpha-Mena-logo.jpg?resize=225%2C225&ssl=1" };
+            Provider p18 = new Provider() { CompanyTitle = "Alpha Mena, Export Marble and Granite", Phone = "002-0106 2445527", WebSite = "www.alphamena.webs.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Alpha-Mena-logo.jpg" };
             p18.BusinessTypes = new List<BusinessType>() { b1, b4 };
             p18.Location = l18;
 
 
-            Provider p19 = new Provider() { CompanyTitle = "ALSAMAR A.V.E.E.", Phone = "+30 25410 93752", WebSite = " www.alsamar.gr", Email = "www ", CompanyPhoto = "" };
+            Provider p19 = new Provider() { CompanyTitle = "ALSAMAR A.V.E.E.", Phone = "+30 25410 93752", WebSite = " www.alsamar.gr", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/images.jpg" };
             p19.BusinessTypes = new List<BusinessType>() { b1, b4, b5 };
             p19.Location = l19;
 
 
-            Provider p20 = new Provider() { CompanyTitle = "Anjalee Granite", Phone = "0091 98855 66709", WebSite = "www.anjalee.com", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/anjalee-Logo.png?w=500&ssl=1" };
+            Provider p20 = new Provider() { CompanyTitle = "Anjalee Granite", Phone = "0091 98855 66709", WebSite = "www.anjalee.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/anjalee-Logo.png" };
             p20.BusinessTypes = new List<BusinessType>() { b1, b2 };
             p20.Location = l20;
 
 
-            Provider p21 = new Provider() { CompanyTitle = "Arihant Marbles", Phone = "0091 9414017329", WebSite = "www.arihantmarbles.com", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Arihant-Marbles-Logo.jpg?w=505&ssl=1" };
+            Provider p21 = new Provider() { CompanyTitle = "Arihant Marbles", Phone = "0091 9414017329", WebSite = "www.arihantmarbles.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Arihant-Marbles-Logo.jpg" };
             p21.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p21.Location = l21;
 
 
-            Provider p22 = new Provider() { CompanyTitle = "Aro Granite", Phone = "0091 4344 252100", WebSite = "www.arotile.com", Email = " www", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Aro-Granite-Logo.jpg?resize=880%2C85&ssl=1" };
+            Provider p22 = new Provider() { CompanyTitle = "Aro Granite", Phone = "0091 4344 252100", WebSite = "www.arotile.com", Email = " www", CompanyPhoto = "~/Content/images/ProviderPhotos/Aro-Granite-Logo.jpg" };
             p22.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p22.Location = l22;
 
 
-            Provider p23 = new Provider() { CompanyTitle = "Azul Aran", Phone = "0034 973 64 73 95", WebSite = "www.azularan.com", Email = " www", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Azul-Aran-logo.jpg?resize=401%2C85&ssl=1" };
+            Provider p23 = new Provider() { CompanyTitle = "Azul Aran", Phone = "0034 973 64 73 95", WebSite = "www.azularan.com", Email = " www", CompanyPhoto = "~/Content/images/ProviderPhotos/Azul-Aran-logo.jpg" };
             p23.BusinessTypes = new List<BusinessType>() { b1, b2 };
             p23.Location = l23;
 
 
-            Provider p24 = new Provider() { CompanyTitle = "Azul italia", Phone = "0039 02817551", WebSite = "www.azulitalia.it", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/azul-italia-logo1.png?resize=230%2C130&ssl=1" };
+            Provider p24 = new Provider() { CompanyTitle = "Azul italia", Phone = "0039 02817551", WebSite = "www.azulitalia.it", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/azul-italia-logo1.png" };
             p24.BusinessTypes = new List<BusinessType>() { b1, b2 };
             p24.Location = l24;
 
 
-            Provider p25 = new Provider() { CompanyTitle = "Bacci Marmi", Phone = "0039 0584757537", WebSite = "www.baccimarmi.it", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Bacci-Marmi-Logo-e1479318073559.jpg?zoom=2&resize=880%2C480&ssl=1" };
+            Provider p25 = new Provider() { CompanyTitle = "Bacci Marmi", Phone = "0039 0584757537", WebSite = "www.baccimarmi.it", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Bacci-Marmi-Logo-e1479318073559.jpg" };
             p25.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p25.Location = l25;
 
 
-            Provider p26 = new Provider() { CompanyTitle = "Bahavan Granites", Phone = "0091 44 42170696", WebSite = "www.bahavangranites.com", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Bhavan-Granites-Logo..jpg?resize=256%2C197&ssl=1" };
+            Provider p26 = new Provider() { CompanyTitle = "Bahavan Granites", Phone = "0091 44 42170696", WebSite = "www.bahavangranites.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Bhavan-Granites-Logo..jpg" };
             p26.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p26.Location = l26;
 
 
-            Provider p27 = new Provider() { CompanyTitle = "BALKAN SA MARBLE MANUFACTURE", Phone = "+302521068030", WebSite = "", Email = "www ", CompanyPhoto = "" };
+            Provider p27 = new Provider() { CompanyTitle = "BALKAN SA MARBLE MANUFACTURE", Phone = "+302521068030", WebSite = "", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/images.jpg" };
             p27.BusinessTypes = new List<BusinessType>() { b1, b2, b3, b4, b5 };
             p27.Location = l27;
 
 
-            Provider p28 = new Provider() { CompanyTitle = "BORCHARDT STONE", Phone = "0055 27 3732-5048", WebSite = "www.borchardtstone.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Borchardt-logo.png?resize=252%2C251&ssl=1" };
+            Provider p28 = new Provider() { CompanyTitle = "BORCHARDT STONE", Phone = "0055 27 3732-5048", WebSite = "www.borchardtstone.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Borchardt-logo.png" };
             p28.BusinessTypes = new List<BusinessType>() { b2, b4 };
             p28.Location = l28;
 
 
-            Provider p29 = new Provider() { CompanyTitle = "Brasigran Granitos", Phone = "005527 2124 1421", WebSite = "www.mcorcovado.com.br", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Brasigran-Granitos-logo.png?resize=204%2C49&ssl=1" };
+            Provider p29 = new Provider() { CompanyTitle = "Brasigran Granitos", Phone = "005527 2124 1421", WebSite = "www.mcorcovado.com.br", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Brasigran-Granitos-logo.png" };
             p29.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p29.Location = l29;
 
 
-            Provider p30 = new Provider() { CompanyTitle = "BVL Granites", Phone = "0091 40 23607488", WebSite = "www.bvlgranites.com", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Bvl-Granites-logo-e1479991541984.png?resize=200%2C70&ssl=1" };
+            Provider p30 = new Provider() { CompanyTitle = "BVL Granites", Phone = "0091 40 23607488", WebSite = "www.bvlgranites.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Bvl-Granites-logo-e1479991541984.png" };
             p30.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p30.Location = l30;
 
 
-            Provider p31 = new Provider() { CompanyTitle = "Ceramiche Cerdisa", Phone = "00309 0522 773602", WebSite = "www.ceramichecerdisa.it/en/", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/cerdisa-logo.jpg?resize=246%2C172&ssl=1" };
+            Provider p31 = new Provider() { CompanyTitle = "Ceramiche Cerdisa", Phone = "00309 0522 773602", WebSite = "www.ceramichecerdisa.it/en/", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/cerdisa-logo.jpg" };
             p31.BusinessTypes = new List<BusinessType>() { b1 };
             p31.Location = l31;
 
 
-            Provider p32 = new Provider() { CompanyTitle = "Coex Granite", Phone = "0055 27 2124-3341", WebSite = "www.coexgranite.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/coex-granite-logo.jpg?resize=163%2C93&ssl=1" };
+            Provider p32 = new Provider() { CompanyTitle = "Coex Granite", Phone = "0055 27 2124-3341", WebSite = "www.coexgranite.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/coex-granite-logo.jpg" };
             p32.BusinessTypes = new List<BusinessType>() { b2, b4 };
             p32.Location = l32;
 
 
-            Provider p33 = new Provider() { CompanyTitle = "CRYSTAL FOR MARBLE AND GRANITE", Phone = "00 202 29700 551", WebSite = "www.crystal.com.eg", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Crystal-Marble-and-Granite-Logo.jpg?resize=176%2C171&ssl=1" };
+            Provider p33 = new Provider() { CompanyTitle = "CRYSTAL FOR MARBLE AND GRANITE", Phone = "00 202 29700 551", WebSite = "www.crystal.com.eg", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Crystal-Marble-and-Granite-Logo.jpg" };
             p33.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p33.Location = l33;
 
 
-            Provider p34 = new Provider() { CompanyTitle = "DASKALAKIS MARBLE S.A", Phone = "+30210 6612106, 6610888", WebSite = "www.daskalakismarble.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/daskalakis-marble-logo.jpg?zoom=1.25&resize=256%2C144&ssl=1" };
+            Provider p34 = new Provider() { CompanyTitle = "DASKALAKIS MARBLE S.A", Phone = "+30210 6612106, 6610888", WebSite = "www.daskalakismarble.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/daskalakis-marble-logo.jpg" };
             p34.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p34.Location = l34;
 
 
-            Provider p35 = new Provider() { CompanyTitle = "DASKALAKIS NATURAL STONES", Phone = "+30 2821 064557", WebSite = "www.daskalakis-stones.gr", Email = "www ", CompanyPhoto = "" };
+            Provider p35 = new Provider() { CompanyTitle = "DASKALAKIS NATURAL STONES", Phone = "+30 2821 064557", WebSite = "www.daskalakis-stones.gr", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/images.jpg" };
             p35.BusinessTypes = new List<BusinessType>() { b3, b5 };
             p35.Location = l35;
 
 
-            Provider p36 = new Provider() { CompanyTitle = "DERMITZAKIS BROS – GREEK WHITE MARBLE", Phone = "+30 25910 24942", WebSite = "", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/DERMITZAKIS-BROS-GREEK-WHITE-MARBLE-LOGO.jpg?resize=225%2C224&ssl=1" };
+            Provider p36 = new Provider() { CompanyTitle = "DERMITZAKIS BROS – GREEK WHITE MARBLE", Phone = "+30 25910 24942", WebSite = "", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/DERMITZAKIS-BROS-GREEK-WHITE-MARBLE-LOGO.jpg" };
             p36.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p36.Location = l36;
 
 
-            Provider p37 = new Provider() { CompanyTitle = "DIONYSSOMARBLE COMPANY SA", Phone = "0030-2106211400", WebSite = "", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/DIONYSSOMARBLE-LOGO.jpg?resize=530%2C480&ssl=1" };
+            Provider p37 = new Provider() { CompanyTitle = "DIONYSSOMARBLE COMPANY SA", Phone = "0030-2106211400", WebSite = "", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/DIONYSSOMARBLE-LOGO.jpg" };
             p37.BusinessTypes = new List<BusinessType>() { b1, b2, b4, b5 };
             p37.Location = l37;
 
 
-            Provider p38 = new Provider() { CompanyTitle = "Dorgham For Marble and Granite", Phone = "002 0222614415", WebSite = "www.dorghammarble.com", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Dorgham-logo.gif?resize=334%2C133&ssl=1" };
+            Provider p38 = new Provider() { CompanyTitle = "Dorgham For Marble and Granite", Phone = "002 0222614415", WebSite = "www.dorghammarble.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Dorgham-logo.gif" };
             p38.BusinessTypes = new List<BusinessType>() { b1, b4 };
             p38.Location = l38;
 
 
-            Provider p39 = new Provider() { CompanyTitle = "DORIKA MARMARA S.A.", Phone = "+306936608637,(+30) 25210.81601", WebSite = "", Email = "www ", CompanyPhoto = "" };
+            Provider p39 = new Provider() { CompanyTitle = "DORIKA MARMARA S.A.", Phone = "+306936608637,(+30) 25210.81601", WebSite = "", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/images.jpg" };
             p39.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p39.Location = l39;
 
 
-            Provider p40 = new Provider() { CompanyTitle = "DreamStone – Egyptian Marble Company", Phone = "202 382 43 121", WebSite = "www.dream-stone.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Dream-stone-logo.jpg?zoom=1.25&resize=180%2C78&ssl=1" };
+            Provider p40 = new Provider() { CompanyTitle = "DreamStone – Egyptian Marble Company", Phone = "202 382 43 121", WebSite = "www.dream-stone.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Dream-stone-logo.jpg" };
             p40.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p40.Location = l40;
 
 
-            Provider p41 = new Provider() { CompanyTitle = "El Zomordah for Marble and Granite", Phone = "00 202 275 41 247", WebSite = "www.zomordah.com", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Logo2.jpg?resize=424%2C161&ssl=1" };
+            Provider p41 = new Provider() { CompanyTitle = "El Zomordah for Marble and Granite", Phone = "00 202 275 41 247", WebSite = "www.zomordah.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Logo2.jpg" };
             p41.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p41.Location = l41;
 
 
-            Provider p42 = new Provider() { CompanyTitle = "Elc Marble, Egyptian Lebanese Co.", Phone = "002 0100 188 66 30", WebSite = "www.elc-eg.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/ELC_Marble_logo.png?resize=338%2C97&ssl=1" };
+            Provider p42 = new Provider() { CompanyTitle = "Elc Marble, Egyptian Lebanese Co.", Phone = "002 0100 188 66 30", WebSite = "www.elc-eg.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/ELC_Marble_logo.png" };
             p42.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p42.Location = l42;
 
 
-            Provider p43 = new Provider() { CompanyTitle = "Elios Ceramica", Phone = "0039 0536 842411", WebSite = "http://www.eliosceramica.com/", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/elios-ceramica-logo..jpeg?resize=220%2C120&ssl=1" };
+            Provider p43 = new Provider() { CompanyTitle = "Elios Ceramica", Phone = "0039 0536 842411", WebSite = "http://www.eliosceramica.com/", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/elios-ceramica-logo..jpeg" };
             p43.BusinessTypes = new List<BusinessType>() { b5 };
             p43.Location = l43;
 
 
-            Provider p44 = new Provider() { CompanyTitle = "FHL I.KIRIAKIDIS ~ MARBLES and GRANITES S.A.", Phone = " 0030-6974030383,+30 25210 81360 -3-4-5", WebSite = "www.fhl.gr", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/FHL-I.KIRIAKIDIS-MARBLES-and-GRANITES-S.A-logo.png?zoom=1.25&resize=189%2C143&ssl=1" };
+            Provider p44 = new Provider() { CompanyTitle = "FHL I.KIRIAKIDIS ~ MARBLES and GRANITES S.A.", Phone = " 0030-6974030383,+30 25210 81360 -3-4-5", WebSite = "www.fhl.gr", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/FHL-I.KIRIAKIDIS-MARBLES-and-GRANITES-S.A-logo.png" };
             p44.BusinessTypes = new List<BusinessType>() { b1, b2, b3, b4, b5 };
             p44.Location = l44;
 
 
-            Provider p45 = new Provider() { CompanyTitle = "FIRST MARBLE", Phone = "", WebSite = "www.first-marble.com", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/first-marble-logo.png?resize=166%2C184&ssl=1" };
+            Provider p45 = new Provider() { CompanyTitle = "FIRST MARBLE", Phone = "", WebSite = "www.first-marble.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/first-marble-logo.png" };
             p45.BusinessTypes = new List<BusinessType>() { b5 };
             p45.Location = l45;
 
 
-            Provider p46 = new Provider() { CompanyTitle = "GALANIS MARBLE S.A.", Phone = "(+30) 27530 22557", WebSite = "www.galanisquarries.com", Email = "www ", CompanyPhoto = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Quarry_GALANIS.jpg?zoom=1.25&resize=860%2C469&ssl=1" };
+            Provider p46 = new Provider() { CompanyTitle = "GALANIS MARBLE S.A.", Phone = "(+30) 27530 22557", WebSite = "www.galanisquarries.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Quarry_GALANIS.jpg" };
             p46.BusinessTypes = new List<BusinessType>() { b2, b4 };
             p46.Location = l46;
 
 
-            Provider p47 = new Provider() { CompanyTitle = "Galleni Gino Marmi", Phone = "0039 0585 844489", WebSite = "www.gallenimarmi.com", Email = "www ", CompanyPhoto = "https://i2.wp.com/marbleguide.com/wp-content/uploads/galleni-marmi-logo.jpg?zoom=1.25&resize=181%2C153&ssl=1" };
+            Provider p47 = new Provider() { CompanyTitle = "Galleni Gino Marmi", Phone = "0039 0585 844489", WebSite = "www.gallenimarmi.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/galleni-marmi-logo.jpg" };
             p47.BusinessTypes = new List<BusinessType>() { b2 };
             p47.Location = l47;
 
 
-            Provider p48 = new Provider() { CompanyTitle = "Geostones", Phone = "+49-(0)-4141-788 18 98", WebSite = "http://geostones.eu", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Geostones-Logo.jpg?resize=300%2C300&ssl=1" };
+            Provider p48 = new Provider() { CompanyTitle = "Geostones", Phone = "+49-(0)-4141-788 18 98", WebSite = "http://geostones.eu", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/Geostones-Logo.jpg" };
             p48.BusinessTypes = new List<BusinessType>() { b1, b2, b4 };
             p48.Location = l48;
 
 
-            Provider p49 = new Provider() { CompanyTitle = "Giannakis Marble", Phone = "0030 25220 23596", WebSite = "www.giannakis-marble.gr", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/giannakis-marble-logo.jpg?zoom=1.25&resize=860%2C78&ssl=1" };
+            Provider p49 = new Provider() { CompanyTitle = "Giannakis Marble", Phone = "0030 25220 23596", WebSite = "www.giannakis-marble.gr", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/giannakis-marble-logo.jpg" };
             p49.BusinessTypes = new List<BusinessType>() { b5 };
             p49.Location = l49;
 
 
-            Provider p50 = new Provider() { CompanyTitle = "GLOBAL STONES LTD", Phone = "0020227549770", WebSite = "www.gsglobalstones.com", Email = "www ", CompanyPhoto = "https://i0.wp.com/marbleguide.com/wp-content/uploads/global-stone-logo.jpg?zoom=1.25&resize=172%2C71&ssl=1" };
+            Provider p50 = new Provider() { CompanyTitle = "GLOBAL STONES LTD", Phone = "0020227549770", WebSite = "www.gsglobalstones.com", Email = "www ", CompanyPhoto = "~/Content/images/ProviderPhotos/global-stone-logo.jpg" };
             p50.BusinessTypes = new List<BusinessType>() { b5 };
             p50.Location = l50;
 
@@ -695,197 +695,197 @@ namespace Omadiko.Database.Migrations
             ////MARBLE
 
 
-            Marble m1 = new Marble() { Name = "AEGEAN WHITE Greek Marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Aegean-Cream-Greek-Marble.jpg?zoom=1.25&resize=860%2C469&ssl=1" }, Country = c70 };
+            Marble m1 = new Marble() { Name = "AEGEAN WHITE Greek Marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aegean-Cream-Greek-Marble.jpg" }, Country = c70 };
             m1.Providers = new List<Provider>() { p7, p8, p17, p19 };
 
-            Marble m2 = new Marble() { Name = "AGIA MARINA CLOUDED SEMI-WHITE Greek Marble", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Greel_Marble_Agia_Marina_Clouded_Semi_White.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m2 = new Marble() { Name = "AGIA MARINA CLOUDED SEMI-WHITE Greek Marble", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greel_Marble_Agia_Marina_Clouded_Semi_White.jpg" }, Country = c70 };
             m2.Providers = new List<Provider>() { p27, p34, p35 };
 
-            Marble m3 = new Marble() { Name = "AGIOS KYRILLOS (POMPIA) GREY Greek marble", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Greek_Marble_Agios-Kyrillos-Pompia-Grey.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m3 = new Marble() { Name = "AGIOS KYRILLOS (POMPIA) GREY Greek marble", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Agios-Kyrillos-Pompia-Grey.jpg" }, Country = c70 };
             m3.Providers = new List<Provider>() { p36, p37, p39 };
 
-            Marble m4 = new Marble() { Name = "ALIVERI GREY Greek marble", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Greek_Marble_Aliveri_Grey.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m4 = new Marble() { Name = "ALIVERI GREY Greek marble", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Aliveri_Grey.jpg" }, Country = c70 };
             m4.Providers = new List<Provider>() { p44, p46, p48, p49 };
 
-            Marble m5 = new Marble() { Name = "ALOIDES SEMI WHITE Greek marble", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/ALOIDES-SEMIWHITE.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m5 = new Marble() { Name = "ALOIDES SEMI WHITE Greek marble", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ALOIDES-SEMIWHITE.jpg" }, Country = c70 };
             m5.Providers = new List<Provider>() { p7, p8, p17, p19, p36, p37 };
 
-            Marble m6 = new Marble() { Name = "ARAXOVA Greek marble", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Greek_Marble_Araxova.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m6 = new Marble() { Name = "ARAXOVA Greek marble", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Araxova.jpg" }, Country = c70 };
             m6.Providers = new List<Provider>() { p44, p46 };
 
-            Marble m7 = new Marble() { Name = "ARGOS BLACK Greek marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Greek_Marble_Argos_Black.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m7 = new Marble() { Name = "ARGOS BLACK Greek marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Argos_Black.jpg" }, Country = c70 };
             m7.Providers = new List<Provider>() { p36, p37, p48, p49 };
 
-            Marble m8 = new Marble() { Name = "ARIDAIA TRAVERTINO Greek marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Greek_Marble_Aridaia_Travertino.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m8 = new Marble() { Name = "ARIDAIA TRAVERTINO Greek marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Aridaia_Travertino.jpg" }, Country = c70 };
             m8.Providers = new List<Provider>() { p17, p19 };
 
-            Marble m9 = new Marble() { Name = "ARTA PINK Greek marble ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Greek_Marble_Arta_Pink.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m9 = new Marble() { Name = "ARTA PINK Greek marble ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Arta_Pink.jpg" }, Country = c70 };
             m9.Providers = new List<Provider>() { p36 };
 
-            Marble m10 = new Marble() { Name = "CHALKEROU CRYSTALLINA SEMI WHITE Greek marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Greel_Marble_Chalkerou-Crystallina-Semi-White.jpg?resize=300%2C180&ssl=1" }, Country = c70 };
+            Marble m10 = new Marble() { Name = "CHALKEROU CRYSTALLINA SEMI WHITE Greek marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greel_Marble_Chalkerou-Crystallina-Semi-White.jpg" }, Country = c70 };
             m10.Providers = new List<Provider>() { p7, p8, p17, p19, p36, p37, p44, p46, p48, p49 };
 
 
 
-            Marble m11 = new Marble() { Name = "ARABESCATO ALTISSIMO Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/ARABESCATO-ALTISSIMO.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m11 = new Marble() { Name = "ARABESCATO ALTISSIMO Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO-ALTISSIMO.jpg" }, Country = c88 };
             m11.Providers = new List<Provider>() { p2, p14 };
 
-            Marble m12 = new Marble() { Name = "ARABESCATO ARNI Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Arabescato-Arni.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m12 = new Marble() { Name = "ARABESCATO ARNI Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Arni.jpg" }, Country = c88 };
             m12.Providers = new List<Provider>() { p24, p25 };
 
-            Marble m13 = new Marble() { Name = "ARABESCATO CERVAIOLE Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/ARABESCATO-CERVAIOLE.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m13 = new Marble() { Name = "ARABESCATO CERVAIOLE Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO-CERVAIOLE.jpg" }, Country = c88 };
             m13.Providers = new List<Provider>() { p31, p43 };
 
-            Marble m14 = new Marble() { Name = "ARABESCATO CORCHIA Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Arabescato-Corchia.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m14 = new Marble() { Name = "ARABESCATO CORCHIA Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Corchia.jpg" }, Country = c88 };
             m14.Providers = new List<Provider>() { p47 };
 
-            Marble m15 = new Marble() { Name = "ARABESCATO Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/ARABESCATO.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m15 = new Marble() { Name = "ARABESCATO Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO.jpg" }, Country = c88 };
             m15.Providers = new List<Provider>() { p2, p14, p24, p25 };
 
-            Marble m16 = new Marble() { Name = "ARABESCATO MOSSA Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Arabescato-Mossa-1.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m16 = new Marble() { Name = "ARABESCATO MOSSA Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Mossa-1.jpg" }, Country = c88 };
             m16.Providers = new List<Provider>() { p2, p14, p24, p25, p31, p43 };
 
-            Marble m17 = new Marble() { Name = "ARABESCATO OROBICO GRIGIO Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Arabescato-Orobico-Grigio.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m17 = new Marble() { Name = "ARABESCATO OROBICO GRIGIO Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Orobico-Grigio.jpg" }, Country = c88 };
             m17.Providers = new List<Provider>() { p31, p43 };
 
-            Marble m18 = new Marble() { Name = "ARABESCATO VAGLI Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Arabescato-Vagli.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m18 = new Marble() { Name = "ARABESCATO VAGLI Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Vagli.jpg" }, Country = c88 };
             m18.Providers = new List<Provider>() { p2, p24, p25 };
 
-            Marble m19 = new Marble() { Name = "BARDIGLIO COSTA Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Bardiglio-Costa.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m19 = new Marble() { Name = "BARDIGLIO COSTA Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bardiglio-Costa.jpg" }, Country = c88 };
             m19.Providers = new List<Provider>() { p24, p25, p31 };
 
-            Marble m20 = new Marble() { Name = "BARDIGLIO IMPERIALE Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Bardiglio-Imperiale.jpg?resize=300%2C180&ssl=1" }, Country = c88 };
+            Marble m20 = new Marble() { Name = "BARDIGLIO IMPERIALE Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bardiglio-Imperiale.jpg" }, Country = c88 };
             m20.Providers = new List<Provider>() { p31 };
 
 
 
-            Marble m21 = new Marble() { Name = "ALMERA PINK Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/ALMERA-PINK.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m21 = new Marble() { Name = "ALMERA PINK Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ALMERA-PINK.jpg" }, Country = c56 };
             m21.Providers = new List<Provider>() { p4, p9 };
 
-            Marble m22 = new Marble() { Name = "BRECCIA FAWAKHIR Egyptian marble ", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Breccia-Fawakir.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m22 = new Marble() { Name = "BRECCIA FAWAKHIR Egyptian marble ", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Breccia-Fawakir.jpg" }, Country = c56 };
             m22.Providers = new List<Provider>() { p10, p11, p12 };
 
-            Marble m23 = new Marble() { Name = "CHANTEUIL JAUNE BLEU French marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Chanteuil-Jaune-Bleu.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m23 = new Marble() { Name = "CHANTEUIL JAUNE BLEU French marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Chanteuil-Jaune-Bleu.jpg" }, Country = c56 };
             m23.Providers = new List<Provider>() { p13, p16 };
 
-            Marble m24 = new Marble() { Name = "GALALA Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Galala.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m24 = new Marble() { Name = "GALALA Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Galala.jpg" }, Country = c56 };
             m24.Providers = new List<Provider>() { p18, p33, p40, p41 };
 
-            Marble m25 = new Marble() { Name = "GIALLO ATLANTIDE Egyptian marble ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Giallo-Atlantide.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m25 = new Marble() { Name = "GIALLO ATLANTIDE Egyptian marble ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Giallo-Atlantide (1).jpg" }, Country = c56 };
             m25.Providers = new List<Provider>() { p42, p45 };
 
-            Marble m26 = new Marble() { Name = "IVORY CLASSIC Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Ivory-Classic.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m26 = new Marble() { Name = "IVORY CLASSIC Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Ivory-Classic.jpg" }, Country = c56 };
             m26.Providers = new List<Provider>() { p50 };
 
-            Marble m27 = new Marble() { Name = "MARIGOLD Egyptian marble", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Marigold.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m27 = new Marble() { Name = "MARIGOLD Egyptian marble", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Marigold.jpg" }, Country = c56 };
             m27.Providers = new List<Provider>() { p10, p11, p12, p18, p33, p40, p41 };
 
-            Marble m28 = new Marble() { Name = "GIALLO CLEOPATRA Egyptian marble ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Giallo-Atlantide.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m28 = new Marble() { Name = "GIALLO CLEOPATRA Egyptian marble ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Giallo-Cleopatra.jpg" }, Country = c56 };
             m28.Providers = new List<Provider>() { p4, p10, p12, p16, p33, p38, p42, p45, p50 };
 
-            Marble m29 = new Marble() { Name = "ONYX ALABASTER Egyptian onyx ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Onyx-Alabaster.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m29 = new Marble() { Name = "ONYX ALABASTER Egyptian onyx ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Onyx-Alabaster.jpg" }, Country = c56 };
             m29.Providers = new List<Provider>() { p9, p11, p13, p18, p38, p41, p45 };
 
-            Marble m30 = new Marble() { Name = "SAMAHA Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Samaha.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m30 = new Marble() { Name = "SAMAHA Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Samaha.jpg" }, Country = c56 };
             m30.Providers = new List<Provider>() { p9, p33, p38, p45, p50 };
 
-            Marble m31 = new Marble() { Name = "SILVIA ORO ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/SILVIA-ORO.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m31 = new Marble() { Name = "SILVIA ORO ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/SILVIA-ORO.jpg" }, Country = c56 };
             m31.Providers = new List<Provider>() { p10, p11, p12, p42, p45 };
 
-            Marble m32 = new Marble() { Name = "SINAI PEARL Egyptian limestone ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Sinai-Pearl.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m32 = new Marble() { Name = "SINAI PEARL Egyptian limestone ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Sinai-Pearl.jpg" }, Country = c56 };
             m32.Providers = new List<Provider>() { p13, p16 };
 
-            Marble m33 = new Marble() { Name = "Sunny marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Sunny_Light.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m33 = new Marble() { Name = "Sunny marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Sunny_Light.jpg" }, Country = c56 };
             m33.Providers = new List<Provider>() { p4, p10, p12, p16, p33 };
 
-            Marble m34 = new Marble() { Name = "YLANG Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Ylang.jpg?resize=300%2C180&ssl=1" }, Country = c56 };
+            Marble m34 = new Marble() { Name = "YLANG Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Ylang.jpg" }, Country = c56 };
             m34.Providers = new List<Provider>() { p18, p33 };
 
 
 
-            Marble m35 = new Marble() { Name = "ADONIS BEIGE Turkish marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Adonis-Beige.jpg?resize=300%2C180&ssl=1" }, Country = c189 };
+            Marble m35 = new Marble() { Name = "ADONIS BEIGE Turkish marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Adonis-Beige.jpg" }, Country = c189 };
             m35.Providers = new List<Provider>() { p15 };
 
-            Marble m36 = new Marble() { Name = "ADRANOS WHITE Turkish marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Adranos.jpg?resize=300%2C180&ssl=1" }, Country = c189 };
+            Marble m36 = new Marble() { Name = "ADRANOS WHITE Turkish marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Adranos.jpg" }, Country = c189 };
             m36.Providers = new List<Provider>() { p15 };
 
-            Marble m37 = new Marble() { Name = "AEGEAN BORDEAUX Turkish marble ", Color = "Red", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Aegean-Bordeaux.jpg?resize=300%2C180&ssl=1" }, Country = c189 };
+            Marble m37 = new Marble() { Name = "AEGEAN BORDEAUX Turkish marble ", Color = "Red", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aegean-Bordeaux.jpg" }, Country = c189 };
             m37.Providers = new List<Provider>() { p24, p25, p31 };
 
-            Marble m38 = new Marble() { Name = "AFYON WHITE Turkish marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/AFYON.jpg?resize=300%2C180&ssl=1" }, Country = c189 };
+            Marble m38 = new Marble() { Name = "AFYON WHITE Turkish marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/AFYON.jpg" }, Country = c189 };
             m38.Providers = new List<Provider>() { p9, p33, p38, p45, p50 };
 
-            Marble m39 = new Marble() { Name = "AKSEHIR BLACK Turkish marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Aksehir-black.jpg?resize=300%2C180&ssl=1" }, Country = c189 };
+            Marble m39 = new Marble() { Name = "AKSEHIR BLACK Turkish marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aksehir-black.jpg" }, Country = c189 };
             m39.Providers = new List<Provider>() { p38 };
 
 
 
-            Marble m40 = new Marble() { Name = "AMAZONIA BROWN Brazilian marble ", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Amazonia-Brown.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m40 = new Marble() { Name = "AMAZONIA BROWN Brazilian marble ", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Amazonia-Brown.jpg" }, Country = c25 };
             m40.Providers = new List<Provider>() { p28 };
 
-            Marble m41 = new Marble() { Name = "ARGENTO Brazilian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Argento.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m41 = new Marble() { Name = "ARGENTO Brazilian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Argento.jpg" }, Country = c25 };
             m41.Providers = new List<Provider>() { p29 };
 
-            Marble m42 = new Marble() { Name = "AZUL ACQUAMARINA Brazilian marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Azul-Acquamarina.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m42 = new Marble() { Name = "AZUL ACQUAMARINA Brazilian marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Azul-Acquamarina.jpg" }, Country = c25 };
             m42.Providers = new List<Provider>() { p32 };
 
-            Marble m43 = new Marble() { Name = "AZUL BOCQUIRA Brazilian marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Azul-Bocchira.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m43 = new Marble() { Name = "AZUL BOCQUIRA Brazilian marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Azul-Bocchira.jpg" }, Country = c25 };
             m43.Providers = new List<Provider>() { p28, p29 };
 
-            Marble m44 = new Marble() { Name = "BRANCO CACHOEIRO Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Branco-Cachoeiro.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m44 = new Marble() { Name = "BRANCO CACHOEIRO Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Cachoeiro.jpg" }, Country = c25 };
             m44.Providers = new List<Provider>() { p28, p32 };
 
-            Marble m45 = new Marble() { Name = "ADRBRANCO CARRARINHA Brazilian marbleANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Branco-Carrarinha.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m45 = new Marble() { Name = "ADRBRANCO CARRARINHA Brazilian marbleANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Carrarinha.jpg" }, Country = c25 };
             m45.Providers = new List<Provider>() { p29, p32 };
 
-            Marble m46 = new Marble() { Name = "BRANCO COMUM Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Branco-Comum.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m46 = new Marble() { Name = "BRANCO COMUM Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Comum.jpg" }, Country = c25 };
             m46.Providers = new List<Provider>() { p28 };
 
-            Marble m47 = new Marble() { Name = "BRANCO RAJADO Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Branco-Rajado.jpg?resize=300%2C180&ssl=1" }, Country = c25 };
+            Marble m47 = new Marble() { Name = "BRANCO RAJADO Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Rajado.jpg" }, Country = c25 };
             m47.Providers = new List<Provider>() { p28, p29, p32 };
 
 
 
-            Marble m48 = new Marble() { Name = "AGRA WHITE Indian sandstone ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Agra-White.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m48 = new Marble() { Name = "AGRA WHITE Indian sandstone ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Agra-White.jpg" }, Country = c82 };
             m48.Providers = new List<Provider>() { p3, p20 };
 
-            Marble m49 = new Marble() { Name = "BHAINSLANA BLACK indian marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Bhainslana-Black-1.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m49 = new Marble() { Name = "BHAINSLANA BLACK indian marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bhainslana-Black-1.jpg" }, Country = c82 };
             m49.Providers = new List<Provider>() { p21, p22 };
 
-            Marble m50 = new Marble() { Name = "BIDASAR BROWN India marble ", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i1.wp.com/marbleguide.com/wp-content/uploads/Bidasar-Brown.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m50 = new Marble() { Name = "BIDASAR BROWN India marble ", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bidasar-Brown.jpg" }, Country = c82 };
             m50.Providers = new List<Provider>() { p26, p30 };
 
-            Marble m51 = new Marble() { Name = "DHOLPUR WHITE Indian sandstone ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Dholpur-White.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m51 = new Marble() { Name = "DHOLPUR WHITE Indian sandstone ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Dholpur-White.jpg" }, Country = c82 };
             m51.Providers = new List<Provider>() { p3, p21 };
 
-            Marble m52 = new Marble() { Name = "HIMACHAL WHITE Indian quartzite ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Himachal-White.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m52 = new Marble() { Name = "HIMACHAL WHITE Indian quartzite ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Himachal-White.jpg" }, Country = c82 };
             m52.Providers = new List<Provider>() { p3, p20, p21, p22, p26, p30 };
 
-            Marble m53 = new Marble() { Name = "JAIPUR RAINBOW Indian sandstone ", Color = "Multicolor", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Jaipur-Rainbow.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m53 = new Marble() { Name = "JAIPUR RAINBOW Indian sandstone ", Color = "Multicolor", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Jaipur-Rainbow.jpg" }, Country = c82 };
             m53.Providers = new List<Provider>() { p21, p22, p26 };
 
-            Marble m54 = new Marble() { Name = "LIME GREEN Indian limestone ", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Lime-Green.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m54 = new Marble() { Name = "LIME GREEN Indian limestone ", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Lime-Green.jpg" }, Country = c82 };
             m54.Providers = new List<Provider>() { p3, p20, p21, p22, p26 };
 
-            Marble m55 = new Marble() { Name = "LIME PINK Indian limestone ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Lime-Pink.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m55 = new Marble() { Name = "LIME PINK Indian limestone ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Lime-Pink.jpg" }, Country = c82 };
             m55.Providers = new List<Provider>() { p20 };
 
-            Marble m56 = new Marble() { Name = "MORWAD WHITE Indian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Morwad-White.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m56 = new Marble() { Name = "MORWAD WHITE Indian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Morwad-White.jpg" }, Country = c82 };
             m56.Providers = new List<Provider>() { p3, p21, p22, p26 };
 
-            Marble m57 = new Marble() { Name = "RAJASTHAN GREEN Indian marble", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/Rajasthan-Green.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m57 = new Marble() { Name = "RAJASTHAN GREEN Indian marble", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Rajasthan-Green.jpg" }, Country = c82 };
             m57.Providers = new List<Provider>() { p22 };
 
-            Marble m58 = new Marble() { Name = "TAJ ROSE Indian sandstone ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i0.wp.com/marbleguide.com/wp-content/uploads/Taj-Rose.jpg?resize=300%2C180&ssl=1" }, Country = c82 };
+            Marble m58 = new Marble() { Name = "TAJ ROSE Indian sandstone ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Taj-Rose.jpg" }, Country = c82 };
             m58.Providers = new List<Provider>() { p20, p21, p22, p26, p30 };
 
 
-            Marble m59 = new Marble() { Name = "GIALLA ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/GIALLA.jpg?zoom=1.25&resize=860%2C469&ssl=1" }, Country = c48 };
+            Marble m59 = new Marble() { Name = "GIALLA ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/GIALLA.jpg" }, Country = c48 };
             m59.Providers = new List<Provider>() { p5 };
 
 
 
-            Marble m60 = new Marble() { Name = "CREMA MARFIL Spanish marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "https://i2.wp.com/marbleguide.com/wp-content/uploads/CREMA-MARFIL.jpg?resize=880%2C480&ssl=1" }, Country = c172 };
+            Marble m60 = new Marble() { Name = "CREMA MARFIL Spanish marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/CREMA-MARFIL.jpg" }, Country = c172 };
             m60.Providers = new List<Provider>() { p23, p6 };
 
             context.Marbles.AddOrUpdate(x => x.Name,
