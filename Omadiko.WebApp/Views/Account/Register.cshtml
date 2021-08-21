@@ -1,11 +1,8 @@
 ﻿@model Omadiko.WebApp.Models.RegisterViewModel
 @{
-    Layout = "~/Views/Shared/_CrexisLayout.cshtml";
+    Layout = "~/Views/Shared/LayOut/_CrexisLayout.cshtml";
     ViewBag.Title = "Register";
 }
-
-
-<h2>@ViewBag.Title.</h2>
 
 <section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
     <div class="login white v-center t-center">
@@ -13,10 +10,11 @@
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form login_type t-center pl-10 pr-10 mini-text", role = "form" }))
         {
             @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
             <h1 class="t-center light mb-20">
                 Create a new account
             </h1>
-            @Html.ValidationSummary("", new { @class = "text-danger" })
+
             <!-- Description -->
             <p class="mb-25 white op-08">
                 Sign Up for our all Services!
@@ -41,6 +39,10 @@
                 @Html.LabelFor(m => m.ConfirmPassword, new { @class = "hidden" })
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Confirm Password" })
             </div>
+            <div class="form-group">
+                @Html.Label("User Role", new { @class = "hidden" })
+                @Html.DropDownList("Roles", (SelectList)ViewBag.Name, "User Role", new { @class = "strip_form white light block fullwidth mt-15 op-07" })
+            </div>
             <div>
                 <button type="submit" id="submit" name="submit" class="strip_button white light block fullwidth mt-30 colored-bg pt-18">Register</button>
             </div>
@@ -49,7 +51,9 @@
     </div>
 </section>
 
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
 
 

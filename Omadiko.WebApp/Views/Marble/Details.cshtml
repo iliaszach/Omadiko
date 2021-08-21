@@ -1,5 +1,5 @@
 ﻿@model Omadiko.Entities.Models.Marble
-
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/Layout/_CrexisPortofolio.cshtml";
@@ -50,12 +50,16 @@
                 <!-- End List  -->
                 <!-- Form -->
                 <div class="buttonSection" style="display: flex; ">
-                    <form method="post" action="#" class="light-form">
-                        <!-- Input -->
-                        <a href="#" class="uppercase cart-button">
+
+                    <!-- Input -->
+                    @using (Html.BeginForm("LikeAddToList", "Marble", new { marbleId = Model.MarbleId, userId = User.Identity.GetUserId() }, FormMethod.Post))
+                    {
+                        <button type="submit" class="btn btn-danger">Add to Favourite</button>
+                    }
+                    @*<a href="#" class="uppercase cart-button">
                             Add to Favourite
-                        </a>
-                    </form>
+                        </a>*@
+
                     <form method="post" action="#" class="light-form">
                         @*<button id="BtnProviders" style="color:black;">Find Providers</button>*@
                         @*<a href="#" id="BtnProviders" class="uppercase cart-button">
@@ -107,35 +111,45 @@
     <!-- End Page Note Type 2 -->
 </div>
 <div id="Modal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p> Pes mas kati</p>
+    <div class="modal-content" style="border: 0.5px solid; border-color: white; border-radius: 5px;">
+        <div id="providerOfMarble" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <p style="font-size: 24px; color:#ffffff;">Providers of @Html.DisplayFor(model => model.Name)</p>
+            <span class="close" style="position:relative; ">&times;</span>
+        </div>
+        <div id="ButtonArea"> 
+            @foreach (var provider in @ViewBag.ProvidersOfMarble)
+            {
+                <button id="@provider.ProviderId" value="@provider.ProviderId" style="width:90%; height: 100%; background-color: #222222; margin-top:10px; border:none; border-radius:5px;">
+                    <div id="BtnProviderInside" style="display:flex; border:0.5px solid; border-color:white; border-radius:5px; width:100%;">
+                        <img src="@provider.CompanyPhoto" style="width:100px; height:100px;" />
+                        <p style="position:relative; top:70px; left:15px; font-size:18px;">@provider.CompanyTitle</p>
+                    </div>
+                </button>
+            }
+        </div>
     </div>
 </div>
-
 @section scripts{
     <script>
         var modal = document.getElementById("Modal");
 
-        // Get the button that opens the modal
         var btn = document.getElementById("BtnProviders");
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal
-
+        $("#ButtonArea").on('click', 'button', function (e) {
+            var btnid = $(this).attr('id');
+            setTimeout(function () { window.location.href = "https://localhost:44363/Provider/Details/" + btnid },200);
+        })
 
         btn.onclick = function () {
             modal.style.display = "flex";
         }
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -145,5 +159,6 @@
         document.querySelector('#BtnProviders').addEventListener('click', function (event) {
             event.preventDefault();
         });
+
     </script>
 }

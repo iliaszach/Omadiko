@@ -70,10 +70,14 @@ namespace Omadiko.WebApp
                 if (userid != user.Id) return;
 
                 db.Users.Attach(user);
+                db.Marbles.Attach(marble);
                 db.Entry(user).Collection("Marbles").Load();
+                db.Entry(marble).Collection("ApplicationUsers").Load();
 
                 user.Marbles.Add(marble);
+                marble.ApplicationUsers.Add(user);
                 db.Entry(user).State = EntityState.Modified;
+                db.Entry(marble).State = EntityState.Modified;
 
                 await db.SaveChangesAsync();
             }

@@ -1,9 +1,32 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Omadiko.Database;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Omadiko.WebApp.Models
 {
     public class RegisterViewModel
     {
+
+        //public ApplicationDbContext Context;
+        //public RegisterViewModel(ApplicationDbContext context)
+        //{
+            //Context = context;
+        //}
+
+        //public SelectList Roles
+        //{
+            //get
+            //{
+                //return new SelectList(Context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
+            //}
+
+        //}
+
+        [Required]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+
         [Required]        
         [StringLength(15, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [Display(Name = "Username")]
@@ -27,7 +50,7 @@ namespace Omadiko.WebApp.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 }

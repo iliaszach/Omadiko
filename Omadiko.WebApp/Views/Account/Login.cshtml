@@ -1,5 +1,7 @@
 ﻿@using Omadiko.WebApp.Models
 @model LoginViewModel
+
+
 @{
     Layout = "~/Views/Shared/LayOut/_CrexisLayout.cshtml";
 }
@@ -35,15 +37,15 @@
             </p>
             <!-- Username -->
             <div>
-                @Html.LabelFor(m => m.Email, new { @class = "hidden" })
-                @Html.TextBoxFor(m => m.Email, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Username" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                @Html.LabelFor(m => m.UserName, new { @class = "hidden" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "strip_form white light block fullwidth op-07", placeholder = "Username" })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
             </div>
             <div>
-                @Html.LabelFor(m => m.Email, new { @class = "hidden" })
-                @Html.TextBoxFor(m => m.Email, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Password" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-            </div>
+                @Html.LabelFor(m => m.Password, new { @class = "hidden" })
+                @Html.PasswordFor(m => m.Password, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>            
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <div class="checkbox">
@@ -57,9 +59,9 @@
                 <input type="submit" value="Log in" class="strip_button white light block fullwidth mt-30 colored-bg pt-18" />
             </div>
             @* Enable this once you have account confirmation enabled for password reset functionality
-                <p>
-                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                </p>*@
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
 
             <!-- Signup Text -->
             <h6 class="mt-23 gray-light">

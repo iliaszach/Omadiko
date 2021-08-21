@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Add role";
+    Layout = "~/Views/Shared/LayOut/_CrexisPortofolio.cshtml";
+}
+
+<section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
+    <div class="login white v-center t-center">
+
+        <h1 class="t-center light mb-20">
+            Create User Roles
+        </h1>
+
+        <!-- Description -->
+        <div>
+            <p class="mb-25 white op-08">
+                Existing Roles:
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li>
+                            @item.Name
+                        </li>
+                    }
+                </ul>
+            </p>
+        </div>
+        <div class="t-center">
+            <h3>   @Html.ActionLink("Create New Role", "Create", "Role") </h3>
+        </div>
+    </div>      
+
+</section>
