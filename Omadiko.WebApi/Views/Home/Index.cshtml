@@ -1,4 +1,12 @@
-﻿<!-- Page Container -->
+﻿@* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! *@
+
+<div id="allProviders">
+    <!-- εδώ πάει το table providers -->
+</div>
+
+
+@* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! *@
+<!-- Page Container -->
 <div id="page-container">
     <!-- Header -->
     <!-- Add the class .navbar-fixed-top or .navbar-fixed-bottom for a fixed header on top or bottom respectively -->
@@ -322,7 +330,7 @@
         <!-- END Page Content -->
         <!-- Footer -->
         @Html.Partial("/Views/Shared/Dashboard/Footer/Footer.cshtml")
-        
+
         <!-- END Footer -->
     </div>
     <!-- END Inner Container -->
@@ -488,3 +496,4 @@
 <!-- Javascript code only for this page -->
 <script src="~/Content/Dashboard/js/DatatablesInitializer.js"></script>
 <!-- Javascript code only for this page END -->
+<script src="~/Scripts/MyScripts/GetProvidersTable.js"></script>

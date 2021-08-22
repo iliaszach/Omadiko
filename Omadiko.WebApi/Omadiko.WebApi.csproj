@@ -168,6 +168,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarblesController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -275,6 +276,7 @@
     <Content Include="Content\Dashboard\img\template\uadmin_logo%402x.png" />
     <Content Include="Content\Dashboard\img\template\uadmin_logo.png" />
     <Content Include="Content\Dashboard\js\DatatablesInitializer.js" />
+    <Content Include="Content\Dashboard\js\EditableTables.js" />
     <Content Include="DashboardTemplate\index.html" />
     <Content Include="Content\Dashboard\js\ckeditor\adapters\jquery.js" />
     <Content Include="Content\Dashboard\js\ckeditor\build-config.js" />
@@ -617,6 +619,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Marbles.html" />
+    <Content Include="Providers.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -669,6 +673,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\MyScripts\GetProvidersTable.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

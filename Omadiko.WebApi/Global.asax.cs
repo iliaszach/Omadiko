@@ -18,6 +18,10 @@ namespace Omadiko.WebApi
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ////SOURCE : https://debchy.wordpress.com/2016/11/17/web-api-2-problem-the-objectcontent1-type-failed-to-serialize-the-response-body-for-content-type-applicationxml-charsetutf-8/
+            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
         }
     }
 }

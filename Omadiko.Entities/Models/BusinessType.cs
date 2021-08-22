@@ -8,6 +8,10 @@ namespace Omadiko.Entities.Models
 {
     public class BusinessType
     {
+        public BusinessType()
+        {
+            Providers = new HashSet<Provider>();
+        }
         public int BusinessTypeId { get; set; }
         public string Kind { get; set; }
         //Navigation Properties

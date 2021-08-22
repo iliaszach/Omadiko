@@ -9,7 +9,11 @@ namespace Omadiko.Entities.Models
 {
     public class Provider
     {
-        
+        public Provider()
+        {
+            Marbles = new HashSet<Marble>();
+            BusinessTypes = new HashSet<BusinessType>();
+        }
         public int ProviderId { get; set; }        
         public string CompanyTitle { get; set; }
         public string CompanyDescription { get; set; }
