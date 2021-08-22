@@ -15,15 +15,29 @@ namespace Omadiko.WebApi.Controllers
 {
     public class ProvidersController : ApiController
     {
-
+        
         //Solution Source: https://stackoverflow.com/questions/43008068/webapi-lazy-loading
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Providers
-        public IEnumerable<Provider> GetProviders()
+        public IHttpActionResult GetProviders()
         {
-            db.Configuration.ProxyCreationEnabled = false;
-            return db.Providers.ToList();
+            var providers = db.Providers.ToList();
+            return Ok(
+                providers.Select(x => new
+                {
+                    ProviderId = x.ProviderId,
+                    CompanyTitle = x.CompanyTitle,
+                    CompanyDescription = x.CompanyDescription,
+                    CompanyPhoto = x.CompanyPhoto,
+                    Phone = x.Phone,
+                    WebSite = x.WebSite,
+                    Email = x.Email,
+                    Location = new { Country = x.Location.Country },
+                    Marbles = x.Marbles.Select(m => new { Name = m.Name }),
+                    BusinessTypes = x.BusinessTypes.Select(m => new { Kind = m.Kind })
+                })
+                );
         }
 
         // GET: api/Providers/5

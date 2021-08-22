@@ -10,8 +10,8 @@
                 allProviders.empty();
                 var data = response;
                 console.log(data);
-                data.forEach(appendToTable);
-
+               data.forEach(appendToTable);
+                
                 function appendToTable(data) {
                     var template = `
                                     <table id="example-editable-datatables" class="table table-bordered table-hover">
@@ -40,15 +40,17 @@
                                             <td>${data.Phone}</td>
                                             <td>${data.WebSite}</td>
                                             <td id="email1" class="editable-td hidden-xs hidden-sm">${data.Email}</td>
-                                            <td>${data.Location}</td>
+                                            <td>${data.Location.Country}</td>
                                             <td>
-                                                <ul>
-                                                    <li>
-                                                        ${data.Marbles.Name}
-                                                    </li>
+                                                <ul>                                                   
+                                                     ${data.Marbles.map(x => `<li>${x.Name }</li>` ).join("")}
                                                 </ul>
                                             </td>
-                                            <td>${data}</td>
+                                            <td>
+                                                <ul>                                                   
+                                                     ${data.BusinessTypes.map(x => `<li>${x.Kind }</li>` ).join("")}
+                                                </ul>
+                                            </td>                                            
                                         </tr>
                                     </tbody>
                                   </table>`
