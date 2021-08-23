@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var allProviders = $('#allProviders');
-
+    var counter = 0;
     $('#btn').click(function () {
         $.ajax({
             type: "GET",
@@ -11,7 +11,8 @@
                 var data = response;
 
                 function makeTableHeaders() {
-                    var template = `<table id="example-editable-datatables" class="table table-bordered table-hover">
+                    if (counter == 0) {
+                        var template = `<table id="example-editable-datatables" class="table table-bordered table-hover">
                                         <thead>
                                                <tr>
                                                    <th class="cell-small"></th>
@@ -26,21 +27,27 @@
                                                    <th>Business Type</th>
                                               </tr>
                                         </thead>
-                                       <tbody id="soma">`
-                    allProviders.append(template);
-                    console.log("mesa");
-                };
-                makeTableHeaders();
-                var soma = $("#soma");
-                console.log(soma);
-               data.forEach(appendToTable);
-                
-                function appendToTable(data) {
-                    var template = `                                    
-                                        <tr >
+                                       <tbody id="soma">
+
+                                      </tbody>
+                                   </table>`;
+                                        
+                        counter++;
+                        allProviders.append(template);
+                        
+                    }
+                   
+                    
+                    data.forEach(appendToTable);
+                    
+                    function appendToTable(data) {
+                        var soma = $("#soma");
+                        
+                        var template = ` <tr >
                                             <td class="text-center">
                                                 <a href="javascript:void(0)" id="delRow1" class="btn btn-xs btn-danger delRow"><i class="fa fa-times"></i></a>
-                                            </td>
+                                            </td> 
+                        
                                             <td>${data.CompanyTitle}</td>
                                             <td>${data.CompanyDescription}</td>
                                             <td>${data.CompanyPhoto}</td>
@@ -50,23 +57,29 @@
                                             <td>${data.Location.Country}</td>
                                             <td>
                                                 <ul>                                                   
-                                                     ${data.Marbles.map(x => `<li>${x.Name }</li>` ).join("")}
+                                                     ${data.Marbles.map(x => `<li>${x.Name}</li>`).join("")}
                                                 </ul>
                                             </td>
                                             <td>
                                                 <ul>                                                   
-                                                     ${data.BusinessTypes.map(x => `<li>${x.Kind }</li>` ).join("")}
+                                                     ${data.BusinessTypes.map(x => `<li>${x.Kind}</li>`).join("")}
                                                 </ul>
-                                            </td>                                            
+                                            </td> 
                                         </tr>
-                                    </tbody>
-                                  </table>`
-                    allProviders.append(template);
-                }
+                                   `;
+                                   
+
+                        soma.append(template);
+                    }
+                    
+                };
+
+                makeTableHeaders();               
             }
         });
     });
     $('#btnClear').click(function () {
+        counter--;
         allProviders.empty();
     });
 });
