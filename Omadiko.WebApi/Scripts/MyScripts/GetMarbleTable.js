@@ -22,6 +22,7 @@
                                                    <th>Country</th>
                                                    <th>Photo</th>
                                                    <th>Providers</th>
+                                                   <th>Actions</th>
                                               </tr>
                                         </thead>
                                        <tbody id="soma">
@@ -53,6 +54,12 @@
                                                 <ul>
                                                         ${data.Providers.map(x => `<li>${x.CompanyTitle}</li>`).join("")}
                                                 </ul>
+                                            </td>
+                                            <td>
+                                              <div>
+                                                <button class="btn btn-success form-control" onClick="editStudent(${data.MarbleId})" data-toggle="modal" data-target="#myModal")">EDIT</button>
+                                                <button class="btn btn-danger form-control" onClick="deleteStudent(${data.MarbleId})">DELETE</button>
+                                              </div>
                                             </td>
                                         </tr>
                                     `;
