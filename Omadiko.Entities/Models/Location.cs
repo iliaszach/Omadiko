@@ -15,8 +15,12 @@ namespace Omadiko.Entities.Models
         public string City { get; set; }
         public string Address { get; set; }
 
+        public double Lat { get; set; }
+
+        public double Lng { get; set; }
+
         //Navigation Properties
-        
+
         public virtual Provider Provider { get; set; }
     }
 }

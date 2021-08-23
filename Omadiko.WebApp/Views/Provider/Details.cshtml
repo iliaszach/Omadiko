@@ -6,6 +6,25 @@
     Layout = "~/Views/Shared/Layout/_CrexisPortofolio.cshtml";
 }
 
+<head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+
+</head>
+
+
+
+
+
 <div class="providerView" style="background-color:#151515; color:#ffffff !important;">
     <div>
         <section id="page-header" style="padding: 1px; ">
@@ -140,4 +159,44 @@
         </h4>
     </section>
     <!-- End Page Note Type 2 -->
+
+
+
+
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+
+
+
+
+
+            @*const uluru = { Number(@Model.Location.Lat), Number(@Model.Location.Lng) };*@
+            // The map, centered at Uluru
+            const uluru = { lat: Number(@Model.Location.Lat),lng: Number(@Model.Location.Lng) };
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: uluru,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+            });
+        }
+    </script>
+
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFEvUpu9HG5KyI1GC2HtOgcA2csHHEiHk&callback=initMap">
+    </script>
+
 </div>
