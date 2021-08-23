@@ -36,8 +36,7 @@
                         allProviders.append(template);
                         
                     }
-                   
-                    
+                                       
                     data.forEach(appendToTable);
                     
                     function appendToTable(data) {

@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var allMarble = $('#allMarble');
-
+    var counter = 0;
     $('#btn').click(function () {
         $.ajax({
             type: "GET",
@@ -9,12 +9,10 @@
             success: function (response) {
                 allMarble.empty();
                 var data = response;
-                console.log(data);
-                data.forEach(appendToTable);
 
-                function appendToTable(data) {
-                    var template = `
-                                    <table id="example-editable-datatables" class="table table-bordered table-hover">
+                function makeTableHeaders() {
+                    if (counter == 0) {
+                        var template = `<table id="example-editable-datatables" class="table table-bordered table-hover">
                                         <thead>
                                                <tr>
                                                    <th class="cell-small"></th>
@@ -26,7 +24,22 @@
                                                    <th>Providers</th>
                                               </tr>
                                         </thead>
-                                        <tbody id="soma">
+                                       <tbody id="soma">
+
+                                      </tbody>
+                                   </table>`;
+
+                        counter++;
+                        allMarble.append(template);
+
+                    }
+
+
+                    data.forEach(appendToTable);
+
+                    function appendToTable(data) {
+                        var soma = $('#soma');
+                        var template = `                                    
                                         <tr >
                                             <td class="text-center">
                                                 <a href="javascript:void(0)" id="delRow1" class="btn btn-xs btn-danger delRow"><i class="fa fa-times"></i></a>
@@ -42,14 +55,16 @@
                                                 </ul>
                                             </td>
                                         </tr>
-                                    </tbody>
-                                  </table>`
-                    allMarble.append(template);
-                }
+                                    `;
+                        soma.append(template);
+                    }
+                };
+                makeTableHeaders();
             }
         });
     });
     $('#btnClear').click(function () {
+        counter--;
         allMarble.empty();
     });
 });
