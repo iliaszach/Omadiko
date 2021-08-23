@@ -376,62 +376,62 @@ namespace Omadiko.Database.Migrations
 
             // LOCATIONS
 
-            Location l1 = new Location() { Country = "Italy1", City = "Rome1", Address = "Koloseo" };
-            Location l2 = new Location() { Country = "Italy2", City = "Rome2", Address = "Koloseo" };
-            Location l3 = new Location() { Country = "Italy3", City = "Rome3", Address = "Koloseo" };
-            Location l4 = new Location() { Country = "Italy4", City = "Rome4", Address = "Koloseo" };
-            Location l5 = new Location() { Country = "Italy5", City = "Rome5", Address = "Koloseo" };
-            Location l6 = new Location() { Country = "Italy6", City = "Rome6", Address = "Koloseo" };
-            Location l7 = new Location() { Country = "Italy7", City = "Rome7", Address = "Koloseo" };
-            Location l8 = new Location() { Country = "Italy8", City = "Rome8", Address = "Koloseo" };
-            Location l9 = new Location() { Country = "Italy9", City = "Rome9", Address = "Koloseo" };
-            Location l10 = new Location() { Country = "Italy10", City = "Rome10", Address = "Koloseo" };
+            Location l1 = new Location() { Country = "Italy1",       City = "Rome1",           Address = "Koloseo"};
+            Location l2 = new Location() { Country = "Italy",        City = "Napoli",          Address = "Via Luigi Volpicella",           Lat = 40.643298, Lng = 15.800996 };
+            Location l3 = new Location() { Country = "India",        City = "Jabalpur",        Address = "Zero Degree Road",               Lat = 23.182365, Lng = 79.906088 };
+            Location l4 = new Location() { Country = "Egypt",        City = "Al Mahala",       Address = "Al Dahnea",                      Lat = 30.970173, Lng = 31.160643 };
+            Location l5 = new Location() { Country = "Cyprus",       City = "Lemesos",         Address = "Ierou Lohou",                    Lat = 34.701724, Lng = 33.034253 };
+            Location l6 = new Location() { Country = "South Africa", City = "Kimberley",       Address = "John Daka St",                   Lat = -28.721353, Lng = 24.727397 };
+            Location l7 = new Location() { Country = "Greece",       City = "Athens",          Address = "Skoufa",                         Lat = 38.034049, Lng = 23.680657 };
+            Location l8 = new Location() { Country = "Greece",       City = "Korinthos",       Address = "Apostolou Pavlou",               Lat = 37.940925, Lng = 22.930078 };
+            Location l9 = new Location() { Country = "Egypt",        City = "Kairo",           Address = "Selim Abdou",                    Lat = 30.063926, Lng = 31.276023 };
+            Location l10 = new Location() { Country = "Egypt",       City = "Alexandria",      Address = "Elshohada Square Rd",            Lat = 31.201690, Lng = 29.938074 };
+                  
+            Location l11 = new Location() { Country = "Egypt",       City = "Talkha",          Address = "Talkha Sherbeen St",             Lat = 31.062241, Lng = 31.387178 };
+            Location l12 = new Location() { Country = "Egypt",       City = "Damietta ",       Address = "Ghait Al Nasri",                 Lat = 31.415466, Lng = 31.826541 };
+            Location l13 = new Location() { Country = "Egypt",       City = "Port Said",       Address = "Al Mosatahat",                   Lat = 31.244207, Lng = 32.279807 };
+            Location l14 = new Location() { Country = "Italy",       City = "Bari",            Address = "Via Dante Alighieri",            Lat = 41.121524, Lng = 16.861552 };
+            Location l15 = new Location() { Country = "Turkey",      City = "Ankara",          Address = "Strazburg Cd",                   Lat = 39.927478, Lng = 32.850702 };
+            Location l16 = new Location() { Country = "Egypt",       City = "Al Fayoum",       Address = "Al Tarlawi",                     Lat = 29.314786, Lng = 30.836859 };
+            Location l17 = new Location() { Country = "Greece",      City = "Kavala",          Address = "Kimonos",                        Lat = 40.936113, Lng = 24.417147 };
+            Location l18 = new Location() { Country = "Egypt",       City = "Sohag",           Address = "El-Tahrir",                      Lat = 26.570760, Lng = 31.685657 };
+            Location l19 = new Location() { Country = "Greece",      City = "Katerini",        Address = "Andromedos",                     Lat = 40.273350, Lng = 22.526281 };
+            Location l20 = new Location() { Country = "India",       City = "Indore",          Address = "Godhra Hwy",                     Lat = 22.712716, Lng = 75.879014 };
 
-            Location l11 = new Location() { Country = "Italy11", City = "Rome11", Address = "Koloseo" };
-            Location l12 = new Location() { Country = "Italy12", City = "Rome12", Address = "Koloseo" };
-            Location l13 = new Location() { Country = "Italy13", City = "Rome13", Address = "Koloseo" };
-            Location l14 = new Location() { Country = "Italy14", City = "Rome14", Address = "Koloseo" };
-            Location l15 = new Location() { Country = "Italy15", City = "Rome15", Address = "Koloseo" };
-            Location l16 = new Location() { Country = "Italy16", City = "Rome16", Address = "Koloseo" };
-            Location l17 = new Location() { Country = "Italy17", City = "Rome17", Address = "Koloseo" };
-            Location l18 = new Location() { Country = "Italy18", City = "Rome18", Address = "Koloseo" };
-            Location l19 = new Location() { Country = "Italy19", City = "Rome19", Address = "Koloseo" };
-            Location l20 = new Location() { Country = "Italy20", City = "Rome20", Address = "Koloseo" };
+            Location l21 = new Location() { Country = "India",       City = "Nashik",           Address = "Patidar Bhavan Rd" ,            Lat = 19.989808, Lng = 73.796833 };
+            Location l22 = new Location() { Country = "India",       City = "Pune",             Address = "Mahatma Phule Rasta" ,          Lat = 18.508878, Lng = 73.873453 };
+            Location l23 = new Location() { Country = "Spain",       City = "Valencia",         Address = "Avinguda de Peris i Valero",    Lat = 39.461058, Lng = -0.365704 };
+            Location l24 = new Location() { Country = "Italy",       City = "Firenze ",         Address = "Borgo S. Frediano",             Lat = 43.769623, Lng = 11.244198 };
+            Location l25 = new Location() { Country = "Italy",       City = "Venezia",          Address = "Via Eugenio Carlo Petrini",     Lat = 45.483152, Lng = 12.270211 };
+            Location l26 = new Location() { Country = "India",       City = "Bengaluru",        Address = "3rd Main Rd",                   Lat = 13.032869, Lng = 77.608849 };
+            Location l27 = new Location() { Country = "Greece",      City = "Patra",            Address = "Maragopoulou",                  Lat = 38.237870, Lng = 21.747534 };
+            Location l28 = new Location() { Country = "Brazil",      City = "Recife",           Address = "Av Conde da Boa Vista",         Lat = -8.056567, Lng = -34.893101 };
+            Location l29 = new Location() { Country = "Brazil",      City = "Rio de Janeiro ",  Address = "R. Francisco Portela",          Lat = -22.830356, Lng = -43.068431 };
+            Location l30 = new Location() { Country = "India",       City = "Chennai",          Address = "Jermiah Rd",                    Lat = 13.085647, Lng = 80.262415 };
 
-            Location l21 = new Location() { Country = "Italy21", City = "Rome21", Address = "Koloseo" };
-            Location l22 = new Location() { Country = "Italy22", City = "Rome22", Address = "Koloseo" };
-            Location l23 = new Location() { Country = "Italy23", City = "Rome23", Address = "Koloseo" };
-            Location l24 = new Location() { Country = "Italy24", City = "Rome24", Address = "Koloseo" };
-            Location l25 = new Location() { Country = "Italy25", City = "Rome25", Address = "Koloseo" };
-            Location l26 = new Location() { Country = "Italy26", City = "Rome26", Address = "Koloseo" };
-            Location l27 = new Location() { Country = "Italy27", City = "Rome27", Address = "Koloseo" };
-            Location l28 = new Location() { Country = "Italy28", City = "Rome28", Address = "Koloseo" };
-            Location l29 = new Location() { Country = "Italy29", City = "Rome29", Address = "Koloseo" };
-            Location l30 = new Location() { Country = "Italy30", City = "Rome30", Address = "Koloseo" };
+            Location l31 = new Location() { Country = "Italy",       City = " Genova",          Address = "Via Nizza",                     Lat = 44.398139, Lng = 8.952244 };
+            Location l32 = new Location() { Country = "Brazil",      City = "Salvador",         Address = "R. Portugua",                   Lat = -12.969200, Lng = -38.470716 };
+            Location l33 = new Location() { Country = "Egypt",       City = "Hurghada",         Address = "El-Nashr",                      Lat = 27.248022, Lng = 33.821951 };
+            Location l34 = new Location() { Country = "Greece",      City = "Rethimno",         Address = "Tsakona",                       Lat = 35.365554, Lng = 24.484114 };
+            Location l35 = new Location() { Country = "Greece",      City = "Kalamata",         Address = "Akrita",                        Lat = 37.030385, Lng = 22.116017 };
+            Location l36 = new Location() { Country = "Greece",      City = "Zkinthos",         Address = "Foskolou",                      Lat = 37.785490, Lng = 20.897637 };
+            Location l37 = new Location() { Country = "Greece",      City = "Mitilini",         Address = "Eresou",                        Lat = 39.102079, Lng = 26.552427 };
+            Location l38 = new Location() { Country = "Egypt",       City = "El Qantara",       Address = "El-Gaish",                      Lat = 30.853009, Lng = 32.309376 };
+            Location l39 = new Location() { Country = "Greece",      City = "Trikala",          Address = "Aristotelous",                  Lat = 39.548748, Lng = 21.764103 };
+            Location l40 = new Location() { Country = "Egypt",       City = "Baltim",           Address = "Al Bosta",                      Lat = 31.554566, Lng = 31.091938 };
 
-            Location l31 = new Location() { Country = "Italy31", City = "Rome31", Address = "Koloseo" };
-            Location l32 = new Location() { Country = "Italy32", City = "Rome32", Address = "Koloseo" };
-            Location l33 = new Location() { Country = "Italy33", City = "Rome33", Address = "Koloseo" };
-            Location l34 = new Location() { Country = "Italy34", City = "Rome34", Address = "Koloseo" };
-            Location l35 = new Location() { Country = "Italy35", City = "Rome35", Address = "Koloseo" };
-            Location l36 = new Location() { Country = "Italy36", City = "Rome36", Address = "Koloseo" };
-            Location l37 = new Location() { Country = "Italy37", City = "Rome37", Address = "Koloseo" };
-            Location l38 = new Location() { Country = "Italy38", City = "Rome38", Address = "Koloseo" };
-            Location l39 = new Location() { Country = "Italy39", City = "Rome39", Address = "Koloseo" };
-            Location l40 = new Location() { Country = "Italy40", City = "Rome40", Address = "Koloseo" };
+            Location l41 = new Location() { Country = "Egypt",       City = "Al Kossia",        Address = "El-Galaa",                      Lat = 27.439415, Lng = 30.821607 };
+            Location l42 = new Location() { Country = "Egypt",       City = "Manfalut",         Address = "Mostgad",                       Lat = 27.306659, Lng = 30.973595 };
+            Location l43 = new Location() { Country = "Italy",       City = "Taranto",          Address = "Viale Magna Grecia",            Lat = 40.460475, Lng = 17.268252 };
+            Location l44 = new Location() { Country = "Greece",      City = "Athens",           Address = "Epifanous",                     Lat = 37.967825, Lng = 23.723778 };
+            Location l45 = new Location() { Country = "Egypt",       City = "Abnub",            Address = "Bostan Al Nile",                Lat = 27.271258, Lng = 31.152818 };
+            Location l46 = new Location() { Country = "Greece",      City = "Athens",           Address = "Agiou Andreou",                 Lat = 37.944171, Lng = 23.710722 };
+            Location l47 = new Location() { Country = "Italy",       City = "Monopoli",         Address = "Via Cappuccini",                Lat = 40.947606, Lng = 17.301766 };
+            Location l48 = new Location() { Country = "Greece",      City = "Volos",            Address = "Zagoras",                       Lat = 39.354935, Lng = 22.958840 };
+            Location l49 = new Location() { Country = "Greece",      City = "Ioannina",         Address = "Rizari",                        Lat = 39.657376, Lng = 20.854847 };
+            Location l50 = new Location() { Country = "Egypt",       City = "Asyout",           Address = "Kliopatra",                     Lat = 27.184412, Lng = 31.179337 };
 
-            Location l41 = new Location() { Country = "Italy41", City = "Rome41", Address = "Koloseo" };
-            Location l42 = new Location() { Country = "Italy42", City = "Rome42", Address = "Koloseo" };
-            Location l43 = new Location() { Country = "Italy43", City = "Rome43", Address = "Koloseo" };
-            Location l44 = new Location() { Country = "Italy44", City = "Rome44", Address = "Koloseo" };
-            Location l45 = new Location() { Country = "Italy45", City = "Rome45", Address = "Koloseo" };
-            Location l46 = new Location() { Country = "Italy46", City = "Rome46", Address = "Koloseo" };
-            Location l47 = new Location() { Country = "Italy47", City = "Rome47", Address = "Koloseo" };
-            Location l48 = new Location() { Country = "Italy48", City = "Rome48", Address = "Koloseo" };
-            Location l49 = new Location() { Country = "Italy49", City = "Rome49", Address = "Koloseo" };
-            Location l50 = new Location() { Country = "Italy50", City = "Rome50", Address = "Koloseo" };
-
-            context.Locations.AddOrUpdate(x => x.City,
+            context.Locations.AddOrUpdate(x => new { x.Country, x.City, x.Address },
                  l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20,
                  l21, l22, l23, l24, l25, l26, l27, l28, l29, l30, l31, l32, l33, l34, l35, l36, l37, l38, l39, l40,
                  l41, l42, l43, l44, l45, l46, l47, l48, l49, l50
