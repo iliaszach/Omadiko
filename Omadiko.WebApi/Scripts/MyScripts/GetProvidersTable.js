@@ -9,12 +9,9 @@
             success: function (response) {
                 allProviders.empty();
                 var data = response;
-                console.log(data);
-               data.forEach(appendToTable);
-                
-                function appendToTable(data) {
-                    var template = `
-                                    <table id="example-editable-datatables" class="table table-bordered table-hover">
+
+                function makeTableHeaders() {
+                    var template = `<table id="example-editable-datatables" class="table table-bordered table-hover">
                                         <thead>
                                                <tr>
                                                    <th class="cell-small"></th>
@@ -29,7 +26,17 @@
                                                    <th>Business Type</th>
                                               </tr>
                                         </thead>
-                                        <tbody id="soma">
+                                       <tbody id="soma">`
+                    allProviders.append(template);
+                    console.log("mesa");
+                };
+                makeTableHeaders();
+                var soma = $("#soma");
+                console.log(soma);
+               data.forEach(appendToTable);
+                
+                function appendToTable(data) {
+                    var template = `                                    
                                         <tr >
                                             <td class="text-center">
                                                 <a href="javascript:void(0)" id="delRow1" class="btn btn-xs btn-danger delRow"><i class="fa fa-times"></i></a>
