@@ -159,18 +159,17 @@
         </h4>
     </section>
     <!-- End Page Note Type 2 -->
+    <!-- Google maps -->
+    <div>
+
+        <h3>My Google Maps Demo</h3>
+        <!--The div element for the map -->
+        <div id="map"></div>
+
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 
 
-
-
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-
-
-    <script>
+        <script>
         // Initialize and add the map
         function initMap() {
             // The location of Uluru
@@ -193,10 +192,14 @@
                 map: map,
             });
         }
-    </script>
+        </script>
 
-    <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFEvUpu9HG5KyI1GC2HtOgcA2csHHEiHk&callback=initMap">
-    </script>
+        <script async
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFEvUpu9HG5KyI1GC2HtOgcA2csHHEiHk&callback=initMap">
+        </script>
+
+    </div>
+    <!-- End Google maps -->
+
 
 </div>
