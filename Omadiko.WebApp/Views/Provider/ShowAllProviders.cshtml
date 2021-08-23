@@ -11,7 +11,7 @@
 
 
 <!-- Portfolio Section -->
-<section id="portfolio" class="container 4-columns-margin single boxed">
+<section id="portfolio" class="container 4-columns-margin single">
 
     <!-- Filters -->
     <div id="portfolio-filters" class="cbp-l-filters-alignCenter normal type2">
@@ -69,7 +69,7 @@
 
 
                         <a href="~/provider/details/@provider.ProviderId">
-                            <img src="@Url.Content(provider.CompanyPhoto)" style="width:468px; height:255px" />
+                            <img src="@Url.Content(provider.CompanyPhoto)" style="width:367px; height:255px" />
 
                         </a>
 
@@ -87,10 +87,10 @@
                     </div>
                     <!-- End Item Image -->
                     <!-- Item Details -->
-                    <div class="cbp-caption-activeWrap">
+                    <div class="cbp-caption-activeWrap" style="width:367px;">
                         <!-- Centered Details -->
                         <div class="center-details">
-                            <div class="details">
+                            <div class="details" style="width:367px; height:91.8px; ">
                                 <!-- Item Name -->
                                 <h2 class="name ">
                                     @Html.DisplayFor(modelItem => provider.CompanyTitle)
