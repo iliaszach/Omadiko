@@ -3,6 +3,11 @@
     .btn:hover {
         background-color: darkblue;
     }
+
+    ul > li:hover::selection::before::after {
+        background-color: darkgray;
+    }
+
 </style>
 
 <!-- Navigation - select your nav color - dark-nav or white-nav -->
@@ -53,22 +58,22 @@
                     <li class="dropdown-toggle nav-toggle">
                         <a href="pages-shop-4-col.html" class="ex-link">Shop</a>
                         <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-left clearfix">
-                            <li><a href="pages-shop-4-col.html" class="ex-link">4 Columns</a></li>
-                            <li><a href="pages-shop-3-col.html" class="ex-link">3 Columns</a></li>
-                            <li><a href="pages-shop-2-col.html" class="ex-link">2 Columns</a></li>
-                            <li><a href="pages-shop-single.html" class="ex-link">Single Product</a></li>
+                        <ul style="background-color: #151515; border: 1px solid #f0f0f0;" class="dropdown-menu pull-left clearfix">
+                            <li><a href="pages-shop-4-col.html" style="color: #F0FFFF;" class="ex-link">4 Columns</a></li>
+                            <li><a href="pages-shop-3-col.html" style="color: #F0FFFF;" class="ex-link">3 Columns</a></li>
+                            <li><a href="pages-shop-2-col.html" style="color: #F0FFFF;" class="ex-link">2 Columns</a></li>
+                            <li><a href="pages-shop-single.html" style="color: #F0FFFF;" class="ex-link">Single Product</a></li>
                         </ul>
                         <!-- End DropDown Menu -->
                     </li>
                     <li class="dropdown-toggle nav-toggle">
                         <a href="#" class="tahoma"><i class="fa fa-search"></i></a>
                         <!-- DropDown Menu -->
-                        <ul class="dropdown-menu pull-right clearfix">
+                        <ul style="background-color:#151515; border:1px solid #f0f0f0;" class="dropdown-menu pull-right clearfix">
                             <li class="ml-20 mt-15 mr-20 mb-15 raleway mini-text gray">
                                 <form method="post" class="search-form">
-                                    <input type="text" name="search" id="search" class="transparent uppercase" placeholder="Search...">
-                                    <button type="submit">
+                                    <input type="text" name="search" id="search" style="background-color:#222222; color:#F0FFFF;" placeholder="SEARCH...">
+                                    <button style="background-color: #151515; color: #F0FFFF;" type="submit">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </form>
