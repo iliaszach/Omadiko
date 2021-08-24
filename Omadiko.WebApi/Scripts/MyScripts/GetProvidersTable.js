@@ -1,135 +1,224 @@
-﻿
-$(document).ready(function () {
-    var allProviders = $('#allProviders');
-    var counter = 0;
-    $('#btn').click(function () {
+﻿$(document).ready(function () {
+        $('#ProvidersTable').click(function () {        
+        GetInputProviders();
+        GetDataProviders();
+        getProvidersData();
+        });
+   
+    Clear();
+})
+
+function SaveProvider() {
+    var url = "api/Providers";
+
+    var objectProvider = {}
+    objectProvider.CompanyTitle = $('#txtCompanyTitle').val();
+
+    objectProvider.CompanyDescription = $('#txtCompanyDescription').val();
+
+    objectProvider.CompanyPhoto = $('#txtCompanyPhoto').val();
+
+    objectProvider.WebSite = $('#txtWebSite').val();
+
+    objectProvider.Location = $('#txtCompanyLocation').val();
+
+    objectProvider.Phone = $('#txtCompanyPhone').val();
+
+    objectProvider.Email = $('#txtCompanyEmail').val();
+    console.log(objectProvider);
+
+    if (objectProvider) {
         $.ajax({
-            type: "GET",
-            url: "api/Providers/",
+            type: "POST",
+            url: url,
             dataType: "json",
-            success: function (response) {
-                allProviders.empty();
-                var data = response;
-
-                function makeTableHeaders() {
-                    if (counter == 0) {
-                        var template = `
-                                        <input id="Createbtn" class="btn btn-primary" type="button" value="Create Provider" />
-                                        <table id="example-editable-datatables" class="table table-bordered table-hover">
-                                        <thead>
-                                               <tr>
-                                                   <th class="cell-small"></th>
-                                                   <th>Title</th>
-                                                   <th>Description</th>
-                                                   <th>Photo</th>
-                                                   <th>Phone</th>
-                                                   <th>Website</th>
-                                                   <th class="hidden-xs hidden-sm"><i class="fa fa-envelope-o"></i> Email</th>
-                                                   <th>Location</th>
-                                                   <th>Marbles</th>
-                                                   <th>Business Type</th>
-                                                   <th>Actions</th>
-                                              </tr>
-                                        </thead>
-                                       <tbody id="soma">
-
-                                      </tbody>
-                                   </table>`;
-
-                        counter++;
-                        allProviders.append(template);
-
-                    }
-
-                    data.forEach(appendToTable);
-                    
-                    function appendToTable(data) {
-                        var soma = $("#soma");
-                        
-                        var template = ` <tr >
-                                            <td class="text-center">
-                                                <a href="javascript:void(0)" id="delRow1" class="btn btn-xs btn-danger delRow"><i class="fa fa-times"></i></a>
-                                            </td> 
-                        
-                                            <td>${data.CompanyTitle}</td>
-                                            <td>${data.CompanyDescription}</td>
-                                            <td><img src=${data.CompanyPhoto} alt="Alternate Text" /></td>
-                                            <td>${data.Phone}</td>
-                                            <td>${data.WebSite}</td>
-                                            <td id="email1" class="editable-td hidden-xs hidden-sm">${data.Email}</td>
-                                            <td>${data.Location.Country}</td>
-                                            <td>
-                                                <ul>                                                   
-                                                     ${data.Marbles.map(x => `<li>${x.Name}</li>`).join("")}
-                                                </ul>
-                                            </td>
-                                            <td>
-                                                <ul>                                                   
-                                                     ${data.BusinessTypes.map(x => `<li>${x.Kind}</li>`).join("")}
-                                                </ul>
-                                            </td> 
-                                            <td>
-                                              <div>
-                                                <button class="btn btn-success form-control" ${data.ProviderId}>EDIT</button>
-                                                <button data-provider-id="${data.ProviderId}" class="btn btn-danger form-control js-delete" >DELETE</button>
-                                              </div>
-                                            </td>
-                                        </tr>
-                                   `;
+            data: JSON.stringify(objectProvider
 
 
-                        soma.append(template);
-                    }
-
-                };
-
-                makeTableHeaders();
-                //DELETE
-                $(document).ready(function () {
-                    console.log("mpka");
-                    $("#example-editable-datatables .js-delete").on("click", function () {
-                        if (confirm("Are you sure, you want to delete this provider?")) {
-                            $.ajax({                                
-                                url: "api/Providers/" + $(this).attr("data-provider-id"),
-                                method: "DELETE",                                
-                                success: function (response) {
-                                    console.log(response);
-                                }
-                            });
-                        }
-                    });
-                });
+                //    CompanyTitle = CompanyTitle,
+                //    CompanyDescription = CompanyDescription,
+                //    CompanyPhoto = CompanyPhoto,
+                //    Phone = Phone,
+                //    WebSite = WebSite,
+                //    Email = Email,
+                //    Location = Location
+            ),
+            success: function (result) {
+                clear();
+                getProvidersData()
+            },
+            error: function (msg) {
+                alert(msg);
             }
         });
-
-    });
-    $('#btnClear').click(function () {
-        counter--;
-        allProviders.empty();
-    });   
-    
-});
+    }
 
 
+}
+function clear() {
+    $('#txtCompanyTitle').val('')
+    $('#txtCompanyPhone').val('');
+    $('#txtCompanyEmail').val('');
+}
 
-
-function deleteProvider(id) {
-    var action = confirm("Are you sure you want to delete this student?");  //Είναι το παράθυρο που εμφανίζεται όταν κάνουμε delete , επιστρέφει True αν πατήσουμε Ok, διαφορετικά False
-    var msg = "Student deleted successfully!";
+function getProvidersData() {
+    var url = "api/Providers";
     $.ajax({
-        type: "DELETE",
-        url: "api/Providers/",
-        
+        type: "GET",
+        url: url,
         dataType: "json",
-        success: function (response) {
-            console.log(response);
+        success: function (result) {
+            if (result) {
+                $("#tblProviderBody").html('');
+                var row = '';
+                for (let i = 0; i < result.length; i++) {
+                    row = row
+                        + "<tr>"
+                        + "<td>" + result[i].CompanyTitle + "</td>"
+                        + "<td>" + result[i].CompanyDescription + "</td>"
+                        + "<td>" + result[i].CompanyPhoto + "</td>"
+                        + "<td>" + result[i].WebSite + "</td>"
+                        + "<td>" + result[i].Location.Country + "</td>"
+                        + "<td>" + result[i].Phone + "</td>"
+                        + "<td>" + result[i].Email + "</td>"
+                        + "<td> <button class='btn btn-primary' onclick='DeleteProvider(" + result[i].ProviderId+")'>Delete</button></td>"
+                        + "</tr>";
+                }
+            }
+            if (row != '') {
+                $("#tblProviderBody").append(row);
+            }
         }
     });
-    students.forEach(function (stu, i) {          //Καλούμε την ForEach περνάμε όλους τους employees και ένα ανώνυμο callback, που δέχεται έναν emp και την θέση του στον πίνακα employees
-        if (stu.id == id && action != false) {    //Αν έχουμε πατήσει να γίνει delete, και υπάρχει employee με αυτό το id κάνουμε τα παρακάτω
-            students.splice(i, 1);               //Διαγράφουμε τον employee με την μέθοδο splice  https://www.w3schools.com/jsref/jsref_splice.asp
-            $("table #stu-" + stu.id).remove();   //Πάμε στην γραμμή που έχει το κατάλληλο id και κάνουμε remove
-            flashMessage(msg);                    //Eμφανίζουμε μήνυμα
+}
+
+function DeleteProvider(id) {
+    var url = "api/Providers/" + id;
+    $.ajax({
+        type: "Delete",
+        url: url,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+
+        success: function (result) {
+            clear();
+            alert(result);
+            getProvidersData();
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+            console.log(message);
         }
+    });
+}
+
+function handleException(request, message, error) {
+    var msg = "";
+
+    msg += "Code: " + request.status + "\n";
+    msg += "Text: " + request.statusText + "\n";
+    if (request.responseJSON != null) {
+        msg += "Message: " +
+            request.responseJSON.Message + "\n";    }
+
+    alert(msg);
+}
+
+function GetInputProviders() {
+
+    var table = $("#theInputTable");    
+    var template = `<div class="row">
+            <div class="col-md-2">
+                CompanyTitle
+            </div>
+            <div class="col-mid-10">
+                <input type="text" id="txtCompanyTitle" class="form-control" placeholder="Enter Company Title" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                Company Description
+            </div>
+            <div class="col-mid-10">
+                <input type="text" id="txtCompanyDescription" class="form-control" placeholder="Enter Company Description" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                Company Photo
+            </div>
+            <div class="col-mid-10">
+                <input type="text" id="txtCompanyPhoto" class="form-control" placeholder="Enter Company Photo" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                Phone
+            </div>
+            <div class="col-mid-10">
+                <input type="text" id="txtCompanyPhone" class="form-control" placeholder="Enter Company Phone" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                WebSite
+            </div>
+            <div class="col-mid-10">
+                <input type="text" id="txtWebSite" class="form-control" placeholder="Enter Company WebSite" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                Email
+            </div>
+            <div class="col-mid-10">
+                <input type="email" id="txtCompanyEmail" class="form-control" placeholder="Enter Company Email" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                Location
+            </div>
+            <div class="col-mid-10">
+                <input type="text" id="txtCompanyLocation" class="form-control" placeholder="Enter Company Location" />
+            </div>
+        </div>
+        <div class="col-mid-12">
+            <button class="btn btn-primary" onclick="SaveProvider()">Save Provider</button>
+            <button class="btn btn-danger">Reset</button>
+        </div>`
+    table.append(template);
+}
+
+
+function GetDataProviders() {
+    var table = $("#theDataTable");    
+    var template = ` <div class="row">
+                        <table class="table table-bordered table-striped table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>CompanyTitle</th>
+                                    <th>CompanyDescription</th>
+                                    <th>CompanyPhoto</th>
+                                    <th>WebSite</th>
+                                    <th>Location</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tblProviderBody">
+                            </tbody>
+                        </table>
+                    </div>`;
+    table.append(template);
+
+}
+
+function Clear() {
+    $('#btnClear').click(function () {
+        console.log('clear');
+        var allProviders = $("#allProviders");
+        allProviders.empty();
     });
 }

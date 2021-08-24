@@ -1,7 +1,6 @@
 ﻿using Omadiko.Database;
 using Omadiko.Entities.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -15,8 +14,8 @@ namespace Omadiko.WebApi.Controllers
 {
     public class ProvidersController : ApiController
     {
-        
-        //Solution Source: https://stackoverflow.com/questions/43008068/webapi-lazy-loading
+        //asynchronsly https://www.youtube.com/watch?v=hJ_V6pAm0PE&t=1201s
+                
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Providers
@@ -44,7 +43,6 @@ namespace Omadiko.WebApi.Controllers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> GetProvider(int id)
         {
-            db.Configuration.ProxyCreationEnabled = false;
             Provider provider = await db.Providers.FindAsync(id);
             if (provider == null)
             {
@@ -57,7 +55,6 @@ namespace Omadiko.WebApi.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutProvider(int id, Provider provider)
         {
-            db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -109,18 +106,49 @@ namespace Omadiko.WebApi.Controllers
         // DELETE: api/Providers/5
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> DeleteProvider(int id)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
+        {            
             Provider provider = await db.Providers.FindAsync(id);
             if (provider == null)
             {
                 return NotFound();
             }
 
-            db.Providers.Remove(provider);
-            await db.SaveChangesAsync();
+            Location LocationProvider = db.Locations.Where(x => x.Provider.ProviderId == id).Single();
+            db.Entry(LocationProvider).State = EntityState.Deleted;
+            // DBContext.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
+            db.Entry(provider).Collection("BusinessTypes").Load();
+            db.Entry(provider).Collection("Marbles").Load();
+            provider.BusinessTypes.Clear();
+            provider.Marbles.Clear();
+            
+            
+           
 
-            return Ok(provider);
+            try
+            {
+                db.Entry(provider).State = EntityState.Deleted;
+            }
+            catch (Exception Ex)
+            {
+                return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+            }
+            try
+            {
+                 db.SaveChanges();
+            }
+            catch (Exception Ex)
+            {
+                return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+            }
+
+
+
+            
+          
+            
+            
+
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
