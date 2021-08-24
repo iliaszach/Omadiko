@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
     $('#ProvidersTable').click(function () {
         GetInputProviders();
+        GetTableBodyProviders();
         GetDataProviders();
-        getProvidersData();
     });
 
 
@@ -45,7 +45,7 @@ function SaveProvider() {
             ),
             success: function (result) {
                 clear();
-                getProvidersData()
+                GetDataProviders();
             },
             error: function (msg) {
                 alert(msg);
@@ -61,7 +61,7 @@ function clear() {
     $('#txtCompanyEmail').val('');
 }
 
-function getProvidersData() {
+function GetDataProviders() {
     var url = "api/Providers";
     $.ajax({
         type: "GET",
@@ -103,7 +103,7 @@ function DeleteProvider(id) {
         success: function (result) {            
             clear();
             alert("Are you sure?");
-            getProvidersData();
+            GetDataProviders();
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -191,8 +191,7 @@ function GetInputProviders() {
     table.append(template);
 }
 
-
-function GetDataProviders() {
+function GetTableBodyProviders() {
     var table = $("#theDataTable");
     var template = ` <div class="row">
                         <table class="table table-bordered table-striped table-responsive">
