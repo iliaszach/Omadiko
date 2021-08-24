@@ -3,16 +3,31 @@
 <style>
 
     #loginLink {
-        color:#f0f0f0;
+        color: #f0f0f0;
+        text-decoration: none;
     }
 
-    .btn-success {
+/*        .strip_button:hover {
+            background-color: transparent !important;
+        }*/
+
+/*    .btn-success {
         background-color: #151;
         border: 1px solid #f0f0f0;
-        border-radius:30px;
-        padding:15px;
-        display:flex;
-        margin:auto;
+        border-radius: 30px;
+        padding: 15px;
+        display: flex;
+        width: 400px;
+        margin: auto;
+    }*/
+
+    .strip_button {
+        background-color: #151;
+        border: 1px solid #f0f0f0;
+        border-radius: 30px;
+        width: 400px;
+        margin: auto;
+        color:#f0f0f0;
     }
 
 </style>
@@ -24,7 +39,7 @@
 @Html.Partial("HomePage/FunFacts");
 
 
-<button class="btn-success"><a href="/Account/Login" id="loginLink" >Log in</a></button>
+<button class="strip_button light block"><a href="/Account/Login" id="loginLink" >Log in</a></button>
 
 
 @*@Html.Partial("HomePage/FeaturesSection");*@  @*  Συγκεντρωτικά στοιχεία από providers, clients, marble και σκατα*@

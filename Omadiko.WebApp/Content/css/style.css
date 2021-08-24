@@ -1567,7 +1567,7 @@
 
 	.second-nav.white-nav ul li a{
 		/*color:#3a3a3a;*/
-		color:azure;
+		color:azure !important;
 	}
 
 	.second-nav.dark-nav .nav-menu ul li a:hover{
@@ -1612,7 +1612,7 @@
 
 	.relative-nav .white-nav .nav a{
 		/*color:#505050;*/
-		color:azure;
+		color:azure !important;
 	}
 
 	.relative-nav .white-nav a:hover{
@@ -4520,6 +4520,7 @@
 
 	.fun-facts .facts{
 		padding:125px 0;
+		background-color: #222222;
 	}
 
 	.facts .fact{
@@ -7626,15 +7627,17 @@
 	}
 
 	/* Form with strip */
-	.strip_form{
-		background:transparent;
-		border:1px solid rgba(210,210,210,1);
-		border-radius: 30px;
-		padding: 15px;
-		-webkit-transition: all 0.5s;
-		-moz-transition: all 0.5s;
-		transition: all 0.5s;
-	}
+.strip_form {
+	background: transparent;
+	border: 1px solid #f0f0f0;
+	border-radius: 30px;
+	padding: 15px;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+	margin-bottom: 20px;
+	height:53.6px;
+}
 
 	.strip_button{
 		border-radius: 30px;

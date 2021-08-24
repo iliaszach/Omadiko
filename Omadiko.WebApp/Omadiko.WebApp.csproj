@@ -450,6 +450,7 @@
     <Content Include="Content\images\left-arrow.png" />
     <Content Include="Content\images\loader.gif" />
     <Content Include="Content\images\loader_light.gif" />
+    <Content Include="Content\images\logo\Logo.png" />
     <Content Include="Content\images\logo\logo_alternative_dark.png" />
     <Content Include="Content\images\logo\logo_alternative_white.png" />
     <Content Include="Content\images\logo\logo_condensed_dark.png" />

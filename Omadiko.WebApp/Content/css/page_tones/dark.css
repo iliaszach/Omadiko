@@ -86,19 +86,20 @@
 		background-color:#575757;
 	}
 
-	.sdark-bg,
-	.sdark-bg > *,
-	.dark-bg,
-	.dark-bg > *,
-	.xdark-bg,
-	.xdark-bg > *,
-	.xxdark-bg,
-	.xxdark-bg > *,
-	.black-bg,
-	.black-bg > *,
-	.changeable_bg_tone{
-		position: relative;
-	}
+.sdark-bg,
+.sdark-bg > *,
+.dark-bg,
+.dark-bg > *,
+.xdark-bg,
+.xdark-bg > *,
+.xxdark-bg,
+.xxdark-bg > *,
+.black-bg,
+.black-bg > *,
+.changeable_bg_tone {
+	position: relative;
+	background-color: #222222;
+}
 
 	.sdark-bg:before{
 		background-color:rgba(0,0,0, 0.2);
@@ -123,7 +124,7 @@
 	}
 
 	.xdark-bg:before{
-		background-color:#222222E3;
+		background-color:#222222;
 		position: absolute;
 		left:0;
 		top: 0;
@@ -225,12 +226,12 @@
 /* Dark Layout Options */
 
 	body.dark-layout{
-		background-color:#222222E3;
+		background-color:#222222;
 	}
 
-	body.dark-layout .dark-layout{
-		background-color:#171717;
-	}
+		body.dark-layout .dark-layout {
+			background-color: #222222;
+		}
 
 	body.dark-layout .gray-bg{
 		background-color:#202020 !important;
@@ -311,8 +312,8 @@
 	body.dark-layout .note,
 	body.dark-layout .post .dates .date,
 	.votes a{
-		color:#9a9a9a !important;
-	}
+/*		color:#9a9a9a !important;
+*/	}
 
 	body.dark-layout .boxes.boxes-type-2 .box-icon a.changeable-icon,
 	body.dark-layout .boxes.boxes-type-1 .box-icon a.changeable-icon,
@@ -369,8 +370,8 @@
 	body.dark-layout #shop .single_item_details .right .panel,
 	body.dark-layout .reply-form input,
 	body.dark-layout .reply-form textarea{
-		border-color: #444;
-	}
+/*		border-color: #444;
+*/	}
 
 	body.dark-layout .timelineFlat .t_line_m,
 	body.dark-layout #pagetop.white-pagetop a:last-child{
@@ -445,7 +446,7 @@
 	body.dark-layout .post .dates .details ul li:hover,
 	body.dark-layout .post .post-inner .post-more,
 	body.dark-layout .widget .search{
-		background:#171717;
+		background:#151515;
 	}
 
 	body.dark-layout .contact .contact_form.type-2.white-form input,
