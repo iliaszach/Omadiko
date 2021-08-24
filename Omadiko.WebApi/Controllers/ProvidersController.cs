@@ -148,7 +148,7 @@ namespace Omadiko.WebApi.Controllers
             
             
 
-            return Ok();
+            return Ok("Deleted Successfully");
         }
 
         protected override void Dispose(bool disposing)

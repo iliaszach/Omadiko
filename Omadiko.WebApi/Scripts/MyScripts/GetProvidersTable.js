@@ -1,11 +1,11 @@
 ﻿$(document).ready(function () {
-        $('#ProvidersTable').click(function () {        
+    $('#ProvidersTable').click(function () {
         GetInputProviders();
         GetDataProviders();
         getProvidersData();
-        });
-   
-    Clear();
+    });
+
+
 })
 
 function SaveProvider() {
@@ -81,7 +81,7 @@ function getProvidersData() {
                         + "<td>" + result[i].Location.Country + "</td>"
                         + "<td>" + result[i].Phone + "</td>"
                         + "<td>" + result[i].Email + "</td>"
-                        + "<td> <button class='btn btn-primary' onclick='DeleteProvider(" + result[i].ProviderId+")'>Delete</button></td>"
+                        + "<td> <button class='btn btn-primary' onclick='DeleteProvider(" + result[i].ProviderId + ")'>Delete</button></td>"
                         + "</tr>";
                 }
             }
@@ -100,14 +100,14 @@ function DeleteProvider(id) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
 
-        success: function (result) {
+        success: function (result) {            
             clear();
-            alert(result);
+            alert("Are you sure?");
             getProvidersData();
         },
         error: function (request, message, error) {
             handleException(request, message, error);
-            console.log(message);
+
         }
     });
 }
@@ -119,14 +119,15 @@ function handleException(request, message, error) {
     msg += "Text: " + request.statusText + "\n";
     if (request.responseJSON != null) {
         msg += "Message: " +
-            request.responseJSON.Message + "\n";    }
+            request.responseJSON.Message + "\n";
+    }
 
     alert(msg);
 }
 
 function GetInputProviders() {
 
-    var table = $("#theInputTable");    
+    var table = $("#theInputTable");
     var template = `<div class="row">
             <div class="col-md-2">
                 CompanyTitle
@@ -192,7 +193,7 @@ function GetInputProviders() {
 
 
 function GetDataProviders() {
-    var table = $("#theDataTable");    
+    var table = $("#theDataTable");
     var template = ` <div class="row">
                         <table class="table table-bordered table-striped table-responsive">
                             <thead>
@@ -215,10 +216,3 @@ function GetDataProviders() {
 
 }
 
-function Clear() {
-    $('#btnClear').click(function () {
-        console.log('clear');
-        var allProviders = $("#allProviders");
-        allProviders.empty();
-    });
-}
