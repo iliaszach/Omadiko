@@ -53,8 +53,8 @@ dfn {
 }
 
 h1 {
-    margin: .67em 0;
-    font-size: 2em
+/*    margin: .67em 0;
+*/    font-size: 2em
 }
 
 mark {
@@ -1461,8 +1461,8 @@ hr {
     }
 
 .h1, .h2, .h3, h1, h2, h3 {
-    margin-top: 20px;
-    margin-bottom: 10px
+/*    margin-top: 20px;
+*/    /*margin-bottom: 10px*/
 }
 
     .h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small {
@@ -1470,8 +1470,8 @@ hr {
     }
 
 .h4, .h5, .h6, h4, h5, h6 {
-    margin-top: 10px;
-    margin-bottom: 10px
+/*    margin-top: 10px;
+    margin-bottom: 10px*/
 }
 
     .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
@@ -3004,7 +3004,7 @@ input[type=search] {
 }
 
 .form-group {
-    margin-bottom: 15px
+/*    margin-bottom: 15px*/
 }
 
 .checkbox, .radio {

@@ -4,6 +4,14 @@
     ViewBag.Title = "Register";
 }
 
+<style>
+
+    .strip_button {
+        background-color: #151;
+        border: 1px solid #f0f0f0;
+    }
+</style>
+
 <section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
     <div class="login white v-center t-center">
         <!-- Form -->
@@ -11,7 +19,7 @@
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary("", new { @class = "text-danger" })
-            <h1 class="t-center light mb-20">
+            <h1 class="t-center light mb-20" >
                 Create a new account
             </h1>
 
