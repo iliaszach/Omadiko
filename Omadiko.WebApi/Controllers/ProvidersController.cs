@@ -19,9 +19,9 @@ namespace Omadiko.WebApi.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Providers
-        public IHttpActionResult GetProviders()
+        public async Task<IHttpActionResult> GetProviders()
         {
-            var providers = db.Providers.ToList();
+            var providers = await db.Providers.ToListAsync();
             return Ok(
                 providers.Select(x => new
                 {
@@ -65,6 +65,7 @@ namespace Omadiko.WebApi.Controllers
                 return BadRequest();
             }
 
+
             db.Entry(provider).State = EntityState.Modified;
 
             try
@@ -91,14 +92,75 @@ namespace Omadiko.WebApi.Controllers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> PostProvider(Provider provider)
         {
-            db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            try
+            {
+                db.Providers.Attach(provider);
+                db.Entry(provider).Collection("BusinessTypes").Load();
+                provider.BusinessTypes.Clear();
+                db.Entry(provider).Collection("Marbles").Load();
+                provider.Marbles.Clear();
+            }
+            catch (Exception Ex)
+            {
+                //return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+            }
+            
 
-            db.Providers.Add(provider);
-            await db.SaveChangesAsync();
+            //if (!(Marbles is null))
+            //{
+            //    foreach (var id in Marbles)
+            //    {
+            //        var marble = db.Marbles.Find(id);
+            //        if (!(marble is null))
+            //        {
+            //            provider.Marbles.Add(marble);
+            //        }
+            //    }
+            //}
+            //if (!(BusinessTypes is null))
+            //{
+            //    foreach (var id in BusinessTypes)
+            //    {
+            //        var type = db.BusinessTypes.Find(id);
+            //        if (!(type is null))
+            //        {
+            //            provider.BusinessTypes.Add(type);
+            //        }
+            //    }
+            //}
+            try
+            {
+                db.Entry(provider).State = EntityState.Added;  
+            }
+            catch (Exception Ex)
+            {
+                //return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+            }
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (Exception Ex)
+            {
+                //return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+            }            
+            
+            //return Ok(provider = new Provider
+            //{
+            //    ProviderId = provider.ProviderId,
+            //    CompanyTitle = provider.CompanyTitle,
+            //    CompanyDescription = provider.CompanyDescription,
+            //    CompanyPhoto = provider.CompanyPhoto,
+            //    Phone = provider.Phone,
+            //    WebSite = provider.WebSite,
+            //    Email = provider.Email,
+            //    //Location = new Location { Country = provider.Location.Country }
+            //});
+
 
             return CreatedAtRoute("DefaultApi", new { id = provider.ProviderId }, provider);
         }
@@ -120,9 +182,6 @@ namespace Omadiko.WebApi.Controllers
             db.Entry(provider).Collection("Marbles").Load();
             provider.BusinessTypes.Clear();
             provider.Marbles.Clear();
-            
-            
-           
 
             try
             {
@@ -134,19 +193,12 @@ namespace Omadiko.WebApi.Controllers
             }
             try
             {
-                 db.SaveChanges();
+                 await db.SaveChangesAsync();
             }
             catch (Exception Ex)
             {
                 return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
             }
-
-
-
-            
-          
-            
-            
 
             return Ok("Deleted Successfully");
         }

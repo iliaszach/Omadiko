@@ -19,35 +19,46 @@ namespace Omadiko.WebApi.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Marbles
-        public IHttpActionResult GetMarbles()
+        public async Task<IHttpActionResult> GetMarbles()
         {
            
-            var marble = db.Marbles.ToList();
+            var marbles = await db.Marbles.ToListAsync();
             return Ok(
-                marble.Select(x => new
+                marbles.Select(x => new
                 {
                     MarbleId = x.MarbleId,
                     Name = x.Name,
                     Color = x.Color,
-                    Country = x.Country,
-                    Photo = x.Photo,
-                    Providers = x.Providers.Select(p =>new {p.CompanyTitle })
-                })
-                );
+                    MarbleDescription = x.MarbleDescription,
+
+                    Country = new { Name = x.Country.Name },
+                    Photo = new { Url = x.Photo.Url },
+                    Providers = x.Providers.Select(p => new { CompanyTitle = p.CompanyTitle })
+
+                }));
         }
 
         // GET: api/Marbles/5
         [ResponseType(typeof(Marble))]
         public async Task<IHttpActionResult> GetMarble(int id)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
+        {            
             Marble marble = await db.Marbles.FindAsync(id);
             if (marble == null)
             {
                 return NotFound();
             }
 
-            return Ok(marble);
+            return Ok(marble = new Marble
+            {
+                MarbleId = marble.MarbleId,
+                Name = marble.Name,
+                Color = marble.Color,
+                MarbleDescription = marble.MarbleDescription,
+
+                Country = new Country { Name = marble.Country.Name },
+                Photo = new Photo { Url = marble.Photo.Url }
+                //Provider= (ICollection<Provider>)marble.Providers.Select(p => new Provider { CompanyTitle = p.CompanyTitle }) }   
+            });
         }
 
         // PUT: api/Marbles/5
