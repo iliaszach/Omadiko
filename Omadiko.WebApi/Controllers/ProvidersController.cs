@@ -1,6 +1,8 @@
 ﻿using Omadiko.Database;
 using Omadiko.Entities.Models;
+using Omadiko.RepositoryServices.DataAccess;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -17,6 +19,7 @@ namespace Omadiko.WebApi.Controllers
         //asynchronsly https://www.youtube.com/watch?v=hJ_V6pAm0PE&t=1201s
                 
         private ApplicationDbContext db = new ApplicationDbContext();
+        private UnitOfWork unitOfWork = new UnitOfWork(new ApplicationDbContext());
 
         // GET: api/Providers
         public async Task<IHttpActionResult> GetProviders()
@@ -119,17 +122,43 @@ namespace Omadiko.WebApi.Controllers
         // POST: api/Providers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> PostProvider(Provider provider)
-        {
+        {            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
-            {
+            {               
                 db.Providers.Attach(provider);
-                db.Entry(provider).Collection("BusinessTypes").Load();                
+                db.Entry(provider).Collection("BusinessTypes").Load();
                 db.Entry(provider).Collection("Marbles").Load();
+                var collectionBTypes = new List<BusinessType>();
+                var collectionMarbles = new List<Marble>();
+                foreach (var item in provider.BusinessTypes)
+                {
+                    collectionBTypes.Add(item);
+                }
+                foreach (var item in provider.Marbles)
+                {
+                    collectionMarbles.Add(item);
+                }               
                 
+                provider.BusinessTypes.Clear();
+                provider.Marbles.Clear();
+
+                foreach (var item in collectionBTypes)
+                {
+                    var id = item.BusinessTypeId;
+                    var btype = db.BusinessTypes.Find(id);
+                    provider.BusinessTypes.Add(btype);
+                }
+                foreach (var item in collectionMarbles)
+                {
+                    var id = item.MarbleId;
+                    var marble = db.Marbles.Find(id);
+                    provider.Marbles.Add(marble);
+                }
+
             }
             catch (Exception Ex)
             {

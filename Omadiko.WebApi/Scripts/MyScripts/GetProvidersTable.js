@@ -12,16 +12,34 @@
 
 
 //Function that get the selected values from a multiple select list
-function findObjectByID(id,url) {
+function findMarbleByID(id) {
     var listOfIds = [];
-
-    for (var option of document.getElementById(id).options) {
+    for (var option of document.getElementById(id)) {
         if (option.selected) {
-            listOfIds.push(option.value);
+            listOfIds.push({ MarbleId : option.value });
         }
     }
-    return GetObjects(listOfIds,url);
+    //console.log(listOfIds);    
+
+    //return GetObjects(listOfIds,url);
+    return listOfIds;
 }
+//Function that get the selected values from a multiple select list
+function findBTypesByID(id) {
+    var listOfIds = [];
+    for (var option of document.getElementById(id)) {
+        if (option.selected) {
+            listOfIds.push({ BusinessTypeId : option.value });
+        }
+    }
+    //console.log(listOfIds);    
+
+    //return GetObjects(listOfIds,url);
+    return listOfIds;
+}
+
+
+
 
 function GetObjects(listOfIds,url) {
     var listIfObjects = []
@@ -30,11 +48,10 @@ function GetObjects(listOfIds,url) {
         $.ajax({
             type: "GET",
             url: url + id,
-            data: "name=John&location=Boston",
+            
             dataType: "json",
             success: function (response) {                
-                listIfObjects.push(response)
-                console.log(response);
+                listIfObjects.push(response)                
             },
             error: function (request, message, error) {
                 handleException(request, message, error);
@@ -61,9 +78,10 @@ function CreateProvider() {
     var Phone = $('#txtCompanyPhone').val();
     var Email = $('#txtCompanyEmail').val();
 
-    var BusinessTypes = findObjectByID('SelectBTypesTable', urlBTypes);
-    var Marbles = findObjectByID('SelectMarbleTable', urlMarbles);    
-
+    var businessTypes = findBTypesByID('SelectBTypesTable');
+    var marbles = findMarbleByID('SelectMarbleTable');
+    console.log(businessTypes);
+    console.log(marbles);
     //Make the object
     let provider = {
         CompanyTitle: `${CompanyTitle}`,
@@ -72,8 +90,8 @@ function CreateProvider() {
         WebSite: `${WebSite}`,
         Phone: `${Phone}`,
         Email: `${Email}`,
-        BusinessTypes: BusinessTypes,
-        Marbles: Marbles
+        BusinessTypes: businessTypes,
+        Marbles:marbles
     }
     console.log(provider);
 
@@ -93,6 +111,7 @@ function CreateProvider() {
             error: function (request, message, error) {
                 handleException(request, message, error);                
                 alert("Error while invoking CreateProvider");
+                console.log(provider);
             }
         });
     }
