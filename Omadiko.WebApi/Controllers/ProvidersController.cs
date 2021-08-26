@@ -19,7 +19,7 @@ namespace Omadiko.WebApi.Controllers
         //asynchronsly https://www.youtube.com/watch?v=hJ_V6pAm0PE&t=1201s
                 
         private ApplicationDbContext db = new ApplicationDbContext();
-        private UnitOfWork unitOfWork = new UnitOfWork(new ApplicationDbContext());
+       
 
         // GET: api/Providers
         public async Task<IHttpActionResult> GetProviders()
@@ -122,42 +122,54 @@ namespace Omadiko.WebApi.Controllers
         // POST: api/Providers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> PostProvider(Provider provider)
-        {            
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
-            {               
-                db.Providers.Attach(provider);
-                db.Entry(provider).Collection("BusinessTypes").Load();
-                db.Entry(provider).Collection("Marbles").Load();
-                var collectionBTypes = new List<BusinessType>();
-                var collectionMarbles = new List<Marble>();
+            {
+                //context.Providers.Attach(provider);
+                //context.Entry(provider).Collection("BusinessTypes").Load();
+                //context.Entry(provider).Collection("Marbles").Load();
+                
+                var collectionBTypes = new List<int>();
+                var collectionMarbles = new List<int>();
+                
                 foreach (var item in provider.BusinessTypes)
-                {
-                    collectionBTypes.Add(item);
+                {                    
+                    var id = item.BusinessTypeId;
+                    collectionBTypes.Add(id);
+                    
                 }
                 foreach (var item in provider.Marbles)
                 {
-                    collectionMarbles.Add(item);
-                }               
-                
+                    var id = item.MarbleId;
+                    collectionMarbles.Add(id);
+                    
+                }
                 provider.BusinessTypes.Clear();
                 provider.Marbles.Clear();
-
-                foreach (var item in collectionBTypes)
+                foreach (var id in collectionBTypes)
                 {
-                    var id = item.BusinessTypeId;
-                    var btype = db.BusinessTypes.Find(id);
-                    provider.BusinessTypes.Add(btype);
+                    var bType = await context.BusinessTypes.FindAsync(id);
+                    if (!(bType is null))
+                    {
+                        provider.BusinessTypes.Add(bType);
+                        context.Entry(bType).State = EntityState.Modified;
+                    }
+                } 
+                foreach (var id in collectionMarbles)
+                {                    
+                    var marble = await context.Marbles.FindAsync(id);
+                    if (!(marble is null))
+                    {
+                        provider.Marbles.Add(marble);
+                        context.Entry(marble).State = EntityState.Modified;
+                    }
                 }
-                foreach (var item in collectionMarbles)
-                {
-                    var id = item.MarbleId;
-                    var marble = db.Marbles.Find(id);
-                    provider.Marbles.Add(marble);
-                }
+                Location LocationProvider = db.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
 
             }
             catch (Exception Ex)
@@ -167,7 +179,7 @@ namespace Omadiko.WebApi.Controllers
 
             try
             {
-                db.Entry(provider).State = EntityState.Added;  
+                context.Entry(provider).State = EntityState.Added;  
             }
             catch (Exception Ex)
             {
@@ -175,7 +187,7 @@ namespace Omadiko.WebApi.Controllers
             }
             try
             {
-                await db.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (Exception Ex)
             {

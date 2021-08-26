@@ -76,12 +76,50 @@ namespace Omadiko.WebApi.Controllers
         [ResponseType(typeof(Location))]
         public async Task<IHttpActionResult> PostLocation(Location location)
         {
+            ApplicationDbContext context = new ApplicationDbContext();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
             db.Locations.Add(location);
+
+            //var collectionBTypes = new List<int>();
+            //var collectionMarbles = new List<int>();
+            //
+            //foreach (var item in location.Provider.BusinessTypes)
+            //{
+            //    var id = item.BusinessTypeId;
+            //    collectionBTypes.Add(id);
+            //
+            //}
+            //foreach (var item in location.Provider.Marbles)
+            //{
+            //    var id = item.MarbleId;
+            //    collectionMarbles.Add(id);
+            //
+            //}
+            //location.Provider.BusinessTypes.Clear();
+            //location.Provider.Marbles.Clear();
+            //foreach (var id in collectionBTypes)
+            //{
+            //    var bType = await context.BusinessTypes.FindAsync(id);
+            //    if (!(bType is null))
+            //    {
+            //        location.Provider.BusinessTypes.Add(bType);
+            //        context.Entry(bType).State = EntityState.Modified;
+            //    }
+            //}
+            //foreach (var id in collectionMarbles)
+            //{
+            //    var marble = await context.Marbles.FindAsync(id);
+            //    if (!(marble is null))
+            //    {
+            //        location.Provider.Marbles.Add(marble);
+            //        context.Entry(marble).State = EntityState.Modified;
+            //    }
+            //}
+
 
             try
             {
@@ -99,7 +137,8 @@ namespace Omadiko.WebApi.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = location.LocationId }, location);
+            //return CreatedAtRoute("DefaultApi", new { id = location.LocationId }, location);
+            return RedirectToRoute("Providers", "PostProvider");
         }
 
         // DELETE: api/Locations/5
