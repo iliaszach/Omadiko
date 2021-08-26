@@ -8,34 +8,63 @@
         GetDataProviders();
 
     });
-
-
 })
-function findValuesByID(id) {
-    selected = [];
+
+
+//Function that get the selected values from a multiple select list
+function findObjectByID(id,url) {
+    var listOfIds = [];
+
     for (var option of document.getElementById(id).options) {
         if (option.selected) {
-            selected.push(option.value);   
+            listOfIds.push(option.value);
         }
-    }    
-    return selected;
+    }
+    return GetObjects(listOfIds,url);
+}
+
+function GetObjects(listOfIds,url) {
+    var listIfObjects = []
+    //=====Find the marbles - push to the list  
+    for (var id of listOfIds) {
+        $.ajax({
+            type: "GET",
+            url: url + id,
+            data: "name=John&location=Boston",
+            dataType: "json",
+            success: function (response) {                
+                listIfObjects.push(response)
+                console.log(response);
+            },
+            error: function (request, message, error) {
+                handleException(request, message, error);
+                alert("Error while invoking GetObjects function");
+                
+            }
+
+        });
+    }
+    
+    return listIfObjects;
 }
 
 function CreateProvider() {
     var url = "api/Providers";
-    
+    var urlMarbles = "api/Marbles/";
+    var urlBTypes = "api/BusinessTypes/";
+
+    //Get the values
     var CompanyTitle = $('#txtCompanyTitle').val();
     var CompanyDescription = $('#txtCompanyDescription').val();
     var CompanyPhoto = $('#txtCompanyPhoto').val();
     var WebSite = $('#txtWebSite').val();
     var Phone = $('#txtCompanyPhone').val();
     var Email = $('#txtCompanyEmail').val();
-    
-    var BusinessTypes = findValuesByID('SelectBTypesTable');
-    var Marbles = findValuesByID('SelectMarbleTable');
-    
-    
 
+    var BusinessTypes = findObjectByID('SelectBTypesTable', urlBTypes);
+    var Marbles = findObjectByID('SelectMarbleTable', urlMarbles);    
+
+    //Make the object
     let provider = {
         CompanyTitle: `${CompanyTitle}`,
         CompanyDescription: `${CompanyDescription}`,
@@ -47,6 +76,8 @@ function CreateProvider() {
         Marbles: Marbles
     }
     console.log(provider);
+
+    
     if (provider) {
         $.ajax({
             type: "POST",
@@ -54,27 +85,30 @@ function CreateProvider() {
             dataType: "json",
             data: provider,
             success: function (result) {
+                console.log(result);
                 alert("SUCCESS");
                 clear();
                 GetDataProviders();
             },
             error: function (request, message, error) {
-                handleException(request, message, error);
-                console.log(request);
-                console.log(message);
-                console.log(error);
-                alert("Error while invoking the Web API");
-
+                handleException(request, message, error);                
+                alert("Error while invoking CreateProvider");
             }
         });
     }
+    //Set the values for location
+    SetDataLocation(provider);
 
+}
+
+function SetDataLocation(provider) {
     var Country = $("#txtLocationCountry").val();
     var City = $("#txtLocationCity").val();
     var Address = $("#txtLocationAddress").val();
     var Lat = $("#txtLocationLat").val();
     var Lng = $("#txtLocationLng").val();
 
+    //initialiaze the new object
     let location = {
         Country: `${Country}`,
         City: `${City}`,
@@ -90,18 +124,14 @@ function CreateProvider() {
         url: url,
         data: location,
         dataType: "json",
-        success: function (response) {
-            console.log(response);
+        success: function (response) {            
         },
         error: function (request, message, error) {
             handleException(request, message, error);
-            console.log(request);
-            console.log(message);
-            console.log(error);
-            alert("Error while invoking the Web API");
-
+            alert("Error while invoking the create LOcation");
         }
     });
+
 }
 
 function BTypesInput() {
@@ -112,9 +142,9 @@ function BTypesInput() {
         data: "name=John&location=Boston",
         dataType: "json",
         success: function (response) {
-            data = response;            
-            appendToTable(data);
-            function appendToTable(data) {
+            data = response;
+            appendToTable();
+            function appendToTable() {
                 var table = $("#BTypesTable");
                 var template = `
                     <hr />
@@ -137,18 +167,24 @@ function BTypesInput() {
                 var template = $("#SelectBTypesTable");
                 var table = '';
                 for (var key of data) {
-                    table += `<option value="${key.Kind}"> ${key.Kind} </option>`;
+                    table += `<option value="${key.BusinessTypeId}"> ${key.Kind} </option>`;
                 }
                 template.append(table);
             }
 
 
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);            
+            alert("Error while invoking the Web API at BusinessTypeInput");
+
         }
     });
-    
+
 }
 
 function MarbleInput() {
+
     $.ajax({
         type: "GET",
         url: "api/marbles",
@@ -156,9 +192,9 @@ function MarbleInput() {
         dataType: "json",
         success: function (response) {
             data = response;
-            appendToTable(data);
-            function appendToTable(data) {
-                
+            appendToTable();
+            function appendToTable() {
+
                 var table = $("#MarbleTable");
                 var template = `
                     <hr />
@@ -174,31 +210,26 @@ function MarbleInput() {
                     </div>`;
                 table.append(template);
             }
-            
-            SetDataMarble(data);          
-            
+
+            SetDataMarble(data);
+
             function SetDataMarble(data) {
-                var template = $("#SelectMarbleTable");                
+                var template = $("#SelectMarbleTable");
                 var table = '';
                 for (var key of data) {
-                    table += `<option value="${key.Name}"> ${key.Name} </option>`;                   
+                    table += `<option value="${key.MarbleId}"> ${key.Name} </option>`;
                 }
                 template.append(table);
             }
-           
+
 
         },
         error: function (request, message, error) {
             handleException(request, message, error);
-            console.log(request);
-            console.log(message);
-            console.log(error);
-            alert("Error while invoking the Web API");
-
+            alert("Error while invoking the Web API at MarbleInput");
         }
     });
 }
-
 
 function GetDataProviders() {
     var url = "api/Providers";
@@ -220,6 +251,8 @@ function GetDataProviders() {
                         + "<td>" + result[i].Location.Country + "</td>"
                         + "<td>" + result[i].Phone + "</td>"
                         + "<td>" + result[i].Email + "</td>"
+                        + "<td><ul>" + result[i].BusinessTypes.map(x => `<li>${x.Kind}</li>`).join("") +  "</ul></td>"
+                        + "<td><ul>" + result[i].Marbles.map(x => `<li>${x.Name}</li>`).join("") + "</ul></td>"                        
                         + "<td> <button class='btn btn-primary' onclick='DeleteProvider(" + result[i].ProviderId + ")'>Delete</button></td>"
                         + "</tr>";
                 }
@@ -227,12 +260,13 @@ function GetDataProviders() {
             if (row != '') {
                 $("#tblProviderBody").append(row);
             }
+        },
+        error: function (request, message, error) {
+            handleException(request, message, error);
+            alert("Error while invoking the Web API at GetDataProviders");
         }
     });
 }
-
-
-
 
 function GetInputLocation() {
     var table = $("#LocationTable");
@@ -362,6 +396,8 @@ function GetTableBodyProviders() {
                                     <th>Location</th>
                                     <th>Phone</th>
                                     <th>Email</th>
+                                    <th>Marbles</th>
+                                    <th>Business Type</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -388,7 +424,7 @@ function DeleteProvider(id) {
         },
         error: function (request, message, error) {
             handleException(request, message, error);
-
+            alert("Error while invoking the Web API at DeleteProvider");
         }
     });
 }
@@ -396,14 +432,16 @@ function DeleteProvider(id) {
 function handleException(request, message, error) {
     var msg = "";
 
-    msg += "Code: " + request.status + "\n";
-    msg += "Text: " + request.statusText + "\n";
+    msg += "Code: " + request.status + " " + message + "\n";
+    msg += "Text: " + request.statusText + " " + message + "\n";
     if (request.responseJSON != null) {
         msg += "Message: " +
             request.responseJSON.Message + "\n";
     }
 
-    alert(msg);
+    console.log(msg);
+    console.log(message);
+    console.log(error);
 }
 
 function clear() {

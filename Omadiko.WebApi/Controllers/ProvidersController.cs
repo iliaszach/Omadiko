@@ -43,12 +43,40 @@ namespace Omadiko.WebApi.Controllers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> GetProvider(int id)
         {
-            Provider provider = await db.Providers.FindAsync(id);
-            if (provider == null)
+            try
             {
-                return NotFound();
+                Provider provider = await db.Providers.FindAsync(id);
+                if (provider == null)
+                {
+                    return NotFound();
+                }
+                try
+                {
+                    return Ok(new 
+                    {
+                        ProviderId = provider.ProviderId,
+                        CompanyTitle = provider.CompanyTitle,
+                        CompanyDescription = provider.CompanyDescription,
+                        CompanyPhoto = provider.CompanyPhoto,
+                        Phone = provider.Phone,
+                        WebSite = provider.WebSite,
+                        Email = provider.Email,
+                        Location = new { Country = provider.Location.Country },
+                        Marbles = provider.Marbles.Select(m => new { Name = m.Name }),
+                        BusinessTypes = provider.BusinessTypes.Select(m => new { Kind = m.Kind })
+                    });
+                }
+                catch (Exception Ex)
+                {
+                    return InternalServerError(Ex);
+                }
+
             }
-            return Ok(provider);
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
+
         }
 
         // PUT: api/Providers/5
@@ -99,46 +127,22 @@ namespace Omadiko.WebApi.Controllers
             try
             {
                 db.Providers.Attach(provider);
-                db.Entry(provider).Collection("BusinessTypes").Load();
-                provider.BusinessTypes.Clear();
+                db.Entry(provider).Collection("BusinessTypes").Load();                
                 db.Entry(provider).Collection("Marbles").Load();
-                provider.Marbles.Clear();
+                
             }
             catch (Exception Ex)
             {
-                //return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
-            }
-            
+                return InternalServerError(Ex);
+            }            
 
-            //if (!(Marbles is null))
-            //{
-            //    foreach (var id in Marbles)
-            //    {
-            //        var marble = db.Marbles.Find(id);
-            //        if (!(marble is null))
-            //        {
-            //            provider.Marbles.Add(marble);
-            //        }
-            //    }
-            //}
-            //if (!(BusinessTypes is null))
-            //{
-            //    foreach (var id in BusinessTypes)
-            //    {
-            //        var type = db.BusinessTypes.Find(id);
-            //        if (!(type is null))
-            //        {
-            //            provider.BusinessTypes.Add(type);
-            //        }
-            //    }
-            //}
             try
             {
                 db.Entry(provider).State = EntityState.Added;  
             }
             catch (Exception Ex)
             {
-                //return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+                return InternalServerError(Ex);
             }
             try
             {
@@ -146,23 +150,32 @@ namespace Omadiko.WebApi.Controllers
             }
             catch (Exception Ex)
             {
-                //return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
-            }            
-            
-            //return Ok(provider = new Provider
-            //{
-            //    ProviderId = provider.ProviderId,
-            //    CompanyTitle = provider.CompanyTitle,
-            //    CompanyDescription = provider.CompanyDescription,
-            //    CompanyPhoto = provider.CompanyPhoto,
-            //    Phone = provider.Phone,
-            //    WebSite = provider.WebSite,
-            //    Email = provider.Email,
-            //    //Location = new Location { Country = provider.Location.Country }
-            //});
+                return InternalServerError(Ex);
+            }
+            try
+            {
+                return Ok(new
+                {
+                    ProviderId = provider.ProviderId,
+                    CompanyTitle = provider.CompanyTitle,
+                    CompanyDescription = provider.CompanyDescription,
+                    CompanyPhoto = provider.CompanyPhoto,
+                    Phone = provider.Phone,
+                    WebSite = provider.WebSite,
+                    Email = provider.Email,
+                    Location = new { Country = provider.Location.Country },
+                    Marbles = provider.Marbles.Select(m => new { Name = m.Name }),
+                    BusinessTypes = provider.BusinessTypes.Select(m => new { Kind = m.Kind })
+                });
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
 
 
-            return CreatedAtRoute("DefaultApi", new { id = provider.ProviderId }, provider);
+
+            //return CreatedAtRoute("DefaultApi", new { id = provider.ProviderId }, provider);
         }
 
         // DELETE: api/Providers/5
@@ -176,8 +189,7 @@ namespace Omadiko.WebApi.Controllers
             }
 
             Location LocationProvider = db.Locations.Where(x => x.Provider.ProviderId == id).Single();
-            db.Entry(LocationProvider).State = EntityState.Deleted;
-            // DBContext.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
+            db.Entry(LocationProvider).State = EntityState.Deleted;            
             db.Entry(provider).Collection("BusinessTypes").Load();
             db.Entry(provider).Collection("Marbles").Load();
             provider.BusinessTypes.Clear();
@@ -189,7 +201,7 @@ namespace Omadiko.WebApi.Controllers
             }
             catch (Exception Ex)
             {
-                return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+                return InternalServerError(Ex);
             }
             try
             {
@@ -197,7 +209,7 @@ namespace Omadiko.WebApi.Controllers
             }
             catch (Exception Ex)
             {
-                return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+                return InternalServerError(Ex);
             }
 
             return Ok("Deleted Successfully");
@@ -213,8 +225,7 @@ namespace Omadiko.WebApi.Controllers
         }
 
         private bool ProviderExists(int id)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
+        {            
             return db.Providers.Count(e => e.ProviderId == id) > 0;
         }
     }

@@ -21,33 +21,54 @@ namespace Omadiko.WebApi.Controllers
         // GET: api/BusinessTypes
         public async Task<IHttpActionResult> GetBusinessTypes()
         {
-            var bTypes = await db.BusinessTypes.ToListAsync();
-            return Ok(bTypes.Select(x => new
+            try
             {
-                BusinessTypeId = x.BusinessTypeId,
-                Kind = x.Kind,
-                Providers = x.Providers.Select(p => new { CompanyTitle = p.CompanyTitle })
+                var bTypes = await db.BusinessTypes.ToListAsync();
+                return Ok(bTypes.Select(x => new
+                {
+                    BusinessTypeId = x.BusinessTypeId,
+                    Kind = x.Kind,
+                    Providers = x.Providers.Select(p => new { CompanyTitle = p.CompanyTitle })
+                }
+                ));
             }
-            ));
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
+
         }
 
         // GET: api/BusinessTypes/5
         [ResponseType(typeof(BusinessType))]
         public async Task<IHttpActionResult> GetBusinessType(int id)
         {
-            BusinessType businessType = await db.BusinessTypes.FindAsync(id);
-            if (businessType == null)
+            try
             {
-                return NotFound();
+                BusinessType businessType = await db.BusinessTypes.FindAsync(id);
+                if (businessType == null)
+                {
+                    return NotFound();
+                }
+                try
+                {
+                    return Ok(new
+                    {
+                        BusinessTypeId = businessType.BusinessTypeId,
+                        Kind = businessType.Kind,
+                        Providers = businessType.Providers.Select(p => new { CompanyTitle = p.CompanyTitle })
+                    });
+                }
+                catch (Exception Ex)
+                {
+                    return InternalServerError(Ex);
+                }
+
             }
-
-            return Ok(businessType = new BusinessType 
+            catch (Exception Ex)
             {
-                BusinessTypeId = businessType.BusinessTypeId,
-                Kind = businessType.Kind,
-                //Providers = (ICollection<Provider>)businessType.Providers.Select(p => new { CompanyTitle = p.CompanyTitle })
-
-            });
+                return InternalServerError(Ex);
+            }
         }
 
         // PUT: api/BusinessTypes/5
@@ -63,7 +84,7 @@ namespace Omadiko.WebApi.Controllers
             {
                 return BadRequest();
             }
-
+            db.Entry(businessType).Collection("Providers").Load();            
             db.Entry(businessType).State = EntityState.Modified;
 
             try
