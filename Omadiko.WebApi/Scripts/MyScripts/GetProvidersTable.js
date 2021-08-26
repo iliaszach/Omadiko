@@ -38,9 +38,6 @@ function findBTypesByID(id) {
     return listOfIds;
 }
 
-
-
-
 function GetObjects(listOfIds,url) {
     var listIfObjects = []
     //=====Find the marbles - push to the list  
@@ -82,6 +79,14 @@ function CreateProvider() {
     var marbles = findMarbleByID('SelectMarbleTable');
     console.log(businessTypes);
     console.log(marbles);
+    
+    var Country = $("#txtLocationCountry").val();
+    var City = $("#txtLocationCity").val();
+    var Address = $("#txtLocationAddress").val();
+    var Lat = $("#txtLocationLat").val();
+    var Lng = $("#txtLocationLng").val();
+
+    
     //Make the object
     let provider = {
         CompanyTitle: `${CompanyTitle}`,
@@ -90,11 +95,27 @@ function CreateProvider() {
         WebSite: `${WebSite}`,
         Phone: `${Phone}`,
         Email: `${Email}`,
+        Location: {
+            Country: `${Country}`,
+            City: `${City}`,
+            Address: `${Address}`,
+            Lat: `${Lat}`,
+            Lng: `${Lng}`,
+            //Provider: provider
+        },
         BusinessTypes: businessTypes,
-        Marbles:marbles
+        Marbles: marbles
     }
+    //initialiaze the new object
+    //let location = {
+    //    Country: `${Country}`,
+    //    City: `${City}`,
+    //    Address: `${Address}`,
+    //    Lat: `${Lat}`,
+    //    Lng: `${Lng}`,
+    //    Provider: provider
+    //};
     console.log(provider);
-
     
     if (provider) {
         $.ajax({
@@ -116,7 +137,7 @@ function CreateProvider() {
         });
     }
     //Set the values for location
-    SetDataLocation(provider);
+    //SetDataLocation(provider);
 
 }
 
@@ -138,18 +159,18 @@ function SetDataLocation(provider) {
     };
 
     var url = "api/Locations";
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: location,
-        dataType: "json",
-        success: function (response) {            
-        },
-        error: function (request, message, error) {
-            handleException(request, message, error);
-            alert("Error while invoking the create LOcation");
-        }
-    });
+    //$.ajax({
+    //    type: "POST",
+    //    url: url,
+    //    data: location,
+    //    dataType: "json",
+    //    success: function (response) {            
+    //    },
+    //    error: function (request, message, error) {
+    //        handleException(request, message, error);
+    //        alert("Error while invoking the create LOcation");
+    //    }
+    //});
 
 }
 

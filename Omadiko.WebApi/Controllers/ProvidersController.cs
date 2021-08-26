@@ -130,10 +130,20 @@ namespace Omadiko.WebApi.Controllers
             }
             try
             {
+                
+                Location LocationProvider = provider.Location;
+                //LocationProvider.Country = provider.Location.Country;
+                //LocationProvider.City = provider.Location.City;
+                //LocationProvider.Address = provider.Location.Address;
+                //LocationProvider.Lat = provider.Location.Lat;
+                //LocationProvider.Lng = provider.Location.Lng;
+                context.Locations.Attach(LocationProvider);
+                context.Entry(LocationProvider).State = EntityState.Added;
+
                 //context.Providers.Attach(provider);
                 //context.Entry(provider).Collection("BusinessTypes").Load();
                 //context.Entry(provider).Collection("Marbles").Load();
-                
+
                 var collectionBTypes = new List<int>();
                 var collectionMarbles = new List<int>();
                 
@@ -169,7 +179,7 @@ namespace Omadiko.WebApi.Controllers
                         context.Entry(marble).State = EntityState.Modified;
                     }
                 }
-                Location LocationProvider = db.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
+                
 
             }
             catch (Exception Ex)

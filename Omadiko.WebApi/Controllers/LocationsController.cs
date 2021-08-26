@@ -19,9 +19,19 @@ namespace Omadiko.WebApi.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Locations
-        public IQueryable<Location> GetLocations()
+        public async Task<IHttpActionResult> GetLocations()
         {
-            return db.Locations;
+            var locations = await db.Locations.ToListAsync();
+            return Ok(locations.Select(x => new
+            {
+                LocationId = x.LocationId,
+                Country = x.Country,
+                City = x.City,
+                Address = x.Address,
+                Lat = x.Lat,
+                Lng = x.Lng,
+                Providers =new { CompanyTitle = x.Provider.CompanyTitle }
+            }));
         }
 
         // GET: api/Locations/5
@@ -84,42 +94,6 @@ namespace Omadiko.WebApi.Controllers
 
             db.Locations.Add(location);
 
-            //var collectionBTypes = new List<int>();
-            //var collectionMarbles = new List<int>();
-            //
-            //foreach (var item in location.Provider.BusinessTypes)
-            //{
-            //    var id = item.BusinessTypeId;
-            //    collectionBTypes.Add(id);
-            //
-            //}
-            //foreach (var item in location.Provider.Marbles)
-            //{
-            //    var id = item.MarbleId;
-            //    collectionMarbles.Add(id);
-            //
-            //}
-            //location.Provider.BusinessTypes.Clear();
-            //location.Provider.Marbles.Clear();
-            //foreach (var id in collectionBTypes)
-            //{
-            //    var bType = await context.BusinessTypes.FindAsync(id);
-            //    if (!(bType is null))
-            //    {
-            //        location.Provider.BusinessTypes.Add(bType);
-            //        context.Entry(bType).State = EntityState.Modified;
-            //    }
-            //}
-            //foreach (var id in collectionMarbles)
-            //{
-            //    var marble = await context.Marbles.FindAsync(id);
-            //    if (!(marble is null))
-            //    {
-            //        location.Provider.Marbles.Add(marble);
-            //        context.Entry(marble).State = EntityState.Modified;
-            //    }
-            //}
-
 
             try
             {
@@ -138,7 +112,9 @@ namespace Omadiko.WebApi.Controllers
             }
 
             //return CreatedAtRoute("DefaultApi", new { id = location.LocationId }, location);
-            return RedirectToRoute("Providers", "PostProvider");
+            //return RedirectToRoute(new { controller = "Providers", action = "PostProvider" }/*, Location.Provider*/);
+            return Redirect(Url.Link("DefaultApi", new { controller = "Providers", action = "PostProvider" })
+);
         }
 
         // DELETE: api/Locations/5
