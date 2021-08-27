@@ -44,7 +44,15 @@ namespace Omadiko.WebApi.Controllers
                 return NotFound();
             }
 
-            return Ok(location);
+            return Ok(new {
+                LocationId = location.LocationId,
+                Country = location.Country,
+                City = location.City,
+                Address = location.Address,
+                Lat = location.Lat,
+                Lng = location.Lng,
+                Provider = new { CompanyTitle = location.Provider.CompanyTitle }
+            }) ;
         }
 
         // PUT: api/Locations/5

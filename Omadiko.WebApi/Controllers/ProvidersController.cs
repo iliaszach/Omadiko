@@ -35,9 +35,9 @@ namespace Omadiko.WebApi.Controllers
                     Phone = x.Phone,
                     WebSite = x.WebSite,
                     Email = x.Email,
-                    Location = new { Country = x.Location.Country },
-                    Marbles = x.Marbles.Select(m => new { Name = m.Name }),
-                    BusinessTypes = x.BusinessTypes.Select(m => new { Kind = m.Kind })
+                    Location = new { LocationId = x.Location.LocationId, Country = x.Location.Country },
+                    Marbles = x.Marbles.Select(m => new { MarbleId=m.MarbleId, Name = m.Name }),
+                    BusinessTypes = x.BusinessTypes.Select(m => new { BusinessTypeId = m.BusinessTypeId, Kind = m.Kind })
                 })
                 );
         }
@@ -64,9 +64,12 @@ namespace Omadiko.WebApi.Controllers
                         Phone = provider.Phone,
                         WebSite = provider.WebSite,
                         Email = provider.Email,
-                        Location = new { Country = provider.Location.Country },
-                        Marbles = provider.Marbles.Select(m => new { Name = m.Name }),
-                        BusinessTypes = provider.BusinessTypes.Select(m => new { Kind = m.Kind })
+                        Location = new { 
+                            LocationId = provider.Location.LocationId, 
+                            Country = provider.Location.Country
+                        },
+                        Marbles = provider.Marbles.Select(m => new { MarbleId=m.MarbleId, Name = m.Name }),
+                        BusinessTypes = provider.BusinessTypes.Select(m => new { BusinessTypeId = m.BusinessTypeId, Kind = m.Kind })
                     });
                 }
                 catch (Exception Ex)
@@ -122,27 +125,17 @@ namespace Omadiko.WebApi.Controllers
         // POST: api/Providers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> PostProvider(Provider provider)
-        {
-            //ApplicationDbContext context = new ApplicationDbContext();
+        {            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
-            {
-                
-                Location LocationProvider = provider.Location;
-                //LocationProvider.Country = provider.Location.Country;
-                //LocationProvider.City = provider.Location.City;
-                //LocationProvider.Address = provider.Location.Address;
-                //LocationProvider.Lat = provider.Location.Lat;
-                //LocationProvider.Lng = provider.Location.Lng;
+            {                
+                Location LocationProvider = provider.Location;              
                 db.Locations.Attach(LocationProvider);
                 db.Entry(LocationProvider).State = EntityState.Added;
 
-                //context.Providers.Attach(provider);
-                //context.Entry(provider).Collection("BusinessTypes").Load();
-                //context.Entry(provider).Collection("Marbles").Load();
 
                 var collectionBTypes = new List<int>();
                 var collectionMarbles = new List<int>();
