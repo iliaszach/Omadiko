@@ -161,14 +161,18 @@ function GetDataProviderById(id) {
             GetProviderMarbles(provider, marblesIds);
             
             clearSelectList(id, provider);
-            
-            function clearSelectList(id,provider) {
+            console.log(provider);
+            function clearSelectList(id, provider) {
+                
                 var template = $("#updateButton");
                 template.empty();
-                var table = `<button class="btn btn-primary" id='updateButton' onclick="UpdateProvider(${id},${provider})">Update Provider</button>
-                            <button class="btn btn-danger" onclick="clearAll()">Reset</button>`;
+                var table = `<button class='btn btn-primary' id='updateButton' onclick='UpdateProvider("${id}, ${provider}")'>Update Provider</button>
+                             <button class='btn btn-danger' onclick=clearAll()>Reset</button>`;
                 template.append(table);
-            } 
+                
+            }
+            //Πρέπει να βρούμε έναν τρόπο να περάσουμε το object με onclick
+           
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -181,26 +185,24 @@ function UpdateProvider(id, provider) {
     console.log(id);
     console.log(provider);
     console.log('mesa stin update');
-        //var url = "api/Providers/";
-        //$.ajax({
-        //    type: "Put",
-        //    url: url + id,
-        //    contentType: "application/json; charset=utf-8",
-        //    dataType: "json",
-        //    data: provider,
-        //    success: function (result) {
-        //        console.log(result);
-        //        clear();
-        //        alert("Are you sure?");
-        //        GetDataProviders();
-        //    },
-        //    error: function (request, message, error) {
-        //        handleException(request, message, error);
-        //        alert("Error while invoking the Web API at PutProvider");
-        //    }
-        //});
-    //}
-    
+        var url = "api/Providers/";
+        $.ajax({
+            type: "Put",
+            url: url + id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: provider,
+            success: function (result) {
+                console.log(result);
+                clear();
+                alert("Are you sure?");
+                GetDataProviders();
+            },
+            error: function (request, message, error) {
+                handleException(request, message, error);
+                alert("Error while invoking the Web API at PutProvider");
+            }
+        });
 }
 
 function GetProviderMarbles(provider, marblesIds) {
@@ -242,7 +244,9 @@ function GetProviderMarbles(provider, marblesIds) {
             for (var i of ids) {
                 marbles.push({ MarbleId: i })
             }
+            
             provider.Marbles = marbles;
+            
         },
         error: function (request, message, error) {
             handleException(request, message, error);
