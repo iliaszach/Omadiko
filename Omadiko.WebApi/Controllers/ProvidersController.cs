@@ -123,7 +123,7 @@ namespace Omadiko.WebApi.Controllers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> PostProvider(Provider provider)
         {
-            ApplicationDbContext context = new ApplicationDbContext();
+            //ApplicationDbContext context = new ApplicationDbContext();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -137,8 +137,8 @@ namespace Omadiko.WebApi.Controllers
                 //LocationProvider.Address = provider.Location.Address;
                 //LocationProvider.Lat = provider.Location.Lat;
                 //LocationProvider.Lng = provider.Location.Lng;
-                context.Locations.Attach(LocationProvider);
-                context.Entry(LocationProvider).State = EntityState.Added;
+                db.Locations.Attach(LocationProvider);
+                db.Entry(LocationProvider).State = EntityState.Added;
 
                 //context.Providers.Attach(provider);
                 //context.Entry(provider).Collection("BusinessTypes").Load();
@@ -163,20 +163,20 @@ namespace Omadiko.WebApi.Controllers
                 provider.Marbles.Clear();
                 foreach (var id in collectionBTypes)
                 {
-                    var bType = await context.BusinessTypes.FindAsync(id);
+                    var bType = await db.BusinessTypes.FindAsync(id);
                     if (!(bType is null))
                     {
                         provider.BusinessTypes.Add(bType);
-                        context.Entry(bType).State = EntityState.Modified;
+                        db.Entry(bType).State = EntityState.Modified;
                     }
                 } 
                 foreach (var id in collectionMarbles)
                 {                    
-                    var marble = await context.Marbles.FindAsync(id);
+                    var marble = await db.Marbles.FindAsync(id);
                     if (!(marble is null))
                     {
                         provider.Marbles.Add(marble);
-                        context.Entry(marble).State = EntityState.Modified;
+                        db.Entry(marble).State = EntityState.Modified;
                     }
                 }
                 
@@ -189,7 +189,7 @@ namespace Omadiko.WebApi.Controllers
 
             try
             {
-                context.Entry(provider).State = EntityState.Added;  
+                db.Entry(provider).State = EntityState.Added;  
             }
             catch (Exception Ex)
             {
@@ -197,7 +197,7 @@ namespace Omadiko.WebApi.Controllers
             }
             try
             {
-                await context.SaveChangesAsync();
+                await db.SaveChangesAsync();
             }
             catch (Exception Ex)
             {
