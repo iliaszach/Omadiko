@@ -28,7 +28,7 @@ function CreateProvider() {
 
     var businessTypes = findBTypesByID('SelectBTypesTable');
     var marbles = findMarbleByID('SelectMarbleTable');
-    
+
     //Get the values for Location
     var Country = $("#txtLocationCountry").val();
     var City = $("#txtLocationCity").val();
@@ -64,7 +64,7 @@ function CreateProvider() {
             url: url,
             dataType: "json",
             data: provider,
-            success: function (result) {                
+            success: function (result) {
                 clearAll();
                 GetDataProviders();
             },
@@ -89,6 +89,10 @@ function GetDataProviders() {
                 for (let i = 0; i < result.length; i++) {
                     row = row
                         + "<tr>"
+                        + "<td>" +
+                        "<button class='btn btn-primary' onclick='GetDataProviderById(" + result[i].ProviderId + ")'>Update</button> " +
+                        "<button class='btn btn-Danger' onclick = 'DeleteProvider(" + result[i].ProviderId + ")'>Delete</button >"
+                        + "</td > "
                         + "<td>" + result[i].CompanyTitle + "</td>"
                         + "<td>" + result[i].CompanyDescription + "</td>"
                         + "<td>" + result[i].CompanyPhoto + "</td>"
@@ -97,11 +101,7 @@ function GetDataProviders() {
                         + "<td>" + result[i].Phone + "</td>"
                         + "<td>" + result[i].Email + "</td>"
                         + "<td><ul>" + result[i].BusinessTypes.map(x => `<li>${x.Kind}</li>`).join("") + "</ul></td>"
-                        + "<td><ul>" + result[i].Marbles.map(x => `<li>${x.Name}</li>`).join("") + "</ul></td>"
-                        + "<td>" +
-                        "<button class='btn btn-primary' onclick='GetDataProviderById(" + result[i].ProviderId + ")'>Update</button> " +
-                        "<button class='btn btn-Danger' onclick = 'DeleteProvider(" + result[i].ProviderId + ")'>Delete</button >"
-                        + "</td > "
+                        + "<td><ul>" + result[i].Marbles.map(x => `<li>${x.Name}</li>`).join("") + "</ul></td>"                        
                         + "</tr>";
                 }
             }
@@ -119,7 +119,6 @@ function GetDataProviders() {
 //Get By Id Provider
 function GetDataProviderById(id) {
     var url = "api/Providers/";
-
     //Get the provider by Id
     $.ajax({
         type: "GET",
@@ -127,25 +126,33 @@ function GetDataProviderById(id) {
         dataType: "json",
         success: function (dataprovider) {
             // Change Update Button Text
-            //$("#updateButton").text("Update Provider");
-            var ProviderId = dataprovider.ProviderId;
+            
+            var ProviderId = dataprovider.ProviderId;            
             var CompanyTitle = $('#txtCompanyTitle').val(dataprovider.CompanyTitle).val();
             var CompanyDescription = $('#txtCompanyDescription').val(dataprovider.CompanyDescription).val();
             var CompanyPhoto = $('#txtCompanyPhoto').val(dataprovider.CompanyPhoto).val();
             var Phone = $('#txtCompanyPhone').val(dataprovider.Phone).val();
             var WebSite = $('#txtWebSite').val(dataprovider.WebSite).val();
             var Email = $('#txtCompanyEmail').val(dataprovider.Email).val();
+            var LocationId = dataprovider.Location.LocationId;
+            var Country = $('#txtLocationCountry').val(dataprovider.Location.Country).val();
+            var City = $('#txtLocationCity').val(dataprovider.Location.City).val();
+            var Address = $('#txtLocationAddress').val(dataprovider.Location.Address).val();
+            var Lat = $('#txtLocationLat').val(dataprovider.Location.Lat).val();
+            var Lng = $('#txtLocationLng').val(dataprovider.Location.Lng).val();
+            var businessTypes = findBTypesByID('SelectBTypesTable');
+            var marbles = findMarbleByID('SelectMarbleTable');
 
             var businessTypesIds = []
             for (var key of dataprovider.BusinessTypes) {
                 businessTypesIds.push(key.BusinessTypeId);
             }
-
             var marblesIds = []
             for (var key of dataprovider.Marbles) {
                 marblesIds.push(key.MarbleId);
             }
-
+            
+            
             let provider = {
                 ProviderId: `${ProviderId}`,
                 CompanyTitle: `${CompanyTitle}`,
@@ -154,25 +161,37 @@ function GetDataProviderById(id) {
                 WebSite: `${WebSite}`,
                 Phone: `${Phone}`,
                 Email: `${Email}`,
+                Location: {
+                    LocationId: `${LocationId}`,
+                    Country: `${Country}`,
+                    City: `${City}`,
+                    Address: `${Address}`,
+                    Lat: `${Lat}`,
+                    Lng: `${Lng}`
+                },
+                BusinessTypes: businessTypes,
+                Marbles: marbles
             }
-
-            GetProviderLocation(provider, dataprovider.Location.LocationId);
-            GetProviderBTypes(provider, businessTypesIds);
-            GetProviderMarbles(provider, marblesIds);
             
-            clearSelectList(id, provider);
+            GetProviderMarbles(provider, marblesIds);
+            GetProviderBTypes(provider, businessTypesIds);
+            ChangeButtonToUpdate(provider, businessTypesIds, marblesIds);
+
             console.log(provider);
-            function clearSelectList(id, provider) {
+            
+           // var jsonObj = ConvertToJSONObject(provider);
+            function ChangeButtonToUpdate(provider) {
+                jsProvider = JSON.stringify(provider).replace(/"/g, '&quot;');
                 
                 var template = $("#updateButton");
                 template.empty();
-                var table = `<button class='btn btn-primary' id='updateButton' onclick='UpdateProvider("${id}, ${provider}")'>Update Provider</button>
+                var table = `<button class='btn btn-primary' id='updateButton' onclick='UpdateProvider(${jsProvider})'>Update Provider</button>
                              <button class='btn btn-danger' onclick=clearAll()>Reset</button>`;
                 template.append(table);
-                
             }
-            //Πρέπει να βρούμε έναν τρόπο να περάσουμε το object με onclick
-           
+
+            
+
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -181,32 +200,80 @@ function GetDataProviderById(id) {
     })
 }
 
-function UpdateProvider(id, provider) {
-    console.log(id);
-    console.log(provider);
+function UpdateProvider(provider) {
     console.log('mesa stin update');
-        var url = "api/Providers/";
-        $.ajax({
-            type: "Put",
-            url: url + id,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: provider,
-            success: function (result) {
-                console.log(result);
-                clear();
-                alert("Are you sure?");
-                GetDataProviders();
-            },
-            error: function (request, message, error) {
-                handleException(request, message, error);
-                alert("Error while invoking the Web API at PutProvider");
-            }
-        });
+
+    var ProviderId = provider.ProviderId;
+    var CompanyTitle = $('#txtCompanyTitle').val();
+    var CompanyDescription = $('#txtCompanyDescription').val();
+    var CompanyPhoto = $('#txtCompanyPhoto').val();
+    var Phone = $('#txtCompanyPhone').val();
+    var WebSite = $('#txtWebSite').val();
+    var Email = $('#txtCompanyEmail').val();
+    var LocationId = provider.Location.LocationId;
+    var Country = $('#txtLocationCountry').val();
+    var City = $('#txtLocationCity').val();
+    var Address = $('#txtLocationAddress').val();
+    var Lat = $('#txtLocationLat').val();
+    var Lng = $('#txtLocationLng').val();
+    var businessTypes = findBTypesByID('SelectBTypesTable');
+    var marbles = findMarbleByID('SelectMarbleTable');
+
+    var businessTypesIds = []
+    for (var key of provider.BusinessTypes) {
+        businessTypesIds.push(key.BusinessTypeId);
+    }
+    var marblesIds = []
+    for (var key of provider.Marbles) {
+        marblesIds.push(key.MarbleId);
+    }
+
+    provider = {
+        ProviderId: `${ProviderId}`,
+        CompanyTitle: `${CompanyTitle}`,
+        CompanyDescription: `${CompanyDescription}`,
+        CompanyPhoto: `${CompanyPhoto}`,
+        WebSite: `${WebSite}`,
+        Phone: `${Phone}`,
+        Email: `${Email}`,
+        Location: {
+            LocationId: `${LocationId}`,
+            Country: `${Country}`,
+            City: `${City}`,
+            Address: `${Address}`,
+            Lat: `${Lat}`,
+            Lng: `${Lng}`            
+        },
+        BusinessTypes: businessTypes,
+        Marbles: marbles
+    }
+    
+    console.log(provider);
+    var jsProvider = JSON.stringify(provider);    
+    //console.log(jsprovider);
+    var url = "api/Providers/";
+    $.ajax({
+        type: "Put",
+        url: url + provider.ProviderId,
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        data: jsProvider,
+        success: function (result) {
+            console.log(result);
+            clear();
+            alert("Are you sure?");
+            GetDataProviders();
+        },
+        error: function (request, message, error) {
+            console.log(provider);
+            handleException(request, message, error);
+            alert("Error while invoking the Web API at PutProvider");
+            
+        }
+    });
 }
 
 function GetProviderMarbles(provider, marblesIds) {
-
     //Get the unselected and the selected BusinessTypes
     $.ajax({
         type: "GET",
@@ -244,9 +311,9 @@ function GetProviderMarbles(provider, marblesIds) {
             for (var i of ids) {
                 marbles.push({ MarbleId: i })
             }
-            
+
             provider.Marbles = marbles;
-            
+
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -301,30 +368,9 @@ function GetProviderBTypes(provider, businessTypesIds) {
         },
     });
 }
-function GetProviderLocation(provider, id) {
 
-    //Get the location by Id
-    $.ajax({
-        type: "get",
-        url: "/api/locations/" + id,
-        dataType: "json",
-        success: function (datalocation) {
-            var Country = $('#txtLocationCountry').val(datalocation.Country).val();
-            var City = $('#txtLocationCity').val(datalocation.City).val();
-            var Address = $('#txtLocationAddress').val(datalocation.Address).val();
-            var Lat = $('#txtLocationLat').val(datalocation.Lat).val();
-            var Lng = $('#txtLocationLng').val(datalocation.Lng).val();
 
-            provider.Location = {
-                Country: `${Country}`,
-                City: `${City}`,
-                Address: `${Address}`,
-                Lat: `${Lat}`,
-                Lng: `${Lng}`
-            }
-        },
-    })
-}
+
 
 
 
@@ -615,6 +661,7 @@ function GetTableBodyProviders() {
                         <table class="table table-bordered table-striped table-responsive">
                             <thead>
                                 <tr>
+                                    <th>Actions</th>
                                     <th>CompanyTitle</th>
                                     <th>CompanyDescription</th>
                                     <th>CompanyPhoto</th>
@@ -622,9 +669,8 @@ function GetTableBodyProviders() {
                                     <th>Location</th>
                                     <th>Phone</th>
                                     <th>Email</th>
-                                    <th>Marbles</th>
                                     <th>Business Type</th>
-                                    <th>Delete</th>
+                                    <th>Marbles</th>
                                 </tr>
                             </thead>
                             <tbody id="tblProviderBody">
@@ -710,4 +756,28 @@ function GetObjects(listOfIds, url) {
     }
 
     return listIfObjects;
+}
+function GetProviderLocation(provider, id) {
+    console.log('Eimai sthn GetProviderLocation');
+    //Get the location by Id
+    $.ajax({
+        type: "get",
+        url: "/api/locations/" + id,
+        dataType: "json",
+        success: function (datalocation) {
+            var Country = $('#txtLocationCountry').val(datalocation.Country).val();
+            var City = $('#txtLocationCity').val(datalocation.City).val();
+            var Address = $('#txtLocationAddress').val(datalocation.Address).val();
+            var Lat = $('#txtLocationLat').val(datalocation.Lat).val();
+            var Lng = $('#txtLocationLng').val(datalocation.Lng).val();
+
+            provider.Location = {
+                Country: `${Country}`,
+                City: `${City}`,
+                Address: `${Address}`,
+                Lat: `${Lat}`,
+                Lng: `${Lng}`
+            }
+        },
+    })
 }

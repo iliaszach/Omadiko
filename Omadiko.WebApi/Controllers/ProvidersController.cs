@@ -66,10 +66,22 @@ namespace Omadiko.WebApi.Controllers
                         Email = provider.Email,
                         Location = new { 
                             LocationId = provider.Location.LocationId, 
-                            Country = provider.Location.Country
+                            Country = provider.Location.Country,
+                            City = provider.Location.City,
+                            Address = provider.Location.Address,
+                            Lat = provider.Location.Lat,
+                            Lng = provider.Location.Lng
                         },
-                        Marbles = provider.Marbles.Select(m => new { MarbleId=m.MarbleId, Name = m.Name }),
-                        BusinessTypes = provider.BusinessTypes.Select(m => new { BusinessTypeId = m.BusinessTypeId, Kind = m.Kind })
+                        Marbles = provider.Marbles.Select(m => new 
+                        { 
+                            MarbleId=m.MarbleId, 
+                            Name = m.Name 
+                        }),
+                        BusinessTypes = provider.BusinessTypes.Select(m => new 
+                        { 
+                            BusinessTypeId = m.BusinessTypeId, 
+                            Kind = m.Kind 
+                        })
                     });
                 }
                 catch (Exception Ex)
@@ -98,25 +110,115 @@ namespace Omadiko.WebApi.Controllers
             {
                 return BadRequest();
             }
+            //Location Updated
+            try
+            {
+                //Store Location info
+                //db.Providers.Attach(provider);
+                Location la = db.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
+                db.Providers.Attach(provider);
+                db.Locations.Attach(provider.Location);
+                provider.Location.Provider = provider;
+                db.Entry(provider.Location).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                
+               // db.Entry(provider.Location).State = EntityState.Modified;
+              //  db.Entry(provider).State = EntityState.Modified;
+                //db.Entry(NewLocation).State = EntityState.Added;
+                
+                //
+                           
+               
 
 
-            db.Entry(provider).State = EntityState.Modified;
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
+            //Collections BTypes + Marble
+            try
+            {
+                
+                var collectionBTypes = new List<int>();
+                var collectionMarbles = new List<int>();
+
+                foreach (var item in provider.BusinessTypes)
+                {
+                    var _id = item.BusinessTypeId;
+                    collectionBTypes.Add(_id);
+
+                }
+                foreach (var item in provider.Marbles)
+                {
+                    var _id = item.MarbleId;
+                    collectionMarbles.Add(_id);
+
+                }
+                provider.BusinessTypes.Clear();
+                provider.Marbles.Clear();
+                foreach (var _id in collectionBTypes)
+                {
+                    var bType = await db.BusinessTypes.FindAsync(_id);
+                    if (!(bType is null))
+                    {
+                        provider.BusinessTypes.Add(bType);
+                        db.Entry(bType).State = EntityState.Modified;
+                    }
+                }
+                foreach (var _id in collectionMarbles)
+                {
+                    var marble = await db.Marbles.FindAsync(_id);
+                    if (!(marble is null))
+                    {
+                        provider.Marbles.Add(marble);
+                        db.Entry(marble).State = EntityState.Modified;
+                    }
+                }
+                
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
+            try
+            {
+                db.Providers.Attach(provider);
+                db.Entry(provider).State = EntityState.Modified;
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
 
             try
             {
                 await db.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception Ex)
             {
-                if (!ProviderExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return InternalServerError(Ex);
             }
+
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!ProviderExists(id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
             return StatusCode(HttpStatusCode.NoContent);
         }
