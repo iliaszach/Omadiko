@@ -260,8 +260,9 @@ function UpdateProvider(provider) {
         data: jsProvider,
         success: function (result) {
             console.log(result);
-            clear();
+            clearAll();
             alert("Are you sure?");
+            
             GetDataProviders();
         },
         error: function (request, message, error) {
@@ -280,12 +281,12 @@ function GetProviderMarbles(provider, marblesIds) {
         url: "api/Marbles",
         data: "name=John&location=Boston",
         dataType: "json",
-        success: function (dataBTypes) {
+        success: function (dataMarbles) {
 
             clearSelectList();
-            SetDataBTypes(dataBTypes);
+            SetDataMarbles(dataMarbles);
 
-            function SetDataBTypes(dataMarbles) {
+            function SetDataMarbles(dataMarbles) {
                 var template = $("#SelectMarbleTable");
                 var table = '';
                 for (var key of dataMarbles) {

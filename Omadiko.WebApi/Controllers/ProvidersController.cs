@@ -17,9 +17,9 @@ namespace Omadiko.WebApi.Controllers
     public class ProvidersController : ApiController
     {
         //asynchronsly https://www.youtube.com/watch?v=hJ_V6pAm0PE&t=1201s
-                
+
         private ApplicationDbContext db = new ApplicationDbContext();
-       
+
 
         // GET: api/Providers
         public async Task<IHttpActionResult> GetProviders()
@@ -35,8 +35,16 @@ namespace Omadiko.WebApi.Controllers
                     Phone = x.Phone,
                     WebSite = x.WebSite,
                     Email = x.Email,
-                    Location = new { LocationId = x.Location.LocationId, Country = x.Location.Country },
-                    Marbles = x.Marbles.Select(m => new { MarbleId=m.MarbleId, Name = m.Name }),
+                    Location = new 
+                    { 
+                        LocationId = x.Location.LocationId, 
+                        Country = x.Location.Country,
+                        City = x.Location.City,
+                        Address = x.Location.Address,
+                        Lat = x.Location.Lat,
+                        Lng = x.Location.Lng
+                    },
+                    Marbles = x.Marbles.Select(m => new { MarbleId = m.MarbleId, Name = m.Name }),
                     BusinessTypes = x.BusinessTypes.Select(m => new { BusinessTypeId = m.BusinessTypeId, Kind = m.Kind })
                 })
                 );
@@ -55,7 +63,7 @@ namespace Omadiko.WebApi.Controllers
                 }
                 try
                 {
-                    return Ok(new 
+                    return Ok(new
                     {
                         ProviderId = provider.ProviderId,
                         CompanyTitle = provider.CompanyTitle,
@@ -64,23 +72,24 @@ namespace Omadiko.WebApi.Controllers
                         Phone = provider.Phone,
                         WebSite = provider.WebSite,
                         Email = provider.Email,
-                        Location = new { 
-                            LocationId = provider.Location.LocationId, 
+                        Location = new
+                        {
+                            LocationId = provider.Location.LocationId,
                             Country = provider.Location.Country,
                             City = provider.Location.City,
                             Address = provider.Location.Address,
                             Lat = provider.Location.Lat,
                             Lng = provider.Location.Lng
                         },
-                        Marbles = provider.Marbles.Select(m => new 
-                        { 
-                            MarbleId=m.MarbleId, 
-                            Name = m.Name 
+                        Marbles = provider.Marbles.Select(m => new
+                        {
+                            MarbleId = m.MarbleId,
+                            Name = m.Name
                         }),
-                        BusinessTypes = provider.BusinessTypes.Select(m => new 
-                        { 
-                            BusinessTypeId = m.BusinessTypeId, 
-                            Kind = m.Kind 
+                        BusinessTypes = provider.BusinessTypes.Select(m => new
+                        {
+                            BusinessTypeId = m.BusinessTypeId,
+                            Kind = m.Kind
                         })
                     });
                 }
@@ -100,7 +109,7 @@ namespace Omadiko.WebApi.Controllers
         // PUT: api/Providers/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutProvider(int id, Provider provider)
-        {
+        {            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -110,80 +119,75 @@ namespace Omadiko.WebApi.Controllers
             {
                 return BadRequest();
             }
-            //Location Updated
             try
             {
-                //Store Location info
-                //db.Providers.Attach(provider);
-                Location la = db.Locations.Where(x => x.Provider.ProviderId == provider.ProviderId).Single();
                 db.Providers.Attach(provider);
-                db.Locations.Attach(provider.Location);
-                provider.Location.Provider = provider;
-                db.Entry(provider.Location).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                var marbles = db.Marbles.ToList();
+                var BTypes = db.BusinessTypes.ToList();
                 
-               // db.Entry(provider.Location).State = EntityState.Modified;
-              //  db.Entry(provider).State = EntityState.Modified;
-                //db.Entry(NewLocation).State = EntityState.Added;
-                
-                //
-                           
                
-
-
-            }
-            catch (Exception Ex)
-            {
-                return InternalServerError(Ex);
-            }
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (Exception Ex)
-            {
-                return InternalServerError(Ex);
-            }
-            //Collections BTypes + Marble
-            try
-            {
+                
                 
                 var collectionBTypes = new List<int>();
                 var collectionMarbles = new List<int>();
 
                 foreach (var item in provider.BusinessTypes)
-                {
-                    var _id = item.BusinessTypeId;
-                    collectionBTypes.Add(_id);
-
+                {                    
+                    collectionBTypes.Add(item.BusinessTypeId);
                 }
                 foreach (var item in provider.Marbles)
                 {
-                    var _id = item.MarbleId;
-                    collectionMarbles.Add(_id);
-
+                    collectionMarbles.Add(item.MarbleId);
                 }
-                provider.BusinessTypes.Clear();
-                provider.Marbles.Clear();
+
+                
+                db.Locations.Attach(provider.Location);
+                provider.Location.Provider = provider;
+                db.Entry(provider.Location).State = EntityState.Modified;
+                
+                
+                //provider.BusinessTypes.Clear();
+                //provider.Marbles.Clear();
+
+                db.Entry(provider).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+
+
                 foreach (var _id in collectionBTypes)
-                {
-                    var bType = await db.BusinessTypes.FindAsync(_id);
-                    if (!(bType is null))
-                    {
-                        provider.BusinessTypes.Add(bType);
-                        db.Entry(bType).State = EntityState.Modified;
-                    }
+                {                                        
+                    var bType = db.BusinessTypes.Where(x => x.BusinessTypeId == _id).Single();                   
+                    provider.BusinessTypes.Add(bType);
+                    db.Entry(bType).State = EntityState.Modified;
+                    //db.Entry(provider).State = EntityState.Modified;
+                    //await db.SaveChangesAsync();
                 }
                 foreach (var _id in collectionMarbles)
                 {
-                    var marble = await db.Marbles.FindAsync(_id);
-                    if (!(marble is null))
-                    {
-                        provider.Marbles.Add(marble);
-                        db.Entry(marble).State = EntityState.Modified;
-                    }
+                    var marble_ = db.Marbles.Where(x => x.MarbleId == _id).Single();
+                    provider.Marbles.Add(marble_);
+                    db.Entry(marble_).State = EntityState.Modified;
+                    //db.Entry(provider).State = EntityState.Modified;
+                    //
                 }
+                await db.SaveChangesAsync();
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }
+
+
+            try
+            {
+                //provider.Location.Provider = provider;
+                //var a = provider.Location;
                 
+                //await db.SaveChangesAsync();
+
+                //provider.Location = a;
+                //db.Entry(a).State = EntityState.Modified;
+                //db.Entry(provider).State = EntityState.Added;
+
             }
             catch (Exception Ex)
             {
@@ -191,8 +195,8 @@ namespace Omadiko.WebApi.Controllers
             }
             try
             {
-                db.Providers.Attach(provider);
-                db.Entry(provider).State = EntityState.Modified;
+                //db.Providers.Attach(provider);
+                //db.Entry(provider).State = EntityState.Modified;
             }
             catch (Exception Ex)
             {
@@ -227,32 +231,32 @@ namespace Omadiko.WebApi.Controllers
         // POST: api/Providers
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> PostProvider(Provider provider)
-        {            
+        {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
-            {                
-                Location LocationProvider = provider.Location;              
+            {
+                Location LocationProvider = provider.Location;
                 db.Locations.Attach(LocationProvider);
                 db.Entry(LocationProvider).State = EntityState.Added;
 
 
                 var collectionBTypes = new List<int>();
                 var collectionMarbles = new List<int>();
-                
+
                 foreach (var item in provider.BusinessTypes)
-                {                    
+                {
                     var id = item.BusinessTypeId;
                     collectionBTypes.Add(id);
-                    
+
                 }
                 foreach (var item in provider.Marbles)
                 {
                     var id = item.MarbleId;
                     collectionMarbles.Add(id);
-                    
+
                 }
                 provider.BusinessTypes.Clear();
                 provider.Marbles.Clear();
@@ -264,9 +268,9 @@ namespace Omadiko.WebApi.Controllers
                         provider.BusinessTypes.Add(bType);
                         db.Entry(bType).State = EntityState.Modified;
                     }
-                } 
+                }
                 foreach (var id in collectionMarbles)
-                {                    
+                {
                     var marble = await db.Marbles.FindAsync(id);
                     if (!(marble is null))
                     {
@@ -274,17 +278,17 @@ namespace Omadiko.WebApi.Controllers
                         db.Entry(marble).State = EntityState.Modified;
                     }
                 }
-                
+
 
             }
             catch (Exception Ex)
             {
                 return InternalServerError(Ex);
-            }            
+            }
 
             try
             {
-                db.Entry(provider).State = EntityState.Added;  
+                db.Entry(provider).State = EntityState.Added;
             }
             catch (Exception Ex)
             {
@@ -327,7 +331,7 @@ namespace Omadiko.WebApi.Controllers
         // DELETE: api/Providers/5
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> DeleteProvider(int id)
-        {            
+        {
             Provider provider = await db.Providers.FindAsync(id);
             if (provider == null)
             {
@@ -335,7 +339,7 @@ namespace Omadiko.WebApi.Controllers
             }
 
             Location LocationProvider = db.Locations.Where(x => x.Provider.ProviderId == id).Single();
-            db.Entry(LocationProvider).State = EntityState.Deleted;            
+            db.Entry(LocationProvider).State = EntityState.Deleted;
             db.Entry(provider).Collection("BusinessTypes").Load();
             db.Entry(provider).Collection("Marbles").Load();
             provider.BusinessTypes.Clear();
@@ -351,7 +355,7 @@ namespace Omadiko.WebApi.Controllers
             }
             try
             {
-                 await db.SaveChangesAsync();
+                await db.SaveChangesAsync();
             }
             catch (Exception Ex)
             {
@@ -371,7 +375,7 @@ namespace Omadiko.WebApi.Controllers
         }
 
         private bool ProviderExists(int id)
-        {            
+        {
             return db.Providers.Count(e => e.ProviderId == id) > 0;
         }
     }
