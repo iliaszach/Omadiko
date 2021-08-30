@@ -108,8 +108,10 @@ namespace Omadiko.WebApi.Controllers
 
         // PUT: api/Providers/5
         [ResponseType(typeof(void))]
+        //[Route("api/providers/{paramOne}/{paramTwo}/{paramThree}")]
         public async Task<IHttpActionResult> PutProvider(int id, Provider provider)
-        {            
+        {
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -131,23 +133,24 @@ namespace Omadiko.WebApi.Controllers
                 var collectionBTypes = new List<int>();
                 var collectionMarbles = new List<int>();
 
-                foreach (var item in provider.BusinessTypes)
+                foreach (var item in provider.HelperBusinessTypes)
                 {                    
-                    collectionBTypes.Add(item.BusinessTypeId);
+                    collectionBTypes.Add(item);
                 }
-                foreach (var item in provider.Marbles)
+                foreach (var item in provider.HelperMarbles)
                 {
-                    collectionMarbles.Add(item.MarbleId);
+                    collectionMarbles.Add(item);
                 }
 
                 
                 db.Locations.Attach(provider.Location);
                 provider.Location.Provider = provider;
                 db.Entry(provider.Location).State = EntityState.Modified;
+                db.Entry(provider).Collection("Marbles").Load();
+                db.Entry(provider).Collection("BusinessTypes").Load();
                 
-                
-                //provider.BusinessTypes.Clear();
-                //provider.Marbles.Clear();
+                provider.BusinessTypes.Clear();
+                provider.Marbles.Clear();
 
                 db.Entry(provider).State = EntityState.Modified;
                 await db.SaveChangesAsync();
@@ -155,7 +158,7 @@ namespace Omadiko.WebApi.Controllers
 
                 foreach (var _id in collectionBTypes)
                 {                                        
-                    var bType = db.BusinessTypes.Where(x => x.BusinessTypeId == _id).Single();                   
+                    var bType = await db.BusinessTypes.Where(x => x.BusinessTypeId == _id).SingleAsync();
                     provider.BusinessTypes.Add(bType);
                     db.Entry(bType).State = EntityState.Modified;
                     //db.Entry(provider).State = EntityState.Modified;
@@ -163,9 +166,9 @@ namespace Omadiko.WebApi.Controllers
                 }
                 foreach (var _id in collectionMarbles)
                 {
-                    var marble_ = db.Marbles.Where(x => x.MarbleId == _id).Single();
-                    provider.Marbles.Add(marble_);
-                    db.Entry(marble_).State = EntityState.Modified;
+                    var marble = db.Marbles.Where(x => x.MarbleId == _id).Single();       
+                    provider.Marbles.Add(marble);
+                    db.Entry(marble).State = EntityState.Modified;
                     //db.Entry(provider).State = EntityState.Modified;
                     //
                 }
@@ -175,34 +178,6 @@ namespace Omadiko.WebApi.Controllers
             {
                 return InternalServerError(Ex);
             }
-
-
-            try
-            {
-                //provider.Location.Provider = provider;
-                //var a = provider.Location;
-                
-                //await db.SaveChangesAsync();
-
-                //provider.Location = a;
-                //db.Entry(a).State = EntityState.Modified;
-                //db.Entry(provider).State = EntityState.Added;
-
-            }
-            catch (Exception Ex)
-            {
-                return InternalServerError(Ex);
-            }
-            try
-            {
-                //db.Providers.Attach(provider);
-                //db.Entry(provider).State = EntityState.Modified;
-            }
-            catch (Exception Ex)
-            {
-                return InternalServerError(Ex);
-            }
-
             try
             {
                 await db.SaveChangesAsync();

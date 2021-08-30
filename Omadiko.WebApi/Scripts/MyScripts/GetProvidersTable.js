@@ -101,7 +101,7 @@ function GetDataProviders() {
                         + "<td>" + result[i].Phone + "</td>"
                         + "<td>" + result[i].Email + "</td>"
                         + "<td><ul>" + result[i].BusinessTypes.map(x => `<li>${x.Kind}</li>`).join("") + "</ul></td>"
-                        + "<td><ul>" + result[i].Marbles.map(x => `<li>${x.Name}</li>`).join("") + "</ul></td>"                        
+                        + "<td><ul>" + result[i].Marbles.map(x => `<li>${x.Name}</li>`).join("") + "</ul></td>"
                         + "</tr>";
                 }
             }
@@ -126,8 +126,8 @@ function GetDataProviderById(id) {
         dataType: "json",
         success: function (dataprovider) {
             // Change Update Button Text
-            
-            var ProviderId = dataprovider.ProviderId;            
+
+            var ProviderId = dataprovider.ProviderId;
             var CompanyTitle = $('#txtCompanyTitle').val(dataprovider.CompanyTitle).val();
             var CompanyDescription = $('#txtCompanyDescription').val(dataprovider.CompanyDescription).val();
             var CompanyPhoto = $('#txtCompanyPhoto').val(dataprovider.CompanyPhoto).val();
@@ -151,8 +151,8 @@ function GetDataProviderById(id) {
             for (var key of dataprovider.Marbles) {
                 marblesIds.push(key.MarbleId);
             }
-            
-            
+
+
             let provider = {
                 ProviderId: `${ProviderId}`,
                 CompanyTitle: `${CompanyTitle}`,
@@ -172,17 +172,17 @@ function GetDataProviderById(id) {
                 BusinessTypes: businessTypes,
                 Marbles: marbles
             }
-            
+
             GetProviderMarbles(provider, marblesIds);
             GetProviderBTypes(provider, businessTypesIds);
             ChangeButtonToUpdate(provider, businessTypesIds, marblesIds);
 
             console.log(provider);
-            
-           // var jsonObj = ConvertToJSONObject(provider);
+
+            // var jsonObj = ConvertToJSONObject(provider);
             function ChangeButtonToUpdate(provider) {
                 jsProvider = JSON.stringify(provider).replace(/"/g, '&quot;');
-                
+
                 var template = $("#updateButton");
                 template.empty();
                 var table = `<button class='btn btn-primary' id='updateButton' onclick='UpdateProvider(${jsProvider})'>Update Provider</button>
@@ -190,7 +190,7 @@ function GetDataProviderById(id) {
                 template.append(table);
             }
 
-            
+
 
         },
         error: function (request, message, error) {
@@ -219,14 +219,8 @@ function UpdateProvider(provider) {
     var businessTypes = findBTypesByID('SelectBTypesTable');
     var marbles = findMarbleByID('SelectMarbleTable');
 
-    var businessTypesIds = []
-    for (var key of provider.BusinessTypes) {
-        businessTypesIds.push(key.BusinessTypeId);
-    }
-    var marblesIds = []
-    for (var key of provider.Marbles) {
-        marblesIds.push(key.MarbleId);
-    }
+    
+
 
     provider = {
         ProviderId: `${ProviderId}`,
@@ -242,15 +236,23 @@ function UpdateProvider(provider) {
             City: `${City}`,
             Address: `${Address}`,
             Lat: `${Lat}`,
-            Lng: `${Lng}`            
+            Lng: `${Lng}`
         },
-        BusinessTypes: businessTypes,
-        Marbles: marbles
+        HelperMarbles: marbles,
+        HelperBusinessTypes: businessTypes,
+        
     }
     
-    console.log(provider);
-    var jsProvider = JSON.stringify(provider);    
-    //console.log(jsprovider);
+    //console.log(provider);
+    var jsProvider = JSON.stringify(provider);
+    //var jsMarbles = JSON.stringify(marbles);
+    //var jsBusinessTypes = JSON.stringify(businessTypes);
+    //var myData = {};
+    //myData.provider = provider;
+    //myData.Marbles = marbles;
+    //myData.BusinessTypes = businessTypes;
+    //var JSData = JSON.stringify(myData);
+
     var url = "api/Providers/";
     $.ajax({
         type: "Put",
@@ -262,14 +264,14 @@ function UpdateProvider(provider) {
             console.log(result);
             clearAll();
             alert("Are you sure?");
-            
+
             GetDataProviders();
         },
         error: function (request, message, error) {
             console.log(provider);
             handleException(request, message, error);
             alert("Error while invoking the Web API at PutProvider");
-            
+
         }
     });
 }
@@ -372,9 +374,6 @@ function GetProviderBTypes(provider, businessTypesIds) {
 
 
 
-
-
-
 //Delete Provider
 function DeleteProvider(id) {
     var url = "api/Providers/" + id;
@@ -399,22 +398,63 @@ function DeleteProvider(id) {
 //=======General Data Manipulation Data Methods
 //Function that get the selected values from a multiple select list
 function findMarbleByID(id) {
-
     var listOfIds = [];
 
     for (var option of document.getElementById(id)) {
         if (option.selected) {
-            listOfIds.push({ MarbleId: option.value });
+            listOfIds.push(option.value);
         }
     }
     return listOfIds;
+
 }
+//function findMarbleByID(id) {
+//    var listOfIds = [];
+//    var listOfMarbles = new Array();
+
+//    for (var option of document.getElementById(id)) {
+//        if (option.selected) {
+//            //listOfIds.push({ MarbleId: option.value });
+//            //listOfIds.push(parseInt(option.value));
+//            var _id = parseInt(option.value)
+//            $.ajax({
+//                type: "get",
+//                url: "api/marbles/" + _id,
+//                dataType: "json",
+//                success: function (data) {                   
+//                    listOfMarbles.push(JSON.stringify(
+//                        {
+//                            MarbleId: data.MarbleId,
+//                            Name: data.Name,
+//                            Color: data.Color,
+//                            MarbleDescription: data.MarbleDescription,
+//                            Country: data.Country,
+//                            Photo: data.Photo,
+//                            Providers: data.Providers
+//                        })
+//                    );
+                  
+                  
+//                },
+//                error: function (request, message, error) {
+//                    handleException(request, message, error);
+//                    alert("Error while invoking the Web API at findMarbleByID");
+//                }
+//            });
+          
+//        }
+//    }
+//    console.log(listOfMarbles);
+//    //return listOfIds;
+//    return listOfMarbles;
+
+//}
 //Function that get the selected values from a multiple select list
 function findBTypesByID(id) {
     var listOfIds = [];
     for (var option of document.getElementById(id)) {
         if (option.selected) {
-            listOfIds.push({ BusinessTypeId: option.value });
+            listOfIds.push(option.value);
         }
     }
     //console.log(listOfIds);    
