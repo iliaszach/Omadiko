@@ -19,42 +19,74 @@ namespace Omadiko.WebApi.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Marbles
-        public IHttpActionResult GetMarbles()
+        public async Task<IHttpActionResult> GetMarbles()
         {
-           
-            var marble = db.Marbles.ToList();
-            return Ok(
-                marble.Select(x => new
+            try
+            {
+                var marbles = await db.Marbles.ToListAsync();
+                return Ok(
+                marbles.Select(x => new
                 {
                     MarbleId = x.MarbleId,
                     Name = x.Name,
                     Color = x.Color,
-                    Country = x.Country,
-                    Photo = x.Photo,
-                    Providers = x.Providers.Select(p =>new {p.CompanyTitle })
-                })
-                );
+                    MarbleDescription = x.MarbleDescription,
+
+                    Country = new { Name = x.Country.Name },
+                    Photo = new { Url = x.Photo.Url },
+                    Providers = x.Providers.Select(p => new { CompanyTitle = p.CompanyTitle }),
+                    ApplicationUsers = x.ApplicationUsers.Select( a => new { UserName = a.UserName})
+                }));
+            }
+            catch (Exception Ex)
+            {
+                return (IHttpActionResult)Request.CreateErrorResponse(HttpStatusCode.BadRequest, Ex);
+            }
+
+            
         }
 
         // GET: api/Marbles/5
         [ResponseType(typeof(Marble))]
         public async Task<IHttpActionResult> GetMarble(int id)
         {
-            db.Configuration.ProxyCreationEnabled = false;
-            Marble marble = await db.Marbles.FindAsync(id);
-            if (marble == null)
+            try
             {
-                return NotFound();
-            }
+                Marble marble = await db.Marbles.FindAsync(id);
+                if (marble == null)
+                {
+                    return NotFound();
+                }
+                try
+                {
+                    return Ok(new
+                    {
+                        MarbleId = marble.MarbleId,
+                        Name = marble.Name,
+                        Color = marble.Color,
+                        MarbleDescription = marble.MarbleDescription,
 
-            return Ok(marble);
+                        Country = new { Name = marble.Country.Name },
+                        Photo = new { Url = marble.Photo.Url },
+                        Providers = marble.Providers.Select(p => new { CompanyTitle = p.CompanyTitle })
+                    });
+                }
+                catch (Exception Ex)
+                {
+                    return InternalServerError(Ex);
+                }
+
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
+            }                        
         }
 
         // PUT: api/Marbles/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutMarble(int id, Marble marble)
         {
-            db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -65,6 +97,7 @@ namespace Omadiko.WebApi.Controllers
                 return BadRequest();
             }
 
+            db.Entry(marble).Collection("Providers");   
             db.Entry(marble).State = EntityState.Modified;
 
             try
@@ -90,23 +123,29 @@ namespace Omadiko.WebApi.Controllers
         [ResponseType(typeof(Marble))]
         public async Task<IHttpActionResult> PostMarble(Marble marble)
         {
-            db.Configuration.ProxyCreationEnabled = false;
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                db.Marbles.Add(marble);
+                await db.SaveChangesAsync();
+                return CreatedAtRoute("DefaultApi", new { id = marble.MarbleId }, marble);
+            }
+            catch (Exception Ex)
+            {
+                return InternalServerError(Ex);
             }
 
-            db.Marbles.Add(marble);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = marble.MarbleId }, marble);
         }
 
         // DELETE: api/Marbles/5
         [ResponseType(typeof(Marble))]
         public async Task<IHttpActionResult> DeleteMarble(int id)
         {
-            db.Configuration.ProxyCreationEnabled = false;
+            
             Marble marble = await db.Marbles.FindAsync(id);
             if (marble == null)
             {

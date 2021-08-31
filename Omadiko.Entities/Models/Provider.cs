@@ -32,5 +32,7 @@ namespace Omadiko.Entities.Models
         public virtual Location Location { get; set; }
         public virtual ICollection<Marble> Marbles { get; set; }
         public virtual ICollection<BusinessType> BusinessTypes { get; set; }
+        public virtual ICollection<int> HelperMarbles { get; set; }
+        public virtual ICollection<int> HelperBusinessTypes { get; set; }
     }
 }

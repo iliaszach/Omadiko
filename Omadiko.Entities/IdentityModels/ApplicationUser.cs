@@ -12,6 +12,16 @@ namespace Omadiko.Entities
 {
     public class ApplicationUser : IdentityUser
     {
+
+        // Here we add a byte to Save the user Profile Pictuer  
+        public byte[] UserPhoto { get; set; }
+        //We can find this class inside the In IdentityModels.cs in Model folder  
+
+
+
+
+
+
         public ApplicationUser()
         {
             Marbles = new HashSet<Marble>();
