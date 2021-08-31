@@ -210,6 +210,7 @@
     <Compile Include="Models\ManageViewModels\ManageViewModels.cs" />
     <Compile Include="Models\ManageViewModels\SetPasswordViewModel.cs" />
     <Compile Include="Models\ManageViewModels\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Models\MarbleProviderViewModel\MarbleProviderVM.cs" />
     <Compile Include="Models\MarbleViewModel\MarbleCreateViewModel.cs" />
     <Compile Include="Models\MarbleViewModel\MarbleEditViewModel.cs" />
     <Compile Include="Models\ProviderViewModel\ProviderCreateViewModel.cs" />

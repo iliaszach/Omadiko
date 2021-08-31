@@ -1,4 +1,6 @@
-﻿<!-- Clients Section -->
+﻿@model Omadiko.WebApp.Models.MarbleProviderViewModel.MarbleProviderVM
+
+<!-- Clients Section -->
 <section id="clients" class="background41 parallax6 xdark-bg">
 
     <!-- Inner -->
@@ -10,132 +12,38 @@
         </h1>
         <!-- Header Text -->
         <p class="normal t-center antialiased animated" data-animation="fadeIn" data-animation-delay="100">
-           Εδω μπορουμε να γραψουμε 2-3 λογια για τους providers μας
+            Εδω μπορουμε να γραψουμε 2-3 λογια για τους providers μας
         </p>
 
         <div class="boxes boxes-type-4 light box-carousel three-items clearfix animated" data-animation="fadeIn" data-animation-delay="500">
 
-            <!-- Box -->
-            <div class="box white oswald antialiased normal">
-                <!-- Box Image -->
-                <div class="box-image fullwidth t-center normal">
-                    <!-- Image -->
-                    <a href="" class="changeable-image">
-                        <img  style="width:105px; height:105px;"src="~/Content/images/EikonesProviders/aldur-madencilik-logo.jpg" />
-                    </a>
+            @foreach (var provider in Model.Providers)
+            {
+                <!-- Box -->
+                <div class="box white oswald antialiased normal" style="width:390px; height:300.2px;">
+                    <!-- Box Image -->
+                    <div class="box-image fullwidth t-center normal">
+                        <!-- Image -->
+                        <a href="~/provider/details/@provider.ProviderId" class="changeable-image">
+                            <img src="@Url.Content(provider.CompanyPhoto)" style="vertical-align: text-bottom; width: 100%; height: 100%; border-radius: 100%;" />
+                        </a>
+                    </div>
+                    <!-- End Box Icon -->
+                    <!-- Box Header -->
+                    <h4 class="box-header no-padding uppercase" style="width:360px; height:36.8px;">
+                        @Html.DisplayFor(modelItem => provider.CompanyTitle)
+                    </h4>
+                    <!-- Position -->
+                    <h5 class="colored raleway">
+                        @Html.DisplayFor(modelItem => provider.Location.Country)
+                    </h5>
+                    <!-- Box Description -->
+                    <p class="no-padding no-margin raleway">
+                        Λιγα λογια για το ποιοι ειναι (λογικα θα βαλουμε οριο λεξεων)
+                    </p>
                 </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding uppercase">
-                    Aldur-Madencilik
-                </h4>
-                <!-- Position -->
-                <h5 class="colored raleway">
-                    Country
-                </h5>
-                <!-- Box Description -->
-                <p class="no-padding no-margin raleway">
-                  Λιγα λογια για το ποιοι ειναι (λογικα θα βαλουμε οριο λεξεων)
-                </p>
-            </div>
+            }
             <!-- End Box -->
-            <!-- Box -->
-            <div class="box white oswald antialiased normal">
-                <!-- Box Image -->
-                <div class="box-image fullwidth t-center normal">
-                    <!-- Image -->
-                    <a href="" class="changeable-image">
-                        <img style="width:105px; height:105px;"  src="~/Content/images/EikonesProviders/Alfa-Stone-For-Marble-and-Quarries-LOGO-MARBLEGUIDE.jpg" />
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding uppercase ">
-                    Alfa
-                </h4>
-                <!-- Position -->
-                <h5 class="colored raleway">
-                   Country
-                </h5>
-                <!-- Box Description -->
-                <p class="no-padding no-margin raleway">
-                    Λιγα λογια για το ποιοι ειναι (λογικα θα βαλουμε οριο λεξεων)
-                </p>
-            </div>
-            <!-- End Box -->
-            <!-- Box -->
-            <div class="box white oswald antialiased normal">
-                <!-- Box Image -->
-                <div class="box-image fullwidth t-center normal">
-                    <!-- Image -->
-                    <a href="" class="changeable-image">
-                        <img style="width:105px; height:105px;"  src="~/Content/images/EikonesProviders/Arihant-Marbles-Logo.jpg" />
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding uppercase ">
-                    Arihant
-                </h4>
-                <!-- Position -->
-                <h5 class="colored raleway">
-                    Country
-                </h5>
-                <!-- Box Description -->
-                <p class="no-padding no-margin raleway">
-                    There are many variations of passages of Ipsum available, but the majority have alteration in some form, by injected humour.
-                </p>
-            </div>
-            <!-- End Box -->
-            <!-- Box -->
-            <div class="box white oswald antialiased normal">
-                <!-- Box Image -->
-                <div class="box-image fullwidth t-center normal">
-                    <!-- Image -->
-                    <a href="" class="changeable-image">
-                        <img  style="width:105px; height:105px;" src="~/Content/images/EikonesProviders/Bacci-Marmi-Logo-e1479318073559.jpg" />
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding uppercase ">
-                    Bacci-Marmi
-                </h4>
-                <!-- Position -->
-                <h5 class="colored raleway">
-                    Country
-                </h5>
-                <!-- Box Description -->
-                <p class="no-padding no-margin raleway">
-                    There are many variations of passages of Ipsum available, but the majority have alteration in some form, by injected humour.
-                </p>
-            </div>
-            <!-- End Box -->
-            <!-- Box -->
-            <div class="box white oswald antialiased normal">
-                <!-- Box Image -->
-                <div class="box-image fullwidth t-center normal">
-                    <!-- Image -->
-                    <a href="" class="changeable-image">
-                        <img style="width:105px; height:105px;"  src="~/Content/images/EikonesProviders/Bhavan-Granites-Logo..jpg" />
-                    </a>
-                </div>
-                <!-- End Box Icon -->
-                <!-- Box Header -->
-                <h4 class="box-header no-padding uppercase ">
-                    Bhavan-Granites
-                </h4>
-                <!-- Position -->
-                <h5 class="colored raleway">
-                   Country
-                </h5>
-                <!-- Box Description -->
-                <p class="no-padding no-margin raleway">
-                    There are many variations of passages of Ipsum available, but the majority have alteration in some form, by injected humour.
-                </p>
-            </div>
-            <!-- End Box -->
-
         </div>
         <!-- End Boxes -->
     </div>

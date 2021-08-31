@@ -421,33 +421,36 @@
 		background-color:#151515;
 	}
 
-	body.dark-layout .modal-backdrop,
-	body.dark-layout #member-modals .modal-dialog a.close,
-	body.dark-layout #portfolio-items.type2 .item .cbp-caption-activeWrap,
-	body.dark-layout .news .box .details a.post_read_more_button,
-	body.dark-layout .timelineFlat a.t_line_node:after,
-	body.dark-layout .timelineFlat #t_line_left,
-	body.dark-layout .timelineFlat #t_line_right,
-	body.dark-layout #features-mobile .f-collapse div,
-	body.dark-layout .contact .white-form .error_message,
-	body.dark-layout .contact .white-form .submit_message,
-	body.dark-layout select,
-	body.dark-layout .light-form input,
-	body.dark-layout .light-form textarea,
-	body.dark-layout .light-form select,
-	body.dark-layout .light-form button,
-	body.dark-layout #shop .single_item_details .right .panel,
-	body.dark-layout .nav-tabs>li.active>a,
-	body.dark-layout .nav-tabs>li.active>a:focus,
-	body.dark-layout .nav-tabs>li.active>a:hover,
-	body.dark-layout .table-striped>tbody>tr:nth-of-type(odd),
-	body.dark-layout #shop .box .item_buttons a:hover,
-	body.dark-layout #blog.masonry-blog,
-	body.dark-layout .post .dates .details ul li:hover,
-	body.dark-layout .post .post-inner .post-more,
-	body.dark-layout .widget .search{
-		background:#151515;
-	}
+		body.dark-layout .modal-backdrop,
+		body.dark-layout #member-modals .modal-dialog a.close,
+		body.dark-layout #portfolio-items.type2 .item .cbp-caption-activeWrap,
+		body.dark-layout .news .box .details a.post_read_more_button,
+		body.dark-layout .timelineFlat a.t_line_node:after,
+		body.dark-layout .timelineFlat #t_line_left,
+		body.dark-layout .timelineFlat #t_line_right,
+		body.dark-layout #features-mobile .f-collapse div,
+		body.dark-layout .contact .white-form .error_message,
+		body.dark-layout .contact .white-form .submit_message,
+		body.dark-layout select,
+		body.dark-layout .light-form input,
+		body.dark-layout .light-form textarea,
+		body.dark-layout .light-form select,
+		body.dark-layout .light-form button,
+		body.dark-layout #shop .single_item_details .right .panel,
+		body.dark-layout .nav-tabs > li.active > a,
+		body.dark-layout .nav-tabs > li.active > a:focus,
+		body.dark-layout .nav-tabs > li.active > a:hover,
+		body.dark-layout .table-striped > tbody > tr:nth-of-type(odd),
+		body.dark-layout #shop .box .item_buttons a:hover,
+		body.dark-layout #blog.masonry-blog,
+		body.dark-layout .post .dates .details ul li:hover,
+		body.dark-layout .post .post-inner .post-more,
+		body.dark-layout .widget .search {
+			background: #151515;
+			border: 1px solid #f0f0f0;
+/*			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;*/
+		}
 
 	body.dark-layout .contact .contact_form.type-2.white-form input,
 	body.dark-layout .contact .contact_form.type-2.white-form textarea,

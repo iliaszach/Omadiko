@@ -36,10 +36,12 @@
   -o-transition: height 500ms ease-in-out;
   transition: height 500ms ease-in-out;
 }
-  
-.owl-carousel .owl-item{
-  float: left;
-}
+
+    .owl-carousel .owl-item {
+        float: left;
+/*        border: 1px solid #f0f0f0;
+        border-radius: 5px;*/
+    }
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div{
   cursor: pointer;

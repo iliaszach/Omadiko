@@ -14,6 +14,7 @@ namespace Omadiko.WebApp.Models
 
 
         public ICollection<Marble> Marbles { get; set; }
-
+        public List<Provider> Providers { get; internal set; }
+        public Marble Marble { get; internal set; }
     }
 }

@@ -9,31 +9,35 @@
         background-color: #808080 !important;
     }
 
-/*    ul > li:hover::selection::before::after {
-        background-color: darkgray !important;
+/*    ul > li > a:hover {
+        background-color: red !important;
     }*/
 
 /*    .ex-link:hover {
         background-color:red !important;
-    }*/
+    }
 
-/*    .dropdown-menu:hover {
+    .dropdown-menu > li > a:hover {
         background-color:red !important;
     }*/
+
+    .tsourekia > ul > li > a:hover  {
+        background-color:red !important;
+    }
 
 </style>
 
 <!-- Navigation - select your nav color - dark-nav or white-nav -->
 <nav id="navigation" class="white-nav relative-nav">
     <!-- Navigation -->
-    <div class="navigation double-nav raleway" style="background-color: #151515; border-bottom: 1px solid #F0F0F0; ">
+    <div class="navigation double-nav raleway " style="background-color: #151515; border-bottom: 1px solid #F0F0F0; ">
         <!-- Navigation Inner -->
         <div class="nav-inner clearfix">
 
             <!-- Logo Area -->
             <div class="logo f-left">
                 <!-- Logo Link -->
-                <a href="#home" class="logo-link scroll">
+                <a href="/" class="logo-link scroll">
                     <img style="border-radius:30px;" src="/Content/images/logo/Logo.png" data-second-logo="/Content/images/logo/Logo.png" alt="TIPOTA" />
                 </a>
             </div>
@@ -71,12 +75,14 @@
                     <li class="dropdown-toggle nav-toggle">
                         <a href="pages-shop-4-col.html" class="btn">Shop</a>
                         <!-- DropDown Menu -->
-                        <ul style="background-color: #151515; border: 1px solid #f0f0f0;" class="dropdown-menu">
-                            <li><a href="pages-shop-4-col.html" class="ex-link">4 Columns</a></li>
-                            <li><a href="pages-shop-3-col.html" class="ex-link">3 Columns</a></li>
-                            <li><a href="pages-shop-2-col.html" class="ex-link">2 Columns</a></li>
-                            <li><a href="pages-shop-single.html" class="ex-link">Single Product</a></li>
-                        </ul>
+                        <div class="tsourekia">
+                            <ul style="background-color: #151515; border: 1px solid #f0f0f0;" class="dropdown-menu">
+                                <li><a href="pages-shop-4-col.html" class="ex-link">4 Columns</a></li>
+                                <li><a href="pages-shop-3-col.html" class="ex-link">3 Columns</a></li>
+                                <li><a href="pages-shop-2-col.html" class="ex-link">2 Columns</a></li>
+                                <li><a href="pages-shop-single.html" class="ex-link">Single Product</a></li>
+                            </ul>
+                        </div>
                         <!-- End DropDown Menu -->
                     </li>
                     <li class="dropdown-toggle nav-toggle">
