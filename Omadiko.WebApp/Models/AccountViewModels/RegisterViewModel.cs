@@ -23,9 +23,9 @@ namespace Omadiko.WebApp.Models
 
         //}
 
-        [Required]
-        [Display(Name = "UserRoles")]
-        public string UserRoles { get; set; }
+       // [Required]
+        //[Display(Name = "UserRoles")]
+        //public string UserRoles { get; set; }
 
         [Required]        
         [StringLength(15, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -52,5 +52,15 @@ namespace Omadiko.WebApp.Models
         [Display(Name = "Confirm password")]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+
+
+
+        [Display(Name = "UserPhoto")]
+        public byte[] UserPhoto { get; set; }
+
+
+
     }
 }
