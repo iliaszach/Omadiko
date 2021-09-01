@@ -7,7 +7,7 @@
 }
 
 <head>
-    <title>Add Map</title>
+    @*<title>Add Map</title>*@
 
     <style type="text/css">
         /* Set the size of the div element that contains the map */
@@ -36,9 +36,9 @@
             <div class="left image-pgn-slider f-left">
                 <!-- Sliders -->
                 <ul class="slides mp-gallery">
-                    <li data-thumb=@Html.DisplayFor(model => model.CompanyPhoto)>
-                        <a href=@Html.DisplayFor(model => model.CompanyPhoto)>
-                            <img src=@Html.DisplayFor(model => model.CompanyPhoto) />
+                    <li data-thumb=@Html.DisplayFor(model => model.CompanyPhoto)>   @*<================*@
+                        <a href=@Html.DisplayFor(model => model.CompanyPhoto)>         @*<================*@
+                            <img src="@Url.Content(Model.CompanyPhoto)" />   
                         </a>
                     </li>
                     <li data-thumb="https://www.bellabathrooms.co.uk/blog/wp-content/uploads/2020/09/iStock-1175191124-1.jpg">
@@ -72,7 +72,7 @@
                     <p>
                         @foreach (var marble in Model.Marbles)
                         {
-                            <i>@marble.Name,</i>
+                            <i>@marble.Name, </i>
                         }
                     </p>
                 </div>
@@ -137,7 +137,7 @@
                     {
                         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; ">
                             <div style="margin-right:20px; margin-bottom:5px;">
-                                <img width="277" src=@marble.Photo.Url />
+                                <img width="277" src=@Url.Content(marble.Photo.Url) />
                             </div>
                             <div>
                                 <p>@marble.Name</p>

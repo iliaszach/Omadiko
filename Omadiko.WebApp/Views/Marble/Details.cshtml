@@ -22,9 +22,10 @@
             <div class="left image-pgn-slider f-left">
                 <!-- Sliders -->
                 <ul class="slides mp-gallery">
-                    <li data-thumb=@Html.DisplayFor(model => model.Photo.Url)>
-                        <a href=@Html.DisplayFor(model => model.Photo.Url)>
-                            <img src=@Html.DisplayFor(model => model.Photo.Url) />
+                    <li data-thumb=@Html.DisplayFor(model => model.Photo.Url)>    @*<==================*@
+                        <a href=@Html.DisplayFor(model => model.Photo.Url)>        @*<=============*@
+                            <img src="@Url.Content(Model.Photo.Url)" />
+                           
                         </a>
                     </li>
                 </ul>
@@ -87,7 +88,7 @@
                     {
                         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; ">
                             <div style="margin-right:20px; margin-bottom:5px;">
-                                <img width="277" src=@marble.Photo.Url />
+                                <img width="277" src=@Url.Content(marble.Photo.Url) />
                             </div>
                             <div>
                                 <p>@marble.Name</p>
@@ -121,7 +122,7 @@
             {
                 <button id="@provider.ProviderId" value="@provider.ProviderId" style="width:90%; height: 100%; background-color: #222222; margin-top:10px; border:none; border-radius:5px;">
                     <div id="BtnProviderInside" style="display:flex; border:0.5px solid; border-color:white; border-radius:5px; width:100%;">
-                        <img src="@provider.CompanyPhoto" style="width:100px; height:100px;" />
+                        <img src="@Url.Content(provider.CompanyPhoto)" style="width:100px; height:100px;" />
                         <p style="position:relative; top:70px; left:15px; font-size:18px;">@provider.CompanyTitle</p>
                     </div>
                 </button>
