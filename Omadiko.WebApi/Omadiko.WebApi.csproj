@@ -678,6 +678,7 @@
     <Content Include="Scripts\MyScripts\BackUpJSProviders.js" />
     <Content Include="Scripts\MyScripts\GetMarbleTable.js" />
     <Content Include="Scripts\MyScripts\GetProvidersTable.js" />
+    <Content Include="Scripts\MyScripts\StatisticsTable.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -698,9 +699,12 @@
     <Content Include="Views\Shared\Dashboard\Body\PageContent\TilesR1.cshtml" />
     <Content Include="Views\Shared\Dashboard\Body\PageContent\TilesR2.cshtml" />
     <Content Include="Views\Shared\Dashboard\Body\PageContent\TilesR3.cshtml" />
-    <Content Include="Views\Shared\Dashboard\Footer\Footer.cshtml" />
+    <Content Include="Views\Shared\Dashboard\Body\Footer\Footer.cshtml" />
     <Content Include="Views\Shared\Dashboard\Body\SideBar\PrimaryNavigation.cshtml" />
     <Content Include="Views\View.cshtml" />
+    <Content Include="Views\Shared\Dashboard\Body\Header\InnerContainer.cshtml" />
+    <Content Include="Views\Shared\Dashboard\Body\Header\PageContainer.cshtml" />
+    <Content Include="Views\Shared\Dashboard\Body\Header\ModalSetting.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

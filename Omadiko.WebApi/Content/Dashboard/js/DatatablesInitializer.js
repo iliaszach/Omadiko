@@ -9,7 +9,6 @@
 
     // Dash example stats
     var dashChart = $('#dash-example-stats');
-
     var dashChartData1 = [
         [0, 200],
         [1, 250],

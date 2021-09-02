@@ -13,20 +13,20 @@
                 Total Users
             </div>
             <div class="dash-tile-icon"><i class="fa fa-users"></i></div>
-            <div class="dash-tile-text">265k</div>
+            <div id="TotalUsers"  class="dash-tile-text">-</div>
         </div>
         <!-- END Total Users Tile -->
         <!-- Total Profit Tile -->
         <div class="dash-tile dash-tile-leaf clearfix animation-pullDown">
             <div class="dash-tile-header">
                 <span class="dash-tile-options">
-                    <a href="javascript:void(0)" class="btn btn-default" data-toggle="popover" data-placement="top" data-content="$500 (230 Sales)" title="Today's profit"><i class="fa fa-credit-card"></i></a>
+                    <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Statistics"><i class="fa fa-bar-chart-o"></i></a>
                 </span>
-                Total Profit
+                Total Providers
             </div>
-            <div class="dash-tile-icon"><i class="fa fa-money"></i></div>
-            <div class="dash-tile-text">$5M</div>
-        </div>
+            <div class="dash-tile-icon"><i class="fa fa-line-chart " aria-hidden="true"></i></div>            
+            <div id="TotalProviders" class="dash-tile-text">-</div>
+        </div>    
         <!-- END Total Profit Tile -->
     </div>
     <!-- END Column 1 of Row 1 -->
@@ -41,10 +41,10 @@
                         <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Statistics"><i class="fa fa-bar-chart-o"></i></a>
                     </div>
                 </div>
-                Total Sales
+                Total Marble
             </div>
             <div class="dash-tile-icon"><i class="fa fa-tags"></i></div>
-            <div class="dash-tile-text">300k</div>
+            <div id="AllMarbles" class="dash-tile-text">-</div>
         </div>
         <!-- END Total Sales Tile -->
         <!-- Total Downloads Tile -->
@@ -53,7 +53,7 @@
                 <div class="dash-tile-options">
                     <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="View popular downloads"><i class="fa fa-asterisk"></i></a>
                 </div>
-                Total Downloads
+                Total Downloads [NO USE]
             </div>
             <div class="dash-tile-icon"><i class="fa fa-cloud-download"></i></div>
             <div class="dash-tile-text">360k</div>
@@ -67,19 +67,19 @@
         <div class="dash-tile dash-tile-oil clearfix animation-pullDown">
             <div class="dash-tile-header">
                 <div class="dash-tile-options">
-                    <div class="btn-group">
-                        <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="What's changed?"><i class="fa fa-fire"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Share"><i class="fa fa-share-square-o"></i></a>
-                    </div>
+                    @*<div class="btn-group">
+            <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="What's changed?"><i class="fa fa-fire"></i></a>
+            <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Share"><i class="fa fa-share-square-o"></i></a>
+        </div>*@
                 </div>
-                Popularity
+                Most Popular Marble
             </div>
-            <div class="dash-tile-icon"><i class="fa fa-globe"></i></div>
-            <div class="dash-tile-text">+90%</div>
+            <div id="MarbleName" class="dash-tile-text">-</div><br />
+            <div id="Marblelikes" class="dash-tile-text">-</div>
         </div>
         <!-- END Popularity Tile -->
         <!-- Server Downtime Tile -->
-        <div class="dash-tile dash-tile-dark clearfix animation-pullDown">
+        <!--<div class="dash-tile dash-tile-dark clearfix animation-pullDown">
             <div class="dash-tile-header">
                 <div class="dash-tile-options">
                     <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Monthly report"><i class="fa fa-bar-chart-o"></i></a>
@@ -88,7 +88,7 @@
             </div>
             <div class="dash-tile-icon"><i class="fa fa-hdd-o"></i></div>
             <div class="dash-tile-text">0.1%</div>
-        </div>
+        </div>-->
         <!-- END Server Downtime Tile -->
     </div>
     <!-- END Column 3 of Row 1 -->
@@ -121,3 +121,4 @@
     </div>
     <!-- END Column 4 of Row 1 -->
 </div>
+<script src="~/Scripts/MyScripts/StatisticsTable.js"></script>
