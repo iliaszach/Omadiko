@@ -25,9 +25,6 @@ namespace Omadiko.Entities.Models
        
 
 
-
-
-
         //Navigation Property
         public virtual Location Location { get; set; }
         public virtual ICollection<Marble> Marbles { get; set; }

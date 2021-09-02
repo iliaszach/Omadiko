@@ -1,14 +1,37 @@
-﻿$(document).ready(function () {
-    $('#ProvidersTable').click(function () {
-        GetInputProviders();
-        GetInputLocation();
-        MarbleInput();
-        BTypesInput();
-        GetTableBodyProviders();
-        GetDataProviders();
+﻿
 
-    });
-})
+function ShowProvidersTable() {
+
+    alert('clicked');
+    ClearStatistics()
+    HtmlTemplate();
+    GetInputProviders();
+    GetInputLocation();
+    MarbleInput();
+    BTypesInput();
+    GetTableBodyProviders();
+    GetDataProviders();
+    
+}
+
+
+function ClearStatistics() {
+    let template = $("#jsChartsStatistics")
+    let data = '';
+    template.append(data);
+    template.remove();
+}
+
+
+function ClearTemplateMarble() {
+    let template = $("#allMarble");
+    let data = '';
+    template.append(data);
+}
+
+
+
+
 
 //=======CRUD OPERATIONS METHODS=======
 //Create Provider 
@@ -95,7 +118,7 @@ function GetDataProviders() {
                         + "</td > "
                         + "<td>" + result[i].CompanyTitle + "</td>"
                         + "<td>" + result[i].CompanyDescription + "</td>"
-                        + "<td>" + result[i].CompanyPhoto + "</td>"
+                        + "<td>"+"<img src="+result[i].CompanyPhoto+"alt='Alternate Text' />"+"</td>"
                         + "<td>" + result[i].WebSite + "</td>"
                         + "<td>" + result[i].Location.Country + "</td>"
                         + "<td>" + result[i].Phone + "</td>"
@@ -201,8 +224,7 @@ function GetDataProviderById(id) {
 }
 
 function UpdateProvider(provider) {
-    console.log('mesa stin update');
-
+    
     var ProviderId = provider.ProviderId;
     var CompanyTitle = $('#txtCompanyTitle').val();
     var CompanyDescription = $('#txtCompanyDescription').val();
@@ -324,6 +346,7 @@ function GetProviderMarbles(provider, marblesIds) {
         },
     });
 }
+
 function GetProviderBTypes(provider, businessTypesIds) {
     //Get the unselected and the selected BusinessTypes
     $.ajax({
@@ -384,7 +407,7 @@ function DeleteProvider(id) {
         dataType: "json",
 
         success: function (result) {
-            clear();
+            clearAll();
             alert("Are you sure?");
             GetDataProviders();
         },
@@ -476,6 +499,22 @@ function handleException(request, message, error) {
     console.log(msg);
     console.log(message);
     console.log(error);
+}
+
+//SOMA GIA HTML STO TEMPLATE
+function HtmlTemplate() {
+    let table = $("#allProviders");
+    let template = `<div id="theInputTable">
+
+                    </div>
+                    <div id="theDataTable">
+
+                    </div>
+                   `;
+    table.append(template);
+
+
+
 }
 
 
@@ -740,6 +779,10 @@ function clearAll() {
 }
 
 
+
+
+
+
 //========ATTENTION DO NOT TOUCH!!!========
 //!==== INACTIVE METHODS =====
 function SetDataLocation(provider) {
@@ -774,7 +817,6 @@ function SetDataLocation(provider) {
     //});
 
 }
-
 function GetObjects(listOfIds, url) {
     var listIfObjects = []
     //=====Find the marbles - push to the list  

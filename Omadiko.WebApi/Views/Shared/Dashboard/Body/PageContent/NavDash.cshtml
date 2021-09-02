@@ -1,42 +1,55 @@
 ﻿<ul class="nav-dash">
     <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Users" class="animation-fadeIn">
+        <a onclick="ShowStatistics()" href="javascript:void(0)" data-toggle="tooltip" title="Statistics" class="animation-fadeIn">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i> <span class="badge badge-success"></span>
+        </a>
+    </li>
+    <li>
+        <a onclick="ShowProvidersTable()" href="javascript:void(0)" data-toggle="tooltip" title="Providers" class="animation-fadeIn">
+            <i class="fa fa-users"></i>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)" data-toggle="tooltip" title="Marble" class="animation-fadeIn">
             <i class="fa fa-user"></i>
         </a>
     </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Comments" class="animation-fadeIn">
-            <i class="fa fa-comments"></i> <span class="badge badge-success">3</span>
-        </a>
-    </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Calendar" class="animation-fadeIn">
-            <i class="fa fa-calendar"></i> <span class="badge badge-inverse">5</span>
-        </a>
-    </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Photos" class="animation-fadeIn">
-            <i class="fa fa-camera-retro"></i>
-        </a>
-    </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Projects" class="animation-fadeIn">
-            <i class="fa fa-paperclip"></i>
-        </a>
-    </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Tasks" class="animation-fadeIn">
-            <i class="fa fa-tasks"></i> <span class="badge badge-warning">1</span>
-        </a>
-    </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Reader" class="animation-fadeIn">
-            <i class="fa fa-book"></i>
-        </a>
-    </li>
-    <li>
-        <a href="javascript:void(0)" data-toggle="tooltip" title="Settings" class="animation-fadeIn">
-            <i class="fa fa-cogs"></i>
-        </a>
-    </li>
+    @*<li>
+            <a href="javascript:void(0)" data-toggle="tooltip" title="Comments" class="animation-fadeIn">
+                <i class="fa fa-comments"></i> <span class="badge badge-success">3</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" data-toggle="tooltip" title="Calendar" class="animation-fadeIn">
+                <i class="fa fa-calendar"></i> <span class="badge badge-inverse">5</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" data-toggle="tooltip" title="Photos" class="animation-fadeIn">
+                <i class="fa fa-camera-retro"></i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" data-toggle="tooltip" title="Projects" class="animation-fadeIn">
+                <i class="fa fa-paperclip"></i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" data-toggle="tooltip" title="Tasks" class="animation-fadeIn">
+                <i class="fa fa-tasks"></i> <span class="badge badge-warning">1</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" data-toggle="tooltip" title="Reader" class="animation-fadeIn">
+                <i class="fa fa-book"></i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" data-toggle="tooltip" title="Settings" class="animation-fadeIn">
+                <i class="fa fa-cogs"></i>
+            </a>
+        </li>*@
 </ul>
+<script src="~/Scripts/MyScripts/GetProvidersTable.js"></script>
+<script src="~/Content/Dashboard/js/DatatablesInitializer.js"></script>
+<script src="~/Scripts/MyScripts/StatisticsTable.js"></script>
