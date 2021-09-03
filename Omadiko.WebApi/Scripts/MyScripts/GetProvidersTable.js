@@ -132,6 +132,7 @@ function GetDataProviders() {
         url: url,
         dataType: "json",
         success: function (result) {
+
             if (result) {
                 $("#tblProviderBody").html('');
                 var row = '';
@@ -144,7 +145,8 @@ function GetDataProviders() {
                         + "</td > "
                         + "<td>" + result[i].CompanyTitle + "</td>"
                         + "<td>" + result[i].CompanyDescription + "</td>"
-                        + "<td>" + "<img src="+result[i].CompanyPhoto+"alt='Alternate Text' />"+"</td>"+                        
+                        + "<td>" + '<img src="' + result[i].CompanyPhoto.replace('~','') + '" style="max-height:120px;" alt="Alternate Text" />' + "</td>" +
+                        
                         + "<td>"  + "</td>"
                         + "<td>" + result[i].WebSite + "</td>"
                         + "<td>" + result[i].Location.Country + "</td>"
@@ -153,8 +155,11 @@ function GetDataProviders() {
                         + "<td><ul>" + result[i].BusinessTypes.map(x => `<li>${x.Kind}</li>`).join("") + "</ul></td>"
                         + "<td><ul>" + result[i].Marbles.map(x => `<li>${x.Name}</li>`).join("") + "</ul></td>"
                         + "</tr>";
+                    
                 }
+
             }
+            console.log(row);
             if (row != '') {
                 $("#tblProviderBody").append(row);
             }
