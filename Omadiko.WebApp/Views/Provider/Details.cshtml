@@ -135,6 +135,8 @@
                 <div class="marbleCollection" style="display: grid; grid-template-columns: repeat(4, 1fr); ">
                     @foreach (var marble in Model.Marbles)
                     {
+                       <a href="~/marble/details/@marble.MarbleId">
+
                         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; ">
                             <div style="margin-right:20px; margin-bottom:5px;">
                                 <img width="277" src=@Url.Content(marble.Photo.Url) />
@@ -143,8 +145,10 @@
                                 <p>@marble.Name</p>
                             </div>
                         </div>
-                    }
-                </div>
+
+                      </a>
+                     }
+                    </div>
             </div>
         </div>
     </section>
@@ -198,8 +202,7 @@
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key= AIzaSyB-LPkBeuyWeJyd-zpQpZjbIw7VVXF-hXQ&callback=initMap">
         </script>
-        @*[6:36 μ.μ.] Ilias Zacharioudakis
-        AIzaSyB-LPkBeuyWeJyd-zpQpZjbIw7VVXF-hXQ*@
+       
 
     </div>
     <!-- End Google maps -->

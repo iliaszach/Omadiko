@@ -86,16 +86,22 @@
                 <div class="marbleCollection" style="display: grid; grid-template-columns: repeat(4, 1fr); ">
                     @foreach (var marble in @ViewBag.RelativeMarble)
                     {
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; ">
-                            <div style="margin-right:20px; margin-bottom:5px;">
-                                <img width="277" src=@Url.Content(marble.Photo.Url) />
-                            </div>
-                            <div>
-                                <p>@marble.Name</p>
-                            </div>
-                        </div>
-                    }
-                </div>
+
+                        <a href="~/marble/details/@marble.MarbleId">
+
+                          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; ">
+                              <div style="margin-right:20px; margin-bottom:5px;">
+                                  <img width="277" src=@Url.Content(marble.Photo.Url) />
+                              </div>
+                              <div>
+                                  <p>@marble.Name</p>
+                              </div>
+                          </div>
+
+
+                        </a>   
+                     }
+                    </div>
             </div>
         </div>
     </section>

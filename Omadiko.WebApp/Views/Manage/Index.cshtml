@@ -106,19 +106,23 @@
                 <div class="row">
                     @*Filtering*@
                     @*<div align="center">
-                            <button class="btn btn-default filter-button" data-filter="all">All</button>
-                            <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
-                            <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
-                            <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
-                            <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
-                        </div>
-                        <br />*@
+            <button class="btn btn-default filter-button" data-filter="all">All</button>
+            <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
+            <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
+            <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
+            <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
+        </div>
+        <br />*@
                     @foreach (var marble in Model.Marbles)
                     {
-                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                            <img src="@Url.Content(marble.Photo.Url)" class="img-responsive">
-                        </div>
 
+                        <a href="~/marble/details/@marble.MarbleId">
+                            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                                <img src="@Url.Content(marble.Photo.Url)" class="img-responsive">
+                            </div>
+
+
+                        </a>
                     }
                 </div>
             </div>
