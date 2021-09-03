@@ -908,8 +908,10 @@
 		text-align:left !important;
 	}
 
-	.t-center{
-		text-align:center !important;
+.t-center {
+	text-align: center !important;
+	margin: 45px 0px 25px 0px;
+}
 	}
 
 	.t-right{
