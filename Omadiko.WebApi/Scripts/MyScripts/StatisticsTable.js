@@ -402,14 +402,25 @@ function AllFunctions() {
 
         $.ajax("/api/marbles")
             .done(function (data) {
-                var users = [];
-                for (var key of data) {
-                    if (key.ApplicationUsers.length > 0) {
-                        users.push(key);
+                let users = new Set()
+
+                var marbles = [];
+                for (let marble of data) {
+                    if (marble.ApplicationUsers.length > 0) {
+                        marbles.push(marble);
                     }
                 }
-                let numberOfUsers = users.length;
-                resolve(numberOfUsers);
+
+                for (let marble of marbles) {
+                    for (var user of marble.ApplicationUsers) {
+                        users.add(user.UserName);
+                    }
+
+                }
+                var size = users.size;
+                console.log(size);
+
+                resolve(size);
             })
             .fail(function () {
                 reject("error");

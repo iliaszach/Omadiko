@@ -1,4 +1,1 @@
-﻿Build started...
-1>------ Build started: Project: Omadiko.WebApp, Configuration: Debug Any CPU ------
-1>  Omadiko.WebApp -> C:\Users\ilias\source\repos\iliaszach\Omadiko\Omadiko.WebApp\bin\Omadiko.WebApp.dll
-========== Build: 1 succeeded, 0 failed, 3 up-to-date, 0 skipped ==========
+﻿
