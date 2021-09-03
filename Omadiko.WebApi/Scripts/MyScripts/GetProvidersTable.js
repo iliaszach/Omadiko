@@ -1,8 +1,6 @@
 ﻿
 
-function ShowProvidersTable() {
-
-    alert('clicked');
+function ShowProvidersTable() {    
     ClearStatistics()
     HtmlTemplate();
     GetInputProviders();
@@ -17,16 +15,13 @@ function ShowProvidersTable() {
 
 function ClearStatistics() {
     let template = $("#jsChartsStatistics")
-    let data = '';
-    template.append(data);
-    template.remove();
+    template.empty();
 }
 
 
 function ClearTemplateMarble() {
     let template = $("#allMarble");
-    let data = '';
-    template.append(data);
+    template.empty();
 }
 
 
@@ -36,68 +31,99 @@ function ClearTemplateMarble() {
 //=======CRUD OPERATIONS METHODS=======
 //Create Provider 
 function CreateProvider() {
-    //Get values for Providers and location kai create the provider once!
-    var url = "api/Providers";
-    var urlMarbles = "api/Marbles/";
-    var urlBTypes = "api/BusinessTypes/";
 
-    //Get the values for Provider
-    var CompanyTitle = $('#txtCompanyTitle').val();
-    var CompanyDescription = $('#txtCompanyDescription').val();
-    var CompanyPhoto = $('#txtCompanyPhoto').val();
-    var WebSite = $('#txtWebSite').val();
-    var Phone = $('#txtCompanyPhone').val();
-    var Email = $('#txtCompanyEmail').val();
+    let confirmAction = confirm("Are you sure to execute this action?");
+    if (confirmAction) {
+        //Get values for Providers and location kai create the provider once!
+        var url = "api/Providers";
 
-    var businessTypes = findBTypesByID('SelectBTypesTable');
-    var marbles = findMarbleByID('SelectMarbleTable');
+        //Get the values for Provider
+        var CompanyTitle = $('#txtCompanyTitle').val();
+        var CompanyDescription = $('#txtCompanyDescription').val();
+        var CompanyPhoto = $('#txtCompanyPhoto').val();
+        var WebSite = $('#txtWebSite').val();
+        var Phone = $('#txtCompanyPhone').val();
+        var Email = $('#txtCompanyEmail').val();
 
-    //Get the values for Location
-    var Country = $("#txtLocationCountry").val();
-    var City = $("#txtLocationCity").val();
-    var Address = $("#txtLocationAddress").val();
-    var Lat = $("#txtLocationLat").val();
-    var Lng = $("#txtLocationLng").val();
+        var businessTypes = findBTypesByIDAsObject('SelectBTypesTable');
+        console.log(businessTypes);
+        var marbles = findMarbleByIDAsObject('SelectMarbleTable');
+        console.log(marbles);
+
+        //Get the values for Location
+        var Country = $("#txtLocationCountry").val();
+        var City = $("#txtLocationCity").val();
+        var Address = $("#txtLocationAddress").val();
+        var Lat = $("#txtLocationLat").val();
+        var Lng = $("#txtLocationLng").val();
 
 
-    //Make the object
-    let provider = {
-        CompanyTitle: `${CompanyTitle}`,
-        CompanyDescription: `${CompanyDescription}`,
-        CompanyPhoto: `${CompanyPhoto}`,
-        WebSite: `${WebSite}`,
-        Phone: `${Phone}`,
-        Email: `${Email}`,
-        Location: {
-            Country: `${Country}`,
-            City: `${City}`,
-            Address: `${Address}`,
-            Lat: `${Lat}`,
-            Lng: `${Lng}`
-        },
-        BusinessTypes: businessTypes,
-        Marbles: marbles
-    }
-    //check the object
-    //console.log(provider);
-
-    if (provider) {
-        $.ajax({
-            type: "POST",
-            url: url,
-            dataType: "json",
-            data: provider,
-            success: function (result) {
-                clearAll();
-                GetDataProviders();
+        //Make the object
+        let provider = {
+            CompanyTitle: `${CompanyTitle}`,
+            CompanyDescription: `${CompanyDescription}`,
+            CompanyPhoto: `${CompanyPhoto}`,
+            WebSite: `${WebSite}`,
+            Phone: `${Phone}`,
+            Email: `${Email}`,
+            Location: {
+                Country: `${Country}`,
+                City: `${City}`,
+                Address: `${Address}`,
+                Lat: `${Lat}`,
+                Lng: `${Lng}`
             },
-            error: function (request, message, error) {
-                handleException(request, message, error);
-                alert("Error while invoking CreateProvider");
-            }
-        });
+            BusinessTypes: businessTypes,
+            Marbles: marbles
+        }
+        //check the object
+        //console.log(provider);
+
+        if (provider) {
+            $.ajax({
+                type: "POST",
+                url: url,
+                dataType: "json",
+                data: provider,
+                success: function (result) {
+                    alert("Provider Created")
+                    clearAll();
+                    GetDataProviders();
+                },
+                error: function (request, message, error) {
+                    handleException(request, message, error);
+                    alert("Error while invoking CreateProvider");
+                }
+            });
+        }
     }
+    else {
+    alert("Action canceled");
 }
+}
+function findMarbleByIDAsObject(id) {
+    var listOfIds = [];
+
+    for (var option of document.getElementById(id)) {
+        if (option.selected) {
+            listOfIds.push({ MarbleId: option.value });
+        }
+    }
+    return listOfIds;
+
+}
+//Function that get the selected values from a multiple select list
+function findBTypesByIDAsObject(id) {
+    var listOfIds = [];
+    for (var option of document.getElementById(id)) {
+        if (option.selected) {
+            listOfIds.push({ BusinessTypeId: option.value });
+        }
+    }    
+    return listOfIds;
+}
+
+
 //Read Provider
 function GetDataProviders() {
     var url = "api/Providers";
@@ -113,12 +139,13 @@ function GetDataProviders() {
                     row = row
                         + "<tr>"
                         + "<td>" +
-                        "<button class='btn btn-primary' onclick='GetDataProviderById(" + result[i].ProviderId + ")'>Update</button> " +
-                        "<button class='btn btn-Danger' onclick = 'DeleteProvider(" + result[i].ProviderId + ")'>Delete</button >"
+                        "<button class='btn btn-primary' onclick='GetDataProviderById(" + result[i].ProviderId + ")'data-toggle='modal' data-target='#exampleModal' >Update</button> " +
+                        "<button class='btn btn-danger' onclick = 'DeleteProvider(" + result[i].ProviderId + ")'>Delete</button >"
                         + "</td > "
                         + "<td>" + result[i].CompanyTitle + "</td>"
                         + "<td>" + result[i].CompanyDescription + "</td>"
-                        + "<td>"+"<img src="+result[i].CompanyPhoto+"alt='Alternate Text' />"+"</td>"
+                        + "<td>" + "<img src="+result[i].CompanyPhoto+"alt='Alternate Text' />"+"</td>"+                        
+                        + "<td>"  + "</td>"
                         + "<td>" + result[i].WebSite + "</td>"
                         + "<td>" + result[i].Location.Country + "</td>"
                         + "<td>" + result[i].Phone + "</td>"
@@ -135,12 +162,15 @@ function GetDataProviders() {
         error: function (request, message, error) {
             handleException(request, message, error);
             alert("Error while invoking the Web API at GetDataProviders");
-        }
-    });
-}
+        },
+        
 
+    });
+   
+}
 //Get By Id Provider
 function GetDataProviderById(id) {
+    
     var url = "api/Providers/";
     //Get the provider by Id
     $.ajax({
@@ -199,16 +229,13 @@ function GetDataProviderById(id) {
             GetProviderMarbles(provider, marblesIds);
             GetProviderBTypes(provider, businessTypesIds);
             ChangeButtonToUpdate(provider, businessTypesIds, marblesIds);
-
-            console.log(provider);
-
             // var jsonObj = ConvertToJSONObject(provider);
             function ChangeButtonToUpdate(provider) {
                 jsProvider = JSON.stringify(provider).replace(/"/g, '&quot;');
 
                 var template = $("#updateButton");
                 template.empty();
-                var table = `<button class='btn btn-primary' id='updateButton' onclick='UpdateProvider(${jsProvider})'>Update Provider</button>
+                var table = `<button class='btn btn-primary' onclick='UpdateProvider(${jsProvider})'data-dismiss="modal" >Update Provider</button>
                              <button class='btn btn-danger' onclick=clearAll()>Reset</button>`;
                 template.append(table);
             }
@@ -222,81 +249,104 @@ function GetDataProviderById(id) {
         },
     })
 }
-
+//Update Provider
 function UpdateProvider(provider) {
-    
-    var ProviderId = provider.ProviderId;
-    var CompanyTitle = $('#txtCompanyTitle').val();
-    var CompanyDescription = $('#txtCompanyDescription').val();
-    var CompanyPhoto = $('#txtCompanyPhoto').val();
-    var Phone = $('#txtCompanyPhone').val();
-    var WebSite = $('#txtWebSite').val();
-    var Email = $('#txtCompanyEmail').val();
-    var LocationId = provider.Location.LocationId;
-    var Country = $('#txtLocationCountry').val();
-    var City = $('#txtLocationCity').val();
-    var Address = $('#txtLocationAddress').val();
-    var Lat = $('#txtLocationLat').val();
-    var Lng = $('#txtLocationLng').val();
-    var businessTypes = findBTypesByID('SelectBTypesTable');
-    var marbles = findMarbleByID('SelectMarbleTable');
+    let confirmAction = confirm("Are you sure to execute this action?");
+    if (confirmAction) {
+        var ProviderId = provider.ProviderId;
+        var CompanyTitle = $('#txtCompanyTitle').val();
+        var CompanyDescription = $('#txtCompanyDescription').val();
+        var CompanyPhoto = $('#txtCompanyPhoto').val();
+        var Phone = $('#txtCompanyPhone').val();
+        var WebSite = $('#txtWebSite').val();
+        var Email = $('#txtCompanyEmail').val();
+        var LocationId = provider.Location.LocationId;
+        var Country = $('#txtLocationCountry').val();
+        var City = $('#txtLocationCity').val();
+        var Address = $('#txtLocationAddress').val();
+        var Lat = $('#txtLocationLat').val();
+        var Lng = $('#txtLocationLng').val();
+        var businessTypes = findBTypesByID('SelectBTypesTable');
+        var marbles = findMarbleByID('SelectMarbleTable');
 
-    
 
 
-    provider = {
-        ProviderId: `${ProviderId}`,
-        CompanyTitle: `${CompanyTitle}`,
-        CompanyDescription: `${CompanyDescription}`,
-        CompanyPhoto: `${CompanyPhoto}`,
-        WebSite: `${WebSite}`,
-        Phone: `${Phone}`,
-        Email: `${Email}`,
-        Location: {
-            LocationId: `${LocationId}`,
-            Country: `${Country}`,
-            City: `${City}`,
-            Address: `${Address}`,
-            Lat: `${Lat}`,
-            Lng: `${Lng}`
-        },
-        HelperMarbles: marbles,
-        HelperBusinessTypes: businessTypes,
-        
-    }
-    
-    //console.log(provider);
-    var jsProvider = JSON.stringify(provider);
-    //var jsMarbles = JSON.stringify(marbles);
-    //var jsBusinessTypes = JSON.stringify(businessTypes);
-    //var myData = {};
-    //myData.provider = provider;
-    //myData.Marbles = marbles;
-    //myData.BusinessTypes = businessTypes;
-    //var JSData = JSON.stringify(myData);
 
-    var url = "api/Providers/";
-    $.ajax({
-        type: "Put",
-        url: url + provider.ProviderId,
-        contentType: "application/json; charset=utf-8",
-        dataType: 'json',
-        data: jsProvider,
-        success: function (result) {
-            console.log(result);
-            clearAll();
-            alert("Are you sure?");
-
-            GetDataProviders();
-        },
-        error: function (request, message, error) {
-            console.log(provider);
-            handleException(request, message, error);
-            alert("Error while invoking the Web API at PutProvider");
+        provider = {
+            ProviderId: `${ProviderId}`,
+            CompanyTitle: `${CompanyTitle}`,
+            CompanyDescription: `${CompanyDescription}`,
+            CompanyPhoto: `${CompanyPhoto}`,
+            WebSite: `${WebSite}`,
+            Phone: `${Phone}`,
+            Email: `${Email}`,
+            Location: {
+                LocationId: `${LocationId}`,
+                Country: `${Country}`,
+                City: `${City}`,
+                Address: `${Address}`,
+                Lat: `${Lat}`,
+                Lng: `${Lng}`
+            },
+            HelperMarbles: marbles,
+            HelperBusinessTypes: businessTypes,
 
         }
-    });
+
+        var jsProvider = JSON.stringify(provider);
+
+
+        var url = "api/Providers/";
+        $.ajax({
+            type: "Put",
+            url: url + provider.ProviderId,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            data: jsProvider,
+            success: function (result) {                
+                clearAll();
+                alert("Provider Updated");
+
+                GetDataProviders();
+            },
+            error: function (request, message, error) {
+                handleException(request, message, error);
+                alert("Error while invoking the Web API at PutProvider");
+
+            }
+        });
+    } else {
+        alert("Action canceled");
+    }
 }
+//Delete Provider
+function DeleteProvider(id) {
+
+    let confirmAction = confirm("Are you sure to execute this action?");
+    if (confirmAction) {
+        var url = "api/Providers/" + id;
+        $.ajax({
+            type: "Delete",
+            url: url,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+
+            success: function (result) {
+                clearAll();
+                alert("Deleted!");
+                GetDataProviders();
+            },
+            error: function (request, message, error) {
+                handleException(request, message, error);
+                alert("Error while invoking the Web API at DeleteProvider");
+            }
+        });
+    }
+    else {
+        alert("Action canceled");
+    }
+}
+
 
 function GetProviderMarbles(provider, marblesIds) {
     //Get the unselected and the selected BusinessTypes
@@ -397,26 +447,7 @@ function GetProviderBTypes(provider, businessTypesIds) {
 
 
 
-//Delete Provider
-function DeleteProvider(id) {
-    var url = "api/Providers/" + id;
-    $.ajax({
-        type: "Delete",
-        url: url,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
 
-        success: function (result) {
-            clearAll();
-            alert("Are you sure?");
-            GetDataProviders();
-        },
-        error: function (request, message, error) {
-            handleException(request, message, error);
-            alert("Error while invoking the Web API at DeleteProvider");
-        }
-    });
-}
 
 //=======General Data Manipulation Data Methods
 //Function that get the selected values from a multiple select list
@@ -500,23 +531,59 @@ function handleException(request, message, error) {
     console.log(message);
     console.log(error);
 }
-
 //SOMA GIA HTML STO TEMPLATE
 function HtmlTemplate() {
-    let table = $("#allProviders");
-    let template = `<div id="theInputTable">
 
+    let table = $("#allProviders");
+    let template = `<div >
+
+            <button type="button" onclick="InitializeProviderForm()"; class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Create Provider
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            
+                        </div>
+                        <div id="theInputTable" class="modal-body">
+
+
+
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
                     </div>
                     <div id="theDataTable">
-
+ 
                     </div>
                    `;
     table.append(template);
-
-
-
 }
 
+
+function InitializeProviderForm() {
+    clearAll();
+    let template = $("#updateButton");
+    template.empty();
+    let html = `
+                <button class="btn btn-primary" onclick="CreateProvider()"data-dismiss="modal">Save Provider</button>
+                <button class="btn btn-danger" onclick="clearAll()">Reset</button>
+                `;
+    template.append(html);
+   
+
+}
 
 //=======Methods InputForms=======
 //Business Types Input form
@@ -537,10 +604,10 @@ function BTypesInput() {
                     <h4>Select Business Types</h4>
                         
                     <div id="base" class="col-md - 2">
-                        <label for="bTypes">Business Types</label>
+                        <label for="bTypes"></label>
                     </div >
                         <div  class="col-mid-10">
-                        <select name="bTypes" id="SelectBTypesTable" class="BTypes-js" size="6" multiple ">
+                        <select name="bTypes" id="SelectBTypesTable" class="form-control" size="6" multiple ">
                             
                         </select>
                     </div>`;
@@ -587,10 +654,10 @@ function MarbleInput() {
                     <h4>Select Marbles</h4>
                         
                     <div id="base" class="col-md - 2">
-                        <label for="marbles">Marbles</label>
+                        <label for="marbles"></label>
                     </div >
                         <div  class="col-mid-10">
-                        <select name="marbles" id="SelectMarbleTable" class="marble-js"size="10" multiple ">
+                        <select name="marbles" id="SelectMarbleTable" class="form-control"size="10" multiple ">
                             
                         </select>
                     </div>`;
@@ -627,7 +694,7 @@ function GetInputLocation() {
                         Country
                     </div >
                         <div class="col-mid-10">
-                        <input type="text" id="txtLocationCountry" class="form-control" placeholder="Enter Company Location" />
+                        <input type="text" id="txtLocationCountry" class="form-control" placeholder="Enter Company Country" />
                     </div>
                     <div class="col-md - 2">
                         City
@@ -639,19 +706,19 @@ function GetInputLocation() {
                         Address
                     </div >
                         <div class="col-mid-10">
-                        <input type="text" id="txtLocationAddress" class="form-control" placeholder="Enter Company Location" />
+                        <input type="text" id="txtLocationAddress" class="form-control" placeholder="Enter Company Address" />
                     </div>
                     <div class="col-md - 2">
                         Lat
                     </div >
                         <div class="col-mid-10">
-                        <input type="text" id="txtLocationLat" class="form-control" placeholder="Enter Company Location" />
+                        <input type="text" id="txtLocationLat" class="form-control" placeholder="Enter Company Lat" />
                     </div>
                     <div class="col-md - 2">
                         Lng
                     </div >
                         <div class="col-mid-10">
-                        <input type="text" id="txtLocationLng" class="form-control" placeholder="Enter Company Location" />
+                        <input type="text" id="txtLocationLng" class="form-control" placeholder="Enter Company Lng" />
                     </div>
                     `
         ;
@@ -662,56 +729,47 @@ function GetInputProviders() {
 
     var table = $("#theInputTable");
     var template = `  <hr />
-        <h4>Create Provider</h4>
-                        
-        <div class="row">
-            <div class="col-md-2">
-                CompanyTitle
-            </div>
-            <div class="col-mid-10">
-                <input type="text" id="txtCompanyTitle" class="form-control" placeholder="Enter Company Title" />
-            </div>
+        
+          <div>
+            <h4>Create Provider</h4>            
+                <div class="col-md-2">
+                    CompanyTitle
+                </div>
+                <div class="col-mid-10">
+                    <input type="text" id="txtCompanyTitle" class="form-control" placeholder="Enter Company Title" />
+                </div>
+                <div class="col-md-2">
+                    Company Description
+                </div>
+                <div class="col-mid-10">
+                    <input type="text" id="txtCompanyDescription" class="form-control" placeholder="Enter Company Description" />
+                </div>
+                <div class="col-md-2">
+                    Company Photo
+                </div>
+                <div class="col-mid-10">
+                    <input type="text" id="txtCompanyPhoto" class="form-control" placeholder="Enter Company Photo" />
+                </div>
+                <div class="col-md-2">
+                    Phone
+                </div>
+                <div class="col-mid-10">
+                    <input type="text" id="txtCompanyPhone" class="form-control" placeholder="Enter Company Phone" />
+                </div>
+                <div class="col-md-2">
+                    WebSite
+                </div>
+                <div class="col-mid-10">
+                    <input type="text" id="txtWebSite" class="form-control" placeholder="Enter Company WebSite" />
+                </div>           
+                <div class="col-md-2">
+                    Email
+                </div>
+                <div class="col-mid-10">
+                    <input type="email" id="txtCompanyEmail" class="form-control" placeholder="Enter Company Email" />
+                </div>
+           
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                Company Description
-            </div>
-            <div class="col-mid-10">
-                <input type="text" id="txtCompanyDescription" class="form-control" placeholder="Enter Company Description" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                Company Photo
-            </div>
-            <div class="col-mid-10">
-                <input type="text" id="txtCompanyPhoto" class="form-control" placeholder="Enter Company Photo" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                Phone
-            </div>
-            <div class="col-mid-10">
-                <input type="text" id="txtCompanyPhone" class="form-control" placeholder="Enter Company Phone" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                WebSite
-            </div>
-            <div class="col-mid-10">
-                <input type="text" id="txtWebSite" class="form-control" placeholder="Enter Company WebSite" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                Email
-            </div>
-            <div class="col-mid-10">
-                <input type="email" id="txtCompanyEmail" class="form-control" placeholder="Enter Company Email" />
-            </div>
-        </div>   
         <div id="LocationTable">
             
         </div>    
@@ -722,18 +780,13 @@ function GetInputProviders() {
             
         </div>       
             
-        <br/>
         <div class="col-mid-12" id="updateButton">
-            <button class="btn btn-primary" onclick="CreateProvider()">Save Provider</button>
-            <button class="btn btn-danger" onclick="clearAll()">Reset</button>
+           
         </div>
-        <br/>
+        
         <br/>`
     table.append(template);
 }
-
-
-
 //Table Headers for Providers
 function GetTableBodyProviders() {
     var table = $("#theDataTable");
@@ -762,7 +815,7 @@ function GetTableBodyProviders() {
 }
 //Clear Input from user
 function clearAll() {
-    $("#updateButton").text("Save Provider");
+    //$("#updateButton").text("Save Provider");
     $('#txtCompanyTitle').val('')
     $('#txtCompanyDescription').val('');
     $('#txtCompanyPhoto').val('');
@@ -777,6 +830,7 @@ function clearAll() {
     $('#SelectMarbleTable').val('');
     $('#SelectBTypesTable').val('');
 }
+
 
 
 
