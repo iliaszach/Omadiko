@@ -124,8 +124,8 @@
 	}
 
 	.xdark-bg:before{
-/*		background-color:#222222;
-*/		position: absolute;
+		background-color:#222222;
+		position: absolute;
 		left:0;
 		top: 0;
 		width: 100%;

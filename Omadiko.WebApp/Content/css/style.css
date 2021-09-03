@@ -910,8 +910,8 @@
 
 .t-center {
 	text-align: center !important;
-	margin: 45px 0px 25px 0px;
-}
+/*	margin: 45px 0px 25px 0px;
+*/}
 	}
 
 	.t-right{
@@ -4767,7 +4767,7 @@
 
 	#portfolio-items.type2 .item .center-details .details h2{
 		top:0;
-		text-align: left;
+		text-align: center;
 		color:azure;
 		font-size:18px;
 		font-weight: 300;
@@ -4775,7 +4775,7 @@
 
 	#portfolio-items.type2 .item .center-details .details p{
 		bottom:0;
-		text-align: left;
+		text-align: center;
 		color:azure;
 		font-size:13px;
 		font-weight: 300;

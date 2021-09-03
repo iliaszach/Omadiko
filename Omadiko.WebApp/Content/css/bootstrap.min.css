@@ -1503,7 +1503,13 @@ hr {
 }
 
 p {
-    margin: 0 0 10px
+    /*    margin: 0 0 10px*/
+    /*    width: 277px;
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;*/
+    margin: 5px;
+    text-align: center;
 }
 
 .lead {
