@@ -20,14 +20,6 @@ namespace Omadiko.WebApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
-
-
-
-
-
-
-
         public FileContentResult UserPhotos()
         {
             if (User.Identity.IsAuthenticated)
@@ -68,19 +60,6 @@ namespace Omadiko.WebApp.Controllers
 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public ManageController()
         {
@@ -139,20 +118,18 @@ namespace Omadiko.WebApp.Controllers
                 Username = user.UserName,
                 HasPassword = HasPassword(),
                 PhoneNumber = user.PhoneNumber,               
-                Email = user.Email,   
-                //PhotoUrl = user.PhotoUrl
+                Email = user.Email,
+                UserPhoto = user.UserPhoto,
                 Marbles =  user.Marbles
             };
             return View(model);
         }
-        public async Task<ActionResult> UpLoadPhoto(string photoUrl)
-        {
+        public async Task<ActionResult> UpLoadPhoto(byte[] userPhoto)
+        {            
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            user.PhotoUrl = photoUrl;
+            user.UserPhoto = userPhoto;
             return RedirectToAction("Index");
         }
-
-
 
         //
         // POST: /Manage/RemoveLogin

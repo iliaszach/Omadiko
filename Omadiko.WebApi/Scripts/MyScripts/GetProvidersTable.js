@@ -1,7 +1,8 @@
 ﻿
 
 function ShowProvidersTable() {    
-    ClearStatistics()
+    ClearTemplateProviders();
+    ClearStatistics();
     HtmlTemplate();
     GetInputProviders();
     GetInputLocation();
@@ -11,7 +12,12 @@ function ShowProvidersTable() {
     GetDataProviders();
     
 }
-
+function ClearTemplateProviders() {
+    let template = $("#allProviders");
+    let temalte1 = $("#MarbleTable");
+    temalte1.empty();
+    template.empty();
+}
 
 function ClearStatistics() {
     let template = $("#jsChartsStatistics")

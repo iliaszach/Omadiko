@@ -186,6 +186,7 @@ namespace Omadiko.WebApp.Controllers
                             imageData = binary.ReadBytes(poImgFile.ContentLength);
                         }
                     }
+                    
 
                     var user = new ApplicationUser
                     {
