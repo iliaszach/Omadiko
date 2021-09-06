@@ -97,14 +97,11 @@ function TemplateForStatistics() {
         <div class="dash-tile dash-tile-oil clearfix animation-pullDown">
             <div class="dash-tile-header">
                 <div class="dash-tile-options">
-                    @*<div class="btn-group">
-            <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="What's changed?"><i class="fa fa-fire"></i></a>
-            <a href="javascript:void(0)" class="btn btn-default" data-toggle="tooltip" title="Share"><i class="fa fa-share-square-o"></i></a>
-        </div>*@
+                    
                 </div>
                 Most Popular Marble
             </div>
-            <div id="MarbleName" class="dash-tile-text">-</div><br />
+            <div id="MarbleName" class="h6 text-muted">-</div><br />
             <div id="Marblelikes" class="dash-tile-text">-</div>
         </div>
         <!-- END Popularity Tile -->

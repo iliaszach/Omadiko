@@ -12,15 +12,14 @@
                 @User.Identity.Name
 
 
-                        <img src="@Url.Action("UserPhotos", "Manage" )" style="width:160px;height:160px; background: #FFFFFF;
+                <img src="@Url.Action("UserPhotos", "Manage" )" style="width:160px;height:160px; background: #FFFFFF;
                                   margin: auto;
                                   -moz-border-radius: 60px;
                                   border-radius: 100px;
                                   padding: 6px;
-                                  box-shadow: 0px 0px 20px #888;"
-                        />
-
-
+                                  box-shadow: 0px 0px 20px #888;" />
+                @*@Url.Action("UserPhotos", "Manage")*@
+                
 
 
 
@@ -81,8 +80,8 @@
                 </p>
             </div>
             <div class="t-center light mb-20">
-                <p>
-                    @if (Model.PhotoUrl is null)
+                <div>
+                    @if (Model.UserPhoto is null)
                     {
                         @Html.ActionLink("Add profile picture", "")
                     }
@@ -90,7 +89,7 @@
                     {
                         @Html.ActionLink("Change profile picture", "")
                     }
-                </p>
+                </div>
             </div>
 
             <a href="#"><i class="fa fa-google"></i></a>

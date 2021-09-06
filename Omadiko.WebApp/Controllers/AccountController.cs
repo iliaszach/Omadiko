@@ -12,12 +12,13 @@ using Microsoft.Owin.Security;
 using Omadiko.Database;
 using Omadiko.Entities;
 using Omadiko.WebApp.Models;
+using Omadiko.WebApp.Models.AccountViewModels;
 
 namespace Omadiko.WebApp.Controllers
 {
     [Authorize]
     public class AccountController : Controller
-    {
+    {        
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         ApplicationDbContext context;
@@ -152,14 +153,15 @@ namespace Omadiko.WebApp.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            //RegisterViewModel vm = new RegisterViewModel(context);
+            //RegisterViewModel vm = new RegisterViewModel();
+
             //For user registration we will not display the Admin roles.
             //User can select rest of any role type during registration. 
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-                                    .ToList(), "Name", "Name");
-
+                                     .ToList(), "Name", "Name");
             return View();
         }
+
 
         //
         // POST: /Account/Register
@@ -168,57 +170,62 @@ namespace Omadiko.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register([Bind(Exclude = "UserPhoto")] RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-
-                // To convert the user uploaded Photo as Byte Array before save to DB    
-                byte[] imageData = null;
-                if (Request.Files.Count > 0)
+                if (ModelState.IsValid)
                 {
-                    HttpPostedFileBase poImgFile = Request.Files["UserPhoto"];
 
-                    using (var binary = new BinaryReader(poImgFile.InputStream))
+                    // To convert the user uploaded Photo as Byte Array before save to DB    
+                    byte[] imageData = null;
+                    if (Request.Files.Count > 0)
                     {
-                        imageData = binary.ReadBytes(poImgFile.ContentLength);
+                        HttpPostedFileBase poImgFile = Request.Files["UserPhoto"];
+
+                        using (var binary = new BinaryReader(poImgFile.InputStream))
+                        {
+                            imageData = binary.ReadBytes(poImgFile.ContentLength);
+                        }
                     }
-                }
+                    
 
-               
+                    var user = new ApplicationUser
+                    {
+                        UserName = model.UserName,
+                        Email = model.Email,
+                        PhoneNumber = model.PhoneNumber
+                        
+                    };
 
-               
-
-                var user = new ApplicationUser 
-                {                     
-                    UserName = model.UserName, 
-                    Email = model.Email,
-                    PhoneNumber = model.PhoneNumber
-                };
-
-                //Here we pass the byte array to user context to store in db    
-                user.UserPhoto = imageData;
+                    //Here we pass the byte array to user context to store in db    
+                    user.UserPhoto = imageData;
 
 
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                   // await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                    return RedirectToAction("Index", "Home"); //"Home" ==> "Users"                   
-                }
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                        // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                        // Send an email with this link
+                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                        await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                        return RedirectToAction("Index", "User"); //"Home" ==> "Users"                   
+                    }
+                    ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                   .ToList(), "Name", "Name");
-                AddErrors(result);
+                    AddErrors(result);
+                }
+
+                // If we got this far, something failed, redisplay form
+                return View(model);
+            }
+            catch (Exception Ex)
+            {
+                throw Ex.InnerException;
             }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
         }
 
         //

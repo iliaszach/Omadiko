@@ -1,7 +1,8 @@
 ﻿
 
 function ShowProvidersTable() {    
-    ClearStatistics()
+    ClearTemplateProviders();
+    ClearStatistics();
     HtmlTemplate();
     GetInputProviders();
     GetInputLocation();
@@ -11,7 +12,12 @@ function ShowProvidersTable() {
     GetDataProviders();
     
 }
-
+function ClearTemplateProviders() {
+    let template = $("#allProviders");
+    let temalte1 = $("#MarbleTable");
+    temalte1.empty();
+    template.empty();
+}
 
 function ClearStatistics() {
     let template = $("#jsChartsStatistics")
@@ -145,7 +151,7 @@ function GetDataProviders() {
                         + "</td > "
                         + "<td>" + result[i].CompanyTitle + "</td>"
                         + "<td>" + result[i].CompanyDescription + "</td>"
-                        + "<td>" + '<img src="' + result[i].CompanyPhoto.replace('~','') + '" style="max-height:120px;" alt="Alternate Text" />' + "</td>" +
+                        + "<td>" + '<img src="' + result[i].CompanyPhoto.replace('~', '') + '" style="max-height:100px; text-align:center;" alt="Alternate Text display:block;" />' + "</td>" +
                         
                         + "<td>"  + "</td>"
                         + "<td>" + result[i].WebSite + "</td>"
