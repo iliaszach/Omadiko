@@ -609,8 +609,9 @@
 		width: 100%;
 		height: auto;
 		padding:10px;
-		margin:0;
-		background-color:#222222E3;
+/*		margin:0;
+*/		background-color:#222222E3;
+		margin-bottom:100px;
 	}
 
 	.inner{
