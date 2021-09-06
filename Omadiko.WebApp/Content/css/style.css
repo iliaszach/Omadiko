@@ -924,7 +924,7 @@
 
 	.v-center{
 		vertical-align: middle;
-		display: table-cell;
+/*		display: table-cell;*/
 	}
 
 	.v-top{
@@ -4580,7 +4580,7 @@
 	}
 
 	#portfolio.single.boxed{
-		margin-bottom:100px;
+/*		margin-bottom:100px;*/
 	}
 
 /* Portfolio Filters Type 1 */
@@ -7633,12 +7633,12 @@
 
 /* Login Design */
 
-	.login_type{
-		max-width: 400px;
-		width:100%;
-		margin:0 auto;
-		margin-bottom:250px;
-	}
+.login_type {
+	max-width: 400px;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 45px;
+}
 
 	/* Form with strip */
 .strip_form {
