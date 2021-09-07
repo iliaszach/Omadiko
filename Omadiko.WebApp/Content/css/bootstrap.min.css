@@ -2997,7 +2997,9 @@ textarea.form-control {
 }
 
 input[type=search] {
-    -webkit-appearance: none
+    -webkit-appearance: none;
+    background-color: #151515;
+    border: 1px solid #f0f0f0;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
