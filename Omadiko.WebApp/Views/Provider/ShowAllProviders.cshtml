@@ -49,11 +49,30 @@
 
     </div>
     <!-- End Filters -->
+
+
+
+    @using (@Html.BeginForm("ShowAllProviders", "Provider", FormMethod.Get, new { @class = "form-group" }))
+    {
+
+        @Html.TextBox("CompanyTitle", null, new { @class = "form-control", placeholder = "Search CompanyTitle", type = "search" })
+        @Html.TextBox("Location", null, new { @class = "form-control", placeholder = "Search Country", type = "search" })
+
+        <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
+
+        <input type="submit" value="Search Provider" class="btn btn-primary" />
+
+        <input id="ResetButton" type="button" value="Clear Form" class="btn btn-success" />
+
+    }
+
+    @Html.ActionLink("Sorting CompanyTitle (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.FNSP, CompanyTitle = ViewBag.CompanyTitle, Location=ViewBag.Location }, null)
+    <br />
+    @Html.ActionLink("Sorting Country (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.LNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+
+
     <!-- Portfolio Items -->
     <div id="portfolio-items" class="fullwidth type2">
-
-
-
 
 
         @foreach (var provider in Model)
@@ -72,10 +91,10 @@
                             <img src="@Url.Content(provider.CompanyPhoto)" style="width:280px; height:240px" />
                         </a>
 
-                       
-                     
-                       
-                        
+
+
+
+
                         <!-- Item Note -->
                         <div class="item_icon">
                             <!-- Icon -->

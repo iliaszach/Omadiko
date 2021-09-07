@@ -154,9 +154,63 @@ namespace Omadiko.WebApp.Controllers
 
 
 
-        public ActionResult ShowAllProviders()
+        public ActionResult ShowAllProviders(string CompanyTitle,string Location, string sortOrder)
         {
             var providers = unitOfWork.Providers.GetAll();
+
+
+            ViewBag.CompanyTitle = CompanyTitle ;
+            ViewBag.Location = Location;
+            ViewBag.sortOrder = sortOrder;
+
+            ViewBag.FNSP = String.IsNullOrEmpty(sortOrder) ? "CompanyTitleDesc" : "";
+
+            ViewBag.LNSP = sortOrder == "LocationAsc" ? "LocationDesc" : "LocationAsc";
+
+
+            #region Filtering
+
+            if (!String.IsNullOrWhiteSpace(CompanyTitle))
+            {
+                providers = providers.Where(x => x.CompanyTitle.ToUpper().Contains(CompanyTitle.ToUpper())).ToList();
+
+            }
+            if (!String.IsNullOrWhiteSpace(Location))
+            {
+                providers = providers.Where(x => x.Location.Country.ToUpper().Contains(Location.ToUpper())).ToList();
+
+            }
+
+            #endregion
+
+            #region Sorting
+
+            switch (sortOrder)
+            {
+                case "CompanyTitleDesc":
+                    providers = providers.OrderByDescending(x => x.CompanyTitle).ToList();
+                    break;
+
+
+
+                case "LocationAsc":
+                    providers = providers.OrderBy(x => x.Location.Country).ToList();
+                    break;
+                case "LocationDesc":
+                    providers = providers.OrderByDescending(x => x.Location.Country).ToList();
+                    break;
+
+
+
+
+                default:
+                    providers = providers.OrderBy(x => x.CompanyTitle).ToList();
+                    break;
+            }
+            #endregion
+
+
+
             return View(providers);
         }
 
