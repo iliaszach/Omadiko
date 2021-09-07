@@ -86,6 +86,36 @@
     <!-- End Filters -->
 
 
+    @using (@Html.BeginForm("ShowMarbles", "Marble", FormMethod.Get, new { @class = "form-group" }))
+    {
+
+        @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Search Name of Marble", type = "search" })
+        @Html.TextBox("Color", null, new { @class = "form-control", placeholder = "Search Color of Marble", type = "search" })
+        @Html.TextBox("Country", null, new { @class = "form-control", placeholder = "Search Country of Marble", type = "search" })
+
+        <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
+
+        <input type="submit" value="Search Marble" class="btn btn-primary" />
+
+        <input id="ResetButton" type="button" value="Clear Form" class="btn btn-success" />
+
+    }
+
+    @Html.ActionLink("Sorting Name (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.FNSPname, Name = ViewBag.Name, Color = ViewBag.Color, Country= ViewBag.Country }, null)
+    <br />
+    @Html.ActionLink("Sorting Color (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcolor, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+    <br />
+    @Html.ActionLink("Sorting Country (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcountry, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+    <br />
+
+
+
+
+
+
+
+
+
     <!-- Portfolio Items -->
     <div id="portfolio-items" class="fullwidth type2">
 
@@ -111,7 +141,7 @@
 
 
 
-                       
+
 
 
                         <!-- Item Note -->
@@ -130,7 +160,7 @@
                             <div class="details" style="width:280px; height:91.8px; ">
                                 <!-- Item Name -->
                                 <h2 class="name " style="color:azure">
-                                    @Html.DisplayFor(modelItem=>marble.Name)
+                                    @Html.DisplayFor(modelItem => marble.Name)
                                 </h2>
                                 <!-- Tags -->
                                 <p class="tags" style="color:azure">
@@ -147,9 +177,9 @@
             <!-- End Item -->
 
         }
-       
 
-    </div>   
+
+    </div>
     <!-- End Portfolio Items -->
 
 
