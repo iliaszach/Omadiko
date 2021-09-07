@@ -188,9 +188,83 @@ namespace Omadiko.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ShowMarbles()
+        public ActionResult ShowMarbles(string Name, string Color, string Country, string sortOrder)
         {
             var marbles = unitOfWork.Marbles.GetAll();
+
+            ViewBag.Name = Name;
+            ViewBag.Color = Color;
+            ViewBag.Country = Country;
+            ViewBag.sortOrder = sortOrder;
+
+
+
+            ViewBag.FNSPname = String.IsNullOrEmpty(sortOrder) ? "NameDesc" : "";
+
+            ViewBag.LNSPcolor = sortOrder == "ColorAsc" ? "ColorDesc" : "ColorAsc";
+
+            ViewBag.LNSPcountry = sortOrder == "CountryAsc" ? "CountryDesc" : "CountryAsc";
+
+
+
+            #region Filtering
+
+            if (!String.IsNullOrWhiteSpace(Name))
+            {
+                marbles = marbles.Where(x => x.Name.ToUpper().Contains(Name.ToUpper())).ToList();
+
+            }
+
+            if (!String.IsNullOrWhiteSpace(Color))
+            {
+                marbles = marbles.Where(x => x.Color.ToUpper().Contains(Color.ToUpper())).ToList();
+            }
+
+
+            if (!String.IsNullOrWhiteSpace(Country))
+            {
+                marbles = marbles.Where(x => x.Country.Name.ToUpper().Contains(Country.ToUpper())).ToList();
+            }
+            #endregion
+
+
+
+            #region Sorting
+
+            switch (sortOrder)
+            {
+                case "NameDesc":
+                    marbles = marbles.OrderByDescending(x => x.Name).ToList();
+                    break;
+
+
+                case "ColorAsc":
+                    marbles = marbles.OrderBy(x => x.Color).ToList();
+                    break;
+                case "ColorDesc":
+                    marbles = marbles.OrderByDescending(x => x.Color).ToList();
+                    break;
+
+
+                case "CountryAsc":
+                    marbles = marbles.OrderBy(x => x.Country.Name).ToList();
+                    break;
+                case "CountryDesc":
+                    marbles = marbles.OrderByDescending(x => x.Country.Name).ToList();
+                    break;
+
+
+                default:
+                    marbles = marbles.OrderBy(x => x.Name).ToList();
+                    break;
+            }
+            #endregion
+
+
+
+
+
+
             return View(marbles);
         }
 
