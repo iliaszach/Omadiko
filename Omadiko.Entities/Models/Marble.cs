@@ -25,6 +25,7 @@ namespace Omadiko.Entities.Models
         public virtual Country Country { get; set; }
         public virtual Photo Photo { get; set; }        
         public virtual ICollection<Provider> Providers { get; set; }
+        public virtual ICollection<int> HelperProviders { get; set; }
         public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 
