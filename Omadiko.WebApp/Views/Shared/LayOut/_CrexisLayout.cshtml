@@ -44,7 +44,6 @@
     <!-- Social Media -->
     @Html.Partial("Navbar/_SocialMedia")
     <!-- End Social Media -->
-
     <!-- Navigation - select your nav color - dark-nav or white-nav -->
     @Html.Partial("Navbar/_CrexisNavbar")
     <!-- End Nav -->
@@ -60,7 +59,9 @@
     <!-- End Footer -->
     <!-- JS Files -->
     @Scripts.Render("~/bundles/lib")
+    @*@RenderSection("ProviderJavascript", required: false)*@
     @RenderSection("scripts", required: false)
+
 </body>
 <!-- Body End -->
 </html>
