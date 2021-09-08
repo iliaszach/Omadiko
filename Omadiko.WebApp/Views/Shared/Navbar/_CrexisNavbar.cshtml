@@ -53,8 +53,21 @@
                 <!-- Nav List -->
                 <ul class="nav uppercase normal">
 
-                    
 
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <li>
+                                <img src="@Url.Action("UserPhotos", "Manage" )" height="48" width="48" />
+
+                            </li>
+
+                        }
+
+                    }
 
 
                     <li class="dropdown-toggle nav-toggle">
