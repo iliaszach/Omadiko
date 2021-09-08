@@ -356,22 +356,26 @@
 		border-color: #222;
 	}
 
-	body.dark-layout .contact .contact_form.type-2.white-form input:hover,
-	body.dark-layout .contact .contact_form.type-2.white-form textarea:hover,
-	body.dark-layout .contact .contact_form.type-2.white-form input:focus,
-	body.dark-layout .contact .contact_form.type-2.white-form textarea:focus,
-	body.dark-layout select,
-	body.dark-layout div.pagination ul li.active a,
-	body.dark-layout div.pagination ul li.active a:hover,
-	body.dark-layout .light-form input,
-	body.dark-layout .light-form textarea,
-	body.dark-layout .light-form select,
-	body.dark-layout .light-form button,
-	body.dark-layout #shop .single_item_details .right .panel,
-	body.dark-layout .reply-form input,
-	body.dark-layout .reply-form textarea{
-/*		border-color: #444;
-*/	}
+		body.dark-layout .contact .contact_form.type-2.white-form input:hover,
+		body.dark-layout .contact .contact_form.type-2.white-form textarea:hover,
+		body.dark-layout .contact .contact_form.type-2.white-form input:focus,
+		body.dark-layout .contact .contact_form.type-2.white-form textarea:focus,
+		body.dark-layout select,
+		body.dark-layout div.pagination ul li.active a,
+		body.dark-layout div.pagination ul li.active a:hover,
+		body.dark-layout .light-form input,
+		body.dark-layout .light-form textarea,
+		body.dark-layout .light-form select,
+		body.dark-layout .light-form button,
+		body.dark-layout #shop .single_item_details .right .panel,
+		body.dark-layout .reply-form input,
+		body.dark-layout .reply-form textarea {
+			display: grid;
+			width: 100%;
+			border-radius: 30px;
+			height: 53.6px;
+			opacity:0.7;
+		}
 
 	body.dark-layout .timelineFlat .t_line_m,
 	body.dark-layout #pagetop.white-pagetop a:last-child{
@@ -448,12 +452,12 @@
 		body.dark-layout .widget .search {
 			background: #151515;
 			border: 1px solid #f0f0f0;
-			margin-top: 15px;
+/*			margin-top: 15px;
 			margin-bottom: 15px;
 			display: grid;
 			width: 100%;
 			border-radius: 30px;
-			height: 53.6px;
+			height: 53.6px;*/
 		}
 
 	body.dark-layout .contact .contact_form.type-2.white-form input,
