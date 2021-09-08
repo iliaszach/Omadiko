@@ -1672,8 +1672,8 @@
 	.nav-menu ul li{
 		width: auto;
 		float:left;
-		height: 100%;
-		text-align: center;
+/*		height: 100%;
+*/		text-align: center;
 	}
 
 	.nav-menu ul li a{
