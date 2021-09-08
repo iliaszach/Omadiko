@@ -448,7 +448,13 @@
 		body.dark-layout .widget .search {
 			background: #151515;
 			border: 1px solid #f0f0f0;
-/*			border-bottom-left-radius: 5px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			display: grid;
+			width: 100%;
+			border-radius: 30px;
+			height: 53.6px;
+			/*			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;*/
 		}
 
