@@ -60,67 +60,89 @@
 
     </div>
     <!-- End Filters -->
-
-
     @*<div class="marble-providerVM">*@
-        <!-- Portfolio Items -->
-        <div id="portfolio-items" class="fullwidth type2">
+    <!-- Portfolio Items -->
+<div id="portfolio-items" class="fullwidth type2">
 
 
-            @foreach (var marble in Model.Marbles)
+    @{
+
+        int Count = 0;
+        //var Lista = new List<>();
+        var marbles = Model.Marbles;
+    }
+
+    @for (int i = 0; i < marbles.Count; i++)
+    {
+        var max = marbles[i];
+        for (int j = 0; j < marbles.Count; j++)
+        {
             {
-                <!-- Item -->
-                <div class="cbp-item item design">
-                    <!-- Item Link -->
-                    <a href="projects/project_01.html" class="cbp-caption ex-link">
-
-                        <!-- Item Image -->
-                        <div class="cbp-caption-defaultWrap">
-                            <!-- Image Src -->
-                            <a href="~/marble/details/@marble.MarbleId">
-                                <img src="@Url.Content(marble.Photo.Url)" style="width:280px; height:255px" alt="Crexis">
-
-                            </a>
-
-
-                            <!-- Item Note -->
-                            <div class="item_icon">
-                                Icon
-                                <p><i class="fa fa-image"></i></p>
-                                <p>Photography</p>
-                            </div>
-                            <!-- End Item Note -->
-                        </div>
-                        <!-- End Item Image -->
-                        <!-- Item Details -->
-                        <div class="cbp-caption-activeWrap">
-                            <!-- Centered Details -->
-                            <div class="center-details">
-                                <div class="details" style="width: 280px; height: 91.8px; padding: 15px; opacity: 0.9; ">
-                                    <!-- Item Name -->
-                                    <h2 class="name " style="color:azure">
-                                        @Html.DisplayFor(modelItem => marble.Name)
-                                    </h2>
-                                    <!-- Tags -->
-                                    <p class="tags" style="color:azure">
-                                        @Html.DisplayFor(modelItem => marble.Country.Name)
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Center Details Div -->
-                        </div>
-                        <!-- End Item Details -->
-                    </a>
-                    <!-- End Item Link -->
-                </div>
-                <!-- End Item -->
+                max = marbles[i].ApplicationUsers.Count > marbles[j].ApplicationUsers.Count ? marbles[i] : marbles[j];
 
             }
 
+        }
+        Model.HelperMarble.Add(max);
+    }
 
-        </div>
-        <!-- End Portfolio Items -->
+    @foreach (var marble in Model.HelperMarble)
+    {
+        if (Count < 12)
+        {
+            <!-- Item -->
+            <div class="cbp-item item design">
+                <!-- Item Link -->
+                <a href="projects/project_01.html" class="cbp-caption ex-link">
 
+                    <!-- Item Image -->
+                    <div class="cbp-caption-defaultWrap">
+                        <!-- Image Src -->
+                        <a href="~/marble/details/@marble.MarbleId">
+                            <img src="@Url.Content(marble.Photo.Url)" style="width:280px; height:255px" alt="Crexis">
+                        </a>
+                        <!-- Item Note -->
+                        <div class="item_icon">
+                            Icon
+                            <p><i class="fa fa-image"></i></p>
+                            <p>Photography</p>
+                        </div>
+                        <!-- End Item Note -->
+                    </div>
+                    <!-- End Item Image -->
+                    <!-- Item Details -->
+                    <div class="cbp-caption-activeWrap">
+                        <!-- Centered Details -->
+                        <div class="center-details">
+                            <div class="details" style="width: 280px; height: 91.8px; padding: 15px; opacity: 0.9; ">
+                                <!-- Item Name -->
+                                <h2 class="name " style="color:azure">
+                                    @Html.DisplayFor(modelItem => marble.Name)
+                                </h2>
+                                <!-- Tags -->
+                                <p class="tags" style="color:azure">
+                                    @Html.DisplayFor(modelItem => marble.Country.Name)
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Center Details Div -->
+                    </div>
+                    <!-- End Item Details -->
+                </a>
+                <!-- End Item Link -->
+            </div>
+            <!-- End Item -->
+
+
+        }
+        Count++;
+
+    }
+
+
+
+    </div>
+    <!-- End Portfolio Items -->
     </div>
 
 </section>
