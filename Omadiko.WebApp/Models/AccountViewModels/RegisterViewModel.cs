@@ -1,4 +1,5 @@
 ﻿using Omadiko.Database;
+using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
@@ -7,25 +8,24 @@ namespace Omadiko.WebApp.Models
 {
     public class RegisterViewModel
     {
-
         //public ApplicationDbContext Context;
-        //public RegisterViewModel(ApplicationDbContext context)
+        //public RegisterRolesAcountViewModel(ApplicationDbContext context, RegisterViewModel register)
         //{
-            //Context = context;
+        //    Context = context;
+        //    Register = register;
+        //}
+        //public IEnumerable Roles
+        //{
+        //    get
+        //    {
+        //        return Context.Roles.Where(u => !u.Name.Contains("Admin")).ToList();
+        //    }
         //}
 
-        //public SelectList Roles
-        //{
-            //get
-            //{
-                //return new SelectList(Context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
-            //}
 
-        //}
-
-       // [Required]
-        //[Display(Name = "UserRoles")]
-        //public string UserRoles { get; set; }
+        [Required]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
 
         [Required]        
         [StringLength(15, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

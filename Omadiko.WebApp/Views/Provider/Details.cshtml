@@ -167,8 +167,11 @@
     <!-- Google maps -->
     <div>
 
-        <h3>My Google Maps Demo</h3>
+        <h3>My Google Maps </h3>
         <!--The div element for the map -->
+
+        <input id="input" style=" height:75px; width:1000px; background-color:dimgrey" />
+       
         <div id="map"></div>
 
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
@@ -196,13 +199,36 @@
                 position: uluru,
                 map: map,
             });
+
+            autocomplete = new google.maps.places.Autocomplete(document.getElementById("input"),
+                {
+                    componentRestrictions: { 'country': ['us', 'gr', 'jp', 'uk', 'es', 'ca', 'de', 'it', 'fr', 'au', 'tw', 'nl', 'br', 'tr', 'be', 'in', 'mx', 'dk', 'ar', 'ch', 'cl', 'at', 'kr', 'ie', 'co', 'pl', 'pt', 'pk'] },
+                    fields: ['geometry', 'name'],
+                    types: ['establishment']
+
+                });
+
+
+
+            autocomplete.addListener("place_changed", () => {
+
+                const place = autocomplete.getPlace();
+                new google.maps.Marker({
+
+                    position: place.geometry.location,
+                    title: place.name,
+                    map: map
+
+                })
+
+            });
         }
         </script>
 
         <script async
-                src="https://maps.googleapis.com/maps/api/js?key= AIzaSyB-LPkBeuyWeJyd-zpQpZjbIw7VVXF-hXQ&callback=initMap">
+                src="https://maps.googleapis.com/maps/api/js?key= AIzaSyB-LPkBeuyWeJyd-zpQpZjbIw7VVXF-hXQ&libraries=places&callback=initMap">
         </script>
-       
+
 
     </div>
     <!-- End Google maps -->

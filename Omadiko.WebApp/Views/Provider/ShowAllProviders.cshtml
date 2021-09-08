@@ -1,4 +1,6 @@
-﻿@model ICollection<Omadiko.Entities.Models.Provider>
+﻿@*@model ICollection<Omadiko.Entities.Models.Provider>*@
+@model PagedList.IPagedList<Omadiko.Entities.Models.Provider>
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "ShowAllProviders";
@@ -8,7 +10,40 @@
 @*<h2>ShowAllProviders</h2>*@
 
 
+<style>
 
+    #searchbar {
+        background-color: #151515;
+        color: #f0f0f0;
+        border: 1px solid #f0f0f0;
+    }
+
+    #searchbar::placeholder {
+        color:#f0f0f0;
+    }
+
+    .form {
+        padding-left: 870px;
+        margin-bottom: 30px;
+    }
+
+    .btn-primary, .btn-success {
+        background-color: #151515;
+        border: 1px solid #f0f0f0;
+        width: 280px;
+        border-radius: 5px;
+        opacity:0.9;
+    }
+
+    .btn-primary:hover {
+        background-color:#808080;
+    }
+
+    #pagination {
+        color: #f0f0f0;
+        opacity: 0.9;
+    }
+</style>
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="container 4-columns-margin single boxed">
@@ -49,11 +84,37 @@
 
     </div>
     <!-- End Filters -->
+
+
+
+    <div class="form">
+        @using (@Html.BeginForm("ShowAllProviders", "Provider", FormMethod.Get, new { @class = "form-group" }))
+        {
+            @*<input type="text" id="searchbar"*@
+        <input type="text" name="name" value="" @Html.TextBox("CompanyTitle", null, new { @class = "form-control", placeholder = "Search CompanyTitle", type = "search" })
+/>
+
+            <input type="text" id="searchbar" @Html.TextBox("Location", null, new { @class = "form-control", placeholder = "Search Country", type = "search" })
+
+
+            <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
+
+            <input type="submit" value="Search Provider" class="btn btn-primary" />
+
+            <input id="ResetButton" type="button" value="Clear Form" class="btn btn-success" />
+
+        }
+    <button class="btn-primary">
+        @Html.ActionLink("Sorting CompanyTitle (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.FNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+    </button>
+    <button class="btn-primary">
+        @Html.ActionLink("Sorting Country (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.LNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+    </button>
+    </div>
+
+
     <!-- Portfolio Items -->
     <div id="portfolio-items" class="fullwidth type2">
-
-
-
 
 
         @foreach (var provider in Model)
@@ -69,13 +130,13 @@
 
 
                         <a href="~/provider/details/@provider.ProviderId">
-                            <img src="@Url.Content(provider.CompanyPhoto)" style="width:280px; height:255px" />
+                            <img src="@Url.Content(provider.CompanyPhoto)" style="width:280px; height:240px" />
                         </a>
 
-                       
-                     
-                       
-                        
+
+
+
+
                         <!-- Item Note -->
                         <div class="item_icon">
                             <!-- Icon -->
@@ -89,7 +150,7 @@
                     <div class="cbp-caption-activeWrap" style="width:367px;">
                         <!-- Centered Details -->
                         <div class="center-details">
-                            <div class="details" style="width:280px; height:91.8px; ">
+                            <div class="details" style="width: 280px; height: 91.8px; padding: 15px; opacity: 0.9; ">
                                 <!-- Item Name -->
                                 <h2 class="name ">
                                     @Html.DisplayFor(modelItem => provider.CompanyTitle)
@@ -109,16 +170,13 @@
             <!-- End Item -->
         }
 
-
-
-
-
-
-
-
     </div>
     <!-- End Portfolio Items -->
 
+    <div id="pagination">
+        <i>Page</i> @Model.PageNumber <i>of</i> @Model.PageCount
+    </div>
+    @Html.PagedListPager(Model, x => Url.Action("ShowAllProviders", "Provider", new { page = x}))
 
 </section>
 <!-- End Portfolio Section -->
@@ -134,7 +192,14 @@
 <!-- End Page Note Type 2 -->
 
 
-
+@section ProviderJavascript{
+    <script>
+        $("#ResetButton").click(function (e) {
+            $("#CompanyTitle").val("");
+            $("#Location").val("");
+        })
+    </script>
+}
 
 
 

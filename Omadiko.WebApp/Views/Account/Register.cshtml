@@ -10,6 +10,7 @@
         background-color: #151;
         border: 1px solid #f0f0f0;
     }
+
 </style>
 
 <section id="fullscreen" class="background49Neo sdark-bg fullscreen table no-margin">
@@ -47,13 +48,10 @@
                 @Html.LabelFor(m => m.ConfirmPassword, new { @class = "hidden" })
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "strip_form white light block fullwidth mt-15 op-07", placeholder = "Confirm Password" })
             </div>
-            @*<div class="form-group">
-                @Html.Label("User Role", new { @class = "hidden" })
-                @Html.DropDownList("UserRoles",
-               (SelectList)ViewBag.Name,
-               "User Role",
-               new { @class = "strip_form white light block fullwidth mt-15 op-07" })
-            </div>*@
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserRoles, new { @class = "hidden" })
+                @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, "Choose Role",new { @class = "strip_form white light block fullwidth mt-15 op-07" })                
+            </div>
 
 
             <div class="form-group">

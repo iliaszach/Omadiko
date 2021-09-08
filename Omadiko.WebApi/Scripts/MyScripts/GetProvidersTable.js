@@ -1,5 +1,8 @@
-﻿function ShowProvidersTable() {    
-    ClearStatistics()
+﻿
+
+function ShowProvidersTable() {    
+    ClearTemplateProviders();
+    ClearStatistics();
     HtmlTemplate();
     GetInputProviders();
     GetInputLocation();
@@ -9,16 +12,27 @@
     GetDataProviders();
     
 }
+function ClearTemplateProviders() {
+    let template = $("#allProviders");
+    let temalte1 = $("#MarbleTable");
+    temalte1.empty();
+    template.empty();
+}
 
 function ClearStatistics() {
     let template = $("#jsChartsStatistics")
     template.empty();
 }
 
+
 function ClearTemplateMarble() {
     let template = $("#allMarble");
     template.empty();
 }
+
+
+
+
 
 //=======CRUD OPERATIONS METHODS=======
 //Create Provider 
@@ -93,7 +107,6 @@ function CreateProvider() {
     alert("Action canceled");
 }
 }
-
 function findMarbleByIDAsObject(id) {
     var listOfIds = [];
 
@@ -116,6 +129,7 @@ function findBTypesByIDAsObject(id) {
     return listOfIds;
 }
 
+
 //Read Provider
 function GetDataProviders() {
     var url = "api/Providers";
@@ -124,6 +138,7 @@ function GetDataProviders() {
         url: url,
         dataType: "json",
         success: function (result) {
+
             if (result) {
                 $("#tblProviderBody").html('');
                 var row = '';
@@ -136,7 +151,8 @@ function GetDataProviders() {
                         + "</td > "
                         + "<td>" + result[i].CompanyTitle + "</td>"
                         + "<td>" + result[i].CompanyDescription + "</td>"
-                        + "<td>" + "<img src="+result[i].CompanyPhoto+"alt='Alternate Text' />"+"</td>"+                        
+                        + "<td>" + '<img src="' + result[i].CompanyPhoto.replace('~', '') + '" style="max-height:100px; text-align:center;" alt="Alternate Text display:block;" />' + "</td>" +
+                        
                         + "<td>"  + "</td>"
                         + "<td>" + result[i].WebSite + "</td>"
                         + "<td>" + result[i].Location.Country + "</td>"
@@ -145,8 +161,11 @@ function GetDataProviders() {
                         + "<td><ul>" + result[i].BusinessTypes.map(x => `<li>${x.Kind}</li>`).join("") + "</ul></td>"
                         + "<td><ul>" + result[i].Marbles.map(x => `<li>${x.Name}</li>`).join("") + "</ul></td>"
                         + "</tr>";
+                    
                 }
+
             }
+            console.log(row);
             if (row != '') {
                 $("#tblProviderBody").append(row);
             }
@@ -339,6 +358,7 @@ function DeleteProvider(id) {
     }
 }
 
+
 function GetProviderMarbles(provider, marblesIds) {
     //Get the unselected and the selected BusinessTypes
     $.ajax({
@@ -435,6 +455,10 @@ function GetProviderBTypes(provider, businessTypesIds) {
         },
     });
 }
+
+
+
+
 
 //=======General Data Manipulation Data Methods
 //Function that get the selected values from a multiple select list

@@ -98,11 +98,11 @@
 .black-bg > *,
 .changeable_bg_tone {
 	position: relative;
-/*	background-color: #222222;
-*/}
+	background-color: #222222;
+}
 
 	.sdark-bg:before{
-		background-color:rgba(0,0,0, 0.2);
+/*		background-color:rgba(0,0,0, 0.2);*/
 		position: absolute;
 		left:0;
 		top: 0;
@@ -124,8 +124,8 @@
 	}
 
 	.xdark-bg:before{
-/*		background-color:#222222;
-*/		position: absolute;
+		background-color:#222222;
+		position: absolute;
 		left:0;
 		top: 0;
 		width: 100%;
