@@ -15,7 +15,6 @@
     #searchbar {
         background-color: #151515;
         color: #f0f0f0;
-        border: 1px solid #f0f0f0;
     }
 
     #searchbar::placeholder {
@@ -91,11 +90,12 @@
         @using (@Html.BeginForm("ShowAllProviders", "Provider", FormMethod.Get, new { @class = "form-group" }))
         {
             @*<input type="text" id="searchbar"*@
-        <input type="text" name="name" value="" @Html.TextBox("CompanyTitle", null, new { @class = "form-control", placeholder = "Search CompanyTitle", type = "search" })
-/>
-
-            <input type="text" id="searchbar" @Html.TextBox("Location", null, new { @class = "form-control", placeholder = "Search Country", type = "search" })
-
+        <div id="searchbar">
+            @Html.TextBox("CompanyTitle", null, new { @class = "form-control", placeholder = "Search CompanyTitle", type = "search" })
+        </div>
+        <div id="searchbar">
+            @Html.TextBox("Location", null, new { @class = "form-control", placeholder = "Search Country", type = "search" })
+        </div>
 
             <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
 
