@@ -5123,10 +5123,11 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
             padding: 6px 12px;
             margin-left: -1px;
             line-height: 1.42857143;
-            color: #337ab7;
+            color: #f0f0f0;
             text-decoration: none;
-            background-color: #fff;
-            border: 1px solid #ddd
+            background-color: #151515;
+            border: 1px solid #f0f0f0;
+            opacity:0.9;
         }
 
         .pagination > li:first-child > a, .pagination > li:first-child > span {
@@ -5151,8 +5152,9 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
         z-index: 3;
         color: #fff;
         cursor: default;
-        background-color: #337ab7;
-        border-color: #337ab7
+        background-color: #808080;
+/*        border-color: #808080;*/
+
     }
 
     .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {

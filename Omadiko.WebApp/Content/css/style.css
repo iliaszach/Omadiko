@@ -1400,7 +1400,8 @@
 /* Pagetop White Styles */
 
 	#pagetop.white-pagetop{
-		border-bottom:1px solid #efefef;
+		border-bottom:1px solid #f0f0f0;
+		opacity:0.9;
 	}
 
 	#pagetop.white-pagetop p{
@@ -1485,6 +1486,8 @@
 			-moz-transition: all 0.5s;
 			transition: all 0.5s;
 			background-color: #151515;
+			border-bottom: 1px solid #F0F0F0;
+			opacity:0.9;
 		}
 
 	#navigation .navigation.first-nav:hover{
@@ -1658,12 +1661,13 @@
 		height: 100%;
 	}
 
-	.nav-menu ul{
-		display: block;
-		width: auto;
-		height: 100%;
-		position: relative;
-	}
+		.nav-menu ul {
+			display: block;
+			width: auto;
+			height: 100%;
+			position: relative;
+/*			border-bottom: 1px solid #f0f0f0;
+*/		}
 
 	.nav-menu ul li{
 		width: auto;

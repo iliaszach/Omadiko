@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Omadiko.Entities.Models.Marble>
+﻿@*@model IEnumerable<Omadiko.Entities.Models.Marble>*@
+@model PagedList.IPagedList<Omadiko.Entities.Models.Marble>
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "ShowMarbles";
@@ -6,6 +8,16 @@
 }
 
 <style>
+
+    #searchbar {
+        background-color: #151515;
+        color: #f0f0f0;
+        border: 1px solid #f0f0f0;
+    }
+
+        #searchbar::placeholder {
+            color: #f0f0f0;
+        }
 
     .navigation {
         background-color: #222222;
@@ -46,20 +58,25 @@
     }
 
     .form {
-        padding-left: 900px;
+        padding-left: 870px;
         margin-bottom: 30px;
     }
 
     .btn-primary, .btn-success {
         background-color: #151515;
         border: 1px solid #f0f0f0;
-        width: 250px;
+        width: 280px;
         border-radius: 5px;
         opacity: 0.9;
     }
 
         .btn-primary:hover {
             background-color: #808080;
+        }
+
+        #pagination {
+            color:#f0f0f0;
+            opacity:0.9;
         }
 
 </style>
@@ -108,9 +125,9 @@
         @using (@Html.BeginForm("ShowMarbles", "Marble", FormMethod.Get, new { @class = "form-group" }))
         {
 
-            @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Search Name of Marble", type = "search" })
-            @Html.TextBox("Color", null, new { @class = "form-control", placeholder = "Search Color of Marble", type = "search" })
-            @Html.TextBox("Country", null, new { @class = "form-control", placeholder = "Search Country of Marble", type = "search" })
+            <input type="text" id="searchbar" @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Search Name of Marble", type = "search" })
+            <input type="text" id="searchbar" @Html.TextBox("Color", null, new { @class = "form-control", placeholder = "Search Color of Marble", type = "search" })
+            <input type="text" id="searchbar" @Html.TextBox("Country", null, new { @class = "form-control", placeholder = "Search Country of Marble", type = "search" })
 
             <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
 
@@ -204,8 +221,10 @@
     </div>
     <!-- End Portfolio Items -->
 
-
-
+    <div id="pagination">
+        <i>Page</i> @Model.PageNumber <i>of</i> @Model.PageCount
+    </div>   
+        @Html.PagedListPager(Model, x => Url.Action("ShowMarbles", "Marble", new { page = x }))
 
 </section>
 <!-- End Portfolio Section -->
