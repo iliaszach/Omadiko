@@ -1,7 +1,9 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
+
+
 <style>
 
-/*    .dropdown-toggle:hover {
+    /*    .dropdown-toggle:hover {
         background-color:greenyellow !important;
     }*/
 
@@ -9,21 +11,21 @@
         background-color: #808080 !important;
     }
 
-    .btn {
-        opacity:0.9;
-    }
-
 /*    ul > li > a:hover {
         background-color: red !important;
     }*/
 
-/*    .ex-link:hover {
+    /*    .ex-link:hover {
         background-color:red !important;
     }
 
     .dropdown-menu > li > a:hover {
         background-color:red !important;
     }*/
+
+    .tsourekia > ul > li > a:hover  {
+        background-color:red !important;
+    }
 
 </style>
 
@@ -51,6 +53,23 @@
                 <!-- Nav List -->
                 <ul class="nav uppercase normal">
 
+
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <li>
+                                <img src="@Url.Action("UserPhotos", "Manage" )" height="48" width="48" />
+
+                            </li>
+
+                        }
+
+                    }
+
+
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/">Home</a>
 
@@ -65,41 +84,24 @@
                         <a class="btn" href="/provider/ShowAllProviders">Providers</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
-                        <a class="btn" href="/Home/About" >About</a>
+                        <a class="btn" href="/Home/About">About</a>
 
                     </li>
 
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/Home/Contact">Contact</a>
                     </li>
-                    <li class="dropdown-toggle nav-toggle">
-                        <a href="pages-shop-4-col.html" class="btn">Shop</a>
-                        <!-- DropDown Menu -->
-                        <div class="tsourekia">
-                            <ul style="background-color: #151515; border: 1px solid #f0f0f0;" class="dropdown-menu">
-                                <li><a href="pages-shop-4-col.html" class="ex-link">4 Columns</a></li>
-                                <li><a href="pages-shop-3-col.html" class="ex-link">3 Columns</a></li>
-                                <li><a href="pages-shop-2-col.html" class="ex-link">2 Columns</a></li>
-                                <li><a href="pages-shop-single.html" class="ex-link">Single Product</a></li>
-                            </ul>
-                        </div>
-                        <!-- End DropDown Menu -->
-                    </li>
-                    <li class="dropdown-toggle nav-toggle">
-                        <a class="btn" href="#" ><i class="fa fa-search"></i></a>
-                        <!-- DropDown Menu -->
-                        <ul style="background-color:#151515; border:1px solid #f0f0f0;" class="dropdown-menu pull-right clearfix">
-                            <li class="ml-20 mt-15 mr-20 mb-15 raleway mini-text gray">
-                                <form method="post" class="search-form">
-                                    <input type="text" name="search" id="search" style="background-color:#222222; color:#F0FFFF;" placeholder="SEARCH...">
-                                    <button style="background-color: #151515; color: #F0FFFF;" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+
+
+
+
+
                     @Html.Partial("_CrexisLoginPartial")
+
+
+
+
+
 
                 </ul>
                 <!-- End Nav List -->
