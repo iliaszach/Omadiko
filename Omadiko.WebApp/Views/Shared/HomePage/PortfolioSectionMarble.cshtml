@@ -1,9 +1,11 @@
 ﻿@model Omadiko.WebApp.Models.MarbleProviderViewModel.MarbleProviderVM
+@*@model PagedList.IPagedList<Omadiko.WebApp.Models.MarbleProviderViewModel.MarbleProviderVM>*@
+@using PagedList.Mvc
 
 <style>
     .details {
-        border: 1px solid #f0f0f0;
-    }
+/*        border: 1px solid #f0f0f0;
+*/    }
 </style>
 
 <!-- Portfolio Section Marble -->
@@ -60,68 +62,66 @@
 
     </div>
     <!-- End Filters -->
-
-
     @*<div class="marble-providerVM">*@
-        <!-- Portfolio Items -->
-        <div id="portfolio-items" class="fullwidth type2">
+    <!-- Portfolio Items -->
+    <div id="portfolio-items" class="fullwidth type2">
 
 
-            @foreach (var marble in Model.Marbles)
-            {
-                <!-- Item -->
-                <div class="cbp-item item design">
-                    <!-- Item Link -->
-                    <a href="projects/project_01.html" class="cbp-caption ex-link">
+        @foreach (var marble in Model.Marbles)
+        {
+            <!-- Item -->
+            <div class="cbp-item item design">
+                <!-- Item Link -->
+                <a href="projects/project_01.html" class="cbp-caption ex-link">
 
-                        <!-- Item Image -->
-                        <div class="cbp-caption-defaultWrap">
-                            <!-- Image Src -->
-                            <a href="~/marble/details/@marble.MarbleId">
-                                <img src="@Url.Content(marble.Photo.Url)" style="width:280px; height:255px" alt="Crexis">
+                    <!-- Item Image -->
+                    <div class="cbp-caption-defaultWrap">
+                        <!-- Image Src -->
+                        <a href="~/marble/details/@marble.MarbleId">
+                            <img src="@Url.Content(marble.Photo.Url)" style="width:280px; height:255px" alt="Crexis">
 
-                            </a>
+                        </a>
 
 
-                            <!-- Item Note -->
-                            <div class="item_icon">
-                                Icon
-                                <p><i class="fa fa-image"></i></p>
-                                <p>Photography</p>
-                            </div>
-                            <!-- End Item Note -->
+                        <!-- Item Note -->
+                        <div class="item_icon">
+                            Icon
+                            <p><i class="fa fa-image"></i></p>
+                            <p>Photography</p>
                         </div>
-                        <!-- End Item Image -->
-                        <!-- Item Details -->
-                        <div class="cbp-caption-activeWrap">
-                            <!-- Centered Details -->
-                            <div class="center-details">
-                                <div class="details" style="width: 280px; height: 91.8px; padding: 15px; opacity: 0.9; ">
-                                    <!-- Item Name -->
-                                    <h2 class="name " style="color:azure">
-                                        @Html.DisplayFor(modelItem => marble.Name)
-                                    </h2>
-                                    <!-- Tags -->
-                                    <p class="tags" style="color:azure">
-                                        @Html.DisplayFor(modelItem => marble.Country.Name)
-                                    </p>
-                                </div>
+                        <!-- End Item Note -->
+                    </div>
+                    <!-- End Item Image -->
+                    <!-- Item Details -->
+                    <div class="cbp-caption-activeWrap">
+                        <!-- Centered Details -->
+                        <div class="center-details">
+                            <div class="details" style="width: 280px; height: 91.8px; padding: 15px; opacity: 0.9; ">
+                                <!-- Item Name -->
+                                <h2 class="name " style="color:azure">
+                                    @Html.DisplayFor(modelItem => marble.Name)
+                                </h2>
+                                <!-- Tags -->
+                                <p class="tags" style="color:azure">
+                                    @Html.DisplayFor(modelItem => marble.Country.Name)
+                                </p>
                             </div>
-                            <!-- End Center Details Div -->
                         </div>
-                        <!-- End Item Details -->
-                    </a>
-                    <!-- End Item Link -->
-                </div>
-                <!-- End Item -->
+                        <!-- End Center Details Div -->
+                    </div>
+                    <!-- End Item Details -->
+                </a>
+                <!-- End Item Link -->
+            </div>
+            <!-- End Item -->
 
-            }
-
-
-        </div>
-        <!-- End Portfolio Items -->
+        }
 
     </div>
+    <!-- End Portfolio Items -->
+
+    @*<i>Page</i>@Model.PageNumber <i>of</i> @Model.PageCount
+    @Html.PagedListPager(Model, x => Url.Action("ShowMarbles", "Marble", new { page = x }))*@
 
 </section>
 <!-- End Portfolio Section -->

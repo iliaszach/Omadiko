@@ -13,6 +13,7 @@ using Omadiko.Entities.Models;
 using Omadiko.RepositoryServices;
 using Omadiko.RepositoryServices.DataAccess;
 using Omadiko.WebApp.Models;
+using PagedList;
 
 namespace Omadiko.WebApp.Controllers
 {
@@ -188,7 +189,7 @@ namespace Omadiko.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ShowMarbles(string Name, string Color, string Country, string sortOrder)
+        public ActionResult ShowMarbles(string Name, string Color, string Country, string sortOrder, int? pSize, int? page)
         {
             var marbles = unitOfWork.Marbles.GetAll();
 
@@ -260,12 +261,15 @@ namespace Omadiko.WebApp.Controllers
             }
             #endregion
 
+            #region Pagination
+            int pageSize = pSize ?? 8;
+            int pageNumber = page ?? 1;
+            #endregion
 
 
 
 
-
-            return View(marbles);
+            return View(marbles.ToPagedList(pageNumber, pageSize));
         }
 
 

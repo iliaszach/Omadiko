@@ -58,6 +58,12 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -323,6 +329,7 @@
     <Content Include="Content\images\ProviderPhotos\LOGO-ALPA-MARBLES.jpg" />
     <Content Include="Content\images\ProviderPhotos\Logo2.jpg" />
     <Content Include="Content\images\ProviderPhotos\Quarry_GALANIS.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="DashboardTemplate\index.html" />
     <Content Include="Content\Dashboard\js\ckeditor\adapters\jquery.js" />
     <Content Include="Content\Dashboard\js\ckeditor\build-config.js" />

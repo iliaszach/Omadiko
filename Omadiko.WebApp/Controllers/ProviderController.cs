@@ -12,6 +12,7 @@ using Omadiko.RepositoryServices;
 
 using Omadiko.RepositoryServices.DataAccess;
 using Omadiko.WebApp.Models;
+using PagedList;
 
 namespace Omadiko.WebApp.Controllers
 {
@@ -154,7 +155,7 @@ namespace Omadiko.WebApp.Controllers
 
 
 
-        public ActionResult ShowAllProviders(string CompanyTitle,string Location, string sortOrder)
+        public ActionResult ShowAllProviders(string CompanyTitle,string Location, string sortOrder, int? pSize, int? page)
         {
             var providers = unitOfWork.Providers.GetAll();
 
@@ -209,9 +210,12 @@ namespace Omadiko.WebApp.Controllers
             }
             #endregion
 
+            #region Pagination
+            int pageSize = pSize ?? 8;
+            int pageNumber = page ?? 1;
+            #endregion
 
-
-            return View(providers);
+            return View(providers.ToPagedList(pageNumber, pageSize));
         }
 
 
