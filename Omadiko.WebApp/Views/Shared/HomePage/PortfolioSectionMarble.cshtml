@@ -1,11 +1,9 @@
 ﻿@model Omadiko.WebApp.Models.MarbleProviderViewModel.MarbleProviderVM
-@*@model PagedList.IPagedList<Omadiko.WebApp.Models.MarbleProviderViewModel.MarbleProviderVM>*@
-@using PagedList.Mvc
 
 <style>
     .details {
-/*        border: 1px solid #f0f0f0;
-*/    }
+        border: 1px solid #f0f0f0;
+    }
 </style>
 
 <!-- Portfolio Section Marble -->
@@ -64,10 +62,33 @@
     <!-- End Filters -->
     @*<div class="marble-providerVM">*@
     <!-- Portfolio Items -->
-    <div id="portfolio-items" class="fullwidth type2">
+<div id="portfolio-items" class="fullwidth type2">
 
 
-        @foreach (var marble in Model.Marbles)
+    @{
+
+        int Count = 0;
+        //var Lista = new List<>();
+        var marbles = Model.Marbles;
+    }
+
+    @for (int i = 0; i < marbles.Count; i++)
+    {
+        var max = marbles[i];
+        for (int j = 0; j < marbles.Count; j++)
+        {
+            {
+                max = marbles[i].ApplicationUsers.Count > marbles[j].ApplicationUsers.Count ? marbles[i] : marbles[j];
+
+            }
+
+        }
+        Model.HelperMarble.Add(max);
+    }
+
+    @foreach (var marble in Model.HelperMarble)
+    {
+        if (Count < 12)
         {
             <!-- Item -->
             <div class="cbp-item item design">
@@ -79,10 +100,7 @@
                         <!-- Image Src -->
                         <a href="~/marble/details/@marble.MarbleId">
                             <img src="@Url.Content(marble.Photo.Url)" style="width:280px; height:255px" alt="Crexis">
-
                         </a>
-
-
                         <!-- Item Note -->
                         <div class="item_icon">
                             Icon
@@ -115,13 +133,17 @@
             </div>
             <!-- End Item -->
 
+
         }
+        Count++;
+
+    }
+
+
 
     </div>
     <!-- End Portfolio Items -->
-
-    @*<i>Page</i>@Model.PageNumber <i>of</i> @Model.PageCount
-    @Html.PagedListPager(Model, x => Url.Action("ShowMarbles", "Marble", new { page = x }))*@
+    </div>
 
 </section>
 <!-- End Portfolio Section -->
