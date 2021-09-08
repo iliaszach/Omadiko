@@ -36,9 +36,11 @@
 	@media only screen and (max-width: 1185px){
 
 		/* Navigation */
-		.nav-inner{
-			padding-left:20px;
-			padding-right:20px;
+		.nav-inner {
+			padding-left: 20px;
+			padding-right: 20px;
+			border-bottom: 1px solid #f0f0f0;
+			opacity: 0.9;
 		}
 
 		#clients .boxes .owl-controls .owl-buttons{
@@ -179,8 +181,8 @@
 			left:0;
 			float: none;
 			height: 400px;
-			overflow: auto;
-		}
+/*			overflow: auto;
+*/		}
 
 		#navigation-type2 .nav-inner div.nav-menu{
 			display: block;
@@ -192,7 +194,7 @@
 		}
 
 		.nav-inner div.nav-menu ul.nav{
-			display: block;
+			display: grid;
 			top:0;
 			width: 100%;
 			height: auto;
@@ -206,13 +208,14 @@
 			color:#1f1f1f;
 		}
 
-		.nav-inner div.nav-menu ul.nav li{
-			display: block;
-			top:0;
+		.nav-inner div.nav-menu ul.nav li {
+			display: grid;
+			top: 0;
 			width: 100%;
 			float: none;
-			padding:0;
+			padding: 0;
 			clear: both;
+			background-color: #222222;
 		}
 
 			.nav-inner div.nav-menu ul.nav li a {
