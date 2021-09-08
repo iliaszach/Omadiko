@@ -1,6 +1,4 @@
-﻿
-
-function ShowProvidersTable() {    
+﻿function ShowProvidersTable() {    
     ClearTemplateProviders();
     ClearStatistics();
     HtmlTemplate();
@@ -24,15 +22,10 @@ function ClearStatistics() {
     template.empty();
 }
 
-
 function ClearTemplateMarble() {
     let template = $("#allMarble");
     template.empty();
 }
-
-
-
-
 
 //=======CRUD OPERATIONS METHODS=======
 //Create Provider 
@@ -107,6 +100,7 @@ function CreateProvider() {
     alert("Action canceled");
 }
 }
+
 function findMarbleByIDAsObject(id) {
     var listOfIds = [];
 
@@ -128,7 +122,6 @@ function findBTypesByIDAsObject(id) {
     }    
     return listOfIds;
 }
-
 
 //Read Provider
 function GetDataProviders() {
@@ -358,7 +351,6 @@ function DeleteProvider(id) {
     }
 }
 
-
 function GetProviderMarbles(provider, marblesIds) {
     //Get the unselected and the selected BusinessTypes
     $.ajax({
@@ -455,10 +447,6 @@ function GetProviderBTypes(provider, businessTypesIds) {
         },
     });
 }
-
-
-
-
 
 //=======General Data Manipulation Data Methods
 //Function that get the selected values from a multiple select list
