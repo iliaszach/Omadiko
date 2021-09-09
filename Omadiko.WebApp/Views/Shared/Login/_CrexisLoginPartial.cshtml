@@ -1,12 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
 
-<style>
-
-    .btn:hover {
-        background-color: red !important;
-    }
-</style>
-
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -20,13 +13,8 @@
 
 
         </li>
-
-       
+      
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-
-       
-
-
     }
 }
 else

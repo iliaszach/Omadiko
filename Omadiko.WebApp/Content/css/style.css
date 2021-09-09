@@ -2791,7 +2791,7 @@
 			-moz-transition: all 0.3s;
 			transition: all 0.3s;
 			border: 1px solid #f0f0f0;
-			border-radius: 5px;
+			border-radius: 30px;
 		}
 
 	.boxes.boxes-type-4 .box-image a.changeable-image{
@@ -3654,8 +3654,8 @@
 	-moz-transition: all 0.5s;
 	transition: all 0.5s;
 	border: 1px solid #f0f0f0;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 }
 
 	#team.type-2 .team-boxes .member-details h3{
@@ -4757,8 +4757,8 @@
 			margin-top: 0;
 			border: 1px solid #f0f0f0;
 			background-color: #222222;
-			border-bottom-left-radius: 5px;
-			border-bottom-right-radius: 5px;
+			border-bottom-left-radius: 30px;
+			border-bottom-right-radius: 30px;
 		}
 
 	#portfolio-items.type2 .item .cbp-caption-activeWrap{
@@ -4766,8 +4766,8 @@
 		opacity: 1;
 		background: white;
 		z-index: 2;
-		border-bottom-left-radius: 5px;
-		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 30px;
+		border-bottom-right-radius: 30px;
 	}
 
 	#portfolio-items.type2 .item .center-details .details h2{
@@ -7499,6 +7499,8 @@
 	#shop .single_item_details .image-pgn-slider ul.slides li img{
 		width: 100%;
 		height: auto;
+		border-bottom-left-radius:30px;
+		border-bottom-right-radius:30px;
 	}
 
 	#shop .single_item_details .flex-control-thumbs{
@@ -7515,13 +7517,15 @@
 		margin-right: 0;
 	}
 
-	#shop .single_item_details .flex-control-thumbs li img{
-		vertical-align: middle;
-		opacity: 0.5;
-		-webkit-transition: all 0.5s;
-		-moz-transition: all 0.5s;
-		transition: all 0.5s;
-	}
+		#shop .single_item_details .flex-control-thumbs li img {
+			vertical-align: middle;
+			opacity: 0.5;
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+			transition: all 0.5s;
+			border-bottom-left-radius: 30px;
+			border-bottom-right-radius: 30px;
+		}
 
 	#shop .single_item_details .flex-control-thumbs li img.flex-active,
 	#shop .single_item_details .flex-control-thumbs li img:hover{
