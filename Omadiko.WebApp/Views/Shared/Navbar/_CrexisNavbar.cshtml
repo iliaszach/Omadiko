@@ -1,30 +1,27 @@
 ﻿@using Microsoft.AspNet.Identity
 
-
 <style>
 
-    /*    .dropdown-toggle:hover {
-        background-color:greenyellow !important;
-    }*/
+    .double-nav {
+        background-color: #151515; 
+        border-bottom: 1px solid #F0F0F0;
+    }
 
     .btn:hover {
         background-color: #808080 !important;
     }
 
-/*    ul > li > a:hover {
-        background-color: red !important;
-    }*/
-
-    /*    .ex-link:hover {
-        background-color:red !important;
+    img {
+        /*border-radius: 30px;*/
+        border: 1px solid #f0f0f0;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
     }
 
-    .dropdown-menu > li > a:hover {
-        background-color:red !important;
-    }*/
-
-    .tsourekia > ul > li > a:hover  {
-        background-color:red !important;
+    li > img {
+        margin:10px;
+        width:45px;
+        height:48px;
     }
 
 </style>
@@ -32,10 +29,9 @@
 <!-- Navigation - select your nav color - dark-nav or white-nav -->
 <nav id="navigation" class="white-nav relative-nav">
     <!-- Navigation -->
-    <div class="navigation double-nav raleway " style="background-color: #151515; border-bottom: 1px solid #F0F0F0; ">
+    <div class="navigation double-nav raleway">
         <!-- Navigation Inner -->
         <div class="nav-inner clearfix">
-
             <!-- Logo Area -->
             <div class="logo f-left">
                 <!-- Logo Link -->
@@ -46,71 +42,42 @@
             <!-- End Logo Area -->
             <!-- Mobile Menu Button -->
             <a class="mobile-nav-button"><i class="fa fa-bars"></i></a>
-
             <!-- Navigation Links -->
             <div class="nav-menu clearfix f-right">
-
                 <!-- Nav List -->
                 <ul class="nav uppercase normal">
-
-
                     @if (Request.IsAuthenticated)
                     {
                         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                         {
                             @Html.AntiForgeryToken()
-
                             <li>
-                                <img src="@Url.Action("UserPhotos", "Manage" )" height="48" width="48" style="margin:10px; border-radius:30px;" />
-
+                                <img style="border-radius:30px;" src="@Url.Action("UserPhotos", "Manage" )"/>
                             </li>
-
                         }
-
                     }
-
-
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/">Home</a>
-
                     </li>
-
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/marble/showmarbles">Marble</a>
                     </li>
-
-
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/provider/ShowAllProviders">Providers</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/Home/About">About</a>
-
                     </li>
-
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/Home/Contact">Contact</a>
                     </li>
-
-
-
-
-
                     @Html.Partial("_CrexisLoginPartial")
-
-
-
-
-
-
                 </ul>
                 <!-- End Nav List -->
             </div>
             <!-- End Navigation Links -->
         </div>
         <!-- End Navigation Inner -->
-
     </div>
-
 </nav>
 <!-- End Nav -->
