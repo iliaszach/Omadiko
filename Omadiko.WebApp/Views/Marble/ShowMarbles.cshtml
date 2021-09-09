@@ -82,10 +82,8 @@
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="container 4-columns-margin single boxed">
-
     <!-- Filters -->
     <div id="portfolio-filters" class="cbp-l-filters-alignCenter normal type2">
-
         <!-- Filter -->
         <div data-filter="*" class="cbp-filter-item-active cbp-filter-item" style="background-color:#222222; color:azure;">
             All
@@ -116,15 +114,11 @@
             <!-- Filter Counter -->
             <div class="cbp-filter-counter"></div>
         </div>
-
     </div>
     <!-- End Filters -->
-
-
     <div class="form">
         @using (@Html.BeginForm("ShowMarbles", "Marble", FormMethod.Get, new { @class = "form-group" }))
         {
-
             <div id="searchbar">
                 @Html.TextBox("Name", null, new { @class = "form-control", placeholder = "Search Name of Marble", type = "search" })
             </div>
@@ -140,7 +134,6 @@
             <input type="submit" value="Search Marble" class="btn btn-primary" />
 
             <input id="ResetButton" type="button" value="Clear Form" class="btn btn-success" />
-
         }
         <button class="btn-primary">
             @Html.ActionLink("Sorting Name (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.FNSPname, Name = ViewBag.Name, Color = ViewBag.Color, Country = ViewBag.Country }, null)
@@ -151,44 +144,21 @@
         <button class="btn-primary">
             @Html.ActionLink("Sorting Country (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcountry, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
         </button>
-
     </div>
-
-
-
-
-
-
-
-
             <!-- Portfolio Items -->
             <div id="portfolio-items" class="fullwidth type2">
-
-
                 @foreach (var marble in Model)
                 {
                     <!-- Item -->
                     <div class="cbp-item item design">
                         <!-- Item Link -->
                         <a href="projects/project_01.html" class="cbp-caption ex-link">
-
                             <!-- Item Image -->
                             <div class="cbp-caption-defaultWrap">
                                 <!-- Image Src -->
-
-
-
-
                                 <a href="~/marble/details/@marble.MarbleId">
-                                    <img src="@Url.Content(marble.Photo.Url)" style="width:280px; height:240px;" alt="Crexis">
-
+                                    <img src="@Url.Content(marble.Photo.Url)" style="width:280px; height:240px; border:1px solid #f0f0f0;" alt="Crexis">
                                 </a>
-
-
-
-
-
-
                                 <!-- Item Note -->
                                 <div class="item_icon">
                                     Icon
@@ -220,18 +190,13 @@
                         <!-- End Item Link -->
                     </div>
                     <!-- End Item -->
-
                 }
-
-
             </div>
             <!-- End Portfolio Items -->
-
             <div id="pagination">
                 <i>Page</i> @Model.PageNumber <i>of</i> @Model.PageCount
             </div>
             @Html.PagedListPager(Model, x => Url.Action("ShowMarbles", "Marble", new { page = x }))
-
 </section>
 <!-- End Portfolio Section -->
 <!-- Page Note Type 2 -->
@@ -245,7 +210,6 @@
 </section>
 <!-- End Page Note Type 2 -->
 <!-- Footer -->
-
 @section MarbleJavascript{
     <script>
         $("#ResetButton").click(function (e) {

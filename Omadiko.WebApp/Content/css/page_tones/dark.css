@@ -323,38 +323,39 @@
 
 /* Border Colors */
 
-	body.dark-layout #team.type-2 .team-boxes .member-details .member-more,
-	body.dark-layout #member-modals .modal-dialog a.close,
-	body.dark-layout #portfolio-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item,
-	body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item,
-	body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item,
-	body.dark-layout #portfolio-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item:last-child,
-	body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item:last-child,
-	body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item:last-child,
-	body.dark-layout #portfolio-items.type2 .item .center-details .details,
-	body.dark-layout .load-more-button.circle-button,
-	body.dark-layout .soft-border,
-	body.dark-layout #featured-works,
-	body.dark-layout .timelineFlat a.t_line_node:after,
-	body.dark-layout #features-mobile .f-collapse div,
-	body.dark-layout .contact .contact_form.type-2.white-form input,
-	body.dark-layout .contact .contact_form.type-2.white-form textarea,
-	body.dark-layout .contact .contact_form.type-2.white-form button,
-	body.dark-layout #shop .box .box_inner,
-	body.dark-layout div.pagination ul li a, div.pagination ul li a:focus,
-	body.dark-layout .nav-tabs>li.active>a,
-	body.dark-layout .nav-tabs>li.active>a:focus,
-	body.dark-layout .nav-tabs>li.active>a:hover,
-	body.dark-layout .table-bordered>tbody>tr>td,
-	body.dark-layout .table-bordered>tbody>tr>th,
-	body.dark-layout .table-bordered>tfoot>tr>td,
-	body.dark-layout .table-bordered>tfoot>tr>th,
-	body.dark-layout .table-bordered>thead>tr>td,
-	body.dark-layout .table-bordered>thead>tr>th,
-	body.dark-layout .sidebar .widget a.tag,
-	body.dark-layout .widget .search{
-		border-color: #222;
-	}
+		body.dark-layout #team.type-2 .team-boxes .member-details .member-more,
+		body.dark-layout #member-modals .modal-dialog a.close,
+		body.dark-layout #portfolio-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item,
+		body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item,
+		body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item,
+		body.dark-layout #portfolio-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item:last-child,
+		body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item:last-child,
+		body.dark-layout #blog-filters.type2.cbp-l-filters-alignCenter .cbp-filter-item:last-child,
+		body.dark-layout #portfolio-items.type2 .item .center-details .details,
+		body.dark-layout .load-more-button.circle-button,
+		body.dark-layout .soft-border,
+		body.dark-layout #featured-works,
+		body.dark-layout .timelineFlat a.t_line_node:after,
+		body.dark-layout #features-mobile .f-collapse div,
+		body.dark-layout .contact .contact_form.type-2.white-form input,
+		body.dark-layout .contact .contact_form.type-2.white-form textarea,
+		body.dark-layout .contact .contact_form.type-2.white-form button,
+		body.dark-layout #shop .box .box_inner,
+		body.dark-layout div.pagination ul li a, div.pagination ul li a:focus,
+		body.dark-layout .nav-tabs > li.active > a,
+		body.dark-layout .nav-tabs > li.active > a:focus,
+		body.dark-layout .nav-tabs > li.active > a:hover,
+		body.dark-layout .table-bordered > tbody > tr > td,
+		body.dark-layout .table-bordered > tbody > tr > th,
+		body.dark-layout .table-bordered > tfoot > tr > td,
+		body.dark-layout .table-bordered > tfoot > tr > th,
+		body.dark-layout .table-bordered > thead > tr > td,
+		body.dark-layout .table-bordered > thead > tr > th,
+		body.dark-layout .sidebar .widget a.tag,
+		body.dark-layout .widget .search {
+			border-color: #222;
+			border: 1px solid #f0f0f0;
+		}
 
 		body.dark-layout .contact .contact_form.type-2.white-form input:hover,
 		body.dark-layout .contact .contact_form.type-2.white-form textarea:hover,
@@ -451,13 +452,6 @@
 		body.dark-layout .post .post-inner .post-more,
 		body.dark-layout .widget .search {
 			background: #151515;
-			border: 1px solid #f0f0f0;
-/*			margin-top: 15px;
-			margin-bottom: 15px;
-			display: grid;
-			width: 100%;
-			border-radius: 30px;
-			height: 53.6px;*/
 		}
 
 	body.dark-layout .contact .contact_form.type-2.white-form input,
