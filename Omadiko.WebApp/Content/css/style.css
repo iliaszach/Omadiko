@@ -209,12 +209,13 @@
 		vertical-align: middle;
 		line-height: 10px;
 		white-space: nowrap;
-		border-radius: 2px;
-		font-weight: 300;
+/*		border-radius: 30px;
+*/		font-weight: 300;
 		-webkit-transition: all 0.3s;
 		-moz-transition: all 0.3s;
 		transition: all 0.3s;
-	}
+/*		border:1px solid #f0f0f0;
+*/	}
 
 	.btn:active,
 	.btn:focus{
@@ -7582,6 +7583,8 @@
 		-webkit-transition: all 0.5s;
 		-moz-transition: all 0.5s;
 		transition: all 0.5s;
+		border-radius:30px;
+		border:1px solid #f0f0f0;
 	}
 
 	#shop .single_item_details .right .panel{
