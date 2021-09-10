@@ -264,14 +264,33 @@ function AllFunctions() {
         $("#MarbleName").text(err);
     });
 
+   
+    function test() {
+        $.ajax({
+            type: "get",
+            url: "/api/marbles",
+            data: "name=John&location=Boston",
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
     //MarbleLikes
     var MarbleLikes = new Promise(function (resolve, reject) {
-
+        test();
         $.ajax("/api/marbles")
-            .done(function (data) {
+            .done(function (data) {              
+                for (var marble of data) {
+                   
+                    console.log(marble);
+                }
+
                 var appUsers = [];
                 var marbles = [];
                 for (var key of data) {
+                    
                     if (key.ApplicationUsers.length > 0) {
                         appUsers.push(key.ApplicationUsers.length);
                         marbles.push(key);

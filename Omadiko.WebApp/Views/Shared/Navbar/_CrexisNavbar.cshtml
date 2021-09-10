@@ -52,9 +52,15 @@
                         {
                             @Html.AntiForgeryToken()
                             <li>
-                                <img style="border-radius:30px;" src="@Url.Action("UserPhotos", "Manage" )"/>
+                                <img style="border-radius:30px;" src="@Url.Action("UserPhotos", "Manage" )" />
                             </li>
                         }
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="dropdown-toggle nav-toggle">
+                            <a class="btn" target="_blank" href="https://localhost:44399/">Dashboard</a>
+                        </li>
                     }
                     <li class="dropdown-toggle nav-toggle">
                         <a class="btn" href="/">Home</a>
