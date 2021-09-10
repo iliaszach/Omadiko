@@ -125,11 +125,11 @@
             </div>
 
             <div class="cbp-filter-item">
-                @Html.ActionLink("Color (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcolor, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+                @Html.ActionLink("Color (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcolor, Name = ViewBag.Name, Color = ViewBag.Color, Country = ViewBag.Country }, null)
             </div>
 
             <div class="cbp-filter-item">
-                @Html.ActionLink("Country (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcountry, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+                @Html.ActionLink("Country (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcountry, Name = ViewBag.Name, Color = ViewBag.Color, Country = ViewBag.Country }, null)
             </div>
         </div>
     </div>
