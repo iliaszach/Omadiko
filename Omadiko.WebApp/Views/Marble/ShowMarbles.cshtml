@@ -113,100 +113,78 @@
     <div id="FilterArea">
         <div id="SearchForm">
             <form method="post" action="#">
-                <button id="SearchOptions"  class="fa fa-search">
+                <button id="SearchOptions" class="fa fa-search">
                     Search Marble By
                 </button>
             </form>
         </div>
 
         <div id="portfolio-filters" class="cbp-l-filters-alignCenter normal type2">
-            <div class="cbp-filter-item" style="color:azure">
-                @Html.ActionLink("Name (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.FNSPname, Name = ViewBag.Name, Color = ViewBag.Color, Country = ViewBag.Country }, null)
-                <div class="cbp-filter-counter"></div>
+            <div class="cbp-filter-item">
+                @Html.ActionLink("Name (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.FNSPname, Name = ViewBag.Name, Color = ViewBag.Color, Country = ViewBag.Country }, null)     
             </div>
 
-            <div class="cbp-filter-item" style="color:azure">
+            <div class="cbp-filter-item">
                 @Html.ActionLink("Color (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcolor, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-
-                <div class="cbp-filter-counter"></div>
             </div>
 
-            <div class="cbp-filter-item" style="color:azure">
+            <div class="cbp-filter-item">
                 @Html.ActionLink("Country (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcountry, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-
-                <div class="cbp-filter-counter"></div>
             </div>
         </div>
     </div>
-
-            <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
-
-            <input type="submit" value="Search Marble" class="btn btn-primary" />
-
-            <input id="ResetButton" type="button" value="Clear Form" class="btn btn-success" />
-        }
-        <button class="btn-primary">
-            @Html.ActionLink("Sorting Name (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.FNSPname, Name = ViewBag.Name, Color = ViewBag.Color, Country = ViewBag.Country }, null)
-        </button>
-        <button class="btn-primary">
-            @Html.ActionLink("Sorting Color (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcolor, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-        </button>
-        <button class="btn-primary">
-            @Html.ActionLink("Sorting Country (A-Z)", "ShowMarbles", "Marble", new { sortOrder = ViewBag.LNSPcountry, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-        </button>
-    </div>
-            <!-- Portfolio Items -->
-            <div id="portfolio-items" class="fullwidth type2">
-                @foreach (var marble in Model)
-                {
-                    <!-- Item -->
-                    <div class="cbp-item item design">
-                        <!-- Item Link -->
-                        <a href="projects/project_01.html" class="cbp-caption ex-link">
-                            <!-- Item Image -->
-                            <div class="cbp-caption-defaultWrap">
-                                <!-- Image Src -->
-                                <a href="~/marble/details/@marble.MarbleId">
-                                    <img src="@Url.Content(marble.Photo.Url)" style="width:100%; height:240px; border:1px solid #f0f0f0;" alt="Crexis">
-                                </a>
-                                <!-- Item Note -->
-                                <div class="item_icon">
-                                    Icon
-                                    <p><i class="fa fa-image"></i></p>
-                                    <p>Photography</p>
-                                </div>
-                                <!-- End Item Note -->
-                            </div>
-                            <!-- End Item Image -->
-                            <!-- Item Details -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- Centered Details -->
-                                <div class="center-details">
-                                    <div class="details" style="width: 100%; height: 91.8px; padding: 15px; opacity:0.9;">
-                                        <!-- Item Name -->
-                                        <h2 class="name " style="color:azure">
-                                            @Html.DisplayFor(modelItem => marble.Name)
-                                        </h2>
-                                        <!-- Tags -->
-                                        <p class="tags" style="color:azure">
-                                            @Html.DisplayFor(modelItem => marble.Country.Name)
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- End Center Details Div -->
-                            </div>
-                            <!-- End Item Details -->
+    <!-- Portfolio Items -->
+    <div id="portfolio-items" class="fullwidth type2">
+        @foreach (var marble in Model)
+        {
+            <!-- Item -->
+            <div class="cbp-item item design">
+                <!-- Item Link -->
+                <a href="projects/project_01.html" class="cbp-caption ex-link">
+                    <!-- Item Image -->
+                    <div class="cbp-caption-defaultWrap">
+                        <!-- Image Src -->
+                        <a href="~/marble/details/@marble.MarbleId">
+                            <img src="@Url.Content(marble.Photo.Url)" style="width:100%; height:240px; border:1px solid #f0f0f0;" alt="Crexis">
                         </a>
-                        <!-- End Item Link -->
+                        <!-- Item Note -->
+                        <div class="item_icon">
+                            Icon
+                            <p><i class="fa fa-image"></i></p>
+                            <p>Photography</p>
+                        </div>
+                        <!-- End Item Note -->
                     </div>
-                    <!-- End Item -->
-                }
+                    <!-- End Item Image -->
+                    <!-- Item Details -->
+                    <div class="cbp-caption-activeWrap">
+                        <!-- Centered Details -->
+                        <div class="center-details">
+                            <div class="details" style="width: 100%; height: 91.8px; padding: 15px; opacity:0.9;">
+                                <!-- Item Name -->
+                                <h2 class="name " style="color:azure">
+                                    @Html.DisplayFor(modelItem => marble.Name)
+                                </h2>
+                                <!-- Tags -->
+                                <p class="tags" style="color:azure">
+                                    @Html.DisplayFor(modelItem => marble.Country.Name)
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Center Details Div -->
+                    </div>
+                    <!-- End Item Details -->
+                </a>
+                <!-- End Item Link -->
             </div>
-            <!-- End Portfolio Items -->
-            <div id="pagination">
-                <i>Page</i> @Model.PageNumber <i>of</i> @Model.PageCount
-            </div>
-            @Html.PagedListPager(Model, x => Url.Action("ShowMarbles", "Marble", new { page = x }))
+            <!-- End Item -->
+        }
+    </div>
+    <!-- End Portfolio Items -->
+    <div id="pagination">
+        <i>Page</i> @Model.PageNumber <i>of</i> @Model.PageCount
+    </div>
+    @Html.PagedListPager(Model, x => Url.Action("ShowMarbles", "Marble", new { page = x }))
 </section>
 <!-- End Portfolio Section -->
 <!-- Page Note Type 2 -->

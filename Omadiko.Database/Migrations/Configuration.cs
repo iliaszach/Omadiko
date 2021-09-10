@@ -376,60 +376,60 @@ namespace Omadiko.Database.Migrations
 
             // LOCATIONS
 
-            Location l1 = new Location() { Country = "Italy1",       City = "Rome1",           Address = "Koloseo"};
-            Location l2 = new Location() { Country = "Italy",        City = "Napoli",          Address = "Via Luigi Volpicella",           Lat = 40.643298, Lng = 15.800996 };
-            Location l3 = new Location() { Country = "India",        City = "Jabalpur",        Address = "Zero Degree Road",               Lat = 23.182365, Lng = 79.906088 };
-            Location l4 = new Location() { Country = "Egypt",        City = "Al Mahala",       Address = "Al Dahnea",                      Lat = 30.970173, Lng = 31.160643 };
-            Location l5 = new Location() { Country = "Cyprus",       City = "Lemesos",         Address = "Ierou Lohou",                    Lat = 34.701724, Lng = 33.034253 };
-            Location l6 = new Location() { Country = "South Africa", City = "Kimberley",       Address = "John Daka St",                   Lat = -28.721353, Lng = 24.727397 };
-            Location l7 = new Location() { Country = "Greece",       City = "Athens",          Address = "Skoufa",                         Lat = 38.034049, Lng = 23.680657 };
-            Location l8 = new Location() { Country = "Greece",       City = "Korinthos",       Address = "Apostolou Pavlou",               Lat = 37.940925, Lng = 22.930078 };
-            Location l9 = new Location() { Country = "Egypt",        City = "Kairo",           Address = "Selim Abdou",                    Lat = 30.063926, Lng = 31.276023 };
-            Location l10 = new Location() { Country = "Egypt",       City = "Alexandria",      Address = "Elshohada Square Rd",            Lat = 31.201690, Lng = 29.938074 };
-                  
-            Location l11 = new Location() { Country = "Egypt",       City = "Talkha",          Address = "Talkha Sherbeen St",             Lat = 31.062241, Lng = 31.387178 };
-            Location l12 = new Location() { Country = "Egypt",       City = "Damietta ",       Address = "Ghait Al Nasri",                 Lat = 31.415466, Lng = 31.826541 };
-            Location l13 = new Location() { Country = "Egypt",       City = "Port Said",       Address = "Al Mosatahat",                   Lat = 31.244207, Lng = 32.279807 };
-            Location l14 = new Location() { Country = "Italy",       City = "Bari",            Address = "Via Dante Alighieri",            Lat = 41.121524, Lng = 16.861552 };
-            Location l15 = new Location() { Country = "Turkey",      City = "Ankara",          Address = "Strazburg Cd",                   Lat = 39.927478, Lng = 32.850702 };
-            Location l16 = new Location() { Country = "Egypt",       City = "Al Fayoum",       Address = "Al Tarlawi",                     Lat = 29.314786, Lng = 30.836859 };
-            Location l17 = new Location() { Country = "Greece",      City = "Kavala",          Address = "Kimonos",                        Lat = 40.936113, Lng = 24.417147 };
-            Location l18 = new Location() { Country = "Egypt",       City = "Sohag",           Address = "El-Tahrir",                      Lat = 26.570760, Lng = 31.685657 };
-            Location l19 = new Location() { Country = "Greece",      City = "Katerini",        Address = "Andromedos",                     Lat = 40.273350, Lng = 22.526281 };
-            Location l20 = new Location() { Country = "India",       City = "Indore",          Address = "Godhra Hwy",                     Lat = 22.712716, Lng = 75.879014 };
+            Location l1 = new Location() { Country = "Italy1", City = "Rome1", Address = "Koloseo" };
+            Location l2 = new Location() { Country = "Italy", City = "Napoli", Address = "Via Luigi Volpicella", Lat = 40.643298, Lng = 15.800996 };
+            Location l3 = new Location() { Country = "India", City = "Jabalpur", Address = "Zero Degree Road", Lat = 23.182365, Lng = 79.906088 };
+            Location l4 = new Location() { Country = "Egypt", City = "Al Mahala", Address = "Al Dahnea", Lat = 30.970173, Lng = 31.160643 };
+            Location l5 = new Location() { Country = "Cyprus", City = "Lemesos", Address = "Ierou Lohou", Lat = 34.701724, Lng = 33.034253 };
+            Location l6 = new Location() { Country = "South Africa", City = "Kimberley", Address = "John Daka St", Lat = -28.721353, Lng = 24.727397 };
+            Location l7 = new Location() { Country = "Greece", City = "Athens", Address = "Skoufa", Lat = 38.034049, Lng = 23.680657 };
+            Location l8 = new Location() { Country = "Greece", City = "Korinthos", Address = "Apostolou Pavlou", Lat = 37.940925, Lng = 22.930078 };
+            Location l9 = new Location() { Country = "Egypt", City = "Kairo", Address = "Selim Abdou", Lat = 30.063926, Lng = 31.276023 };
+            Location l10 = new Location() { Country = "Egypt", City = "Alexandria", Address = "Elshohada Square Rd", Lat = 31.201690, Lng = 29.938074 };
 
-            Location l21 = new Location() { Country = "India",       City = "Nashik",           Address = "Patidar Bhavan Rd" ,            Lat = 19.989808, Lng = 73.796833 };
-            Location l22 = new Location() { Country = "India",       City = "Pune",             Address = "Mahatma Phule Rasta" ,          Lat = 18.508878, Lng = 73.873453 };
-            Location l23 = new Location() { Country = "Spain",       City = "Valencia",         Address = "Avinguda de Peris i Valero",    Lat = 39.461058, Lng = -0.365704 };
-            Location l24 = new Location() { Country = "Italy",       City = "Firenze ",         Address = "Borgo S. Frediano",             Lat = 43.769623, Lng = 11.244198 };
-            Location l25 = new Location() { Country = "Italy",       City = "Venezia",          Address = "Via Eugenio Carlo Petrini",     Lat = 45.483152, Lng = 12.270211 };
-            Location l26 = new Location() { Country = "India",       City = "Bengaluru",        Address = "3rd Main Rd",                   Lat = 13.032869, Lng = 77.608849 };
-            Location l27 = new Location() { Country = "Greece",      City = "Patra",            Address = "Maragopoulou",                  Lat = 38.237870, Lng = 21.747534 };
-            Location l28 = new Location() { Country = "Brazil",      City = "Recife",           Address = "Av Conde da Boa Vista",         Lat = -8.056567, Lng = -34.893101 };
-            Location l29 = new Location() { Country = "Brazil",      City = "Rio de Janeiro ",  Address = "R. Francisco Portela",          Lat = -22.830356, Lng = -43.068431 };
-            Location l30 = new Location() { Country = "India",       City = "Chennai",          Address = "Jermiah Rd",                    Lat = 13.085647, Lng = 80.262415 };
+            Location l11 = new Location() { Country = "Egypt", City = "Talkha", Address = "Talkha Sherbeen St", Lat = 31.062241, Lng = 31.387178 };
+            Location l12 = new Location() { Country = "Egypt", City = "Damietta ", Address = "Ghait Al Nasri", Lat = 31.415466, Lng = 31.826541 };
+            Location l13 = new Location() { Country = "Egypt", City = "Port Said", Address = "Al Mosatahat", Lat = 31.244207, Lng = 32.279807 };
+            Location l14 = new Location() { Country = "Italy", City = "Bari", Address = "Via Dante Alighieri", Lat = 41.121524, Lng = 16.861552 };
+            Location l15 = new Location() { Country = "Turkey", City = "Ankara", Address = "Strazburg Cd", Lat = 39.927478, Lng = 32.850702 };
+            Location l16 = new Location() { Country = "Egypt", City = "Al Fayoum", Address = "Al Tarlawi", Lat = 29.314786, Lng = 30.836859 };
+            Location l17 = new Location() { Country = "Greece", City = "Kavala", Address = "Kimonos", Lat = 40.936113, Lng = 24.417147 };
+            Location l18 = new Location() { Country = "Egypt", City = "Sohag", Address = "El-Tahrir", Lat = 26.570760, Lng = 31.685657 };
+            Location l19 = new Location() { Country = "Greece", City = "Katerini", Address = "Andromedos", Lat = 40.273350, Lng = 22.526281 };
+            Location l20 = new Location() { Country = "India", City = "Indore", Address = "Godhra Hwy", Lat = 22.712716, Lng = 75.879014 };
 
-            Location l31 = new Location() { Country = "Italy",       City = " Genova",          Address = "Via Nizza",                     Lat = 44.398139, Lng = 8.952244 };
-            Location l32 = new Location() { Country = "Brazil",      City = "Salvador",         Address = "R. Portugua",                   Lat = -12.969200, Lng = -38.470716 };
-            Location l33 = new Location() { Country = "Egypt",       City = "Hurghada",         Address = "El-Nashr",                      Lat = 27.248022, Lng = 33.821951 };
-            Location l34 = new Location() { Country = "Greece",      City = "Rethimno",         Address = "Tsakona",                       Lat = 35.365554, Lng = 24.484114 };
-            Location l35 = new Location() { Country = "Greece",      City = "Kalamata",         Address = "Akrita",                        Lat = 37.030385, Lng = 22.116017 };
-            Location l36 = new Location() { Country = "Greece",      City = "Zkinthos",         Address = "Foskolou",                      Lat = 37.785490, Lng = 20.897637 };
-            Location l37 = new Location() { Country = "Greece",      City = "Mitilini",         Address = "Eresou",                        Lat = 39.102079, Lng = 26.552427 };
-            Location l38 = new Location() { Country = "Egypt",       City = "El Qantara",       Address = "El-Gaish",                      Lat = 30.853009, Lng = 32.309376 };
-            Location l39 = new Location() { Country = "Greece",      City = "Trikala",          Address = "Aristotelous",                  Lat = 39.548748, Lng = 21.764103 };
-            Location l40 = new Location() { Country = "Egypt",       City = "Baltim",           Address = "Al Bosta",                      Lat = 31.554566, Lng = 31.091938 };
+            Location l21 = new Location() { Country = "India", City = "Nashik", Address = "Patidar Bhavan Rd", Lat = 19.989808, Lng = 73.796833 };
+            Location l22 = new Location() { Country = "India", City = "Pune", Address = "Mahatma Phule Rasta", Lat = 18.508878, Lng = 73.873453 };
+            Location l23 = new Location() { Country = "Spain", City = "Valencia", Address = "Avinguda de Peris i Valero", Lat = 39.461058, Lng = -0.365704 };
+            Location l24 = new Location() { Country = "Italy", City = "Firenze ", Address = "Borgo S. Frediano", Lat = 43.769623, Lng = 11.244198 };
+            Location l25 = new Location() { Country = "Italy", City = "Venezia", Address = "Via Eugenio Carlo Petrini", Lat = 45.483152, Lng = 12.270211 };
+            Location l26 = new Location() { Country = "India", City = "Bengaluru", Address = "3rd Main Rd", Lat = 13.032869, Lng = 77.608849 };
+            Location l27 = new Location() { Country = "Greece", City = "Patra", Address = "Maragopoulou", Lat = 38.237870, Lng = 21.747534 };
+            Location l28 = new Location() { Country = "Brazil", City = "Recife", Address = "Av Conde da Boa Vista", Lat = -8.056567, Lng = -34.893101 };
+            Location l29 = new Location() { Country = "Brazil", City = "Rio de Janeiro ", Address = "R. Francisco Portela", Lat = -22.830356, Lng = -43.068431 };
+            Location l30 = new Location() { Country = "India", City = "Chennai", Address = "Jermiah Rd", Lat = 13.085647, Lng = 80.262415 };
 
-            Location l41 = new Location() { Country = "Egypt",       City = "Al Kossia",        Address = "El-Galaa",                      Lat = 27.439415, Lng = 30.821607 };
-            Location l42 = new Location() { Country = "Egypt",       City = "Manfalut",         Address = "Mostgad",                       Lat = 27.306659, Lng = 30.973595 };
-            Location l43 = new Location() { Country = "Italy",       City = "Taranto",          Address = "Viale Magna Grecia",            Lat = 40.460475, Lng = 17.268252 };
-            Location l44 = new Location() { Country = "Greece",      City = "Athens",           Address = "Epifanous",                     Lat = 37.967825, Lng = 23.723778 };
-            Location l45 = new Location() { Country = "Egypt",       City = "Abnub",            Address = "Bostan Al Nile",                Lat = 27.271258, Lng = 31.152818 };
-            Location l46 = new Location() { Country = "Greece",      City = "Athens",           Address = "Agiou Andreou",                 Lat = 37.944171, Lng = 23.710722 };
-            Location l47 = new Location() { Country = "Italy",       City = "Monopoli",         Address = "Via Cappuccini",                Lat = 40.947606, Lng = 17.301766 };
-            Location l48 = new Location() { Country = "Greece",      City = "Volos",            Address = "Zagoras",                       Lat = 39.354935, Lng = 22.958840 };
-            Location l49 = new Location() { Country = "Greece",      City = "Ioannina",         Address = "Rizari",                        Lat = 39.657376, Lng = 20.854847 };
-            Location l50 = new Location() { Country = "Egypt",       City = "Asyout",           Address = "Kliopatra",                     Lat = 27.184412, Lng = 31.179337 };
+            Location l31 = new Location() { Country = "Italy", City = " Genova", Address = "Via Nizza", Lat = 44.398139, Lng = 8.952244 };
+            Location l32 = new Location() { Country = "Brazil", City = "Salvador", Address = "R. Portugua", Lat = -12.969200, Lng = -38.470716 };
+            Location l33 = new Location() { Country = "Egypt", City = "Hurghada", Address = "El-Nashr", Lat = 27.248022, Lng = 33.821951 };
+            Location l34 = new Location() { Country = "Greece", City = "Rethimno", Address = "Tsakona", Lat = 35.365554, Lng = 24.484114 };
+            Location l35 = new Location() { Country = "Greece", City = "Kalamata", Address = "Akrita", Lat = 37.030385, Lng = 22.116017 };
+            Location l36 = new Location() { Country = "Greece", City = "Zkinthos", Address = "Foskolou", Lat = 37.785490, Lng = 20.897637 };
+            Location l37 = new Location() { Country = "Greece", City = "Mitilini", Address = "Eresou", Lat = 39.102079, Lng = 26.552427 };
+            Location l38 = new Location() { Country = "Egypt", City = "El Qantara", Address = "El-Gaish", Lat = 30.853009, Lng = 32.309376 };
+            Location l39 = new Location() { Country = "Greece", City = "Trikala", Address = "Aristotelous", Lat = 39.548748, Lng = 21.764103 };
+            Location l40 = new Location() { Country = "Egypt", City = "Baltim", Address = "Al Bosta", Lat = 31.554566, Lng = 31.091938 };
+
+            Location l41 = new Location() { Country = "Egypt", City = "Al Kossia", Address = "El-Galaa", Lat = 27.439415, Lng = 30.821607 };
+            Location l42 = new Location() { Country = "Egypt", City = "Manfalut", Address = "Mostgad", Lat = 27.306659, Lng = 30.973595 };
+            Location l43 = new Location() { Country = "Italy", City = "Taranto", Address = "Viale Magna Grecia", Lat = 40.460475, Lng = 17.268252 };
+            Location l44 = new Location() { Country = "Greece", City = "Athens", Address = "Epifanous", Lat = 37.967825, Lng = 23.723778 };
+            Location l45 = new Location() { Country = "Egypt", City = "Abnub", Address = "Bostan Al Nile", Lat = 27.271258, Lng = 31.152818 };
+            Location l46 = new Location() { Country = "Greece", City = "Athens", Address = "Agiou Andreou", Lat = 37.944171, Lng = 23.710722 };
+            Location l47 = new Location() { Country = "Italy", City = "Monopoli", Address = "Via Cappuccini", Lat = 40.947606, Lng = 17.301766 };
+            Location l48 = new Location() { Country = "Greece", City = "Volos", Address = "Zagoras", Lat = 39.354935, Lng = 22.958840 };
+            Location l49 = new Location() { Country = "Greece", City = "Ioannina", Address = "Rizari", Lat = 39.657376, Lng = 20.854847 };
+            Location l50 = new Location() { Country = "Egypt", City = "Asyout", Address = "Kliopatra", Lat = 27.184412, Lng = 31.179337 };
 
             context.Locations.AddOrUpdate(x => new { x.Country, x.City, x.Address },
                  l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14, l15, l16, l17, l18, l19, l20,
@@ -695,197 +695,618 @@ namespace Omadiko.Database.Migrations
             ////MARBLE
 
 
-            Marble m1 = new Marble() { Name = "AEGEAN WHITE Greek Marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aegean-Cream-Greek-Marble.jpg" }, Country = c70 };
+            Marble m1 = new Marble()
+            {
+                Name = "AEGEAN WHITE Greek Marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aegean-Cream-Greek-Marble.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects. Also known as: Aegean Cream."
+            };
             m1.Providers = new List<Provider>() { p7, p8, p17, p19 };
 
-            Marble m2 = new Marble() { Name = "AGIA MARINA CLOUDED SEMI-WHITE Greek Marble", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greel_Marble_Agia_Marina_Clouded_Semi_White.jpg" }, Country = c70 };
+            Marble m2 = new Marble()
+            {
+                Name = "AGIA MARINA CLOUDED SEMI-WHITE Greek Marble",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greel_Marble_Agia_Marina_Clouded_Semi_White.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects. Also known as: Aghia Marina Cloudy, Aghia Marina Semi White, Aghia Marina White, San Marina White Cloudy, Agia Marina Marble, Aghia Marina Marble."
+            };
             m2.Providers = new List<Provider>() { p27, p34, p35 };
 
-            Marble m3 = new Marble() { Name = "AGIOS KYRILLOS (POMPIA) GREY Greek marble", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Agios-Kyrillos-Pompia-Grey.jpg" }, Country = c70 };
+            Marble m3 = new Marble()
+            {
+                Name = "AGIOS KYRILLOS (POMPIA) GREY Greek marble",
+                Color = "Grey",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Agios-Kyrillos-Pompia-Grey.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m3.Providers = new List<Provider>() { p36, p37, p39 };
 
-            Marble m4 = new Marble() { Name = "ALIVERI GREY Greek marble", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Aliveri_Grey.jpg" }, Country = c70 };
+            Marble m4 = new Marble()
+            {
+                Name = "ALIVERI GREY Greek marble",
+                Color = "Grey",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Aliveri_Grey.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m4.Providers = new List<Provider>() { p44, p46, p48, p49 };
 
-            Marble m5 = new Marble() { Name = "ALOIDES SEMI WHITE Greek marble", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ALOIDES-SEMIWHITE.jpg" }, Country = c70 };
+            Marble m5 = new Marble()
+            {
+                Name = "ALOIDES SEMI WHITE Greek marble",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ALOIDES-SEMIWHITE.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Counter tops and bars, Interior wall panels, Water walls and fountains, mosiac, stairs, pattern and other design projects. Also known as: Semi White of Aloides, Creta Silver, Silver Creta, Aloides Semi White Marble"
+            };
             m5.Providers = new List<Provider>() { p7, p8, p17, p19, p36, p37 };
 
-            Marble m6 = new Marble() { Name = "ARAXOVA Greek marble", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Araxova.jpg" }, Country = c70 };
+            Marble m6 = new Marble()
+            {
+                Name = "ARAXOVA Greek marble",
+                Color = "Brown",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Araxova.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, mosaic, fountains, pool and and other design projects."
+            };
             m6.Providers = new List<Provider>() { p44, p46 };
 
-            Marble m7 = new Marble() { Name = "ARGOS BLACK Greek marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Argos_Black.jpg" }, Country = c70 };
+            Marble m7 = new Marble()
+            {
+                Name = "ARGOS BLACK Greek marble ",
+                Color = "Black",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Argos_Black.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m7.Providers = new List<Provider>() { p36, p37, p48, p49 };
 
-            Marble m8 = new Marble() { Name = "ARIDAIA TRAVERTINO Greek marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Aridaia_Travertino.jpg" }, Country = c70 };
+            Marble m8 = new Marble()
+            {
+                Name = "ARIDAIA TRAVERTINO Greek marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Aridaia_Travertino.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m8.Providers = new List<Provider>() { p17, p19 };
 
-            Marble m9 = new Marble() { Name = "ARTA PINK Greek marble ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Arta_Pink.jpg" }, Country = c70 };
+            Marble m9 = new Marble()
+            {
+                Name = "ARTA PINK Greek marble ",
+                Color = "Pink",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greek_Marble_Arta_Pink.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m9.Providers = new List<Provider>() { p36 };
 
-            Marble m10 = new Marble() { Name = "CHALKEROU CRYSTALLINA SEMI WHITE Greek marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greel_Marble_Chalkerou-Crystallina-Semi-White.jpg" }, Country = c70 };
+            Marble m10 = new Marble()
+            {
+                Name = "CHALKEROU CRYSTALLINA SEMI WHITE Greek marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Greel_Marble_Chalkerou-Crystallina-Semi-White.jpg" },
+                Country = c70,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m10.Providers = new List<Provider>() { p7, p8, p17, p19, p36, p37, p44, p46, p48, p49 };
 
 
 
-            Marble m11 = new Marble() { Name = "ARABESCATO ALTISSIMO Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO-ALTISSIMO.jpg" }, Country = c88 };
+            Marble m11 = new Marble()
+            {
+                Name = "ARABESCATO ALTISSIMO Italian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO-ALTISSIMO.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Countertops, monuments, mosaic, exterior – interior wall and floor applications, fountains, pool and wall capping, stairs, window sills and other design projects. Also known as: Arabescato, Arabescato White"
+            };
             m11.Providers = new List<Provider>() { p2, p14 };
 
-            Marble m12 = new Marble() { Name = "ARABESCATO ARNI Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Arni.jpg" }, Country = c88 };
+            Marble m12 = new Marble()
+            {
+                Name = "ARABESCATO ARNI Italian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Arni.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Countertops, monuments, mosaic, exterior – interior wall and floor applications, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m12.Providers = new List<Provider>() { p24, p25 };
 
-            Marble m13 = new Marble() { Name = "ARABESCATO CERVAIOLE Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO-CERVAIOLE.jpg" }, Country = c88 };
+            Marble m13 = new Marble()
+            {
+                Name = "ARABESCATO CERVAIOLE Italian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO-CERVAIOLE.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Countertops, monuments, mosaic, exterior – interior wall and floor applications, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m13.Providers = new List<Provider>() { p31, p43 };
 
-            Marble m14 = new Marble() { Name = "ARABESCATO CORCHIA Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Corchia.jpg" }, Country = c88 };
+            Marble m14 = new Marble()
+            {
+                Name = "ARABESCATO CORCHIA Italian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Corchia.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Countertops, monuments, mosaic, exterior – interior wall and floor applications, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m14.Providers = new List<Provider>() { p47 };
 
-            Marble m15 = new Marble() { Name = "ARABESCATO Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO.jpg" }, Country = c88 };
+            Marble m15 = new Marble()
+            {
+                Name = "ARABESCATO Italian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ARABESCATO.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects. "
+            };
             m15.Providers = new List<Provider>() { p2, p14, p24, p25 };
 
-            Marble m16 = new Marble() { Name = "ARABESCATO MOSSA Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Mossa-1.jpg" }, Country = c88 };
+            Marble m16 = new Marble()
+            {
+                Name = "ARABESCATO MOSSA Italian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Mossa-1.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m16.Providers = new List<Provider>() { p2, p14, p24, p25, p31, p43 };
 
-            Marble m17 = new Marble() { Name = "ARABESCATO OROBICO GRIGIO Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Orobico-Grigio.jpg" }, Country = c88 };
+            Marble m17 = new Marble()
+            {
+                Name = "ARABESCATO OROBICO GRIGIO Italian marble ",
+                Color = "Grey",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Orobico-Grigio.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Countertops, monuments, mosaic, exterior – interior wall and floor applications, fountains, pool and wall capping, stairs, window sills and other design projects.."
+            };
             m17.Providers = new List<Provider>() { p31, p43 };
 
-            Marble m18 = new Marble() { Name = "ARABESCATO VAGLI Italian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Vagli.jpg" }, Country = c88 };
+            Marble m18 = new Marble()
+            {
+                Name = "ARABESCATO VAGLI Italian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Arabescato-Vagli.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Countertops, monuments, mosaic, exterior – interior wall and floor applications, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m18.Providers = new List<Provider>() { p2, p24, p25 };
 
-            Marble m19 = new Marble() { Name = "BARDIGLIO COSTA Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bardiglio-Costa.jpg" }, Country = c88 };
+            Marble m19 = new Marble()
+            {
+                Name = "BARDIGLIO COSTA Italian marble ",
+                Color = "Grey",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bardiglio-Costa.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Counter tops and bar tops, Mosaic, Interior wall panels,Monuments, Water walls and fountains and other design projects. Also known as: Bardiglio Arni, Bardiglio Arni Costa, Bardiglio Costa Marble ."
+            };
             m19.Providers = new List<Provider>() { p24, p25, p31 };
 
-            Marble m20 = new Marble() { Name = "BARDIGLIO IMPERIALE Italian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bardiglio-Imperiale.jpg" }, Country = c88 };
+            Marble m20 = new Marble()
+            {
+                Name = "BARDIGLIO IMPERIALE Italian marble ",
+                Color = "Grey",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bardiglio-Imperiale.jpg" },
+                Country = c88,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Counter tops and bar tops, Mosaic, Interior wall panels,Monuments, Water walls and fountains and other design projects."
+            };
             m20.Providers = new List<Provider>() { p31 };
 
 
 
-            Marble m21 = new Marble() { Name = "ALMERA PINK Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ALMERA-PINK.jpg" }, Country = c56 };
+            Marble m21 = new Marble()
+            {
+                Name = "ALMERA PINK Egyptian marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/ALMERA-PINK.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m21.Providers = new List<Provider>() { p4, p9 };
 
-            Marble m22 = new Marble() { Name = "BRECCIA FAWAKHIR Egyptian marble ", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Breccia-Fawakir.jpg" }, Country = c56 };
+            Marble m22 = new Marble()
+            {
+                Name = "BRECCIA FAWAKHIR Egyptian marble ",
+                Color = "Green",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Breccia-Fawakir.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m22.Providers = new List<Provider>() { p10, p11, p12 };
 
-            Marble m23 = new Marble() { Name = "CHANTEUIL JAUNE BLEU French marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Chanteuil-Jaune-Bleu.jpg" }, Country = c56 };
+            Marble m23 = new Marble()
+            {
+                Name = "CHANTEUIL JAUNE BLEU French marble ",
+                Color = "Blue",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Chanteuil-Jaune-Bleu.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m23.Providers = new List<Provider>() { p13, p16 };
 
-            Marble m24 = new Marble() { Name = "GALALA Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Galala.jpg" }, Country = c56 };
+            Marble m24 = new Marble()
+            {
+                Name = "GALALA Egyptian marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Galala.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles.Proposed uses: Exterior – Interior wall and floor applications, countertops, mosaic, fountains, pool and wall cappi and other design projects. Also known as: Galala Beige, Galalah Classic, Galala Light, Galala Tiger, Galala Classic Cream, Galala Classic, Galala Gold, Galala Cream, Galala Extra, Galala Medium, Galala Marble, Royal Beige."
+            };
             m24.Providers = new List<Provider>() { p18, p33, p40, p41 };
 
-            Marble m25 = new Marble() { Name = "GIALLO ATLANTIDE Egyptian marble ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Giallo-Atlantide (1).jpg" }, Country = c56 };
+            Marble m25 = new Marble()
+            {
+                Name = "GIALLO ATLANTIDE Egyptian marble ",
+                Color = "Yellow",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Giallo-Atlantide (1).jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, countertops, mosaic, fountains, pool and wall cappi and other design projects."
+            };
             m25.Providers = new List<Provider>() { p42, p45 };
 
-            Marble m26 = new Marble() { Name = "IVORY CLASSIC Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Ivory-Classic.jpg" }, Country = c56 };
+            Marble m26 = new Marble()
+            {
+                Name = "IVORY CLASSIC Egyptian marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Ivory-Classic.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, countertops, mosaic, fountains, pool and wall cappi and other design projects."
+            };
             m26.Providers = new List<Provider>() { p50 };
 
-            Marble m27 = new Marble() { Name = "MARIGOLD Egyptian marble", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Marigold.jpg" }, Country = c56 };
+            Marble m27 = new Marble()
+            {
+                Name = "MARIGOLD Egyptian marble",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Marigold.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, countertops, mosaic, fountains, pool and wall cappi and other design projects."
+            };
             m27.Providers = new List<Provider>() { p10, p11, p12, p18, p33, p40, p41 };
 
-            Marble m28 = new Marble() { Name = "GIALLO CLEOPATRA Egyptian marble ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Giallo-Cleopatra.jpg" }, Country = c56 };
+            Marble m28 = new Marble()
+            {
+                Name = "GIALLO CLEOPATRA Egyptian marble ",
+                Color = "Yellow",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Giallo-Cleopatra.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects. "
+            };
             m28.Providers = new List<Provider>() { p4, p10, p12, p16, p33, p38, p42, p45, p50 };
 
-            Marble m29 = new Marble() { Name = "ONYX ALABASTER Egyptian onyx ", Color = "Yellow", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Onyx-Alabaster.jpg" }, Country = c56 };
+            Marble m29 = new Marble()
+            {
+                Name = "ONYX ALABASTER Egyptian onyx ",
+                Color = "Yellow",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Onyx-Alabaster.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Construction stone, countertops, mosaic, ornamental stone, artifacts, sinks and other design projects. Also known as: Alabaster, Alabaster Gold, Alabastro Egiziano Onyx, Alabastro Egiziano, Alabastro Beni Suef, Asyut Alabastro, Alabastro d’Egitto, Egyptian Alabaster."
+            };
             m29.Providers = new List<Provider>() { p9, p11, p13, p18, p38, p41, p45 };
 
-            Marble m30 = new Marble() { Name = "SAMAHA Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Samaha.jpg" }, Country = c56 };
+            Marble m30 = new Marble()
+            {
+                Name = "SAMAHA Egyptian marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Samaha.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Construction stone, countertops, mosaic, ornamental stone, artifacts, sinks and other design projects. Also known as: Sama, Samaha Chiaro, Crema Samaha, Samaha Gold, Samah Marble, Perlatino, Samaha Limestone, Sahama Marble, Samaha Marble."
+            };
             m30.Providers = new List<Provider>() { p9, p33, p38, p45, p50 };
 
-            Marble m31 = new Marble() { Name = "SILVIA ORO ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/SILVIA-ORO.jpg" }, Country = c56 };
+            Marble m31 = new Marble()
+            {
+                Name = "SILVIA ORO ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/SILVIA-ORO.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m31.Providers = new List<Provider>() { p10, p11, p12, p42, p45 };
 
-            Marble m32 = new Marble() { Name = "SINAI PEARL Egyptian limestone ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Sinai-Pearl.jpg" }, Country = c56 };
+            Marble m32 = new Marble()
+            {
+                Name = "SINAI PEARL Egyptian limestone ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Sinai-Pearl.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m32.Providers = new List<Provider>() { p13, p16 };
 
-            Marble m33 = new Marble() { Name = "Sunny marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Sunny_Light.jpg" }, Country = c56 };
+            Marble m33 = new Marble()
+            {
+                Name = "Sunny marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Sunny_Light.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m33.Providers = new List<Provider>() { p4, p10, p12, p16, p33 };
 
-            Marble m34 = new Marble() { Name = "YLANG Egyptian marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Ylang.jpg" }, Country = c56 };
+            Marble m34 = new Marble()
+            {
+                Name = "YLANG Egyptian marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Ylang.jpg" },
+                Country = c56,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Wall and floor applications, countertops, mosaic, fountains, pool and wall capping, stairs, window sills and other design projects. Also known as: Galala Marble, Galala Light Beige Marble, Galala Light Marble, Ylang Marble"
+            };
             m34.Providers = new List<Provider>() { p18, p33 };
 
 
 
-            Marble m35 = new Marble() { Name = "ADONIS BEIGE Turkish marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Adonis-Beige.jpg" }, Country = c189 };
+
+            Marble m35 = new Marble()
+            {
+                Name = "ADONIS BEIGE Turkish marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Adonis-Beige.jpg" },
+                Country = c189,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Wall and floor applications, countertops, mosaic, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m35.Providers = new List<Provider>() { p15 };
 
-            Marble m36 = new Marble() { Name = "ADRANOS WHITE Turkish marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Adranos.jpg" }, Country = c189 };
+            Marble m36 = new Marble()
+            {
+                Name = "ADRANOS WHITE Turkish marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Adranos.jpg" },
+                Country = c189,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Wall and floor applications, countertops, mosaic, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m36.Providers = new List<Provider>() { p15 };
 
-            Marble m37 = new Marble() { Name = "AEGEAN BORDEAUX Turkish marble ", Color = "Red", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aegean-Bordeaux.jpg" }, Country = c189 };
+            Marble m37 = new Marble()
+            {
+                Name = "AEGEAN BORDEAUX Turkish marble ",
+                Color = "Red",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aegean-Bordeaux.jpg" },
+                Country = c189,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Construction stone, countertops, mosaic, ornamental stone, artifacts, sinks and other design projects."
+            };
             m37.Providers = new List<Provider>() { p24, p25, p31 };
 
-            Marble m38 = new Marble() { Name = "AFYON WHITE Turkish marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/AFYON.jpg" }, Country = c189 };
+            Marble m38 = new Marble()
+            {
+                Name = "AFYON WHITE Turkish marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/AFYON.jpg" },
+                Country = c189,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m38.Providers = new List<Provider>() { p9, p33, p38, p45, p50 };
 
-            Marble m39 = new Marble() { Name = "AKSEHIR BLACK Turkish marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aksehir-black.jpg" }, Country = c189 };
+            Marble m39 = new Marble()
+            {
+                Name = "AKSEHIR BLACK Turkish marble ",
+                Color = "Black",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Aksehir-black.jpg" },
+                Country = c189,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m39.Providers = new List<Provider>() { p38 };
 
 
 
-            Marble m40 = new Marble() { Name = "AMAZONIA BROWN Brazilian marble ", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Amazonia-Brown.jpg" }, Country = c25 };
+            Marble m40 = new Marble()
+            {
+                Name = "AMAZONIA BROWN Brazilian marble ",
+                Color = "Brown",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Amazonia-Brown.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m40.Providers = new List<Provider>() { p28 };
 
-            Marble m41 = new Marble() { Name = "ARGENTO Brazilian marble ", Color = "Grey", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Argento.jpg" }, Country = c25 };
+            Marble m41 = new Marble()
+            {
+                Name = "ARGENTO Brazilian marble ",
+                Color = "Grey",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Argento.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Construction stone, countertops, mosaic, ornamental stone, artifacts, sinks and other design projects."
+            };
             m41.Providers = new List<Provider>() { p29 };
 
-            Marble m42 = new Marble() { Name = "AZUL ACQUAMARINA Brazilian marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Azul-Acquamarina.jpg" }, Country = c25 };
+            Marble m42 = new Marble()
+            {
+                Name = "AZUL ACQUAMARINA Brazilian marble ",
+                Color = "Blue",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Azul-Acquamarina.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles. roposed uses: Wall and floor applications, countertops, mosaic, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m42.Providers = new List<Provider>() { p32 };
 
-            Marble m43 = new Marble() { Name = "AZUL BOCQUIRA Brazilian marble ", Color = "Blue", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Azul-Bocchira.jpg" }, Country = c25 };
+            Marble m43 = new Marble()
+            {
+                Name = "AZUL BOCQUIRA Brazilian marble ",
+                Color = "Blue",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Azul-Bocchira.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Counter tops, vanity tops, bar tops, wall and floor tiles, Interior wall panels,Water walls and foun and other design projects. Also known as: Azul Bocchira, Azul Bochira, Azul Bohira, Azul Bokira, Azul Boquira Macaubas, Blue Boquira Granite, Boquira, Blue Boquira, Blue Bokira Quartzite, Azul Bochira Unito Quartzite, Boquira Blue, Azul Boquira Quartzite."
+            };
             m43.Providers = new List<Provider>() { p28, p29 };
 
-            Marble m44 = new Marble() { Name = "BRANCO CACHOEIRO Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Cachoeiro.jpg" }, Country = c25 };
+            Marble m44 = new Marble()
+            {
+                Name = "BRANCO CACHOEIRO Brazilian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Cachoeiro.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles. roposed uses: Wall and floor applications, countertops, mosaic, fountains, pool and wall capping, stairs, window sills and other design projects."
+            };
             m44.Providers = new List<Provider>() { p28, p32 };
 
-            Marble m45 = new Marble() { Name = "ADRBRANCO CARRARINHA Brazilian marbleANOS ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Carrarinha.jpg" }, Country = c25 };
+            Marble m45 = new Marble()
+            {
+                Name = "ADRBRANCO CARRARINHA Brazilian marbleANOS ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Carrarinha.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles.  Proposed uses: Counter tops, vanity tops, bar tops, wall and floor tiles, Interior wall panels,Water walls and foun and other design projects."
+            };
             m45.Providers = new List<Provider>() { p29, p32 };
 
-            Marble m46 = new Marble() { Name = "BRANCO COMUM Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Comum.jpg" }, Country = c25 };
+            Marble m46 = new Marble()
+            {
+                Name = "BRANCO COMUM Brazilian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Comum.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Counter tops, vanity tops, bar tops, wall and floor tiles, Interior wall panels,Water walls and foun and other design projects."
+            };
             m46.Providers = new List<Provider>() { p28 };
 
-            Marble m47 = new Marble() { Name = "BRANCO RAJADO Brazilian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Rajado.jpg" }, Country = c25 };
+            Marble m47 = new Marble()
+            {
+                Name = "BRANCO RAJADO Brazilian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Branco-Rajado.jpg" },
+                Country = c25,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects"
+            };
             m47.Providers = new List<Provider>() { p28, p29, p32 };
 
 
 
-            Marble m48 = new Marble() { Name = "AGRA WHITE Indian sandstone ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Agra-White.jpg" }, Country = c82 };
+            Marble m48 = new Marble()
+            {
+                Name = "AGRA WHITE Indian sandstone ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Agra-White.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects"
+            };
             m48.Providers = new List<Provider>() { p3, p20 };
 
-            Marble m49 = new Marble() { Name = "BHAINSLANA BLACK indian marble ", Color = "Black", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bhainslana-Black-1.jpg" }, Country = c82 };
+            Marble m49 = new Marble()
+            {
+                Name = "BHAINSLANA BLACK indian marble ",
+                Color = "Black",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bhainslana-Black-1.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects"
+            };
             m49.Providers = new List<Provider>() { p21, p22 };
 
-            Marble m50 = new Marble() { Name = "BIDASAR BROWN India marble ", Color = "Brown", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bidasar-Brown.jpg" }, Country = c82 };
+            Marble m50 = new Marble()
+            {
+                Name = "BIDASAR BROWN India marble ",
+                Color = "Brown",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Bidasar-Brown.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles.Proposed uses: Exterior – Interior wall and floor applications, monuments, countertops, mosaic, fountains, pool and and other design projects."
+            };
             m50.Providers = new List<Provider>() { p26, p30 };
 
-            Marble m51 = new Marble() { Name = "DHOLPUR WHITE Indian sandstone ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Dholpur-White.jpg" }, Country = c82 };
+            Marble m51 = new Marble()
+            {
+                Name = "DHOLPUR WHITE Indian sandstone ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Dholpur-White.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects. Also known as: Dholpur Stone, Dholpur White Beige, Dholpur Light, Dholpur White Sandstone"
+            };
             m51.Providers = new List<Provider>() { p3, p21 };
 
-            Marble m52 = new Marble() { Name = "HIMACHAL WHITE Indian quartzite ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Himachal-White.jpg" }, Country = c82 };
+            Marble m52 = new Marble()
+            {
+                Name = "HIMACHAL WHITE Indian quartzite ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Himachal-White.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m52.Providers = new List<Provider>() { p3, p20, p21, p22, p26, p30 };
 
-            Marble m53 = new Marble() { Name = "JAIPUR RAINBOW Indian sandstone ", Color = "Multicolor", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Jaipur-Rainbow.jpg" }, Country = c82 };
+            Marble m53 = new Marble()
+            {
+                Name = "JAIPUR RAINBOW Indian sandstone ",
+                Color = "Multicolor",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Jaipur-Rainbow.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m53.Providers = new List<Provider>() { p21, p22, p26 };
 
-            Marble m54 = new Marble() { Name = "LIME GREEN Indian limestone ", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Lime-Green.jpg" }, Country = c82 };
+            Marble m54 = new Marble()
+            {
+                Name = "LIME GREEN Indian limestone ",
+                Color = "Green",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Lime-Green.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects.."
+            };
             m54.Providers = new List<Provider>() { p3, p20, p21, p22, p26 };
 
-            Marble m55 = new Marble() { Name = "LIME PINK Indian limestone ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Lime-Pink.jpg" }, Country = c82 };
+            Marble m55 = new Marble()
+            {
+                Name = "LIME PINK Indian limestone ",
+                Color = "Pink",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Lime-Pink.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m55.Providers = new List<Provider>() { p20 };
 
-            Marble m56 = new Marble() { Name = "MORWAD WHITE Indian marble ", Color = "White", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Morwad-White.jpg" }, Country = c82 };
+            Marble m56 = new Marble()
+            {
+                Name = "MORWAD WHITE Indian marble ",
+                Color = "White",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Morwad-White.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m56.Providers = new List<Provider>() { p3, p21, p22, p26 };
 
-            Marble m57 = new Marble() { Name = "RAJASTHAN GREEN Indian marble", Color = "Green", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Rajasthan-Green.jpg" }, Country = c82 };
+            Marble m57 = new Marble()
+            {
+                Name = "RAJASTHAN GREEN Indian marble",
+                Color = "Green",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Rajasthan-Green.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m57.Providers = new List<Provider>() { p22 };
 
-            Marble m58 = new Marble() { Name = "TAJ ROSE Indian sandstone ", Color = "Pink", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Taj-Rose.jpg" }, Country = c82 };
+            Marble m58 = new Marble()
+            {
+                Name = "TAJ ROSE Indian sandstone ",
+                Color = "Pink",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/Taj-Rose.jpg" },
+                Country = c82,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m58.Providers = new List<Provider>() { p20, p21, p22, p26, p30 };
 
 
-            Marble m59 = new Marble() { Name = "GIALLA ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/GIALLA.jpg" }, Country = c48 };
+            Marble m59 = new Marble()
+            {
+                Name = "GIALLA ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/GIALLA.jpg" },
+                Country = c48,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m59.Providers = new List<Provider>() { p5 };
 
 
 
-            Marble m60 = new Marble() { Name = "CREMA MARFIL Spanish marble ", Color = "Beige", Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/CREMA-MARFIL.jpg" }, Country = c172 };
+            Marble m60 = new Marble()
+            {
+                Name = "CREMA MARFIL Spanish marble ",
+                Color = "Beige",
+                Photo = new Photo() { PhotoName = "Marmaro1", Url = "~/Content/images/MarblePhotos/CREMA-MARFIL.jpg" },
+                Country = c172,
+                MarbleDescription = "Forms: blocks, slabs, tiles. Proposed uses: Building stone, monuments, pool coping, sills, ornamental stone, interior, exterrior, wall, floor , paving and other design projects."
+            };
             m60.Providers = new List<Provider>() { p23, p6 };
 
             context.Marbles.AddOrUpdate(x => x.Name,

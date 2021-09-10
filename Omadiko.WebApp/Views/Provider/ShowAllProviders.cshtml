@@ -88,12 +88,9 @@
 
             <div class="cbp-filter-item" style="color:azure">
                 @Html.ActionLink("CompanyTitle (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.FNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-                <div class="cbp-filter-counter"></div>
             </div>
             <div class="cbp-filter-item">
                 @Html.ActionLink("Country (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.LNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-                <!-- Filter Counter -->
-                <div class="cbp-filter-counter"></div>
             </div>
         </div>
     </div>
@@ -116,12 +113,8 @@
 
 
                         <a href="~/provider/details/@provider.ProviderId">
-                            <img src="@Url.Content(provider.CompanyPhoto)" style="width: 100%; height: 240px; border: 1px solid #f0f0f0;" />
+                            <img src="@Url.Content(provider.CompanyPhoto)" style="width: 100%; height: 160px; border: 1px solid #f0f0f0;" />
                         </a>
-
-
-
-
 
                         <!-- Item Note -->
                         <div class="item_icon">

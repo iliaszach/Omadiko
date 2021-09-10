@@ -269,6 +269,7 @@ function AllFunctions() {
 
         $.ajax("/api/marbles")
             .done(function (data) {
+                console.log(data);
                 var appUsers = [];
                 var marbles = [];
                 for (var key of data) {
