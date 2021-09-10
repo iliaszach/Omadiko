@@ -13,6 +13,7 @@ namespace Omadiko.Entities.Models
         {
             Providers = new HashSet<Provider>();
             ApplicationUsers = new HashSet<ApplicationUser>();
+            HelperProviders = new HashSet<int>();
         }
         
         public int MarbleId { get; set; }

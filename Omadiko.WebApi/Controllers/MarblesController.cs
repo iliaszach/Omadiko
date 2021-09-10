@@ -30,10 +30,11 @@ namespace Omadiko.WebApi.Controllers
                     MarbleId = x.MarbleId,
                     Name = x.Name,
                     MarbleDescription = x.MarbleDescription,
-                    Photo = x.Photo,
+                    Photo = x.Photo.Url,
                     Color = x.Color,
-                    Country = x.Country,
-                    Providers = x.Providers.Select(m => new { ProviderId = m.ProviderId, CompanyTitle = m.CompanyTitle })
+                    Country = x.Country.Name,
+                    Providers = x.Providers.Select(m => new { ProviderId = m.ProviderId, CompanyTitle = m.CompanyTitle }),
+                    ApplicationUsers = x.ApplicationUsers.Select(m => new { Email = m.Email})
                 })
                 );
         }
