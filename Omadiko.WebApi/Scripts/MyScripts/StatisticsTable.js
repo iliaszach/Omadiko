@@ -264,28 +264,11 @@ function AllFunctions() {
         $("#MarbleName").text(err);
     });
 
-   
-    function test() {
-        $.ajax({
-            type: "get",
-            url: "/api/marbles",
-            data: "name=John&location=Boston",
-            dataType: "json",
-            success: function (response) {
-                console.log(response);
-            }
-        });
-    }
-
     //MarbleLikes
     var MarbleLikes = new Promise(function (resolve, reject) {
-        test();
+        
         $.ajax("/api/marbles")
-            .done(function (data) {              
-                for (var marble of data) {
-                   
-                    console.log(marble);
-                }
+            .done(function (data) {   
 
                 var appUsers = [];
                 var marbles = [];
@@ -293,9 +276,10 @@ function AllFunctions() {
                     
                     if (key.ApplicationUsers.length > 0) {
                         appUsers.push(key.ApplicationUsers.length);
-                        marbles.push(key);
+                        marbles.push(key);                        
                     }
                 }
+                
                 let MaxNum = appUsers.reduce((a, b) => appUsers[a] > appUsers[b] ? a : b);
                 let obj;
                 for (var marble of marbles) {
@@ -329,18 +313,18 @@ function AllFunctions() {
                 var marbles = [];
                 for (let marble of data) {
                     if (marble.ApplicationUsers.length > 0) {
-                        marbles.push(marble);
+                        marbles.push(marble);                        
                     }
                 }
-
+                console.log(marbles);
                 for (let marble of marbles) {
+                    console.log(marble);
                     for (var user of marble.ApplicationUsers) {
-                        users.add(user.UserName);
+                        users.add(user.Email);                        
                     }
 
                 }
-                var size = users.size;
-                console.log(size);
+                var size = users.size;             
 
                 resolve(size);
             })
