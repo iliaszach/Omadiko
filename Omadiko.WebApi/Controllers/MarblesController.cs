@@ -218,7 +218,6 @@ namespace Omadiko.WebApi.Controllers
 
             db.Entry(marble).Collection("Providers").Load();
             marble.Providers.Clear();
-            marble.Country.Clear();
 
 
             try

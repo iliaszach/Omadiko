@@ -55,17 +55,11 @@
                     <!-- Input -->
                     @using (Html.BeginForm("LikeAddToList", "Marble", new { marbleId = Model.MarbleId, userId = User.Identity.GetUserId() }, FormMethod.Post))
                     {
-                        <button type="submit" class="btn btn-danger">Add to Favourite</button>
+                        <button type="submit" class="btn btn-danger uppercase cart-button" style="background-color: #FF9B00 !important; color: black; margin-left: 15px; margin-top: -12px; padding: 13px; height: 45px !important; color: white; background-color: #505050; border: none; ">
+                    Add to Favourite
+                        </button>
                     }
-                    @*<a href="#" class="uppercase cart-button">
-                            Add to Favourite
-                        </a>*@
-
                     <form method="post" action="#" class="light-form">
-                        @*<button id="BtnProviders" style="color:black;">Find Providers</button>*@
-                        @*<a href="#" id="BtnProviders" class="uppercase cart-button">
-                                Find Providers   class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Modal"
-                            </a>*@
                         <button id="BtnProviders" class="uppercase cart-button" style="color: black; margin-left: 15px; margin-top:-12px; padding: 13px; color: white; background-color: #505050; border: none;">
                             Find Providers
                         </button>

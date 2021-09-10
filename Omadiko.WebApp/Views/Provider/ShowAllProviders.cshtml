@@ -17,9 +17,9 @@
         color: #f0f0f0;
     }
 
-    #searchbar::placeholder {
-        color:#f0f0f0;
-    }
+        #searchbar::placeholder {
+            color: #f0f0f0;
+        }
 
     .form {
         padding-left: 870px;
@@ -31,85 +31,71 @@
         border: 1px solid #f0f0f0;
         width: 280px;
         border-radius: 5px;
-        opacity:0.9;
+        opacity: 0.9;
     }
 
-    .btn-primary:hover {
-        background-color:#808080;
-    }
+        .btn-primary:hover {
+            background-color: #808080;
+        }
 
     #pagination {
         color: #f0f0f0;
         opacity: 0.9;
     }
+
+    #SearchForm {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 600px;
+        background-color: #151515;
+        color: white;
+        margin-bottom: 40px;
+        height: 10px;
+    }
+
+
+    #SearchOptions {
+        border-radius: 5px 5px 5px 5px !important;
+        background-color: #151515 !important;
+        border: none !important;
+        box-shadow: none !important;
+        width: 600px;
+        margin-bottom: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #FilterArea {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr) !important;
+        justify-items: center;
+    }
+
 </style>
 
 <!-- Portfolio Section -->
 <section id="portfolio" class="container 4-columns-margin single boxed">
-
-    <!-- Filters -->
-    <div id="portfolio-filters" class="cbp-l-filters-alignCenter normal type2">
-
-        <!-- Filter -->
-        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item" style="background-color:#222222;">
-            All
-            <!-- Filter Counter -->
-            <div class="cbp-filter-counter"></div>
+    <div id="FilterArea">
+        <div id="SearchForm">
+            <form method="post" action="#">
+                <button id="SearchOptions" class="fa fa-search">
+                    Search Provider By
+                </button>
+            </form>
         </div>
-        <!-- Filter -->
-        <div data-filter=".graphic" class="cbp-filter-item">
-            Graphic
-            <!-- Filter Counter -->
-            <div class="cbp-filter-counter"></div>
+        <div id="portfolio-filters" class="cbp-l-filters-alignCenter normal type2">
+
+            <div class="cbp-filter-item" style="color:azure">
+                @Html.ActionLink("CompanyTitle (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.FNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+                <div class="cbp-filter-counter"></div>
+            </div>
+            <div class="cbp-filter-item">
+                @Html.ActionLink("Country (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.LNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
+                <!-- Filter Counter -->
+                <div class="cbp-filter-counter"></div>
+            </div>
         </div>
-        <!-- Filter -->
-        <div data-filter=".design" class="cbp-filter-item">
-            Design
-            <!-- Filter Counter -->
-            <div class="cbp-filter-counter"></div>
-        </div>
-        <!-- Filter -->
-        <div data-filter=".photography" class="cbp-filter-item">
-            Photography
-            <!-- Filter Counter -->
-            <div class="cbp-filter-counter"></div>
-        </div>
-        <!-- Filter -->
-        <div data-filter=".web" class="cbp-filter-item">
-            Web
-            <!-- Filter Counter -->
-            <div class="cbp-filter-counter"></div>
-        </div>
-
-    </div>
-    <!-- End Filters -->
-
-
-
-    <div class="form">
-        @using (@Html.BeginForm("ShowAllProviders", "Provider", FormMethod.Get, new { @class = "form-group" }))
-        {
-            @*<input type="text" id="searchbar"*@
-        <div id="searchbar">
-            @Html.TextBox("CompanyTitle", null, new { @class = "form-control", placeholder = "Search CompanyTitle", type = "search" })
-        </div>
-        <div id="searchbar">
-            @Html.TextBox("Location", null, new { @class = "form-control", placeholder = "Search Country", type = "search" })
-        </div>
-
-            <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
-
-            <input type="submit" value="Search Provider" class="btn btn-primary" />
-
-            <input id="ResetButton" type="button" value="Clear Form" class="btn btn-success" />
-
-        }
-    <button class="btn-primary">
-        @Html.ActionLink("Sorting CompanyTitle (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.FNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-    </button>
-    <button class="btn-primary">
-        @Html.ActionLink("Sorting Country (A-Z)", "ShowAllProviders", "Provider", new { sortOrder = ViewBag.LNSP, CompanyTitle = ViewBag.CompanyTitle, Location = ViewBag.Location }, null)
-    </button>
     </div>
 
 
@@ -176,7 +162,7 @@
     <div id="pagination">
         <i>Page</i> @Model.PageNumber <i>of</i> @Model.PageCount
     </div>
-    @Html.PagedListPager(Model, x => Url.Action("ShowAllProviders", "Provider", new { page = x}))
+    @Html.PagedListPager(Model, x => Url.Action("ShowAllProviders", "Provider", new { page = x }))
 
 </section>
 <!-- End Portfolio Section -->
@@ -185,12 +171,32 @@
     <!-- Note -->
     <h4 class="italic t-center normal antialiased">
         <i class="fa fa-quote-left colored"></i>
-        Technology is part of the fabric of civilization, and you need to jack into it if you haven’t already. Learn the basics and you’ll be a lot happier.
+        Find the most suitable marble for your business and Marble Guide will give you access to their providers
         <i class="fa fa-quote-right colored"></i>
     </h4>
 </section>
 <!-- End Page Note Type 2 -->
+<div id="Modal" class="modal">
+    <div class="modal-content" style="border: 0.5px solid; border-color: white; border-radius: 5px; width: 350px;">
+        @using (@Html.BeginForm("ShowAllProviders", "Provider", FormMethod.Get, new { @class = "form-group" }))
+        {
+            <span class="close" style="position: relative; color:#f0f0f0; opacity:0.7;">&times;</span>
+            <div id="searchbar" style="margin-bottom:10px; width: 280px; ">
+                @Html.TextBox("CompanyTitle", null, new { @class = "form-control", placeholder = "Search CompanyTitle", type = "search" })
+            </div>
+            <div id="searchbar" style="margin-bottom: 10px; width: 280px; ">
+                @Html.TextBox("Location", null, new { @class = "form-control", placeholder = "Search Country", type = "search" })
+            </div>
+            <div>
+                <input type="hidden" name="sortOrder" value=@ViewBag.sortOrder />
 
+                <input type="submit" value="Search Provider" class="btn btn-primary" style="margin-bottom:10px;" />
+
+                <input id="ResetButton" type="button" value="Clear Form" class="btn btn-success" />
+            </div>
+        }
+    </div>
+</div>
 
 @section ProviderJavascript{
     <script>
@@ -201,7 +207,34 @@
     </script>
 }
 
+@section scripts{
+    <script>
+        var modal = document.getElementById("Modal");
 
+        var btn = document.getElementById("SearchOptions");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "flex";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.querySelector('#SearchOptions').addEventListener('click', function (event) {
+            event.preventDefault();
+        });
+
+    </script>
+}
 
 
 
