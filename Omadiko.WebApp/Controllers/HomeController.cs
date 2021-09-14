@@ -128,9 +128,9 @@ namespace Omadiko.WebApp.Controllers
             //Adding Item Details like name, currency, price etc  
             itemList.items.Add(new Item()
             {
-                name = "Item Name comes here",
+                name = "Συνδρομη",
                 currency = "USD",
-                price = "1",
+                price = "0.3",
                 quantity = "1",
                 sku = "sku"
             });
@@ -147,15 +147,15 @@ namespace Omadiko.WebApp.Controllers
             // Adding Tax, shipping and Subtotal details  
             var details = new Details()
             {
-                tax = "1",
-                shipping = "1",
-                subtotal = "1"
+                tax = "0.3",
+                shipping = "0.3",
+                subtotal = "0.3"
             };
             //Final amount with details  
             var amount = new Amount()
             {
                 currency = "USD",
-                total = "3", // Total must be equal to sum of tax, shipping and subtotal.  
+                total = "0.9", // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();
