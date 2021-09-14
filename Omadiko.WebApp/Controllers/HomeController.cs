@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Item = PayPal.Api.Item;
 
 namespace Omadiko.WebApp.Controllers
 {
@@ -45,8 +46,6 @@ namespace Omadiko.WebApp.Controllers
 
             return View();
         }
-
-
 
 
         public ActionResult PaymentWithPaypal(string Cancel = null)
@@ -124,10 +123,10 @@ namespace Omadiko.WebApp.Controllers
             //create itemlist and add item objects to it  
             var itemList = new ItemList()
             {
-                items = new List<PayPal.Api.Item>()
+                items = new List<Item>()
             };
             //Adding Item Details like name, currency, price etc  
-            itemList.items.Add(new PayPal.Api.Item()
+            itemList.items.Add(new Item()
             {
                 name = "Item Name comes here",
                 currency = "USD",
@@ -178,5 +177,6 @@ namespace Omadiko.WebApp.Controllers
             // Create a payment using a APIContext  
             return this.payment.Create(apiContext);
         }
+
     }
 }
