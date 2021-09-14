@@ -5,18 +5,21 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 
 namespace Omadiko.WebApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProvidersController : ApiController
-    {
-        //asynchronsly https://www.youtube.com/watch?v=hJ_V6pAm0PE&t=1201s
+    {       
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -49,7 +52,6 @@ namespace Omadiko.WebApi.Controllers
                 })
                 );
         }
-
         // GET: api/Providers/5
         [ResponseType(typeof(Provider))]
         public async Task<IHttpActionResult> GetProvider(int id)
@@ -90,8 +92,11 @@ namespace Omadiko.WebApi.Controllers
                         {
                             BusinessTypeId = m.BusinessTypeId,
                             Kind = m.Kind
-                        })
-                    });
+                        }),
+                        SelectedMarbles = provider.Marbles.Select(m => m.MarbleId).ToList(),
+                        SelectedBTypes = provider.BusinessTypes.Select(m => m.BusinessTypeId).ToList(),
+
+                    }) ;
                 }
                 catch (Exception Ex)
                 {
@@ -289,8 +294,13 @@ namespace Omadiko.WebApi.Controllers
                     WebSite = provider.WebSite,
                     Email = provider.Email,
                     Location = new { Country = provider.Location.Country },
-                    Marbles = provider.Marbles.Select(m => new { Name = m.Name }),
-                    BusinessTypes = provider.BusinessTypes.Select(m => new { Kind = m.Kind })
+                    Marbles = provider.Marbles.Select(m => new { 
+                        MarbleId = m.MarbleId,
+                        Name = m.Name 
+                    }),
+                    BusinessTypes = provider.BusinessTypes.Select(m => new {
+                        BusinessTypeId = m.BusinessTypeId,
+                        Kind = m.Kind })
                 });
             }
             catch (Exception Ex)
@@ -339,6 +349,29 @@ namespace Omadiko.WebApi.Controllers
 
             return Ok("Deleted Successfully");
         }
+
+
+        [HttpPost]
+        [Route("api/providers/UploadProviderPhotos")]
+        public IHttpActionResult UploadProviderPhotos()
+        {
+            var httpRequest = HttpContext.Current.Request;
+            //Upload Image
+            var postedFile = httpRequest.Files["image"];
+            //Create custom filename
+            if (postedFile != null)
+            {
+                var file = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).ToArray()).Replace(" ", "-");
+                file = file + Path.GetExtension(postedFile.FileName);
+                var filePath = HttpContext.Current.Server.MapPath(postedFile.FileName);
+                postedFile.SaveAs(filePath);
+                return Ok("https://localhost:44399/" + postedFile.FileName.Replace("~", ""));
+            }
+
+            return InternalServerError();
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

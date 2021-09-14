@@ -24,6 +24,15 @@
         height:48px;
     }
 
+    li {
+        font-family: Georgia, Times, 'Times New Roman', serif !important;
+    }
+
+/*        li:hover {
+            background-color: #808080 !important;
+            text-decoration-color: none;
+        }*/
+
 </style>
 
 <!-- Navigation - select your nav color - dark-nav or white-nav -->
@@ -59,23 +68,23 @@
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="dropdown-toggle nav-toggle">
-                            <a class="btn" target="_blank" href="https://localhost:44399/">Dashboard</a>
+                            <a class="btn head georgia" target="_blank" href="https://localhost:44399/">Dashboard</a>
                         </li>
                     }
                     <li class="dropdown-toggle nav-toggle">
-                        <a class="btn" href="/">Home</a>
+                        <a class="btn head georgia" href="/">Home</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
-                        <a class="btn" href="/marble/showmarbles">Marble</a>
+                        <a class="btn head georgia" href="/marble/showmarbles">Marble</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
-                        <a class="btn" href="/provider/ShowAllProviders">Providers</a>
+                        <a class="btn head georgia" href="/provider/ShowAllProviders">Providers</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
-                        <a class="btn" href="/Home/About">About</a>
+                        <a class="btn head georgia" href="/Home/About">About</a>
                     </li>
                     <li class="dropdown-toggle nav-toggle">
-                        <a class="btn" href="/Home/Contact">Contact</a>
+                        <a class="btn head georgia" href="/Home/Contact">Contact</a>
                     </li>
                     @Html.Partial("_CrexisLoginPartial")
                 </ul>

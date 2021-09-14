@@ -1,12 +1,20 @@
 ﻿@model Omadiko.WebApp.Models.MarbleProviderViewModel.MarbleProviderVM
 
+<style>
+
+    .box-header {
+        font-family: Georgia, Times, 'Times New Roman', serif !important;
+    }
+
+</style>
+
 <!-- Clients Section -->
 <section id="clients" class="background41 parallax6 xdark-bg" style="background-color:red;">
 
     <!-- Inner -->
     <div class="inner t-center clearfix">
         <!-- Header -->
-        <h1 class="header strip header-style-1 white oswald t-center uppercase animated" data-animation="fadeIn" data-animation-delay="100">
+        <h1 class="header strip header-style-1 white oswald t-center uppercase animated head georgia" data-animation="fadeIn" data-animation-delay="100">
             @*What Clients Says?*@
             Our Best Providers
         </h1>
@@ -39,7 +47,7 @@
                     </h5>
                     <!-- Box Description -->
                     <p class="no-padding no-margin raleway">
-                        Λιγα λογια για το ποιοι ειναι (λογικα θα βαλουμε οριο λεξεων)
+                        @Html.DisplayFor(modelItem => provider.CompanyDescription)
                     </p>
                 </div>
             }
