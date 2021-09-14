@@ -5144,8 +5144,8 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 
         .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
             z-index: 2;
-            color: #23527c;
-            background-color: #eee;
+/*            color: #23527c;*/
+            background-color: #808080;
             border-color: #ddd
         }
 

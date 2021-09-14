@@ -1,5 +1,13 @@
 ﻿@using Microsoft.AspNet.Identity
 
+<style>
+
+    .georgia:hover {
+        background-color:#808080 !important;
+    }
+
+</style>
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
