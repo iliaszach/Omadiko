@@ -30,7 +30,10 @@ namespace Omadiko.WebApi.Controllers
                 Address = x.Address,
                 Lat = x.Lat,
                 Lng = x.Lng,
-                Providers =new { CompanyTitle = x.Provider.CompanyTitle }
+                Providers =new {
+                    ProviderId = x.Provider.ProviderId,
+                    CompanyTitle = x.Provider.CompanyTitle 
+                }
             }));
         }
 
